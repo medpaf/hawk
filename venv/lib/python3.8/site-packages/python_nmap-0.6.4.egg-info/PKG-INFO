@@ -1,0 +1,554 @@
+Metadata-Version: 1.1
+Name: python-nmap
+Version: 0.6.4
+Summary: This is a python class to use nmap and access scan results from python3
+Home-page: http://xael.org/pages/python-nmap-en.html
+Author: Alexandre Norman
+Author-email: norman@xael.org
+License: gpl-3.0.txt
+Description: 
+        ===========
+        python-nmap
+        ===========
+        
+        |PyPI latest| |PyPI Version| |PyPI License|
+        
+        python-nmap is a python library which helps in using nmap port scanner. It allows to easilly manipulate nmap scan results and will be a perfect tool for systems administrators who want to automatize scanning task and reports. It also supports nmap script outputs.
+        
+        It can even be used asynchronously. Results are returned one host at a time to a callback function defined by the user.
+        
+        Download latest
+        ===============
+        
+            python-nmap-0.4.1.tar.gz - 2015-08-21
+            md5sum is b466e4b2ef30a0b9c0cb80aac215fb79
+        
+        Warning : this version is intended to work with Python 3.x. For Python 2.x, please use python-nmap-0.1.4.tar.gz
+        
+        Download development version
+        ============================
+        
+        
+        .. code-block:: bash
+        
+            $ hg clone https://bitbucket.org/xael/python-nmap
+        
+        Installation
+        ============
+        
+        From the shell, uncompress python-nmap-0.4.1.tar.gz and then run make :
+        
+        .. code-block:: bash
+        
+            $ tar xvzf python-nmap-0.4.1.tar.gz
+            $ cd python-nmap-0.4.1
+            $ python setup.py install
+        
+        or using Pip
+        
+        .. code-block:: bash
+        
+            $ pip install python-nmap
+        
+        Now you may invoke nmap from python
+        
+        
+        .. code-block:: bash
+        
+            $ python
+            Python 2.6.4 (r264:75706, Dec  7 2009, 18:45:15)
+            [GCC 4.4.1] on linux2
+            Type "help", "copyright", "credits" or "license" for more information.
+            >> import nmap
+        
+        
+        Usage
+        =====
+        
+        From python/ipython:
+        --------------------
+        
+        .. code-block:: python
+        
+            >>> import nmap
+            >>> nm = nmap.PortScanner()
+            >>> nm.scan('127.0.0.1', '22-443')
+            >>> nm.command_line()
+            'nmap -oX - -p 22-443 -sV 127.0.0.1'
+            >>> nm.scaninfo()
+            {'tcp': {'services': '22-443', 'method': 'connect'}}
+            >>> nm.all_hosts()
+            ['127.0.0.1']
+            >>> nm['127.0.0.1'].hostname()
+            'localhost'
+            >>> nm['127.0.0.1'].state()
+            'up'
+            >>> nm['127.0.0.1'].all_protocols()
+            ['tcp']
+            >>> nm['127.0.0.1']['tcp'].keys()
+            [80, 25, 443, 22, 111]
+            >>> nm['127.0.0.1'].has_tcp(22)
+            True
+            >>> nm['127.0.0.1'].has_tcp(23)
+            False
+            >>> nm['127.0.0.1']['tcp'][22]
+            {'state': 'open', 'reason': 'syn-ack', 'name': 'ssh'}
+            >>> nm['127.0.0.1'].tcp(22)
+            {'state': 'open', 'reason': 'syn-ack', 'name': 'ssh'}
+            >>> nm['127.0.0.1']['tcp'][22]['state']
+            'open'
+        
+            >>> for host in nm.all_hosts():
+            >>>     print('----------------------------------------------------')
+            >>>     print('Host : %s (%s)' % (host, nm[host].hostname()))
+            >>>     print('State : %s' % nm[host].state())
+            >>>     for proto in nm[host].all_protocols():
+            >>>         print('----------')
+            >>>         print('Protocol : %s' % proto)
+            >>>
+            >>>         lport = nm[host][proto].keys()
+            >>>         lport.sort()
+            >>>         for port in lport:
+            >>>             print ('port : %s\tstate : %s' % (port, nm[host][proto][port]['state']))
+            ----------------------------------------------------
+            Host : 127.0.0.1 (localhost)
+            State : up
+            ----------
+            Protocol : tcp
+            port : 22	state : open
+            port : 25	state : open
+            port : 80	state : open
+            port : 111	state : open
+            port : 443	state : open
+        
+        
+        To export to a file
+        -------------------
+        
+        .. code-block:: python
+        
+            >>> print(nm.csv())
+            host;protocol;port;name;state;product;extrainfo;reason;version;conf
+            127.0.0.1;tcp;22;ssh;open;OpenSSH;protocol 2.0;syn-ack;5.9p1 Debian 5ubuntu1;10
+            127.0.0.1;tcp;25;smtp;open;Exim smtpd;;syn-ack;4.76;10
+            127.0.0.1;tcp;53;domain;open;dnsmasq;;syn-ack;2.59;10
+            127.0.0.1;tcp;80;http;open;Apache httpd;(Ubuntu);syn-ack;2.2.22;10
+            127.0.0.1;tcp;111;rpcbind;open;;;syn-ack;;10
+            127.0.0.1;tcp;139;netbios-ssn;open;Samba smbd;workgroup: WORKGROUP;syn-ack;3.X;10
+            127.0.0.1;tcp;443;;open;;;syn-ack;;
+        
+        
+        To check the network status
+        ---------------------------
+        
+        .. code-block:: python
+        
+            >>> nm.scan(hosts='192.168.1.0/24', arguments='-n -sP -PE -PA21,23,80,3389')
+            >>> hosts_list = [(x, nm[x]['status']['state']) for x in nm.all_hosts()]
+            >>> for host, status in hosts_list:
+            >>>     print('{0}:{1}'.host)
+            192.168.1.0:down
+            192.168.1.1:up
+            192.168.1.10:down
+            192.168.1.100:down
+            192.168.1.101:down
+            192.168.1.102:down
+            192.168.1.103:down
+            192.168.1.104:down
+            192.168.1.105:down
+            [...]
+        
+        
+        Using a Scanner Async
+        ---------------------
+        
+        .. code-block:: python
+        
+            >>> nma = nmap.PortScannerAsync()
+            >>> def callback_result(host, scan_result):
+            >>>     print '------------------'
+            >>>     print host, scan_result
+            >>>
+            >>> nma.scan(hosts='192.168.1.0/30', arguments='-sP', callback=callback_result)
+            >>> while nma.still_scanning():
+            >>>     print("Waiting >>>")
+            >>>     nma.wait(2)   # you can do whatever you want but I choose to wait after the end of the scan
+            >>>
+            192.168.1.1 {'nmap': {'scanstats': {'uphosts': '1', 'timestr': 'Mon Jun  7 11:31:11 2010', 'downhosts': '0', 'totalhosts': '1', 'elapsed': '0.43'}, 'scaninfo': {}, 'command_line': 'nmap -oX - -sP 192.168.1.1'}, 'scan': {'192.168.1.1': {'status': {'state': 'up', 'reason': 'arp-response'}, 'hostname': 'neufbox'}}}
+            ------------------
+            192.168.1.2 {'nmap': {'scanstats': {'uphosts': '0', 'timestr': 'Mon Jun  7 11:31:11 2010', 'downhosts': '1', 'totalhosts': '1', 'elapsed': '0.29'}, 'scaninfo': {}, 'command_line': 'nmap -oX - -sP 192.168.1.2'}, 'scan': {'192.168.1.2': {'status': {'state': 'down', 'reason': 'no-response'}, 'hostname': ''}}}
+            ------------------
+            192.168.1.3 {'nmap': {'scanstats': {'uphosts': '0', 'timestr': 'Mon Jun  7 11:31:11 2010', 'downhosts': '1', 'totalhosts': '1', 'elapsed': '0.29'}, 'scaninfo': {}, 'command_line': 'nmap -oX - -sP 192.168.1.3'}, 'scan': {'192.168.1.3': {'status': {'state': 'down', 'reason': 'no-response'}, 'hostname': ''}}}
+            >>> nm = nmap.PortScannerYield() >>> for progressive_result in nm.scan('127.0.0.1/24', '22-25'): >>> print(progressive_result)
+        
+        
+        See also example.py in archive file.
+        
+        
+        Using a Scanner Async
+        ---------------------
+        
+        .. code-block:: python
+        
+            >>> nm = nmap.PortScanner()                                                                                                                                                                                                              
+            >>> nm.scan('127.0.0.1', '22-40043', timeout=10)
+            PortScannerTimeout: 'Timeout from nmap process'
+        
+        Contributors
+        ============
+        
+        .. code-block:: text
+        
+            Steve 'Ashcrow' Milner
+            Brian Bustin
+            old.schepperhand
+            Johan Lundberg
+            Thomas D. maaaaz
+            Robert Bost
+            David Peltier
+            Ed Jones
+        
+        
+        Homepage
+        ========
+        
+        http://xael.org/norman/python/python-nmap/
+        
+        
+        .. |PyPI Version| image:: https://img.shields.io/pypi/pyversions/python-nmap.svg?maxAge=2592000
+           :target: https://pypi.python.org/pypi/python-nmap
+        .. |PyPI License| image:: https://img.shields.io/pypi/l/python-nmap.svg?maxAge=2592000
+           :target: https://pypi.python.org/pypi/python-nmap
+        .. |PyPI latest| image:: https://img.shields.io/pypi/v/python-nmap.svg?maxAge=360
+           :target: https://pypi.python.org/pypi/python-nmap
+        
+        
+        Changelog
+        =========
+        
+        2020/02/28 (v0.6.4)
+        -------------------
+        
+          - Add timeout parameter and PortScannerTimeout exception
+        	
+        2018/09/23 (v0.6.3)
+        -------------------
+        
+          - Refactor Readme and changelog files for the Pypi pattern and applying styles to the blocks for better visualization
+          - Change setup.py to use an explicit version of python, since asynchronous tasks are not available for python 2.x
+          - Add clean method to the Makefile
+          - Update Manifest file
+          - Update version and Fix PEP8 on nmap/nmap.py
+        
+        2017/01/07 (v0.6.2)
+        -------------------
+        
+        
+        2016/07/29 (v0.6.1)
+        -------------------
+        
+          - Fix bug #22 UnboundLocalError in scan_progressive
+          - Fix bug #23 Scanning fails on nmap warnings
+          - Fix bug #20: Fix for empty <hostnames> values which results in blank CSV output
+          - Fix bug #18: print(nm.csv()) does not return any results
+          - Fix bug #19: nmap program was not found in path
+          - Fix bug #17: hostname is no longer reported
+        
+        
+        2016/03/15 (v0.6.0)
+        -------------------
+        
+         - Add information about Nmap special licence
+         - Licence precision for distributing python-nmap along with nmap
+        
+        2016/03/15 (v0.5.2)
+        -------------------
+        
+         - add hostname to csv export
+        
+        2015/12/05 (v0.5.0-1)
+        ---------------------
+        
+         - updating example.py
+        
+        2015/11/18 (v0.5.0)
+        -------------------
+        
+         - Closes bugs :
+           - #11 Display only one osclass/osmatch instead of multiple
+        
+         - Change in data structure :
+           - osmatch is a list of osclass
+           - osclass is a list of dictionnary
+           - added cpe which is a list of string
+           - added portused which is a list of dictionnary
+        
+           Data structure for a host looks like :
+        
+        .. code-block:: python
+        
+          {'addresses': {'ipv4': '127.0.0.1'},
+            'hostnames': [],
+            'osmatch': [{'accuracy': '98',
+                        'line': '36241',
+                        'name': 'Juniper SA4000 SSL VPN gateway (IVE OS 7.0)',
+                        'osclass': [{'accuracy': '98',
+                                      'cpe': ['cpe:/h:juniper:sa4000',
+                                              'cpe:/o:juniper:ive_os:7'],
+                                      'osfamily': 'IVE OS',
+                                      'osgen': '7.X',
+                                      'type': 'firewall',
+                                      'vendor': 'Juniper'}]},
+                        {'accuracy': '91',
+                        'line': '17374',
+                        'name': 'Citrix Access Gateway VPN gateway',
+                        'osclass': [{'accuracy': '91',
+                                      'cpe': [],
+                                      'osfamily': 'embedded',
+                                      'osgen': None,
+                                      'type': 'proxy server',
+                                      'vendor': 'Citrix'}]}],
+            'portused': [{'portid': '443', 'proto': 'tcp', 'state': 'open'},
+                        {'portid': '113', 'proto': 'tcp', 'state': 'closed'}],
+            'status': {'reason': 'syn-ack', 'state': 'up'},
+            'tcp': {113: {'conf': '3',
+                          'cpe': '',
+                          'extrainfo': '',
+                          'name': 'ident',
+                          'product': '',
+                          'reason': 'conn-refused',
+                          'state': 'closed',
+                          'version': ''},
+                    443: {'conf': '10',
+                          'cpe': '',
+                          'extrainfo': '',
+                          'name': 'http',
+                          'product': 'Juniper SA2000 or SA4000 VPN gateway http config',
+                          'reason': 'syn-ack',
+                          'state': 'open',
+                          'version': ''}},
+            'vendor': {}}
+        
+        
+        2015/11/17 (v0.4.7)
+        -------------------
+        
+          - Closes bugs:
+            - #10 Error when trying to parse 'osclass' , 'osmatch'
+            removed addresses, hostnames, status, vendor, osclass, uptime, osmatch
+            from all_protocols()
+          - Changed shebang line from python3 to python as it works with python2
+        
+        2015/11/13 (v0.4.6)
+        -------------------
+        
+          - Closes bugs :
+            - #10 Error when trying to parse 'osclass' , 'osmatch'
+        
+        2015/10/25 (v0.4.5)
+        -------------------
+        
+          - Closes bugs :
+            - #9 Can not pass ports with unicode string at scan function
+        
+        2015/10/17 (v0.4.4)
+        -------------------
+        
+          - Closes bugs :
+            - #8 IPv6 Async scanner doesn't work
+        
+        2015/09/11 (v0.4.3)
+        -------------------
+        
+          - Change in url for __get_last_online_version
+        
+        2015/09/11 (v0.4.2)
+        -------------------
+        
+          - Closes bugs :
+            - #7: Error with empty hostname
+            - #6: Windows support of close_fds if you redirect stdin/stdout/stderr
+        
+        2015/08/21 (v0.4.1)
+        -------------------
+        
+          - Closes bugs :
+            - #5: only one hostname stored per host
+          - Add hostnames() method which return the list of hostnames as a list of
+            dict [{'name':'hostname1', 'type':'PTR'}, {'name':'hostname2', 'type':'user'}]
+        
+        2015/08/01 (v0.4.0)
+        -------------------
+        
+          - Closes bugs :
+            - #2: use close_fds in subprocess.Popen
+            - #3: memory leak parsing xml using xml.dom.minidom
+          - Corrects a bug in parsing osclass
+          - Add nosetests for case testing
+          - Removed test case in docstring
+        
+        2015/05/08 (v0.3.7)
+        -------------------
+        
+          - adding sudo parameter for scanning (idea from scupython)
+        
+        2015/05/08 (v0.3.6)
+        -------------------
+        
+          - correcting issue 7 : Issues under windows
+        
+        2015/05/08 (v0.3.5)
+        -------------------
+        
+          - correcting a bug in all_protocols()
+          - correcting issue 8 : PortScannerAsync Doesn't work in windows...
+        
+        2014/06/22 (v0.3.4)
+        -------------------
+        
+          - adding PortScannerYield class with generator
+            >>> nm = nmap.PortScannerYield()
+            >>> for i in nm.scan('127.0.0.1/24', '22-25'):
+            >>>     print(i)
+        
+        2014/03/13 (v0.3.3)
+        -------------------
+        
+         - moving file example.py
+         - adding function convert_nmap_output_to_encoding
+         - adding vendor for mac address
+        
+        2013/09/23 (v0.3.2)
+        -------------------
+        
+         - adding acces to CPE values under [host][proto][port]['cpe'] key
+        
+        2013/07/27 (v0.3.1)
+        -------------------
+        
+         - Bug correction on callback's assert in PortScannerAsync.scan
+           proposed by Robert Bost
+        
+        2013/06/23 (v0.3.0)
+        -------------------
+        
+         - added support for NMAP SCRIPT ENGINE
+        
+        .. code-block:: python
+        
+          >>> r=nm.scan(hosts='127.0.0.1', ports='139', arguments="-sC ")
+          >>> print(nm._scan_result['scan']['127.0.0.1']['hostscript'])
+        
+        
+        2013/02/24 (v0.2.7)
+        -------------------
+        
+          - added an address block in host scan result which contains ipv4, mac and other addresses :
+        
+        .. code-block:: python
+        
+          nm = nmap.PortScanner()
+          r = nm.scan(arguments='-sS -p T:22', hosts='192.168.1.3')
+          print r['scan']['192.168.1.3']['addresses']
+          {u'mac': u'02:50:43:F4:02:B1', u'ipv4': u'192.168.1.3'}
+        
+          - Adding a CSV scan output as a string.
+          - Changes examples.py to make it python3 compliant
+        
+        2012/12/13 (v0.2.6)
+        -------------------
+        
+          - patch from lundberg.johan
+          - bug correction : when nmap doesn't work displays stderr instead of stdout
+        
+        2012/11/23 (v0.2.5)
+        -------------------
+        
+          - corrected : Issue 2: "map.nmap.PortScannerError: 'nmap program was not found in path'" on CentOS
+          - corrected : Issue 3: nmap.scan() short-circuits prematurely
+        
+        2011/11/09 (v0.2.4)
+        -------------------
+        
+          - implemented a request from Santhosh Edukulla <santhosh.edukulla@gmail.com> :
+            parse OS scanning output
+          - Error with multiple host specifications :
+            bug and patch from old.schepperhand@gmail.com
+        
+        2011/11/04
+        ----------
+        
+          - bug in example.py : if no tcp port was open between 22-443
+        
+        2010/12/17 (v0.2.3)
+        -------------------
+        
+          - adding __get_last_online_version to check if current version is the last published
+        
+        2010/12/17 (v0.2.2)
+        -------------------
+        
+          - bug in handling nmap_error output (returned value was bin, string was expected)
+          - removed test strings form __init__.py file.
+        
+        2010/12/15 (v0.2.1)
+        -------------------
+        
+          - corrected bug in __init__.py about scope problem
+          - try to find nmap executable in known directories
+          - raise AssertionError when trying to call command_line, scaninfo, scanstats, has_host before scanning
+        
+        2010/12/14 (v0.2.0)
+        -------------------
+        
+          - Make python-nmap works with Python 3.x
+          - Contribution from Brian Bustin <brian at bustin.us>
+        
+        2010/06/07 (v0.1.4)
+        -------------------
+        
+          - Patches from Steve 'Ashcrow' Milner <steve at gnulinux.net>
+          - remove shebang from __init__.py as it is not a runnable script
+          - allow use with ALPHA and BETA nmap releases
+          - .has_key() is deprecated, replaced instances with in
+          - move to using the print function for python2 and 3 usage
+        
+        2010/06/04
+        ----------
+        
+          - adding PortScanner.listscan
+          - PortScanner.scan now returns scan_result
+          - adding class PortScannerAsync (idea from Steve 'Ashcrow' Milner <steve at gnulinux.net>)
+        
+        2010/06/03
+        ----------
+        
+          - Import on google code
+            svn checkout https://python-nmap.googlecode.com/svn/trunk/ python-nmap --username  XXXXX
+          - added PortScanner.scanstats method
+          - updated example.py and documentation for pingsweep
+          - updated Makefile for generating documentation
+        
+        2010/03/09
+        ----------
+        
+          - Modified packaging. v0.1.1 [norman]
+        
+        2010/03/08
+        ----------
+        
+          - Initial release. v0.1.0 [norman]
+        
+Keywords: nmap,portscanner,network,sysadmin
+Platform: Operating System :: OS Independent
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Programming Language :: Python
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: System :: Monitoring
+Classifier: Topic :: System :: Networking
+Classifier: Topic :: System :: Networking :: Firewalls
+Classifier: Topic :: System :: Networking :: Monitoring
