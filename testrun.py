@@ -8,6 +8,7 @@ from methods.ping import ping
 from methods.banner import bannerWithPort
 from methods.scan import scanStatus, scan, scanWithPort 
 from methods.save import save
+
 ap = argparse.ArgumentParser()
 
 ap.add_argument('-ifconfig', action = 'store_true', 
@@ -114,8 +115,7 @@ elif args['grab']:
                 if args['p'] and not len(args['prange']) == 2: 
                         for i in range(0, len(args['host'])):
                                 for j in range(0, len(args['p'])):
-                                        bannerWithPort(nsconv(args['host'][i]), args['p'][j])
-                                        
+                                        bannerWithPort(nsconv(args['host'][i]), args['p'][j])               
 
                 # Perform grabbing with IP address(es) and port range 
                 elif len(args['prange'])==2 and not args['p']: 
@@ -145,7 +145,7 @@ elif args['grab']:
 
 # Save output file
 if args['s']:
-        save(args['s'][0])
+        save('-ifconfig', args['s'][0]) ### testing ifconfig
 
 
 

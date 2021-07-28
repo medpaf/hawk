@@ -9,8 +9,8 @@ def handleCommands():
         global hist_list  
         global comm 
         while True:
-                comm = input('\nVBNetS > ')
-                # Save used commands in an array (later) to access history with arrow keys 
+                comm = input('VBNetS > ')
+                # Save used commands in an array to access history
                 hist_list.append(comm.strip())
         
                 if comm.strip() == 'clear':

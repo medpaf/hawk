@@ -1,5 +1,5 @@
 import os
 
-def ping(str):
+def ping(host):
     print('Ping will start. Press CTRL + C to cancel.')
-    os.system(f'ping {str}')
+    os.system(f'ping {host}')

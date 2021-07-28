@@ -7,6 +7,8 @@ def scanStatus(str, inputed):
     print(f'Checking status of {inputed}...')
     try:
         scanner.scan(str, '1', '-v -sT')
+    except KeyboardInterrupt:
+        sys.exit('^C\n')
     except:
         e = sys.exc_info()
         print(e)
@@ -16,9 +18,12 @@ def scanStatus(str, inputed):
 
 def scan(str, inputed, prstart, prend, scantype):
     scanStatus(str, inputed)
-    print(f'Scanning {str}:{prstart}-{prend}...')
+    print('Scanning will start. Press CTRL-C to cancel.')
     try:
+        print(f'Scanning {str}:{prstart}-{prend}...')
         scanner.scan(str, f'{prstart}-{prend}', f'-v {scantype}')
+    except KeyboardInterrupt:
+        sys.exit('^C\n')
     except:
         e = sys.exc_info()[1]
         print(e)
@@ -36,9 +41,12 @@ def scan(str, inputed, prstart, prend, scantype):
 def scanWithPort(str, inputed, int, i, j, scantype):
     if j == 0:
         scanStatus(str, inputed)
-        print(f'Scanning {str}...')
+        print('Scanning will start. Press CTRL-C to cancel.')
     try:
+        print(f'Scanning {str}...')
         scanner.scan(str, f'{int}', f'-v {scantype}')
+    except KeyboardInterrupt:
+        sys.exit('^C\n')
     except:
         e = sys.exc_info()[1]
         print(e)

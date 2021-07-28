@@ -12,7 +12,7 @@ def intro1():
     print('*        Very Basic (kind of) Network Scanner          *')
     print('*             Written by Paulo Medeiros                *')
     print('*                                                      *')
-    print('********************************************************')
+    print('********************************************************\n')
 
 def welcome():
     introList=[intro1]
