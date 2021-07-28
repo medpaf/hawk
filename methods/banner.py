@@ -1,6 +1,5 @@
 import socket
 import sys
-from mainloop import handleCommands
 
 def bannerWithPort(host, port):
     sckt = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
