@@ -1,4 +1,5 @@
 import random
+from color import printcolor
 
 def intro1():
     print('\n********************************************************')
@@ -9,10 +10,13 @@ def intro1():
     print('*    \ \/ /   | |_/ / | | \ \ |( ____/ | |_   ____) )  *')
     print('*     \__/    |____/  |_|  \__| \____|  \__| |_____/   *')
     print('*                                                      *')
-    print('*        Very Basic (kind of) Network Scanner          *')
-    print('*             Written by Paulo Medeiros                *')
+    printcolor('BLUE','*        Very Basic (kind of) Network Scanner          *')
+    printcolor('RED','*             Written by Paulo Medeiros                *')
     print('*                                                      *')
     print('********************************************************\n')
+
+def intro2():
+    print
 
 def welcome():
     introList=[intro1]

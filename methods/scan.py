@@ -1,5 +1,6 @@
 import nmap
 import sys
+from color import printcolor
 
 scanner = nmap.PortScanner()
 
@@ -14,7 +15,10 @@ def scanStatus(str, inputed):
         print(e)
         sys.exit(1)
     else:
-        print(f'Status: {str} is {scanner[str].state()}')
+        if scanner[str].state() == 'up':
+            printcolor('GREEN', f'Status: {str} is {scanner[str].state()}')
+        else: 
+            printcolor('RED', f'Status: {str} is {scanner[str].state()}')
 
 def scan(str, inputed, prstart, prend, scantype):
     scanStatus(str, inputed)

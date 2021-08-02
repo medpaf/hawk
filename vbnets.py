@@ -1,6 +1,7 @@
 import os
 import readline 
 from welcome import intro1, welcome
+from color import printcolor, inputcolor
 from testrun import *
 
 hist_list = []
@@ -11,10 +12,8 @@ def handleCommands():
         global hist_list  
         global comm 
         while True:
-                comm = input('VBNetS > ')
-                # Save used commands in an array to access history
+                comm = inputcolor('BLUE', 'VBNetS > ')
                 hist_list.append(comm.strip())
-        
                 if comm.strip() == 'clear':
                         os.system('clear')
                 elif comm.strip() == 'history':
