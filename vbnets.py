@@ -1,4 +1,5 @@
 import os
+import sys
 import readline 
 from welcome import intro1, welcome
 from color import printcolor, inputcolor
@@ -12,7 +13,7 @@ def handleCommands():
         global hist_list  
         global comm 
         while True:
-                comm = inputcolor('BLUE', 'VBNetS > ')
+                comm = inputcolor('RED', 'VBNetS > ')
                 hist_list.append(comm.strip())
                 if comm.strip() == 'clear':
                         os.system('clear')
@@ -24,7 +25,9 @@ def handleCommands():
                         os.system(f'python3 testrun.py {comm}')      
 
 def main():
-    welcome()
+    # if there are no arguments run the welcome() function
+    if len(sys.argv) == 1:
+        welcome()
     handleCommands()
 
 main()
