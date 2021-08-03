@@ -1,5 +1,5 @@
 import random
-from color import printcolor
+from extras import printcolor
 
 def intro1():
     print('\n********************************************************')
@@ -8,8 +8,7 @@ def intro1():
     print('*  | |    | | | |_/ / | \ \ | |  ____  | |_ ( (____    *')
     print('*   \ \  / /  |  __ \ | |\ \| | / __ \ |  _| \____ \   *')
     print('*    \ \/ /   | |_/ / | | \ \ |( ____/ | |_   ____) )  *')
-    print('*     \__/    |____/  |_|  \__| \____|  \__| |_____/   *')
-    print('*                                                      *')
+    print('*     \__/    |____/  |_|  \__| \____|  \__| |_____/\n   *')
     printcolor('BLUE','*        Very Basic (kind of) Network Scanner          *')
     printcolor('RED','*             Written by Paulo Medeiros                *')
     print('*                                                      *')

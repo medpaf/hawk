@@ -1,5 +1,6 @@
 import argparse
 import os
+import sys
 import subprocess
 import ipaddress
 from methods.ifconfig import ifconfig
@@ -73,8 +74,20 @@ def handleScan(scantype):
         else:
                 print('Please specify the host(s) (or IP range) to scan and port(s) (or port range). Examples: \n \t -scansyn -host [HOST(s)] \n \t -scansyn -host [HOST(s)] -p [PORT(s)] \n \t -scansyn -host [HOST(s)] -prange [PORT RANGE] \n \t -scansyn -iprange [IP RANGE] -p [PORT(S)] \n \t -scansyn -iprange [IP RANGE] -prange [PORT RANGE]') 
 
+# Save output file
+if args['s']:
+        argsList = sys.argv[1:]
+        print(f'#testing: argsList before transformations: {argsList}') ###
+        filenameIndex = argsList.index('-s') + 1
+        print(f'#testing: filenameIndex: {filenameIndex}') ###
+        argsList.pop(filenameIndex)
+        argsList.remove('-s')
+        print(f'#testing: argsList after transformations: {argsList}') ###
+        comm = ' '.join(argsList)
+        save(f'{comm}', args['s'][0]) 
+
 # Check host IP configuration
-if args['ifconfig']:
+elif args['ifconfig']:
         ifconfig()
 
 # Check IP address of a website
@@ -118,7 +131,7 @@ elif args['grab']:
                                         bannerWithPort(nsconv(args['host'][i]), args['p'][j])               
 
                 # Perform grabbing with IP address(es) and port range 
-                elif len(args['prange'])==2 and not args['p']: 
+                elif len(args['prange']) == 2 and not args['p']: 
                         for i in range(0, len(args['host'])):
                                 for j in range(args['prange'][0], args['prange'][1] + 1):
                                         bannerWithPort(nsconv(args['host'][i]), j)
@@ -143,9 +156,6 @@ elif args['grab']:
         else:
                 print('Please specify the host (or IP range) and port(s) (or port range). Examples: \n \t -grab -host [HOST(s)] -p [PORT(s)] \n \t -grab -iprange [IP RANGE] -prange [PORT RANGE] \n \t -grab -host [HOST(s)] -prange [PORT RANGE] \n \t -grab -iprange [IP RANGE] -p [PORT]')
 
-# Save output file
-if args['s']:
-        save('-ifconfig', args['s'][0]) ### testing ifconfig
 
 
 

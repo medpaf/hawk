@@ -1,6 +1,6 @@
 import nmap
 import sys
-from color import printcolor
+from extras import printcolor
 
 scanner = nmap.PortScanner()
 
