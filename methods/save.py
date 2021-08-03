@@ -4,8 +4,8 @@ import subprocess
 from extras import printcolor
 
 def save(comm, filename):
-    print(f'#testing: inside save function... command = {comm}') ###
-    print(f'#testing: python3 run.py {comm}') ###
+    #print(f'#testing: inside save function... command = {comm}') ###
+    #print(f'#testing: python3 run.py {comm}') ###
     try:
         os.system(f'python3 run.py {comm} > {filename}')
     except:

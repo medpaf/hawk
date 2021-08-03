@@ -12,7 +12,7 @@ def scanStatus(str, inputed):
         sys.exit('^C\n')
     except:
         e = sys.exc_info()
-        print(e)
+        printcolor('RED', f'{e}')
         sys.exit(1)
     else:
         if scanner[str].state() == 'up':
@@ -30,7 +30,7 @@ def scan(str, inputed, prstart, prend, scantype):
         sys.exit('^C\n')
     except:
         e = sys.exc_info()[1]
-        print(e)
+        printcolor('RED', f'{e}')
     else:
         if len(scanner[str].all_protocols()) == 0:
             print('No port(s) found.')
@@ -53,7 +53,7 @@ def scanWithPort(str, inputed, int, i, j, scantype):
         sys.exit('^C\n')
     except:
         e = sys.exc_info()[1]
-        print(e)
+        printcolor('RED', f'{e}')
     else:
         for protocol in scanner[str].all_protocols():
             if scanner[str][protocol].keys():

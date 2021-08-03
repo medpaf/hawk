@@ -8,7 +8,8 @@ def intro1():
     print('*  | |    | | | |_/ / | \ \ | |  ____  | |_ ( (____    *')
     print('*   \ \  / /  |  __ \ | |\ \| | / __ \ |  _| \____ \   *')
     print('*    \ \/ /   | |_/ / | | \ \ |( ____/ | |_   ____) )  *')
-    print('*     \__/    |____/  |_|  \__| \____|  \__| |_____/\n   *')
+    print('*     \__/    |____/  |_|  \__| \____|  \__| |_____/   *')
+    print('*                                                      *')
     printcolor('BLUE','*        Very Basic (kind of) Network Scanner          *')
     printcolor('RED','*             Written by Paulo Medeiros                *')
     print('*                                                      *')
@@ -26,8 +27,8 @@ def intro2():
     print('  |__|:|__/:/  \  \:\/:/     |__|::/   \  \:\_\/__/:/      \  \:\/:/   ')
     print('   \__\::::/    \__\::/      /__/:/     \  \:\ \__\/        \  \::/    ')
     print('       ~~~~         ~~       \__\/       \__\/               \__\/\n     ')
-    printcolor('BLUE','                  Very Basic (kind of) Network Scanner          ')
-    printcolor('RED','                       Written by Paulo Medeiros \n               ')
+    printcolor('BLUE','                Very Basic (kind of) Network Scanner          ')
+    printcolor('RED','                     Written by Paulo Medeiros \n               ')
                                                                                                                                           
 
 def welcome():
