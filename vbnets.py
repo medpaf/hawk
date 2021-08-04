@@ -1,7 +1,7 @@
 import os
 import sys
 import readline 
-from welcome import intro1, welcome
+from welcome import welcome
 from extras import printcolor, inputcolor
 from run import *
 

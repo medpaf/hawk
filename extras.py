@@ -1,3 +1,5 @@
+import time
+import threading
 from colorama import Fore, Back, Style
 
 def printcolor(color, text):
@@ -16,3 +18,12 @@ def inputcolor(color, text):
     elif color.upper() == 'BLUE':
         comm = input(f'{Fore.BLUE}' + text + Style.RESET_ALL)
     return comm
+
+def animate(message):
+    animation = "|/-\\"
+    index = 0
+    while True:
+        print(f'{message} [{animation[index % len(animation)]}]', end = "\r")
+        index += 1
+        time.sleep(0.1)
+        
