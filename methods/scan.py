@@ -7,6 +7,7 @@ scanner = nmap.PortScanner()
 
 def scanStatus(str, inputed):
 
+    print()
     animateProcess = multiprocessing.Process(target = animate, args = ((f'Checking status of {inputed}',)))
     animateProcess.start()
 
@@ -71,14 +72,15 @@ def scanWithPort(str, inputed, int, i, j, scantype):
     except:
         animateProcess.kill()  # stop process
         e = sys.exc_info()[1]
-        printcolor('RED', f'{e}')
+        print(f'{e}')
     else:
         animateProcess.kill()  # stop process
         for protocol in scanner[str].all_protocols():
             if scanner[str][protocol].keys():
                 if j == 0:
                     print(f'Protocol: {protocol.upper()}')
-                    print('\n PORT     \t\tSTATE     \t\tSERVICE')
+                    printcolor('BLUE', '\n PORT     \t\tSTATE     \t\tSERVICE')
                 for port in scanner[str][protocol].keys():
                     print(f" {port}      \t\t{scanner[str][protocol][port]['state']}       \t\t{scanner[str][protocol][port]['name']}")
+            
 
