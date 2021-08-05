@@ -1,7 +1,6 @@
 import argparse
 import os
 import sys
-#import subprocess
 import ipaddress
 from methods.ifconfig import ifconfig
 from methods.ns import ns, nsconv

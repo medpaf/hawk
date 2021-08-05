@@ -13,7 +13,7 @@ def handleCommands():
         global hist_list  
         global comm 
         while True:
-                comm = input('\nVBNetS > ')
+                comm = input('\n@VBNetS > ')
                 hist_list.append(comm.strip())
                 if comm.strip() == 'clear':
                         os.system('clear')

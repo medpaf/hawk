@@ -23,7 +23,7 @@ def animate(message):
     animation = "|/-\\"
     index = 0
     while True:
-        print(f'{message} [{animation[index % len(animation)]}]', end = "\r") ###
+        print(f'{message} [{animation[index % len(animation)]}]', end = "\r")
         index += 1
         time.sleep(0.1)
         

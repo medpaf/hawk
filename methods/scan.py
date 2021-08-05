@@ -13,16 +13,19 @@ def scanStatus(str, inputed):
 
     try:
         scanner.scan(str, '1', '-v -sT')
-    except KeyboardInterrupt:       
-        animateProcess.kill()  # stop process
+    except KeyboardInterrupt:  
+        # stop process     
+        animateProcess.kill()  
         sys.exit('\n^C\n')
     except:
-        animateProcess.kill()  # stop process
+        # stop process
+        animateProcess.kill()  
         e = sys.exc_info()
         printcolor('RED', f'\n{e}')
         sys.exit(1)
     else:
-        animateProcess.kill()  # stop process
+        # stop process
+        animateProcess.kill() 
         if scanner[str].state() == 'up':
             printcolor('GREEN', f'\nStatus: {str} is {scanner[str].state()}')
         else: 
@@ -38,14 +41,17 @@ def scan(str, inputed, prstart, prend, scantype):
     try:
         scanner.scan(str, f'{prstart}-{prend}', f'-v {scantype}')
     except KeyboardInterrupt:
-        animateProcess.kill()  # stop process
+        # stop process
+        animateProcess.kill()  
         sys.exit('\n^C\n')
     except:
-        animateProcess.kill()  # stop process
+        # stop process
+        animateProcess.kill()  
         e = sys.exc_info()[1]
         printcolor('RED', f'\n{e}')
     else:
-        animateProcess.kill()  # stop process
+        # stop process
+        animateProcess.kill() 
         if len(scanner[str].all_protocols()) == 0:
             print('\nNo port(s) found.')
         else:
@@ -67,14 +73,17 @@ def scanWithPort(str, inputed, int, i, j, scantype):
     try:
         scanner.scan(str, f'{int}', f'-v {scantype}')
     except KeyboardInterrupt:
-        animateProcess.kill()  # stop process
+        # stop process
+        animateProcess.kill()  
         sys.exit('^C\n')
     except:
-        animateProcess.kill()  # stop process
+        # stop process
+        animateProcess.kill() 
         e = sys.exc_info()[1]
         print(f'{e}')
     else:
-        animateProcess.kill()  # stop process
+        # stop process
+        animateProcess.kill() 
         for protocol in scanner[str].all_protocols():
             if scanner[str][protocol].keys():
                 if j == 0:
