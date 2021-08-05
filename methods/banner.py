@@ -6,7 +6,6 @@ def bannerWithPort(host, port):
     sckt = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sckt.settimeout(8)
     try:
-        print('Banner grabbing will start. Press CTRL-C to cancel.')
         print(f'Connecting to {host} on port {port}...') # waiting function to be implemented
         sckt.connect((host, port))
         print(f"{sckt.recv(1024).decode('utf-8')}\n")
