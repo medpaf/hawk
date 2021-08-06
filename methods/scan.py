@@ -7,7 +7,6 @@ scanner = nmap.PortScanner()
 
 def scanStatus(str, inputed):
 
-    print()
     animateProcess = multiprocessing.Process(target = animate, args = ((f'Checking status of {inputed}',)))
     animateProcess.start()
 
@@ -33,7 +32,7 @@ def scanStatus(str, inputed):
 
 def scan(str, inputed, prstart, prend, scantype):
     scanStatus(str, inputed)
-    print('Scanning will start. Press CTRL-C to cancel.')
+    print('Scan will start. Press CTRL-C to cancel.')
 
     animateProcess = multiprocessing.Process(target = animate, args = ((f'Scanning {str}:{prstart}-{prend}',)))
     animateProcess.start()
@@ -69,7 +68,7 @@ def scanWithPort(str, inputed, int, i, j, scantype):
 
     if j == 0:
         scanStatus(str, inputed)
-        print('Scanning will start. Press CTRL-C to cancel.')
+        print('Scan will start. Press CTRL-C to cancel.')
     try:
         scanner.scan(str, f'{int}', f'-v {scantype}')
     except KeyboardInterrupt:
