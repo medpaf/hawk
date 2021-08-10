@@ -11,7 +11,7 @@ from methods.banner import bannerWithPort
 from methods.scan import scanStatus, scan, scanWithPort 
 from methods.save import save
 
-ap = argparse.ArgumentParser(description='VBNetS Tool', formatter_class=argparse.RawDescriptionHelpFormatter,
+ap = argparse.ArgumentParser(description='MedSec Tool', formatter_class=argparse.RawDescriptionHelpFormatter,
 epilog=textwrap.dedent('''
 Examples:
         vbnets.py -scan -host 127.0.0.1 -prange 1 20

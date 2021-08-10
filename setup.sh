@@ -8,5 +8,5 @@ sudo pip3 install colorama
 # Add main .py file to the system path (later)
 #cp *.py /usr/bin
 #cp methods/*.py /usr/bin
-#mv /usr/bin/vbnets.py /usr/bin/vbnets
+#mv /usr/bin/vbnets.py /usr/bin/medsec
 #chmod 755 /usr/bin/vbnets
