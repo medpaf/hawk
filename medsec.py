@@ -14,7 +14,7 @@ def handleCommands():
         global comm 
         while True:
                 try:
-                        comm = input('\n@VBNetS > ')
+                        comm = input('\nMedSec > ')
                         hist_list.append(comm.strip())
                         if comm.strip() == 'clear':
                                 os.system('clear')
