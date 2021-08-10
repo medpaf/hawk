@@ -87,7 +87,7 @@ def scanWithPort(str, inputed, int, i, j, scantype):
             if scanner[str][protocol].keys():
                 if j == 0:
                     print(f'Protocol: {protocol.upper()}')
-                    printcolor('BLUE', '\n PORT     \t\tSTATE     \t\tSERVICE')
+                    print('\n PORT     \t\tSTATE     \t\tSERVICE')
                 for port in scanner[str][protocol].keys():
                     print(f" {port}      \t\t{scanner[str][protocol][port]['state']}       \t\t{scanner[str][protocol][port]['name']}")
             

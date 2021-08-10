@@ -2,20 +2,33 @@ import argparse
 import os
 import sys
 import ipaddress
+import textwrap
 from methods.ifconfig import ifconfig
 from methods.ns import ns, nsconv
 from methods.ping import ping
+from methods.traceroute import traceroute
 from methods.banner import bannerWithPort
 from methods.scan import scanStatus, scan, scanWithPort 
 from methods.save import save
 
-ap = argparse.ArgumentParser()
+ap = argparse.ArgumentParser(description='VBNetS Tool', formatter_class=argparse.RawDescriptionHelpFormatter,
+epilog=textwrap.dedent('''
+Examples:
+        vbnets.py -scan -host 127.0.0.1 -prange 1 20
+        vbnets.py -grab -host 127.0.0.1 -p 22
+        vbnets.py -ifconfig www.medpaf.github.io
+        vbnets.py -traceroute www.medpaf.github.io
+        vbnets.py -ns www.medpaf.github.io
+'''))
 
 ap.add_argument('-ifconfig', action = 'store_true', 
         help = 'display current TCP/IP network configuration')
 ap.add_argument('-ping',
         nargs = 1,
         help = 'send ICMP packets to a host to check connectivity.')
+ap.add_argument('-traceroute',
+        nargs = 1,
+        help = 'diagnose route paths and measure transit delays.')
 ap.add_argument('-ns', type = str,
         nargs = '+',
         help = 'obtain domain name or IP address mapping.')
@@ -97,6 +110,10 @@ elif args['ns']:
 # Ping to check connectivity
 elif args['ping']:
         ping(args['ping'][0])
+
+# Traceroue
+elif args['traceroute']:
+        traceroute(args['traceroute'][0])
 
 # TCP scan
 elif args['scantcp']:

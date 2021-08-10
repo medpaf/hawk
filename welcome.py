@@ -12,6 +12,7 @@ def intro1():
     print('*                                                      *')
     printcolor('BLUE','*        Very Basic (kind of) Network Scanner          *')
     printcolor('RED','*             Written by Paulo Medeiros                *')
+    print('* Github repository: https://github.com/medpaf/vbnets  *')
     print('*                                                      *')
     print('********************************************************\n')
 
@@ -26,9 +27,10 @@ def intro2():
     print('  |  |:|/  /:/\  \:\_\::/    |  |:/:/ \  \:\ \:\/  /:/__\/\  \:\_\:\   ')
     print('  |__|:|__/:/  \  \:\/:/     |__|::/   \  \:\_\/__/:/      \  \:\/:/   ')
     print('   \__\::::/    \__\::/      /__/:/     \  \:\ \__\/        \  \::/    ')
-    print('       ~~~~         ~~       \__\/       \__\/               \__\/\n     ')
-    printcolor('BLUE','                Very Basic (kind of) Network Scanner          ')
-    printcolor('RED','                     Written by Paulo Medeiros \n               ')
+    print('       ~~~~         ~~       \__\/       \__\/               \__\/\n   ')
+    printcolor('BLUE','                Very Basic (kind of) Network Scanner       ')
+    printcolor('RED','                     Written by Paulo Medeiros              ')
+    print('          Github repository: https://github.com/medpaf/vbnets          ')
                                                                                                                                           
 
 def welcome():
