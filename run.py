@@ -14,11 +14,11 @@ from methods.save import save
 ap = argparse.ArgumentParser(description='MedSec Tool', formatter_class=argparse.RawDescriptionHelpFormatter,
 epilog=textwrap.dedent('''
 Examples:
-        vbnets.py -scan -host 127.0.0.1 -prange 1 20
-        vbnets.py -grab -host 127.0.0.1 -p 22
-        vbnets.py -ifconfig www.medpaf.github.io
-        vbnets.py -traceroute www.medpaf.github.io
-        vbnets.py -ns www.medpaf.github.io
+        medsec.py -scan -host 127.0.0.1 -prange 1 20
+        medsec.py -grab -host 127.0.0.1 -p 22
+        medsec.py -ifconfig www.medpaf.github.io
+        medsec.py -traceroute www.medpaf.github.io
+        medsec.py -ns www.medpaf.github.io
 '''))
 
 ap.add_argument('-ifconfig', action = 'store_true', 
