@@ -21,6 +21,8 @@ Examples:
         medsec.py -ns www.medpaf.github.io
 '''))
 
+
+
 ap.add_argument('-ifconfig', action = 'store_true', 
         help = 'display current TCP/IP network configuration')
 ap.add_argument('-ping',
@@ -89,12 +91,9 @@ def handleScan(scantype):
 # Save output file
 if args['s']:
         argsList = sys.argv[1:]
-        #print(f'#testing: argsList before transformations: {argsList}') ###
         filenameIndex = argsList.index('-s') + 1
-        #print(f'#testing: filenameIndex: {filenameIndex}') ###
         argsList.pop(filenameIndex)
         argsList.remove('-s')
-        #print(f'#testing: argsList after transformations: {argsList}') ###
         comm = ' '.join(argsList)
         save(f'{comm}', args['s'][0]) 
 
