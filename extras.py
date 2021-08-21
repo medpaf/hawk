@@ -25,5 +25,5 @@ def animate(message):
     while True:
         print(f'{message} [{animation[index % len(animation)]}]', end = "\r")
         index += 1
-        time.sleep(0.07)
+        time.sleep(0.08)
         

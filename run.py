@@ -3,13 +3,13 @@ import os
 import sys
 import ipaddress
 import textwrap
-from methods.ifconfig import ifconfig
-from methods.ns import ns, nsconv
-from methods.ping import ping
-from methods.traceroute import traceroute
-from methods.banner import bannerWithPort
-from methods.scan import scanStatus, scan, scanWithPort 
-from methods.save import save
+from tasks.ifconfig import ifconfig
+from tasks.ns import ns, nsconv
+from tasks.ping import ping
+from tasks.traceroute import traceroute
+from tasks.banner import bannerWithPort
+from tasks.scan import scanStatus, scan, scanWithPort 
+from tasks.save import save
  
 ap = argparse.ArgumentParser(description='MedSec Tool', formatter_class=argparse.RawDescriptionHelpFormatter,
 epilog=textwrap.dedent('''
