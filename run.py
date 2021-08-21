@@ -10,7 +10,7 @@ from methods.traceroute import traceroute
 from methods.banner import bannerWithPort
 from methods.scan import scanStatus, scan, scanWithPort 
 from methods.save import save
-
+ 
 ap = argparse.ArgumentParser(description='MedSec Tool', formatter_class=argparse.RawDescriptionHelpFormatter,
 epilog=textwrap.dedent('''
 Examples:
