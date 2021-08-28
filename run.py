@@ -21,8 +21,6 @@ Examples:
         medsec.py -ns www.medpaf.github.io
 '''))
 
-
-
 ap.add_argument('-ifconfig', action = 'store_true', 
         help = 'display current TCP/IP network configuration')
 ap.add_argument('-ping',
