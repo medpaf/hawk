@@ -29,7 +29,7 @@ def handleCommands():
 
 
 def main():
-    # if there no arguments are present, run the welcome() function
+    # if no arguments are present, run the welcome() function
     if len(sys.argv) == 1:
         welcome()
     handleCommands()
