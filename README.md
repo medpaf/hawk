@@ -9,7 +9,8 @@ This is a network utility tool that I developed to perform some network and secu
 - DNS checks;
 - ifconfig;
 - ping;
-- traceroute.
+- traceroute;
+- DDOS.
 
 Other features are still being implemented. Future implementations may include WAP (web application firewall) detection, vulnerability reconnaissance, offensive tasks such as packet sniffing, ARP poisoning, DDOS attacks, some automated tasks and others.
 
