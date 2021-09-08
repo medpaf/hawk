@@ -10,6 +10,8 @@ from tasks.traceroute import traceroute
 from tasks.banner import bannerWithPort
 from tasks.scan import scanStatus, scan, scanWithPort 
 from tasks.save import save
+
+from tasks.offense.ddos import ddos
  
 ap = argparse.ArgumentParser(description='MedSec Tool', formatter_class=argparse.RawDescriptionHelpFormatter,
 epilog=textwrap.dedent('''
@@ -57,6 +59,8 @@ ap.add_argument('-scan', action = 'store_true',
         help = 'perform comprehensive scan for open ports (root privileges needed)')
 ap.add_argument('-grab', action = 'store_true',
         help = 'perform banner grabbing')
+ap.add_argument('-ddos', action = 'store_true',
+        help = 'perform DDOS attack on a target')
 ap.add_argument('-s', type = str,
         nargs = 1,
         help = 'save output as file to the specified path.')
@@ -168,3 +172,13 @@ elif args['grab']:
                         print('Please type the command correctly. Examples: \n \t -grab -host [HOST(s)] -p [PORT(s)] \n \t -grab -iprange [IP RANGE] -prange [PORT RANGE] \n \t -grab -host [HOST(s)] -prange [PORT RANGE] \n \t -grab -iprange [IP RANGE] -p [PORT]')
         else:
                 print('Please specify the host (or IP range) and port(s) (or port range). Examples: \n \t -grab -host [HOST(s)] -p [PORT(s)] \n \t -grab -iprange [IP RANGE] -prange [PORT RANGE] \n \t -grab -host [HOST(s)] -prange [PORT RANGE] \n \t -grab -iprange [IP RANGE] -p [PORT]')
+
+# DDOS attack
+elif args['ddos']:
+
+        if args['host']:
+                if args['p'] and len(args['p']) == 1:
+                        ddos(nsconv(args['host'][0]), args['p'][0]) ### testing yet, target is 45.33.32.156, need to fix keyboardinterrupt exception
+                else:
+                        print('Please type the command correctly. You can only attack one host and one port at a time. Examples: \n \t -ddos -host [TARGET] -p [PORT]')
+                        
