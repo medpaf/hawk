@@ -11,6 +11,6 @@ This is a network utility tool that I developed to perform some network and secu
 - ping;
 - traceroute.
 
-Other features are still being implemented. Future implementations may include WAP (web application firewall) detection, vulnerability reconnaissance, offensive tasks such as packet sniffing, ARP poisoning, DOS attacks, some automated tasks and others.
+Other features are still being implemented. Future implementations may include WAP (web application firewall) detection, vulnerability reconnaissance, offensive tasks such as packet sniffing, ARP poisoning, DDOS attacks, some automated tasks and others.
 
 To install the necessary packages so that the script can run withouth any problems simply run the `setup.sh` script. Currently, this script is only supported on debian based distros that as the apt package manager. If you are using any other Linux distro with a different package manager, please install the packages manually using your distro's package manager. Depending on the specific distro used, some of the required packages to run this script might be already installed on your machine.
