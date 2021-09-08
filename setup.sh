@@ -9,4 +9,4 @@ sudo pip3 install colorama
 #cp *.py /usr/bin
 #cp methods/*.py /usr/bin
 #mv /usr/bin/medsec.py /usr/bin/medsec
-#chmod 755 /usr/bin/vbnets
+#chmod 755 /usr/bin/medsec
