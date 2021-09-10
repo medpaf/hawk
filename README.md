@@ -16,4 +16,4 @@ Other features are still being implemented. Future implementations may include W
 
 To install the necessary packages so that the script can run withouth any problems simply run the `setup.sh` script. Currently, this script is only supported on debian based distros that has the apt package manager. If you are using any other Linux distro with a different package manager, please install the packages manually using your distro's package manager. Depending on the specific distro used, some of the required packages to run this script might be already installed on your machine.
 
-To run the program simply run the `medsec.py` file using python..
+To run the program simply run the `medsec.py` file using python.
