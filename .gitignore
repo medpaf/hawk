@@ -1,2 +1,3 @@
 git.sh
+.gitignore
 __pycache__/
