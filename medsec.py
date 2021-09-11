@@ -15,13 +15,17 @@ def handleCommands():
         while True:
                 try:
                         comm = input('\nMedSec > ')
-                        hist_list.append(comm.strip())
-                        if comm.strip() == 'clear':
+                        if comm != 'history':
+                                hist_list.append(comm.strip())
+                        elif comm.strip() == 'clear':
                                 os.system('clear')
-                        elif comm.strip() == 'history':
-                                print('Last commands:')
-                                for i in range(0, len(hist_list)-1):
-                                        print(hist_list[i]) 
+                        if comm.strip() == 'history':
+                                if len(hist_list) > 0:
+                                        print('Last commands:')
+                                        for i in range(0, len(hist_list)):
+                                                print(hist_list[i]) 
+                                else:
+                                        print('No commands history.')
                         else:
                                 os.system(f'python3 run.py {comm}') 
                 except KeyboardInterrupt:
