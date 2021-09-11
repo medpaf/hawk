@@ -27,7 +27,6 @@ def handleCommands():
                 except KeyboardInterrupt:
                         sys.exit('\n^C\n')
 
-
 def main():
     # if no arguments are present, run the welcome() function
     if len(sys.argv) == 1:
