@@ -10,7 +10,7 @@ This is a network utility tool that I developed to perform some network and secu
 - ifconfig;
 - ping;
 - traceroute;
-- DDOS.
+- DDOS (still in beta).
 
 Other features are still being implemented. Future implementations may include WAP (web application firewall) detection, vulnerability reconnaissance, static code analysis, traffic analysis, offensive tasks such as packet sniffing, ARP poisoning, exploits, some automated tasks and others.
 
