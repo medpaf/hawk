@@ -9,7 +9,6 @@ def intro1():
     printcolor('RED', '*  ██  ██  ██ ██      ██   ██      ██ ██      ██       *')
     printcolor('RED', '*  ██      ██ ███████ ██████  ███████ ███████  ██████  *')
     print('*                                                      *')
-    printcolor('BLUE','*        Very Basic (kind of) Network Scanner          *')
     printcolor('RED','*             Written by Paulo Medeiros                *')
     print('* Github repository: https://github.com/medpaf/medsec  *')
     print('*                                                      *')
@@ -24,7 +23,6 @@ def intro2():
     printcolor('RED', '      \ \__\    \ \__\ \_______\ \_______\____\_\  \ \_______\ \_______\ ')
     printcolor('RED', '       \|__|     \|__|\|_______|\|_______|\_________\|_______|\|_______| ')
     printcolor('RED', '                                         \|_________| \n                  ')                                                         
-    printcolor('BLUE','                   Very Basic (kind of) Network Scanner       ')
     printcolor('RED','                        Written by Paulo Medeiros              ')
     print('             Github repository: https://github.com/medpaf/medsec          ')
                                                                                                                                           
