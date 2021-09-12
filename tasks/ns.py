@@ -3,7 +3,7 @@ import sys
 import ipinfo
 from extras import printcolor
 
-token = 'ed6272280d6820'
+token = '8d53c2357c2a13'
 handler = ipinfo.getHandler(token)
 
 

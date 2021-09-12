@@ -6,7 +6,7 @@
 This is a network utility tool that I developed to perform some network and security administrator tasks. Currently, this script can perform a good variety of tasks such as:
 - Port scans, including SYN, TCP, UDP, ACK and comprehensive scan;
 - Banner grabbing;
-- DNS checks;
+- DNS checks with geolocation information;
 - ifconfig;
 - ping;
 - traceroute;

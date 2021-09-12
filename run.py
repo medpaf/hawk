@@ -178,7 +178,7 @@ elif args['ddos']:
 
         if args['host']:
                 if args['p'] and len(args['p']) == 1:
-                        ddos(nsconv(args['host'][0]), args['p'][0]) ### testing yet, target is 45.33.32.156, need to fix keyboardinterrupt exception
+                        ddos(nsconv(args['host'][0]), args['p'][0]) ### BETA, target is 45.33.32.156, need to fix keyboardinterrupt exception
                 else:
                         print('Please type the command correctly. You can only attack one host and one port at a time. Examples: \n \t -ddos -host [TARGET] -p [PORT]')
                         
