@@ -18,7 +18,7 @@ def ns(str):
     else:
         print(f'Name: {name}')
         print(f'Address: {addr}')
-        print(f'Country: {details.country}')
+        print(f'Country: {details.country_name}')
         print(f'City: {details.city}')
         print(f'Postal: {details.postal}')
         print(f'Organization: {details.org}')
