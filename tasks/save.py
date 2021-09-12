@@ -5,7 +5,7 @@ from extras import printcolor
 
 def save(comm, filename):
     # Path to save the file
-    #path = path to save file
+    # path = path to save file
     try:
         os.system(f'python3 run.py {comm} > {filename}')
     except:
