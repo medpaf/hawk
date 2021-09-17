@@ -28,4 +28,4 @@ def ddos(target, port):
         print('Operation was cancelled.')
         sys.exit('\n')
     
-ddos('45.33.32.156', 80)
+#ddos('45.33.32.156', 80)
