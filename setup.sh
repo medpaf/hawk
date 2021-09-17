@@ -7,6 +7,8 @@ sudo pip3 install colorama
 sudo pip3 install ipinfo
 sudo pip3 install scapy
 
+# OpenVas
+#docker run -d -p 443:443 --name openvas mikesplain/openvas
 
 # Add main .py file to the system path (later)
 #cp *.py /usr/bin
