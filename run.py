@@ -8,7 +8,7 @@ from tasks.ns import ns, nsconv
 from tasks.ping import ping
 from tasks.traceroute import traceroute
 from tasks.banner import bannerWithPort
-from tasks.scan import scanStatus, scan, scanWithPort 
+from tasks.scan import scanStatus, scan, scanWithPort, scanLocalDevices
 from tasks.save import save
 
 from tasks.offense.ddos import ddos
@@ -57,6 +57,8 @@ ap.add_argument('-scanudp', action = 'store_true',
         help = 'perform UDP scan for open ports (root privileges needed)')
 ap.add_argument('-scan', action = 'store_true',
         help = 'perform comprehensive scan for open ports (root privileges needed)')
+ap.add_argument('-scanlocal', action = 'store_true',
+        help = 'perform scan to detect local devices')
 ap.add_argument('-grab', action = 'store_true',
         help = 'perform banner grabbing')
 ap.add_argument('-ddos', action = 'store_true',
@@ -135,6 +137,12 @@ elif args['scansyn']:
 # Comprehensive scan
 elif args['scan']:
         handleScan('-sS -sV -sC -A -O')
+
+# Scan for local devices
+elif args['scanlocal']:
+        scanLocalDevices()
+        #handleScan('-sP')
+
 
 # Banner grabbing
 elif args['grab']:    
