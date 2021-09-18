@@ -2,6 +2,7 @@ import nmap
 import sys
 import os
 import multiprocessing
+import socket
 from extras import printcolor
 
 scanner = nmap.PortScanner()
@@ -21,6 +22,7 @@ def scanStatus(str, inputed):
             printcolor('GREEN', f'Status: {str} is {scanner[str].state()}')
         else: 
             printcolor('RED', f'Status: {str} is {scanner[str].state()}')
+            sys.exit()
 
 def scan(str, inputed, prstart, prend, scantype):
 
@@ -28,7 +30,7 @@ def scan(str, inputed, prstart, prend, scantype):
     print('Scan will start. Press CTRL-C to cancel.') 
 
     try:
-        print(f'Scanning {str}:{prstart}-{prend}') ###yellow
+        printcolor('YELLOW', f'Scanning {str}:{prstart}-{prend}') ###yellow
         scanner.scan(str, f'{prstart}-{prend}', f'-v {scantype}')
     except KeyboardInterrupt: 
         sys.exit('\n^C\n')
@@ -37,7 +39,7 @@ def scan(str, inputed, prstart, prend, scantype):
         printcolor('RED', f'\n{e}')
     else:
         if len(scanner[str].all_protocols()) == 0:
-            print('\nNo port(s) found.')
+            print('No port(s) found.')
         else:
             for protocol in scanner[str].all_protocols():
                 if scanner[str][protocol].keys():
@@ -51,7 +53,7 @@ def scanWithPort(str, inputed, int, i, j, scantype):
     try:
         if j == 0:
             scanStatus(str, inputed)
-            print(f'Scanning {str}') ###yellow
+            printcolor('YELLOW', f'Scanning {str}') ###yellow
             print('Scan will start. Press CTRL-C to cancel.')
         scanner.scan(str, f'{int}', f'-v {scantype}')
     except KeyboardInterrupt: 
@@ -71,10 +73,16 @@ def scanWithPort(str, inputed, int, i, j, scantype):
 
 def scanLocalDevices():
 
-    network = '192.168.1.0/24'
+    #hostname = socket.gethostname()
+    #local_ip = socket.gethostbyname(f'{hostname}.local') #socket.gethostbyname(socket.gethostname())
+    
+    network = input('Please type the network you want to scan (Example: 192.168.1.0/24): ')
+    print(f'The network address is {network}')
+    #network = f'192.168.1.0/24'
+    #network = f'{local_ip}/24'
 
     try:
-        print('Scanning for devices on local network') ###yellow
+        printcolor('YELLOW', f'Scanning for devices on {network} network...') ###yellow
         scanner.scan(hosts = network, arguments = '-v -sn')
     except KeyboardInterrupt:
         sys.exit('\n^C\n')

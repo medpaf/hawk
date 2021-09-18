@@ -8,6 +8,8 @@ def printcolor(color, text):
         print(f'{Fore.GREEN}' + text + Style.RESET_ALL)
     elif color.upper() == 'BLUE':
         print(f'{Fore.BLUE}' + text + Style.RESET_ALL)
+    elif color.upper() == 'YELLOW':
+        print(f'{Fore.YELLOW}' + text + Style.RESET_ALL)
 
 def inputcolor(color, text):
     if color.upper() == 'RED':
@@ -17,11 +19,3 @@ def inputcolor(color, text):
     elif color.upper() == 'BLUE':
         comm = input(f'{Fore.BLUE}' + text + Style.RESET_ALL)
     return comm
-
-def animate(message):
-    animation = "|/-\\"
-    index = 0
-    while True:
-        print(f'{message} [{animation[index % len(animation)]}]', end = "\r")
-        index += 1
-        time.sleep(0.08)
