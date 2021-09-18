@@ -30,7 +30,7 @@ def scan(str, inputed, prstart, prend, scantype):
     print('Scan will start. Press CTRL-C to cancel.') 
 
     try:
-        printcolor('YELLOW', f'Scanning {str}:{prstart}-{prend}') ###yellow
+        printcolor('YELLOW', f'Scanning {str}:{prstart}-{prend}') 
         scanner.scan(str, f'{prstart}-{prend}', f'-v {scantype}')
     except KeyboardInterrupt: 
         sys.exit('\n^C\n')
@@ -53,7 +53,7 @@ def scanWithPort(str, inputed, int, i, j, scantype):
     try:
         if j == 0:
             scanStatus(str, inputed)
-            printcolor('YELLOW', f'Scanning {str}') ###yellow
+            printcolor('YELLOW', f'Scanning {str}') 
             print('Scan will start. Press CTRL-C to cancel.')
         scanner.scan(str, f'{int}', f'-v {scantype}')
     except KeyboardInterrupt: 
@@ -70,19 +70,13 @@ def scanWithPort(str, inputed, int, i, j, scantype):
                 for port in scanner[str][protocol].keys():
                     print(f" {port}      \t\t{scanner[str][protocol][port]['state']}       \t\t{scanner[str][protocol][port]['name']}")
             
-
 def scanLocalDevices():
-
-    #hostname = socket.gethostname()
-    #local_ip = socket.gethostbyname(f'{hostname}.local') #socket.gethostbyname(socket.gethostname())
     
     network = input('Please type the network you want to scan (Example: 192.168.1.0/24): ')
     print(f'The network address is {network}')
-    #network = f'192.168.1.0/24'
-    #network = f'{local_ip}/24'
 
     try:
-        printcolor('YELLOW', f'Scanning for devices on {network} network...') ###yellow
+        printcolor('YELLOW', f'Scanning for devices on {network} network...') 
         scanner.scan(hosts = network, arguments = '-v -sn')
     except KeyboardInterrupt:
         sys.exit('\n^C\n')
@@ -94,32 +88,3 @@ def scanLocalDevices():
             if scanner[host]['status']['state'] == 'up':
                 print(f'{host}')
            
-
-
-
-
-
-
-
-'''
-    ip = '192.168.1.0/24' # from 192.168.1.0 to 192.168.1.255
-
-    animateProcess = multiprocessing.Process(target = animate, args = ((f'Scanning for devices on the local network',)))
-    animateProcess.start()
-
-    try:
-        os.system(f'sudo nmap -sn {ip}')
-        animateProcess.kill()
-    except KeyboardInterrupt:
-        # stop process
-        animateProcess.kill()  
-        sys.exit('^C\n')
-    except:
-        # stop process
-        animateProcess.kill() 
-        e = sys.exc_info()[1]
-        print(f'\n{e}\n')
-    else:
-        # stop process
-        animateProcess.kill()
-'''
