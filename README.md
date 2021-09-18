@@ -4,7 +4,7 @@
 
 This is a network utility tool that I developed to perform some network and security administrator tasks. Currently, this script can perform a good variety of tasks such as:
 - Port scans, including SYN, TCP, UDP, ACK, comprehensive scan;
-- Host discovery (scan for local devices on a network);
+- Host discovery (scan for up devices on local a network);
 - Banner grabbing;
 - DNS checks with geolocation information;
 - ifconfig;
