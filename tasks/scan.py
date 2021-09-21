@@ -84,7 +84,7 @@ def scanLocalDevices():
         e = sys.exc_info()[1]
         printcolor('RED', f'\n{e}')
     else:
-        #print(scanner._scan_result) ###testing
+        print(scanner._scan_result.items()) ###testing
         for host in scanner.all_hosts():
             if scanner[host]['status']['state'] == 'up':
                 print(f"{host} \t\t {scanner[host]['vendor']}")
