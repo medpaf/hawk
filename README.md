@@ -100,7 +100,7 @@ Multiple scan types are supported, including SYN (`-scansyn`), TCP (`-scantcp`),
 -ns [HOST(s)]
 ```
 
-[dns](https://user-images.githubusercontent.com/61552222/134312444-fe74ff4a-76d1-4bef-9093-e83cdebe50e6.png)
+![dns](https://user-images.githubusercontent.com/61552222/134312444-fe74ff4a-76d1-4bef-9093-e83cdebe50e6.png)
 
 ### ifconfig
 ```
