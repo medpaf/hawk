@@ -14,7 +14,7 @@
     - [ping](#ping)
     - [traceroute](#traceroute)
 
-### Introduction
+## Introduction
 
 This is a network utility tool that I developed to perform some network and security administrator tasks. Currently, this script can perform a good variety of tasks such as:
 - Port scans, including SYN, TCP, UDP, ACK, comprehensive scan;
@@ -28,7 +28,7 @@ This is a network utility tool that I developed to perform some network and secu
 
 Other features are still being implemented. Future implementations may include WAP (web application firewall) detection, vulnerability reconnaissance, static code analysis, traffic analysis, offensive tasks such as packet sniffing, ARP poisoning, exploits, some automated tasks and others.
 
-### Installation
+## Installation
 
 To install the necessary packages so that the script can run withouth any problems simply run the `setup.sh` script with root privileges. Currently, this installation script is only supported on debian-based distros that has the apt package manager. On most systems, to install medsec simply run the following commands:
 ```
@@ -51,8 +51,8 @@ After the installation, to run the program, simply navigate to the project's dir
 ```
 sudo python3 medsec.py
 ```
-### How to use
-#### Scanning hosts
+## How to use
+### Scanning hosts
 Multiple scan types are supported, including SYN (`-scansyn`), TCP (`-scantcp`), UDP (`-scanudp`), ACK (`-scanack`), comprehensive scan (`-scan`).
 ```
 -scan -host [HOST(s)] 
@@ -69,11 +69,17 @@ Multiple scan types are supported, including SYN (`-scansyn`), TCP (`-scantcp`),
 ```
 -scan -iprange [START IP] [END IP] -prange [START PORT] [END PORT]
 ```
-#### Host discovery (scan for devices on a local network)
+
+![scan](https://user-images.githubusercontent.com/61552222/134312220-9bfbfd14-aaed-411b-8299-0169f7fefbf9.png)
+
+### Host discovery (scan for devices on a local network)
 ```
 -scanlocal
 ```
-#### Banner grabbing
+
+![host-disc](https://user-images.githubusercontent.com/61552222/134312276-2e18c1cb-2c18-4239-b44e-21fc78b9fe78.png)
+
+### Banner grabbing
 ```
 -grab -host [HOST(s)] -p [PORT(s)]
 ```
@@ -86,19 +92,34 @@ Multiple scan types are supported, including SYN (`-scansyn`), TCP (`-scantcp`),
 ```
 -grab -iprange [START IP] [END IP] -p [PORT(s)]
 ```
-#### DNS checks (with geolocation information)
+
+![grab](https://user-images.githubusercontent.com/61552222/134312366-3548a436-7462-4e3a-8304-dc2befb74c3a.png)
+
+### DNS checks (with geolocation information)
 ```
 -ns [HOST(s)]
 ```
-#### ifconfig
+
+[dns](https://user-images.githubusercontent.com/61552222/134312444-fe74ff4a-76d1-4bef-9093-e83cdebe50e6.png)
+
+### ifconfig
 ```
 -ifconfig
 ```
-#### ping
+
+![ifconfig](https://user-images.githubusercontent.com/61552222/134312657-b7262736-0ae0-4a39-bb72-c6dc0bc6869b.png)
+
+### ping
 ```
 -ping [HOST]
 ```
-#### traceroute
+
+![ping](https://user-images.githubusercontent.com/61552222/134312705-9e7237c1-dfe4-470b-9b35-f9560884d039.png)
+
+### traceroute
 ```
 -traceroute [HOST]
 ```
+
+![traceroute](https://user-images.githubusercontent.com/61552222/134312735-7f185efd-4264-4fbb-96d8-91a053d0ff6e.png)
+
