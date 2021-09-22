@@ -14,7 +14,7 @@ This is a network utility tool that I developed to perform some network and secu
 
 Other features are still being implemented. Future implementations may include WAP (web application firewall) detection, vulnerability reconnaissance, static code analysis, traffic analysis, offensive tasks such as packet sniffing, ARP poisoning, exploits, some automated tasks and others.
 
-# Installation
+## Installation
 
 To install the necessary packages so that the script can run withouth any problems simply run the `setup.sh` script with root privileges. Currently, this installation script is only supported on debian-based distros that has the apt package manager. On most systems, to install medsec simply run the following commands:
 ```
@@ -36,4 +36,25 @@ The necessary packages are:
 After the installation, to run the program, simply navigate to the project's directory and run the `medsec.py` file using python. Running the script as root is recommended for better performance and to avoid permission errors. The used command is the following:
 ```
 sudo python3 medsec.py
+```
+## How to use
+### Scanning hosts
+```
+-scan -host [HOST(S)]
+```
+### Host discovery
+```-scanlocal
+```
+### Banner grabbing
+```
+-grab -host [HOST(s)] -p [PORT(s)]
+```
+```
+-grab -iprange [IP RANGE] -prange [PORT RANGE]
+```
+```
+-grab -host [HOST(s)] -prange [PORT RANGE]
+```
+```
+-grab -iprange [IP RANGE] -p [PORT]
 ```
