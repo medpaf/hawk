@@ -129,3 +129,9 @@ To diagnose route paths and measure transit delays, use the `-traceroute` comman
 
 ![traceroute](https://user-images.githubusercontent.com/61552222/134312735-7f185efd-4264-4fbb-96d8-91a053d0ff6e.png)
 
+### DDOS
+To performe Distributed Denial of Service on a host's specific port, use the following command:
+```
+-ddos -host [HOST] -p [PORT]
+```
+Disclaimer: Please only use this for testing purposes and target your own machines.
