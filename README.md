@@ -34,6 +34,6 @@ The necessary packages are:
 - selenium (using pip3)
 
 To run the program simply run the `medsec.py` file using python. Running the script as root is recommended for better performance and to avoid permission errors. The used command is the following:
-'''
+```
 sudo python3 medsec.py
-'''
+```
