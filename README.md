@@ -53,6 +53,7 @@ sudo python3 medsec.py
 ```
 ### How to use
 #### Scanning hosts
+Multiple scan types are supported, including SYN (`-scansyn`), TCP (`-scantcp`), UDP (`-scanudp`), ACK (`-scanack`), comprehensive scan (`-scan`)
 ```
 -scan -host [HOST(s)] 
 ```
