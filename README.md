@@ -2,7 +2,7 @@
 
 ![demo2](https://user-images.githubusercontent.com/61552222/134327486-753f4281-fae1-4262-89ef-087c19c8e46a.gif)
 
-## Table of contents
+## Contents
 + [Introduction](#introduction)
 + [Installation](#installation)
 + [How to use](#how-to-use)
