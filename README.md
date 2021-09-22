@@ -51,11 +51,11 @@ sudo python3 medsec.py
 -grab -host [HOST(s)] -p [PORT(s)]
 ```
 ```
--grab -iprange [IP RANGE] -prange [PORT RANGE]
+-grab -iprange [START IP] [END IP] -prange [START PORT] [END PORT]
 ```
 ```
--grab -host [HOST(s)] -prange [PORT RANGE]
+-grab -host [HOST(s)] -prange [START PORT] [END PORT]
 ```
 ```
--grab -iprange [IP RANGE] -p [PORT]
+-grab -iprange [START IP] [END IP] -p [PORT]
 ```
