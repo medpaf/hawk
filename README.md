@@ -49,7 +49,7 @@ sudo python3 medsec.py
 -scan -host [HOST(s)] -prange [START PORT] [END PORT] 
 ```
 ```
--scan -iprange [START IP] [END IP] -p [PORT(S)] 
+-scan -iprange [START IP] [END IP] -p [PORT(s)] 
 ```
 ```
 -scan -iprange [START IP] [END IP] -prange [START PORT] [END PORT]
@@ -69,7 +69,7 @@ sudo python3 medsec.py
 -grab -host [HOST(s)] -prange [START PORT] [END PORT]
 ```
 ```
--grab -iprange [START IP] [END IP] -p [PORT]
+-grab -iprange [START IP] [END IP] -p [PORT(s)]
 ```
 ### DNS checks (with geolocation information)
 ```
