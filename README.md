@@ -3,17 +3,17 @@
 ![Screenshot from 2021-08-21 10-45-59](https://user-images.githubusercontent.com/61552222/131221155-334eea00-10e1-465c-9017-9cccc2991473.png)
 
 ## Table of contents
-+ [Introduction](#introduction)
-+ [Installation](#installation)
-+ [How to use](#how-to-use)
-    - [Scanning hosts](#scanning-hosts)
-    - [Host discovery (scan for devices on a local network)](#host-discovery--scan-for-devices-on-a-local-network-)
-    - [Banner grabbing](#banner-grabbing)
-    - [DNS checks (with geolocation information)](#dns-checks--with-geolocation-information-)
-    - [ifconfig](#ifconfig)
-    - [ping](#ping)
-    - [traceroute](#traceroute)
-    - [DDOS (beta)](#ddos--beta-)
+- [Introduction](#introduction)
+- [Installation](#installation)
+- [How to use](#how-to-use)
+  * [Scanning ports](#scanning-ports)
+  * [Host discovery (scan for devices on a local network)](#host-discovery--scan-for-devices-on-a-local-network-)
+  * [Banner grabbing](#banner-grabbing)
+  * [DNS checks (with geolocation information)](#dns-checks--with-geolocation-information-)
+  * [ifconfig](#ifconfig)
+  * [ping](#ping)
+  * [traceroute](#traceroute)
+  * [DDOS (beta)](#ddos--beta-)
 
 ## Introduction
 
