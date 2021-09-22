@@ -52,8 +52,8 @@ After the installation, to run the program, simply navigate to the project's dir
 sudo python3 medsec.py
 ```
 ## How to use
-### Scanning hosts
-Multiple scan types are supported, including SYN (`-scansyn`), TCP (`-scantcp`), UDP (`-scanudp`), ACK (`-scanack`), comprehensive scan (`-scan`).
+### Scanning ports
+Multiple scan types are supported, including SYN (`-scansyn`), TCP (`-scantcp`), UDP (`-scanudp`), ACK (`-scanack`) and comprehensive scan (`-scan`).
 ```
 -scan -host [HOST(s)] 
 ```
