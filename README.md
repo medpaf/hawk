@@ -63,3 +63,15 @@ sudo python3 medsec.py
 ```
 -ns [HOST(s)]
 ```
+### ifconfig
+```
+-ifconfig
+```
+### ping
+```
+-ping [HOST]
+```
+### traceroute
+```
+-traceroute [HOST]
+```
