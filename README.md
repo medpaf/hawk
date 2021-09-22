@@ -1,6 +1,8 @@
 # MedSec
 
-![Screenshot from 2021-08-21 10-45-59](https://user-images.githubusercontent.com/61552222/131221155-334eea00-10e1-465c-9017-9cccc2991473.png)
+## Demo
+
+![demo](https://user-images.githubusercontent.com/61552222/134325238-62eaa4a5-c3ac-456c-a4c1-cb8f2e8fa860.gif)
 
 ## Table of contents
 - [Introduction](#introduction)
