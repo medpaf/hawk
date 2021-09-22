@@ -33,7 +33,7 @@ The necessary packages are:
 - scapy (using pip3)
 - selenium (using pip3)
 
-To run the program simply run the `medsec.py` file using python. Running the script as root is recommended for better performance and to avoid permission errors. The used command is the following:
+After the installation, to run the program, simply navigate to the project's directory and run the `medsec.py` file using python. Running the script as root is recommended for better performance and to avoid permission errors. The used command is the following:
 ```
 sudo python3 medsec.py
 ```
