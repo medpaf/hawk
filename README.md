@@ -16,12 +16,13 @@ Other features are still being implemented. Future implementations may include W
 
 # Installation
 
-To install the necessary packages so that the script can run withouth any problems simply run the `setup.sh` script with root privileges. Currently, this installation script is only supported on debian-based distros that has the apt package manager. If you are using any other Linux distro with a different package manager, please install the packages manually using your distro's package manager. Depending on the specific distro used, some of the required packages to run this script might be already installed on your machine. On most systems, to install medsec simply run the following commands:
+To install the necessary packages so that the script can run withouth any problems simply run the `setup.sh` script with root privileges. Currently, this installation script is only supported on debian-based distros that has the apt package manager. On most systems, to install medsec simply run the following commands:
 ```
 git clone https://github.com/medpaf/medsec.git
 cd medsec
 sudo . setup.sh
 ```
+However, if you are using any other Linux distro with a different package manager, please install the packages manually using your distro's package manager. Depending on the specific distro used, some of the required packages to run this script might be already installed on your machine.
 The necessary packages are:
 - nmap (using your system's package manager)
 - traceroute (using your system's package manager)
@@ -32,4 +33,7 @@ The necessary packages are:
 - scapy (using pip3)
 - selenium (using pip3)
 
-To run the program simply run the `medsec.py` file using python. Running the script as root is recommended for better performance and to avoid permission errors.
+To run the program simply run the `medsec.py` file using python. Running the script as root is recommended for better performance and to avoid permission errors. The used command is the following:
+'''
+sudo python3 medsec.py
+'''
