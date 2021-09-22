@@ -98,7 +98,7 @@ To perform banner grabbing, depending on your specific needs, type one of the fo
 ![grab](https://user-images.githubusercontent.com/61552222/134312366-3548a436-7462-4e3a-8304-dc2befb74c3a.png)
 
 ### DNS checks (with geolocation information)
-This feature is similar to the well known ns lookup. If you want to do a DNS check, type the following:
+This feature is similar to the well known `nslookup` command. If you want to do a DNS check, type the following:
 ```
 -ns [HOST(s)]
 ```
