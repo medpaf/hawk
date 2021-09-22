@@ -13,6 +13,7 @@
     - [ifconfig](#ifconfig)
     - [ping](#ping)
     - [traceroute](#traceroute)
+    - [DDOS (beta)](#ddos--beta-)
 
 ## Introduction
 
