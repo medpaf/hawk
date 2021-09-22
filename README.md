@@ -3,8 +3,8 @@
 ![Screenshot from 2021-08-21 10-45-59](https://user-images.githubusercontent.com/61552222/131221155-334eea00-10e1-465c-9017-9cccc2991473.png)
 
 ## Table of Contents  
-[Instroduction](### Introduction)  
-[Installation](### Installation)  
+[Instroduction](###Introduction)  
+[Installation](###Installation)  
    
 <a name="headers"/>
 
