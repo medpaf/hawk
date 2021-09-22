@@ -3,17 +3,17 @@
 ![demo2](https://user-images.githubusercontent.com/61552222/134327486-753f4281-fae1-4262-89ef-087c19c8e46a.gif)
 
 ## Table of contents
-- [Introduction](#introduction)
-- [Installation](#installation)
-- [How to use](#how-to-use)
-  * [Scanning ports](#scanning-ports)
-  * [Host discovery (scan for devices on a local network)](#host-discovery)
-  * [Banner grabbing](#banner-grabbing)
-  * [DNS checks (with geolocation information)](#dns-checks)
-  * [ifconfig](#ifconfig)
-  * [ping](#ping)
-  * [traceroute](#traceroute)
-  * [DDOS (beta)](#ddos)
++ [Introduction](#introduction)
++ [Installation](#installation)
++ [How to use](#how-to-use)
+  - [Scanning ports](#scanning-ports)
+  - [Host discovery (scan for devices on a local network)](#host-discovery)
+  - [Banner grabbing](#banner-grabbing)
+  - [DNS checks (with geolocation information)](#dns-checks)
+  - [ifconfig](#ifconfig)
+  - [ping](#ping)
+  - [traceroute](#traceroute)
+  - [DDOS (beta)](#ddos)
 
 ## Introduction
 
