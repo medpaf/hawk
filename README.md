@@ -43,7 +43,8 @@ sudo python3 medsec.py
 -scan -host [HOST(S)]
 ```
 ### Host discovery
-```-scanlocal
+```
+-scanlocal
 ```
 ### Banner grabbing
 ```
