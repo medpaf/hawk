@@ -88,9 +88,9 @@ def handleScan(scantype):
                         for i in range(0, len(args['host'])):
                                 scan(nsconv(args['host'][i]), args['host'][i], args['prange'][0], args['prange'][1], f'{scantype}')
                 else:
-                        print('Please type the command correctly. Examples: \n \t -scansyn -host [HOST(s)] \n \t -scansyn -host [HOST(s)] -p [PORT(s)] \n \t -scansyn -host [HOST(s)] -prange [PORT RANGE] \n \t -scansyn -iprange [IP RANGE] -p [PORT(S)] \n \t -scansyn -iprange [IP RANGE] -prange [PORT RANGE]')
+                        print('Please type the command correctly. Examples: \n \t -scan -host [HOST(s)] \n \t -scan -host [HOST(s)] -p [PORT(s)] \n \t -scan -host [HOST(s)] -prange [PORT RANGE] \n \t -scan -iprange [IP RANGE] -p [PORT(S)] \n \t -scan -iprange [IP RANGE] -prange [PORT RANGE]')
         else:
-                print('Please specify the host(s) (or IP range) to scan and port(s) (or port range). Examples: \n \t -scansyn -host [HOST(s)] \n \t -scansyn -host [HOST(s)] -p [PORT(s)] \n \t -scansyn -host [HOST(s)] -prange [PORT RANGE] \n \t -scansyn -iprange [IP RANGE] -p [PORT(S)] \n \t -scansyn -iprange [IP RANGE] -prange [PORT RANGE]') 
+                print('Please specify the host(s) (or IP range) to scan and port(s) (or port range). Examples: \n \t -scan -host [HOST(s)] \n \t -scan -host [HOST(s)] -p [PORT(s)] \n \t -scan -host [HOST(s)] -prange [PORT RANGE] \n \t -scan -iprange [IP RANGE] -p [PORT(S)] \n \t -scan -iprange [IP RANGE] -prange [PORT RANGE]') 
 
 # Save output file
 if args['s']:

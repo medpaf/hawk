@@ -40,9 +40,21 @@ sudo python3 medsec.py
 ## How to use
 ### Scanning hosts
 ```
--scan -host [HOST(S)]
+-scan -host [HOST(s)] 
 ```
-### Host discovery
+```
+-scan -host [HOST(s)] -p [PORT(s)] 
+```
+```
+-scan -host [HOST(s)] -prange [PORT RANGE] 
+```
+```
+-scan -iprange [IP RANGE] -p [PORT(S)] 
+```
+```
+-scan -iprange [IP RANGE] -prange [PORT RANGE]
+```
+### Host discovery (scan for devices on a local network)
 ```
 -scanlocal
 ```
@@ -59,7 +71,7 @@ sudo python3 medsec.py
 ```
 -grab -iprange [START IP] [END IP] -p [PORT]
 ```
-### DNS checks
+### DNS checks (with geolocation information)
 ```
 -ns [HOST(s)]
 ```
