@@ -7,13 +7,13 @@
 - [Installation](#installation)
 - [How to use](#how-to-use)
   * [Scanning ports](#scanning-ports)
-  * [Host discovery (scan for devices on a local network)](#host-discovery--scan-for-devices-on-a-local-network-)
+  * [Host discovery (scan for devices on a local network)](#host-discovery)
   * [Banner grabbing](#banner-grabbing)
-  * [DNS checks (with geolocation information)](#dns-checks--with-geolocation-information-)
+  * [DNS checks (with geolocation information)](#dns-checks)
   * [ifconfig](#ifconfig)
   * [ping](#ping)
   * [traceroute](#traceroute)
-  * [DDOS (beta)](#ddos--beta-)
+  * [DDOS (beta)](#ddos)
 
 ## Introduction
 
@@ -73,7 +73,7 @@ Multiple scan types are supported, including SYN (`-scansyn`), TCP (`-scantcp`),
 
 ![scan](https://user-images.githubusercontent.com/61552222/134312220-9bfbfd14-aaed-411b-8299-0169f7fefbf9.png)
 
-### Host discovery (scan for devices on a local network)
+### Host discovery
 To look for current up devices on a given network type the following command:
 ```
 -scanlocal
@@ -98,7 +98,7 @@ To perform banner grabbing, depending on your specific needs, type one of the fo
 
 ![grab](https://user-images.githubusercontent.com/61552222/134312366-3548a436-7462-4e3a-8304-dc2befb74c3a.png)
 
-### DNS checks (with geolocation information)
+### DNS checks
 This feature is similar to the well known `nslookup` command used on UNIX systems. If you want to do a DNS check, type the following:
 ```
 -ns [HOST(s)]
@@ -130,7 +130,7 @@ To diagnose route paths and measure transit delays, use the `-traceroute` comman
 
 ![traceroute](https://user-images.githubusercontent.com/61552222/134312735-7f185efd-4264-4fbb-96d8-91a053d0ff6e.png)
 
-### DDOS (beta)
+### DDOS
 Note that this command only works on machines with unpached vulnerabilities. To performe Distributed Denial of Service on a host's specific port, use the following command:
 ```
 -ddos -host [HOST] -p [PORT]
