@@ -46,13 +46,13 @@ sudo python3 medsec.py
 -scan -host [HOST(s)] -p [PORT(s)] 
 ```
 ```
--scan -host [HOST(s)] -prange [PORT RANGE] 
+-scan -host [HOST(s)] -prange [START PORT] [END PORT] 
 ```
 ```
--scan -iprange [IP RANGE] -p [PORT(S)] 
+-scan -iprange [START IP] [END IP] -p [PORT(S)] 
 ```
 ```
--scan -iprange [IP RANGE] -prange [PORT RANGE]
+-scan -iprange [START IP] [END IP] -prange [START PORT] [END PORT]
 ```
 ### Host discovery (scan for devices on a local network)
 ```
