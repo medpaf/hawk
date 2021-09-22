@@ -59,3 +59,7 @@ sudo python3 medsec.py
 ```
 -grab -iprange [START IP] [END IP] -p [PORT]
 ```
+### DNS checks
+```
+-ns [HOST(s)]
+```

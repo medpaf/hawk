@@ -105,7 +105,7 @@ if args['s']:
 elif args['ifconfig']:
         ifconfig()
 
-# Check IP address of a website
+# DNS check (check IP address of a website)
 elif args['ns']:
         for i in range(0, len(args['ns'])):
                 ns(args['ns'][i])
