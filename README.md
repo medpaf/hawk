@@ -2,14 +2,14 @@
 
 ![Screenshot from 2021-08-21 10-45-59](https://user-images.githubusercontent.com/61552222/131221155-334eea00-10e1-465c-9017-9cccc2991473.png)
 
-##### Table of Contents  
-[Headers](#headers)  
-[Emphasis](#emphasis)  
-...snip...    
+## Table of Contents  
+[Headers](###headers)  
+[Emphasis](####emphasis)  
+   
 <a name="headers"/>
-## Headers
 
-## Introduction
+
+### Introduction
 
 This is a network utility tool that I developed to perform some network and security administrator tasks. Currently, this script can perform a good variety of tasks such as:
 - Port scans, including SYN, TCP, UDP, ACK, comprehensive scan;
@@ -23,7 +23,7 @@ This is a network utility tool that I developed to perform some network and secu
 
 Other features are still being implemented. Future implementations may include WAP (web application firewall) detection, vulnerability reconnaissance, static code analysis, traffic analysis, offensive tasks such as packet sniffing, ARP poisoning, exploits, some automated tasks and others.
 
-## Installation
+### Installation
 
 To install the necessary packages so that the script can run withouth any problems simply run the `setup.sh` script with root privileges. Currently, this installation script is only supported on debian-based distros that has the apt package manager. On most systems, to install medsec simply run the following commands:
 ```
@@ -46,8 +46,8 @@ After the installation, to run the program, simply navigate to the project's dir
 ```
 sudo python3 medsec.py
 ```
-## How to use
-### Scanning hosts
+### How to use
+#### Scanning hosts
 ```
 -scan -host [HOST(s)] 
 ```
@@ -63,11 +63,11 @@ sudo python3 medsec.py
 ```
 -scan -iprange [START IP] [END IP] -prange [START PORT] [END PORT]
 ```
-### Host discovery (scan for devices on a local network)
+#### Host discovery (scan for devices on a local network)
 ```
 -scanlocal
 ```
-### Banner grabbing
+#### Banner grabbing
 ```
 -grab -host [HOST(s)] -p [PORT(s)]
 ```
@@ -80,19 +80,19 @@ sudo python3 medsec.py
 ```
 -grab -iprange [START IP] [END IP] -p [PORT(s)]
 ```
-### DNS checks (with geolocation information)
+#### DNS checks (with geolocation information)
 ```
 -ns [HOST(s)]
 ```
-### ifconfig
+#### ifconfig
 ```
 -ifconfig
 ```
-### ping
+#### ping
 ```
 -ping [HOST]
 ```
-### traceroute
+#### traceroute
 ```
 -traceroute [HOST]
 ```
