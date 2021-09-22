@@ -55,85 +55,72 @@ sudo python3 medsec.py
 ## How to use
 ### Scanning ports
 Multiple scan types are supported, including SYN (`-scansyn`), TCP (`-scantcp`), UDP (`-scanudp`), ACK (`-scanack`) and comprehensive scan (`-scan`).
-```
--scan -host [HOST(s)] 
-```
-```
--scan -host [HOST(s)] -p [PORT(s)] 
-```
-```
--scan -host [HOST(s)] -prange [START PORT] [END PORT] 
-```
-```
--scan -iprange [START IP] [END IP] -p [PORT(s)] 
-```
-```
--scan -iprange [START IP] [END IP] -prange [START PORT] [END PORT]
-```
+
+`-scan -host [HOST(s)]`
+
+`-scan -host [HOST(s)] -p [PORT(s)]`
+
+`-scan -host [HOST(s)] -prange [START PORT] [END PORT]`
+
+`-scan -iprange [START IP] [END IP] -p [PORT(s)]`
+
+`-scan -iprange [START IP] [END IP] -prange [START PORT] [END PORT]`
 
 ![scan](https://user-images.githubusercontent.com/61552222/134312220-9bfbfd14-aaed-411b-8299-0169f7fefbf9.png)
-After this scan, it is possible to see that both 22 and 80 ports are open.
+After this scan, it is possible to see that both 22 (SSH) and 80 (HTTP) ports are open.
 
 ### Host discovery
 To look for current up devices on a given network type the following command:
-```
--scanlocal
-```
+
+`-scanlocal`
+
 Then type the network you want to scan.
 ![host-disc](https://user-images.githubusercontent.com/61552222/134312276-2e18c1cb-2c18-4239-b44e-21fc78b9fe78.png)
 
 ### Banner grabbing
 To perform banner grabbing, depending on your specific needs, type one of the following commands:
-```
--grab -host [HOST(s)] -p [PORT(s)]
-```
-```
--grab -iprange [START IP] [END IP] -prange [START PORT] [END PORT]
-```
-```
--grab -host [HOST(s)] -prange [START PORT] [END PORT]
-```
-```
--grab -iprange [START IP] [END IP] -p [PORT(s)]
-```
+
+`-grab -host [HOST(s)] -p [PORT(s)]`
+
+`-grab -iprange [START IP] [END IP] -prange [START PORT] [END PORT]`
+
+`-grab -host [HOST(s)] -prange [START PORT] [END PORT]`
+
+`-grab -iprange [START IP] [END IP] -p [PORT(s)`
 
 ![grab](https://user-images.githubusercontent.com/61552222/134312366-3548a436-7462-4e3a-8304-dc2befb74c3a.png)
 
 ### DNS checks
 This feature is similar to the well known `nslookup` command used on UNIX systems. If you want to do a DNS check, type the following:
-```
--ns [HOST(s)]
-```
+
+`-ns [HOST(s)]`
 
 ![dns](https://user-images.githubusercontent.com/61552222/134312444-fe74ff4a-76d1-4bef-9093-e83cdebe50e6.png)
 
 ### ifconfig
 If you want to display your system's current TCP/IP network configuration, type the following command:
-```
--ifconfig
-```
+
+`-ifconfig`
 
 ![ifconfig](https://user-images.githubusercontent.com/61552222/134312657-b7262736-0ae0-4a39-bb72-c6dc0bc6869b.png)
 
 ### ping
 To send ICMP packets to a host to check connectivity, simply type:
-```
--ping [HOST]
-```
+
+`-ping [HOST]`
 
 ![ping](https://user-images.githubusercontent.com/61552222/134312705-9e7237c1-dfe4-470b-9b35-f9560884d039.png)
 
 ### traceroute
 To diagnose route paths and measure transit delays, use the `-traceroute` command:
-```
--traceroute [HOST]
-```
+
+`-traceroute [HOST]`
 
 ![traceroute](https://user-images.githubusercontent.com/61552222/134312735-7f185efd-4264-4fbb-96d8-91a053d0ff6e.png)
 
 ### DDOS
 Note that this command only works on machines with unpached vulnerabilities. To performe Distributed Denial of Service on a host's specific port, use the following command:
-```
--ddos -host [HOST] -p [PORT]
-```
+
+`-ddos -host [HOST] -p [PORT]`
+
 Disclaimer: Please only use this for testing purposes and target your own machines.
