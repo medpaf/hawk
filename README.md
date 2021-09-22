@@ -72,6 +72,7 @@ Multiple scan types are supported, including SYN (`-scansyn`), TCP (`-scantcp`),
 ```
 
 ![scan](https://user-images.githubusercontent.com/61552222/134312220-9bfbfd14-aaed-411b-8299-0169f7fefbf9.png)
+After this scan, it is possible to see that both 22 and 80 ports are open.
 
 ### Host discovery
 To look for current up devices on a given network type the following command:
