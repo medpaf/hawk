@@ -31,6 +31,10 @@ Other features are still being implemented. Future implementations may include W
 
 ## Installation
 
+Note that currently, this script can only run on Linux.
+
+### Linux
+
 To install the necessary packages so that the script can run withouth any problems simply run the `setup.sh` script with root privileges. Currently, this installation script is only supported on debian-based distros that has the apt package manager. On most systems, to install medsec simply run the following commands:
 ```
 git clone https://github.com/medpaf/medsec.git
