@@ -5,6 +5,7 @@
 ## Contents
 + [Introduction](#introduction)
 + [Installation](#installation)
+  - [Linux](#linux)
 + [How to use](#how-to-use)
   - [Scanning ports](#scanning-ports)
   - [Host discovery (scan for devices on a local network)](#host-discovery)
