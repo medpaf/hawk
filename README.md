@@ -30,7 +30,7 @@ This is a network utility tool that I developed to perform some network and secu
 - DDOS (beta);
 - Packet sniffing (beta).
 
-Other features are still being implemented. Future implementations may include WAP (web application firewall) detection, vulnerability reconnaissance, static code analysis, traffic analysis, offensive tasks such as packet sniffing, ARP poisoning, exploits, some automated tasks and others.
+Other features are still being implemented. Future implementations may include WAP (web application firewall) detection, vulnerability reconnaissance, static code analysis, traffic analysis, ARP poisoning, exploits, some automated tasks and others.
 
 ## Installation
 
