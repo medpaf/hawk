@@ -6,7 +6,6 @@ sudo pip3 install python-nmap
 sudo pip3 install colorama
 sudo pip3 install ipinfo
 sudo pip3 install scapy
-sudo pip3 install selenium
 
 # Add main .py file to the system path (later)
 #cp *.py /usr/bin
