@@ -201,4 +201,6 @@ elif args['sniff']:
         sniff()
 
 else:
-        print("Please, type the command correctly. For additional help, type '-h'.") 
+        # if arguments are present
+        if len(sys.argv) > 1:
+                print("Please, type the command correctly. For additional help, type '-h'.") 

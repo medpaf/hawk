@@ -15,6 +15,7 @@
   - [ping](#ping)
   - [traceroute](#traceroute)
   - [DDOS (beta)](#ddos)
+  - [Packet sniffing (beta)](#packet-sniffing)
 
 ## Introduction
 
@@ -26,7 +27,8 @@ This is a network utility tool that I developed to perform some network and secu
 - ifconfig;
 - ping;
 - traceroute;
-- DDOS (still in beta).
+- DDOS (beta);
+- Packet sniffing (beta).
 
 Other features are still being implemented. Future implementations may include WAP (web application firewall) detection, vulnerability reconnaissance, static code analysis, traffic analysis, offensive tasks such as packet sniffing, ARP poisoning, exploits, some automated tasks and others.
 
@@ -51,7 +53,6 @@ The necessary packages are:
 - colorama (using pip3)
 - ipinfo (using pip3)
 - scapy (using pip3)
-- selenium (using pip3)
 
 After the installation, to run the program, simply navigate to the project's directory and run the `medsec.py` file using python. Running the script as root is recommended for better performance and to avoid permission errors. The used command is the following:
 ```
@@ -129,3 +130,12 @@ Note that this command only works on machines with unpached vulnerabilities. To 
 `-ddos -host [HOST] -p [PORT]`
 
 Disclaimer: Please only use this for testing purposes and target your own machines.
+
+### Packet sniffing
+To perform packet sniffing, type:
+
+`-sniff`
+
+![anim sniff](https://user-images.githubusercontent.com/61552222/135460586-240e23e0-783a-4fc8-a088-1e15a0b9af3d.gif)
+
+
