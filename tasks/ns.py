@@ -1,11 +1,9 @@
 import socket
 import sys
 import ipinfo
-from extras import printcolor
 
 token = '8d53c2357c2a13'
 handler = ipinfo.getHandler(token)
-
 
 def ns(str):
     try:
@@ -14,7 +12,7 @@ def ns(str):
         details = handler.getDetails(addr)
     except:
         e = sys.exc_info()[1]
-        printcolor('RED', f'{e}')
+        print(f'{e}')
     else:
         print(f'Name: {name}')
         print(f'Address: {addr}')
@@ -31,6 +29,14 @@ def nsconv(str):
         return socket.gethostbyname(str)
     except:
         e = sys.exc_info()[1]
-        printcolor('RED', f'{e}')
+        print(f'{e}')
         sys.exit(1)
-        
+
+# Function to return an IP address URL:
+def nsconvurl(str):
+    try:
+        return socket.gethostbyaddr(str)
+    except:
+        e = sys.exc_info()[1]
+        print(f'{e}')
+        sys.exit(1)
