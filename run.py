@@ -194,7 +194,7 @@ elif args['ddos']:
                 if args['p'] and len(args['p']) == 1:
                         ddos(nsconv(args['host'][0]), int(args['p'][0])) ### BETA, target is 45.33.32.156, need to fix keyboardinterrupt exception
                 else:
-                        print('Please type the command correctly. You can only attack one host and one port at a time. Examples: \n \t -ddos -host [TARGET] -p [PORT]')
+                        print('Please type the command correctly. You can only attack one host and one port at a time.\nExamples:\n \t -ddos -host [TARGET] -p [PORT]')
 
 # Packet sniffing
 elif args['sniff']:

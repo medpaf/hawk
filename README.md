@@ -129,7 +129,9 @@ Note that this command only works on machines with unpached vulnerabilities. To 
 
 `-ddos -host [HOST] -p [PORT]`
 
-Disclaimer: Please only use this for testing purposes and target your own machines.
+![anim ddos](https://user-images.githubusercontent.com/61552222/135481491-a24e689c-ba4b-4eb4-933b-2be9c85fcddb.gif)
+
+**Disclaimer**: Please only use this for testing purposes and target your own machines.
 
 ### Packet sniffing
 To perform packet sniffing, type:
