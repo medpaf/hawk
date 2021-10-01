@@ -11,8 +11,7 @@ from tasks.banner import bannerWithPort
 from tasks.scan import scanStatus, scan, scanWithPort, scanLocalDevices
 from tasks.sniff import sniff
 from tasks.save import save
-
-from tasks.offense.ddos import ddos
+from tasks.offense.spoof import spoof
  
 ap = argparse.ArgumentParser(description='MedSec Tool', formatter_class=argparse.RawDescriptionHelpFormatter,
 epilog=textwrap.dedent('''
@@ -24,7 +23,7 @@ Examples:
         -ifconfig www.medpaf.github.io
         -ping www.medpaf.github.io
         -traceroute www.medpaf.github.io
-        -ddos -host scanme.nmap.org -p 443
+        -spoof -host scanme.nmap.org -p 443
         -sniff
         
 '''))
@@ -67,7 +66,7 @@ ap.add_argument('-scanlocal', action = 'store_true',
         help = 'perform scan to detect local devices')
 ap.add_argument('-grab', action = 'store_true',
         help = 'perform banner grabbing')
-ap.add_argument('-ddos', action = 'store_true',
+ap.add_argument('-spoof', action = 'store_true',
         help = 'perform DDOS attack on a target')
 ap.add_argument('-sniff', action = 'store_true',
         help = 'perform packet sniffing (root privileges needed)')
@@ -96,9 +95,9 @@ def handleScan(scantype):
                         for i in range(0, len(args['host'])):
                                 scan(nsconv(args['host'][i]), args['host'][i], args['prange'][0], args['prange'][1], f'{scantype}')
                 else:
-                        print('Please type the command correctly. Examples: \n \t -scan -host [HOST(s)] \n \t -scan -host [HOST(s)] -p [PORT(s)] \n \t -scan -host [HOST(s)] -prange [PORT RANGE] \n \t -scan -iprange [IP RANGE] -p [PORT(S)] \n \t -scan -iprange [IP RANGE] -prange [PORT RANGE]')
+                        print('Please type the command correctly. Examples: \n \t -scan -host [HOST(s)] \n \t -scan -host [HOST(s)] -p [PORT(s)] \n \t -scan -host [HOST(s)] -prange [START PORT] [END PORT] \n \t -scan -iprange [START IP] [END IP] -p [PORT(S)] \n \t -scan -iprange [START IP] [END IP] -prange [START PORT] [END PORT]')
         else:
-                print('Please specify the host(s) (or IP range) to scan and port(s) (or port range). Examples: \n \t -scan -host [HOST(s)] \n \t -scan -host [HOST(s)] -p [PORT(s)] \n \t -scan -host [HOST(s)] -prange [PORT RANGE] \n \t -scan -iprange [IP RANGE] -p [PORT(S)] \n \t -scan -iprange [IP RANGE] -prange [PORT RANGE]') 
+                print('Please specify the host(s) (or IP range) to scan and port(s) (or port range). Examples: \n \t -scan -host [HOST(s)] \n \t -scan -host [HOST(s)] -p [PORT(s)] \n \t -scan -host [HOST(s)] -prange [START PORT] [END PORT] \n \t -scan -iprange [START IP] [END IP] -p [PORT(S)] \n \t -scan -iprange [START IP] [END IP] -prange [START PORT] [END PORT]') 
 
 # Save output file
 if args['s']:
@@ -168,7 +167,7 @@ elif args['grab']:
                                 for j in range(args['prange'][0], args['prange'][1] + 1):
                                         bannerWithPort(nsconv(args['host'][i]), j)
                 else:
-                        print('Please type the command correctly. Examples: \n \t -grab -host [HOST(s)] -p [PORT(s)] \n \t -grab -iprange [IP RANGE] -prange [PORT RANGE] \n \t -grab -host [HOST(s)] -prange [PORT RANGE] \n \t -grab -iprange [IP RANGE] -p [PORT]')
+                        print('Please type the command correctly. Examples: \n \t -grab -host [HOST(s)] -p [PORT(s)] \n \t -grab -iprange [START IP] [END IP] -prange [START PORT] [END PORT] \n \t -grab -host [HOST(s)] -prange [START PORT] [END PORT] \n \t -grab -iprange [START IP] [END IP] -p [PORT]')
         
         elif args['iprange']:
 
@@ -184,17 +183,17 @@ elif args['grab']:
                                 for j in range(args['prange'][0], args['prange'][1] + 1):
                                         bannerWithPort(ipaddress.IPv4Address(ip_int), j) 
                 else:
-                        print('Please type the command correctly. Examples: \n \t -grab -host [HOST(s)] -p [PORT(s)] \n \t -grab -iprange [IP RANGE] -prange [PORT RANGE] \n \t -grab -host [HOST(s)] -prange [PORT RANGE] \n \t -grab -iprange [IP RANGE] -p [PORT]')
+                        print('Please type the command correctly. Examples: \n \t -grab -host [HOST(s)] -p [PORT(s)] \n \t -grab -iprange [START IP] [END IP] -prange [START PORT] [END PORT] \n \t -grab -host [HOST(s)] -prange [START PORT] [END PORT] \n \t -grab -iprange [START IP] [END IP] -p [PORT]')
         else:
-                print('Please specify the host (or IP range) and port(s) (or port range). Examples: \n \t -grab -host [HOST(s)] -p [PORT(s)] \n \t -grab -iprange [IP RANGE] -prange [PORT RANGE] \n \t -grab -host [HOST(s)] -prange [PORT RANGE] \n \t -grab -iprange [IP RANGE] -p [PORT(s)]')
+                print('Please type the command correctly. Examples: \n \t -grab -host [HOST(s)] -p [PORT(s)] \n \t -grab -iprange [START IP] [END IP] -prange [START PORT] [END PORT] \n \t -grab -host [HOST(s)] -prange [START PORT] [END PORT] \n \t -grab -iprange [START IP] [END IP] -p [PORT]')
 # DDOS attack
-elif args['ddos']:
+elif args['spoof']:
 
         if args['host']:
                 if args['p'] and len(args['p']) == 1:
-                        ddos(nsconv(args['host'][0]), int(args['p'][0])) ### BETA, target is 45.33.32.156, need to fix keyboardinterrupt exception
+                        spoof(nsconv(args['host'][0]), int(args['p'][0])) ### BETA, target is 45.33.32.156, need to fix keyboardinterrupt exception
                 else:
-                        print('Please type the command correctly. You can only attack one host and one port at a time.\nExamples:\n \t -ddos -host [TARGET] -p [PORT]')
+                        print('Please type the command correctly. You can only attack one host and one port at a time. Examples: \n \t -ddos -host [TARGET] -p [PORT]')
 
 # Packet sniffing
 elif args['sniff']:
