@@ -14,7 +14,7 @@
   - [ifconfig](#ifconfig)
   - [ping](#ping)
   - [traceroute](#traceroute)
-  - [DDOS (beta)](#ddos)
+  - [IP spoofing (beta)](#ip-spoofing)
   - [Packet sniffing (beta)](#packet-sniffing)
 
 ## Introduction
@@ -27,7 +27,7 @@ This is a network utility tool that I developed to perform some network and secu
 - ifconfig;
 - ping;
 - traceroute;
-- DDOS (beta);
+- IP spoofing (beta);
 - Packet sniffing (beta).
 
 Other features are still being implemented. Future implementations may include WAP (web application firewall) detection, vulnerability reconnaissance, static code analysis, traffic analysis, ARP poisoning, exploits, some automated tasks and others.
@@ -124,7 +124,7 @@ To diagnose route paths and measure transit delays, use the `-traceroute` comman
 
 ![traceroute](https://user-images.githubusercontent.com/61552222/134312735-7f185efd-4264-4fbb-96d8-91a053d0ff6e.png)
 
-### DDOS
+### IP spoofing
 Note that this command only works on machines with unpached vulnerabilities. To performe Distributed Denial of Service on a host's specific port, use the following command:
 
 `-ddos -host [HOST] -p [PORT]`
