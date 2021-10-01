@@ -38,7 +38,7 @@ Note that currently, this script can only run well on Linux. If you try it in on
 
 ### Linux
 
-To install the necessary packages so that the script can run withouth any problems simply run the `setup.sh` script with root privileges. Currently, this installation script is only supported on debian-based distros that has the apt package manager. On most systems, to install medsec simply run the following commands:
+To install the necessary packages so that the script can run withouth any problems simply run the `setup.sh` script with root privileges. Currently, this installation script is only supported on debian-based distros that has the apt package manager (Ubuntu, Kali, Parrot, Debian, PopOS, Mint, etc). On most systems, to install medsec simply run the following commands:
 ```
 git clone https://github.com/medpaf/medsec.git
 cd medsec
@@ -127,7 +127,7 @@ To diagnose route paths and measure transit delays, use the `-traceroute` comman
 ### IP spoofing
 Note that this command only works on machines with unpached vulnerabilities. To performe IP spoofing on a host's specific port, use the following command:
 
-`-ddos -host [HOST] -p [PORT]`
+`-spoof -host [HOST] -p [PORT]`
 
 ![anim ddos](https://user-images.githubusercontent.com/61552222/135481491-a24e689c-ba4b-4eb4-933b-2be9c85fcddb.gif)
 
