@@ -127,7 +127,7 @@ To diagnose route paths and measure transit delays, use the `-traceroute` comman
 ### IP spoofing
 Note that this command only works on machines with unpached vulnerabilities. To performe IP spoofing on a host's specific port, use the following command:
 
-`-ddos -host [HOST] -p [PORT]`
+`-spoof -host [HOST] -p [PORT]`
 
 ![anim ddos](https://user-images.githubusercontent.com/61552222/135481491-a24e689c-ba4b-4eb4-933b-2be9c85fcddb.gif)
 
