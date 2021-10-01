@@ -92,7 +92,7 @@ To perform banner grabbing, depending on your specific needs, type one of the fo
 
 `-grab -host [HOST(s)] -prange [START PORT] [END PORT]`
 
-`-grab -iprange [START IP] [END IP] -p [PORT(s)`
+`-grab -iprange [START IP] [END IP] -p [PORT(s)]`
 
 ![grab](https://user-images.githubusercontent.com/61552222/134312366-3548a436-7462-4e3a-8304-dc2befb74c3a.png)
 
