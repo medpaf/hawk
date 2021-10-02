@@ -8,11 +8,22 @@
 [![Followes](https://img.shields.io/github/followers/medpaf?style=social)]()
 
 This is a network utility tool that I developed to perform some network and security administrator tasks. 
+Currently, this script can perform a good variety of tasks such as:
+- Port scans, including SYN, TCP, UDP, ACK, comprehensive scan;
+- Host discovery (scan for up devices on a local network);
+- Banner grabbing;
+- DNS checks with geolocation information;
+- ifconfig;
+- ping;
+- traceroute;
+- IP spoofing (beta);
+- Packet sniffing (beta).
+
+Other features are still being implemented. Future implementations may include WAP (web application firewall) detection, vulnerability reconnaissance, static code analysis, traffic analysis, ARP poisoning, exploits, some automated tasks and others.
 
 ![demo2](https://user-images.githubusercontent.com/61552222/134327486-753f4281-fae1-4262-89ef-087c19c8e46a.gif)
 
 ## Contents
-+ [Introduction](#introduction)
 + [Installation](#installation)
   - [Linux](#linux)
 + [How to use](#how-to-use)
@@ -27,21 +38,6 @@ This is a network utility tool that I developed to perform some network and secu
   - [Packet sniffing (beta)](#packet-sniffing)
 + [Contribution](#contribution)
 + [License](#license)
-
-## Introduction
-
-Currently, this script can perform a good variety of tasks such as:
-- Port scans, including SYN, TCP, UDP, ACK, comprehensive scan;
-- Host discovery (scan for up devices on a local network);
-- Banner grabbing;
-- DNS checks with geolocation information;
-- ifconfig;
-- ping;
-- traceroute;
-- IP spoofing (beta);
-- Packet sniffing (beta).
-
-Other features are still being implemented. Future implementations may include WAP (web application firewall) detection, vulnerability reconnaissance, static code analysis, traffic analysis, ARP poisoning, exploits, some automated tasks and others.
 
 ## Installation
 
