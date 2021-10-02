@@ -59,6 +59,7 @@ The necessary packages are:
 - nmap (using your system's package manager)
 - traceroute (using your system's package manager)
 - python3-pip (using your system's package manager)
+- requests (using pip3)
 - python-nmap (using pip3)
 - colorama (using pip3)
 - ipinfo (using pip3)
