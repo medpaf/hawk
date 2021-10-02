@@ -1,4 +1,4 @@
-# [MedSec](https://github.com/medpaf/medsec)
+# MedSec
 
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
 [![Stars](https://img.shields.io/github/stars/medpaf/medsec.svg)]()
@@ -10,7 +10,7 @@
 
 ![tem(1)](https://user-images.githubusercontent.com/61552222/135713734-93ac0416-0a67-4a7e-aeb2-7ee70dc7d103.png)
 
-This is a network utility tool that I developed to perform some network and security administrator tasks. 
+MedSec is a network utility tool that I developed to perform some network, security administrator and pentesting tasks. 
 Currently, this script can perform a good variety of tasks such as:
 - Port scans, including SYN, TCP, UDP, ACK, comprehensive scan;
 - Host discovery (scan for up devices on a local network);
