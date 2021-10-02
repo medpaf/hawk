@@ -16,6 +16,8 @@
   - [traceroute](#traceroute)
   - [IP spoofing (beta)](#ip-spoofing)
   - [Packet sniffing (beta)](#packet-sniffing)
++ [Contribution](#contribution)
++ [License](#license)
 
 ## Introduction
 
