@@ -30,7 +30,6 @@ def scanSubdomains(domain):
         # Scanning of that subdomain complete
         q.task_done()
 
-
 def main(domain, threads, subdomains):
     global q
     print('Subdomain enumeration will start. Press CTRL-C to cancel.')
@@ -49,7 +48,6 @@ def main(domain, threads, subdomains):
             worker.start()
     except KeyboardInterrupt:
         sys.exit('^C')
-
 
 def sdenum(domain):
     wordlist = "tasks/files/subdomains.txt"
