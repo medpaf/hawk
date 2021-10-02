@@ -87,7 +87,7 @@ After this scan, it is possible to see that both 22 (SSH) and 80 (HTTP) ports ar
 ### Host discovery
 To look for current up devices on a given network type the following command:
 
-`-scanlocal`
+`-scanlan`
 
 Then type the network you want to scan.
 ![scanlan](https://user-images.githubusercontent.com/61552222/135727715-5cdc4533-b3ec-4122-90f7-1d8fa0c2da7d.png)
@@ -155,4 +155,5 @@ Create a issue or pull request, or send me an email at [pafmed@outlook.com](mail
 ## License
 
 This repository is under the [***MIT License***](https://opensource.org/licenses/MIT).
+
 
