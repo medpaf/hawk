@@ -1,5 +1,9 @@
 # MedSec
 
+[![Commits](https://img.shields.io/github/commits-since/medpaf/medsec/v1.svg)]()
+[![Stars](https://img.shields.io/github/stars/medpaf/medsec.svg)]()
+[![Forks](https://img.shields.io/github/forks/medpaf/medsec.svg)]()
+[![Mantained](https://img.shields.io/badge/Maintained%3F-yes-green.svg)]()
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ![demo2](https://user-images.githubusercontent.com/61552222/134327486-753f4281-fae1-4262-89ef-087c19c8e46a.gif)
