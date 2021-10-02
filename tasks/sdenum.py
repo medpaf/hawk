@@ -22,7 +22,7 @@ def scanSubdomains(domain):
         except KeyboardInterrupt:
             sys.exit()
         else:
-            print(f'[+] Discovered subdomain: {url}')
+            print(f'Discovered subdomain: {url}')
             # Add the subdomain to the global list
             with list_lock:
                 discovered_domains.append(url)
@@ -54,13 +54,16 @@ def sdenum(domain):
     threads = 6
     #output_file = args.output_file
 
-    main(domain=domain, threads=threads, subdomains=open(wordlist).read().splitlines())
-    q.join()
+    try:
+        main(domain=domain, threads=threads, subdomains=open(wordlist).read().splitlines())
+        q.join()
 
-    if len(discovered_domains) > 0:
-        print(f'\nScan completed. A total of {len(discovered_domains)} subdomains were discovered.')
-    else:
-        print(f'Scan completed. No subdomains were discovered.')
+        if len(discovered_domains) > 0:
+            print(f'\nScan completed. A total of {len(discovered_domains)} subdomains were discovered.')
+        else:
+            print(f'Scan completed. No subdomains were discovered.')
+    except KeyboardInterrupt:
+        sys.exit()
 
     # save the file
     # with open(output_file, "w") as f:

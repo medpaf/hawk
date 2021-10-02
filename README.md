@@ -92,6 +92,7 @@ To look for current up devices on a given network type the following command:
 `-scanlan`
 
 Then type the network you want to scan.
+
 ![scanlan](https://user-images.githubusercontent.com/61552222/135727715-5cdc4533-b3ec-4122-90f7-1d8fa0c2da7d.png)
 
 ### Banner grabbing
@@ -118,6 +119,8 @@ This feature is similar to the well known `nslookup` command used on UNIX system
 If you wish to look for common subdomains of a domain, simply type:
 
 `-sdenum [DOMAIN]`
+
+![sdenum](https://user-images.githubusercontent.com/61552222/135728177-e56869af-1b62-4ec9-a171-d37a29ae3bd8.png)
 
 ### ifconfig
 If you want to display your system's current TCP/IP network configuration, type the following command:
