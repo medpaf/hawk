@@ -16,11 +16,19 @@ Currently, this script can perform a good variety of tasks such as:
 - Host discovery (scan for up devices on a local network);
 - Banner grabbing;
 - DNS checks with geolocation information;
+<<<<<<< HEAD
 - ifconfig (beta);
 - ping (beta);
 - traceroute (beta);
 - IP spoofing;
 - Packet sniffing.
+=======
+- ifconfig;
+- ping;
+- traceroute;
+- IP spoofing (beta);
+- Packet sniffing (beta).
+>>>>>>> dc66d32309d2e8b2c17446218bfe0644679981f1
 
 Other features are still being implemented. Future implementations may include WAP (web application firewall) detection, vulnerability reconnaissance, static code analysis, traffic analysis, ARP poisoning, exploits, some automated tasks and others.
 
