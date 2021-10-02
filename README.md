@@ -4,6 +4,7 @@
 [![Forks](https://img.shields.io/github/forks/medpaf/medsec.svg)]()
 [![Size](https://img.shields.io/github/repo-size/medpaf/medsec)]()
 [![Mantained](https://img.shields.io/badge/Maintained%3F-yes-green.svg)]()
+[![Linux](https://svgshare.com/i/Zhy.svg)](https://svgshare.com/i/Zhy.svg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Followes](https://img.shields.io/github/followers/medpaf?style=social)]()
 
