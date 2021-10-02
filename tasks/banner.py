@@ -16,7 +16,7 @@ def bannerWithPort(host, port):
         
     except KeyboardInterrupt:
         sys.exit('\n')
-    except:
+    except Exception as e:
         e = sys.exc_info()[1]
         printcolor('RED', f'{e}\n')
     else:

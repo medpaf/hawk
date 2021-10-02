@@ -33,8 +33,8 @@ def scanSubdomains(domain):
 
 def main(domain, threads, subdomains):
     global q
+    print('Subdomain enumeration will start. Press CTRL-C to cancel.')
     printcolor('YELLOW', f'This might take a while. Looking for subdomains for {domain}...')
-
 
     # Fill the queue with all the subdomains
     try:

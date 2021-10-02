@@ -11,7 +11,7 @@ def ns(str):
         addr = socket.gethostbyname(str)
         name = socket.gethostbyaddr(str)
         details = handler.getDetails(addr)
-    except:
+    except Exception as e:
         e = sys.exc_info()[1]
         print(f'{e}')
     else:
