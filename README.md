@@ -90,7 +90,7 @@ To look for current up devices on a given network type the following command:
 `-scanlocal`
 
 Then type the network you want to scan.
-![host-disc](https://user-images.githubusercontent.com/61552222/134312276-2e18c1cb-2c18-4239-b44e-21fc78b9fe78.png)
+![scanlan](https://user-images.githubusercontent.com/61552222/135727715-5cdc4533-b3ec-4122-90f7-1d8fa0c2da7d.png)
 
 ### Banner grabbing
 To perform banner grabbing, depending on your specific needs, type one of the following commands:
