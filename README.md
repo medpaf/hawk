@@ -33,6 +33,7 @@ Other features are still being implemented. Future implementations may include W
   - [Host discovery (scan for devices on a local network)](#host-discovery)
   - [Banner grabbing](#banner-grabbing)
   - [DNS checks (with geolocation information)](#dns-checks)
+  - [Subdomain enumeration](#subdomain-enumeration)
   - [ifconfig (beta)](#ifconfig)
   - [ping (beta)](#ping)
   - [traceroute (beta)](#traceroute)
