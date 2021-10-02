@@ -30,7 +30,7 @@ def scan(str, inputed, prstart, prend, scantype):
     print('Scan will start. Press CTRL-C to cancel.') 
 
     try:
-        printcolor('YELLOW', f'Scanning {str}:{prstart}-{prend}') 
+        printcolor('YELLOW', f'Scanning {str}:{prstart}-{prend}...') 
         scanner.scan(str, f'{prstart}-{prend}', f'-v {scantype}')
     except KeyboardInterrupt: 
         sys.exit('\n^C\n')
@@ -84,7 +84,6 @@ def scanLocalDevices():
         e = sys.exc_info()[1]
         printcolor('RED', f'\n{e}')
     else:
-        #print(scanner._scan_result.items()) ###testing
         for host in scanner.all_hosts():
             if scanner[host]['status']['state'] == 'up':
                 print(f"{host}      \t\t {scanner[host]['vendor']}")

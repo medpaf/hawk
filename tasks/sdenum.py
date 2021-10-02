@@ -2,6 +2,7 @@ import requests
 import sys
 from threading import Thread, Lock
 from queue import Queue
+from extras import printcolor
 
 q = Queue()
 list_lock = Lock()
@@ -15,7 +16,6 @@ def scanSubdomains(domain):
             subdomain = q.get()
             # Scan the subdomain
             url = f"http://{subdomain}.{domain}"
-        
             requests.get(url)
         except requests.ConnectionError:
             pass
@@ -33,6 +33,8 @@ def scanSubdomains(domain):
 
 def main(domain, threads, subdomains):
     global q
+    printcolor('YELLOW', f'Looking for subdomains for {domain}...')
+
 
     # Fill the queue with all the subdomains
     try:
@@ -52,7 +54,6 @@ def main(domain, threads, subdomains):
 def sdenum(domain):
     wordlist = "tasks/files/subdomains.txt"
     threads = 6
-    #output_file = args.output_file
 
     try:
         main(domain=domain, threads=threads, subdomains=open(wordlist).read().splitlines())
@@ -64,8 +65,3 @@ def sdenum(domain):
             print(f'Scan completed. No subdomains were discovered.')
     except KeyboardInterrupt:
         sys.exit()
-
-    # save the file
-    # with open(output_file, "w") as f:
-    #    for url in discovered_domains:
-    #        print(url, file=f)
