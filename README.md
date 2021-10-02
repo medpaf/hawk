@@ -1,9 +1,30 @@
 # MedSec
 
-![demo2](https://user-images.githubusercontent.com/61552222/134327486-753f4281-fae1-4262-89ef-087c19c8e46a.gif)
+[![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
+[![Stars](https://img.shields.io/github/stars/medpaf/medsec.svg)]()
+[![Forks](https://img.shields.io/github/forks/medpaf/medsec.svg)]()
+[![Size](https://img.shields.io/github/repo-size/medpaf/medsec)]()
+[![Mantained](https://img.shields.io/badge/Maintained%3F-yes-green.svg)]()
+[![Linux](https://svgshare.com/i/Zhy.svg)](https://svgshare.com/i/Zhy.svg)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+![tem(1)](https://user-images.githubusercontent.com/61552222/135713734-93ac0416-0a67-4a7e-aeb2-7ee70dc7d103.png)
+
+This is a network utility tool that I developed to perform some network and security administrator tasks. 
+Currently, this script can perform a good variety of tasks such as:
+- Port scans, including SYN, TCP, UDP, ACK, comprehensive scan;
+- Host discovery (scan for up devices on a local network);
+- Banner grabbing;
+- DNS checks with geolocation information;
+- ifconfig (beta);
+- ping (beta);
+- traceroute (beta);
+- IP spoofing;
+- Packet sniffing.
+
+Other features are still being implemented. Future implementations may include WAP (web application firewall) detection, vulnerability reconnaissance, static code analysis, traffic analysis, ARP poisoning, exploits, some automated tasks and others.
 
 ## Contents
-+ [Introduction](#introduction)
 + [Installation](#installation)
   - [Linux](#linux)
 + [How to use](#how-to-use)
@@ -11,28 +32,13 @@
   - [Host discovery (scan for devices on a local network)](#host-discovery)
   - [Banner grabbing](#banner-grabbing)
   - [DNS checks (with geolocation information)](#dns-checks)
-  - [ifconfig](#ifconfig)
-  - [ping](#ping)
-  - [traceroute](#traceroute)
-  - [IP spoofing (beta)](#ip-spoofing)
-  - [Packet sniffing (beta)](#packet-sniffing)
+  - [ifconfig (beta)](#ifconfig)
+  - [ping (beta)](#ping)
+  - [traceroute (beta)](#traceroute)
+  - [IP spoofing](#ip-spoofing)
+  - [Packet sniffing](#packet-sniffing)
 + [Contribution](#contribution)
 + [License](#license)
-
-## Introduction
-
-This is a network utility tool that I developed to perform some network and security administrator tasks. Currently, this script can perform a good variety of tasks such as:
-- Port scans, including SYN, TCP, UDP, ACK, comprehensive scan;
-- Host discovery (scan for up devices on a local network);
-- Banner grabbing;
-- DNS checks with geolocation information;
-- ifconfig;
-- ping;
-- traceroute;
-- IP spoofing (beta);
-- Packet sniffing (beta).
-
-Other features are still being implemented. Future implementations may include WAP (web application firewall) detection, vulnerability reconnaissance, static code analysis, traffic analysis, ARP poisoning, exploits, some automated tasks and others.
 
 ## Installation
 
