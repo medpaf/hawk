@@ -22,7 +22,7 @@ Currently, this script can perform a good variety of tasks such as:
 - IP spoofing;
 - Packet sniffing.
 
-Other features are still being implemented. Future implementations may include WAP (web application firewall) detection, DNS enumeration, subdomain enumeration, vulnerability reconnaissance, static code analysis, traffic analysis, ARP poisoning, exploits, some automated tasks and others.
+Other features are still being implemented. Future implementations may include WAF (web application firewall) detection, DNS enumeration, subdomain enumeration, vulnerability reconnaissance, static code analysis, traffic analysis, ARP poisoning, exploits, some automated tasks and others.
 
 ## Contents
 + [Installation](#installation)
