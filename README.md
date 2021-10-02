@@ -7,7 +7,6 @@
 [![Mantained](https://img.shields.io/badge/Maintained%3F-yes-green.svg)]()
 [![Linux](https://svgshare.com/i/Zhy.svg)](https://svgshare.com/i/Zhy.svg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Followes](https://img.shields.io/github/followers/medpaf?style=social)]()
 
 This is a network utility tool that I developed to perform some network and security administrator tasks. 
 Currently, this script can perform a good variety of tasks such as:
