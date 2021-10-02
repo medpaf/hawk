@@ -116,6 +116,7 @@ This feature is similar to the well known `nslookup` command used on UNIX system
 
 ### Subdomain enumeration
 If you wish to look for common subdomains of a domain, simply type:
+
 `sdenum [DOMAIN]`
 ### ifconfig
 If you want to display your system's current TCP/IP network configuration, type the following command:
