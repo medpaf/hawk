@@ -21,7 +21,7 @@ Examples:
         -scanlan
         -grab -host 127.0.0.1 -p 22
         -ns www.medpaf.github.io
-        -sdenum nmap.org
+        -sdenum github.org
         -ifconfig www.medpaf.github.io
         -ping www.medpaf.github.io
         -traceroute www.medpaf.github.io
