@@ -81,6 +81,7 @@ Multiple scan types are supported, including SYN (`-scansyn`), TCP (`-scantcp`),
 `-scan -iprange [START IP] [END IP] -prange [START PORT] [END PORT]`
 
 ![scan](https://user-images.githubusercontent.com/61552222/134312220-9bfbfd14-aaed-411b-8299-0169f7fefbf9.png)
+
 After this scan, it is possible to see that both 22 (SSH) and 80 (HTTP) ports are open.
 
 ### Host discovery
