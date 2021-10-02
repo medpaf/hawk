@@ -120,7 +120,7 @@ If you wish to look for common subdomains of a domain, simply type:
 
 `-sdenum [DOMAIN]`
 
-![sdenum2](https://user-images.githubusercontent.com/61552222/135728797-aa3bbce0-c9d9-4dd5-a6b2-bb91989b8480.png)
+![sdenum3](https://user-images.githubusercontent.com/61552222/135729173-95f7fb5e-7c58-4a96-83f9-ee470b6425c7.png)
 
 ### ifconfig
 If you want to display your system's current TCP/IP network configuration, type the following command:
