@@ -1,5 +1,7 @@
 # MedSec
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 ![demo2](https://user-images.githubusercontent.com/61552222/134327486-753f4281-fae1-4262-89ef-087c19c8e46a.gif)
 
 ## Contents
