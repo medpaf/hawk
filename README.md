@@ -10,7 +10,7 @@
 
 ![tem(1)](https://user-images.githubusercontent.com/61552222/135713734-93ac0416-0a67-4a7e-aeb2-7ee70dc7d103.png)
 
-This is a network utility tool that I developed to perform some network and security administrator tasks. 
+MedSec is a network utility tool that I developed to perform some network, security administrator and pentesting tasks. 
 Currently, this script can perform a good variety of tasks such as:
 - Port scans, including SYN, TCP, UDP, ACK, comprehensive scan;
 - Host discovery (scan for up devices on a local network);
@@ -22,7 +22,7 @@ Currently, this script can perform a good variety of tasks such as:
 - IP spoofing;
 - Packet sniffing.
 
-Other features are still being implemented. Future implementations may include WAP (web application firewall) detection, vulnerability reconnaissance, static code analysis, traffic analysis, ARP poisoning, exploits, some automated tasks and others.
+Other features are still being implemented. Future implementations may include WAF (web application firewall) detection, DNS enumeration, subdomain enumeration, vulnerability reconnaissance, static code analysis, traffic analysis, ARP poisoning, exploits, some automated tasks and others.
 
 ## Contents
 + [Installation](#installation)
@@ -81,6 +81,7 @@ Multiple scan types are supported, including SYN (`-scansyn`), TCP (`-scantcp`),
 `-scan -iprange [START IP] [END IP] -prange [START PORT] [END PORT]`
 
 ![scan](https://user-images.githubusercontent.com/61552222/134312220-9bfbfd14-aaed-411b-8299-0169f7fefbf9.png)
+
 After this scan, it is possible to see that both 22 (SSH) and 80 (HTTP) ports are open.
 
 ### Host discovery
@@ -89,7 +90,7 @@ To look for current up devices on a given network type the following command:
 `-scanlocal`
 
 Then type the network you want to scan.
-![host-disc](https://user-images.githubusercontent.com/61552222/134312276-2e18c1cb-2c18-4239-b44e-21fc78b9fe78.png)
+![scanlan](https://user-images.githubusercontent.com/61552222/135727715-5cdc4533-b3ec-4122-90f7-1d8fa0c2da7d.png)
 
 ### Banner grabbing
 To perform banner grabbing, depending on your specific needs, type one of the following commands:
@@ -154,5 +155,4 @@ Create a issue or pull request, or send me an email at [pafmed@outlook.com](mail
 ## License
 
 This repository is under the [***MIT License***](https://opensource.org/licenses/MIT).
-
 

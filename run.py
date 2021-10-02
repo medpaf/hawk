@@ -5,6 +5,7 @@ import ipaddress
 import textwrap
 from tasks.ifconfig import ifconfig
 from tasks.ns import ns, nsconv
+from tasks.sdenum import sdenum, scanSubdomains, main
 from tasks.ping import ping
 from tasks.traceroute import traceroute
 from tasks.banner import bannerWithPort
@@ -17,9 +18,10 @@ ap = argparse.ArgumentParser(description='MedSec Tool', formatter_class=argparse
 epilog=textwrap.dedent('''
 Examples:
         -scan -host 127.0.0.1 -prange 1 20
-        -scanlocal
+        -scanlan
         -grab -host 127.0.0.1 -p 22
         -ns www.medpaf.github.io
+        -sdenum nmap.org
         -ifconfig www.medpaf.github.io
         -ping www.medpaf.github.io
         -traceroute www.medpaf.github.io
@@ -39,6 +41,9 @@ ap.add_argument('-traceroute',
 ap.add_argument('-ns', type = str,
         nargs = '+',
         help = 'obtain domain name or IP address mapping.')
+ap.add_argument('-sdenum', type = str, 
+        nargs = 1,
+        help = 'perform subdomain enumeration.') 
 ap.add_argument('-host', type = str,
         nargs = '+',
         help = 'specify one or more hosts to scan')
@@ -62,7 +67,7 @@ ap.add_argument('-scanudp', action = 'store_true',
         help = 'perform UDP scan for open ports (root privileges needed)')
 ap.add_argument('-scan', action = 'store_true',
         help = 'perform comprehensive scan for open ports (root privileges needed)')
-ap.add_argument('-scanlocal', action = 'store_true',
+ap.add_argument('-scanlan', action = 'store_true',
         help = 'perform scan to detect local devices')
 ap.add_argument('-grab', action = 'store_true',
         help = 'perform banner grabbing')
@@ -117,6 +122,10 @@ elif args['ns']:
         for i in range(0, len(args['ns'])):
                 ns(args['ns'][i])
 
+# Subdomain enumeration
+elif args['sdenum']:
+        sdenum(args['sdenum'][0])
+
 # Ping to check connectivity
 elif args['ping']:
         ping(args['ping'][0])
@@ -146,9 +155,8 @@ elif args['scan']:
         handleScan('-sS -sV -sC -A -O')
 
 # Scan for local devices
-elif args['scanlocal']:
+elif args['scanlan']:
         scanLocalDevices()
-        #handleScan('-sP')
 
 # Banner grabbing
 elif args['grab']:    

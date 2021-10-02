@@ -1,5 +1,6 @@
 import socket
 import sys
+import requests
 import ipinfo
 
 token = '8d53c2357c2a13'
