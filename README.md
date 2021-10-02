@@ -140,4 +140,11 @@ To perform packet sniffing, type:
 
 ![anim sniff](https://user-images.githubusercontent.com/61552222/135460586-240e23e0-783a-4fc8-a088-1e15a0b9af3d.gif)
 
+## Contribution
+
+Create a issue or pull request, or send me an email at [pafmed@outlook.com](pafmed@outlook.com).
+## License
+
+This repository is under the ***MIT License***.
+
 
