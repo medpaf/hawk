@@ -16,13 +16,14 @@ Currently, this script can perform a good variety of tasks such as:
 - Host discovery (scan for up devices on a local network);
 - Banner grabbing;
 - DNS checks with geolocation information;
+- Subdomain enumeration;
 - ifconfig (beta);
 - ping (beta);
 - traceroute (beta);
 - IP spoofing;
 - Packet sniffing.
 
-Other features are still being implemented. Future implementations may include WAF (web application firewall) detection, DNS enumeration, subdomain enumeration, vulnerability reconnaissance, static code analysis, traffic analysis, ARP poisoning, exploits, some automated tasks and others.
+Other features are still being implemented. Future implementations may include WAF (web application firewall) detection, DNS enumeration, vulnerability reconnaissance, static code analysis, traffic analysis, ARP poisoning, exploits, some automated tasks and others.
 
 ## Contents
 + [Installation](#installation)
@@ -112,6 +113,9 @@ This feature is similar to the well known `nslookup` command used on UNIX system
 
 ![dns](https://user-images.githubusercontent.com/61552222/134312444-fe74ff4a-76d1-4bef-9093-e83cdebe50e6.png)
 
+### Subdomain enumeration
+If you wish to look for common subdomains of a domain, simply type:
+`sdenum [DOMAIN]`
 ### ifconfig
 If you want to display your system's current TCP/IP network configuration, type the following command:
 
