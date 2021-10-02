@@ -33,7 +33,7 @@ def scanSubdomains(domain):
 
 def main(domain, threads, subdomains):
     global q
-    printcolor('YELLOW', f'Looking for subdomains for {domain}...')
+    printcolor('YELLOW', f'This might take a while. Looking for subdomains for {domain}...')
 
 
     # Fill the queue with all the subdomains
