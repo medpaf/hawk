@@ -7,6 +7,7 @@ sudo pip3 install colorama
 sudo pip3 install ipinfo
 sudo pip3 install scapy
 sudo pip3 install requests
+sudo pip3 install shodan
 
 # Add main .py file to the system path (later)
 #cp *.py /usr/bin

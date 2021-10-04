@@ -67,6 +67,7 @@ The necessary packages are:
 - colorama (using pip3)
 - ipinfo (using pip3)
 - scapy (using pip3)
+- shodan (using pip3)
 
 After the installation, to run the program, simply navigate to the project's directory and run the `medsec.py` file using python. Running the script as root is recommended for better performance and to avoid permission errors. The used command is the following:
 ```
