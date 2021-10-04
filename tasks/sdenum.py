@@ -58,7 +58,10 @@ def sdenum(domain):
         q.join()
 
         if len(discovered_domains) > 0:
-            print(f'\nScan completed. A total of {len(discovered_domains)} subdomains were discovered.')
+            if len(discovered_domains) == 1:
+                print(f'\nScan completed. A total of {len(discovered_domains)} subdomain was discovered.')
+            else:
+                print(f'\nScan completed. A total of {len(discovered_domains)} subdomains were discovered.')
         else:
             print(f'Scan completed. No subdomains were discovered.')
     except KeyboardInterrupt:
