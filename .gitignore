@@ -1,4 +1,6 @@
 git.sh
 .gitignore
 __pycache__/
+tasks/__pycache__/
+tasks/offense/__pycache__/
 venv/

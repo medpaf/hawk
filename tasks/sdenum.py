@@ -50,8 +50,8 @@ def main(domain, threads, subdomains):
         sys.exit('^C')
 
 def sdenum(domain):
-    wordlist = "tasks/files/subdomains.txt"
-    threads = 6
+    wordlist = "files/txt/subdomains.txt"
+    threads = 8
 
     try:
         main(domain=domain, threads=threads, subdomains=open(wordlist).read().splitlines())
