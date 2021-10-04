@@ -10,6 +10,7 @@ from tasks.ping import ping
 from tasks.traceroute import traceroute
 from tasks.banner import bannerWithPort
 from tasks.scan import scanStatus, scan, scanWithPort, scanLocalDevices
+from tasks.vulnscan import vulnscan
 from tasks.sniff import sniff
 from tasks.save import save
 from tasks.offense.spoof import spoof
@@ -22,6 +23,7 @@ Examples:
         -grab -host 127.0.0.1 -p 22
         -ns www.medpaf.github.io
         -sdenum github.org
+        -vulnscan -host scanme.nmap.org
         -ifconfig www.medpaf.github.io
         -ping www.medpaf.github.io
         -traceroute www.medpaf.github.io
@@ -32,7 +34,7 @@ Examples:
 
 ap.add_argument('-ifconfig', action = 'store_true', 
         help = 'display current TCP/IP network configuration')
-ap.add_argument('-ping',
+ap.add_argument('-ping', type = str,
         nargs = 1,
         help = 'send ICMP packets to a host to check connectivity.')
 ap.add_argument('-traceroute',
@@ -69,6 +71,8 @@ ap.add_argument('-scan', action = 'store_true',
         help = 'perform comprehensive scan for open ports (root privileges needed)')
 ap.add_argument('-scanlan', action = 'store_true',
         help = 'perform scan to detect local devices')
+ap.add_argument('-vulnscan', action = 'store_true',
+        help = 'perform vulnerabilty scan on a host')
 ap.add_argument('-grab', action = 'store_true',
         help = 'perform banner grabbing')
 ap.add_argument('-spoof', action = 'store_true',
@@ -158,6 +162,17 @@ elif args['scan']:
 elif args['scanlan']:
         scanLocalDevices()
 
+# Vuln scan on a host
+elif args['vulnscan']:
+        if args['host']:
+                for i in range(0, len(args['host'])):
+                        vulnscan(args['host'][i])
+        elif args['iprange']:
+                for ip_int in range(int(ipaddress.IPv4Address(args['iprange'][0])), int(ipaddress.IPv4Address(args['iprange'][1]) + 1)):
+                        vulnscan(ipaddress.IPv4Address(ip_int))
+        else:
+                print('Please type the command correctly. Examples: \n \t -vulnscan -host [HOST(s)]')
+
 # Banner grabbing
 elif args['grab']:    
 
@@ -194,7 +209,7 @@ elif args['grab']:
                         print('Please type the command correctly. Examples: \n \t -grab -host [HOST(s)] -p [PORT(s)] \n \t -grab -iprange [START IP] [END IP] -prange [START PORT] [END PORT] \n \t -grab -host [HOST(s)] -prange [START PORT] [END PORT] \n \t -grab -iprange [START IP] [END IP] -p [PORT]')
         else:
                 print('Please type the command correctly. Examples: \n \t -grab -host [HOST(s)] -p [PORT(s)] \n \t -grab -iprange [START IP] [END IP] -prange [START PORT] [END PORT] \n \t -grab -host [HOST(s)] -prange [START PORT] [END PORT] \n \t -grab -iprange [START IP] [END IP] -p [PORT]')
-# DDOS attack
+# IP Spoofing
 elif args['spoof']:
 
         if args['host']:

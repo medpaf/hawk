@@ -13,28 +13,30 @@
 
 MedSec is a network utility tool that I developed to perform some network, security administrator and pentesting tasks. 
 Currently, this script can perform a good variety of tasks such as:
-- Port scans, including SYN, TCP, UDP, ACK, comprehensive scan;
+- Port scan, including SYN, TCP, UDP, ACK, comprehensive scan;
 - Host discovery (scan for up devices on a local network);
 - Banner grabbing;
 - DNS checks with geolocation information;
 - Subdomain enumeration;
+- Vulnerability reconnaissance for web applications
 - ifconfig (beta);
 - ping (beta);
 - traceroute (beta);
 - IP spoofing;
 - Packet sniffing.
 
-Other features are still being implemented. Future implementations may include WAF (web application firewall) detection, DNS enumeration, vulnerability reconnaissance, static code analysis, traffic analysis, ARP poisoning, OSINT, exploits, some automated tasks, Windows support and others.
+Other features are still being implemented. Future implementations may include WAF (web application firewall) detection, DNS enumeration, static code analysis, traffic analysis, ARP poisoning, OSINT, exploits, some automated tasks, Windows support and others.
 
 ## Contents
 + [Installation](#installation)
   - [Linux](#linux)
 + [How to use](#how-to-use)
-  - [Scanning ports](#scanning-ports)
+  - [Port scan](#scanning-ports)
   - [Host discovery (scan for devices on a local network)](#host-discovery)
   - [Banner grabbing](#banner-grabbing)
   - [DNS checks (with geolocation information)](#dns-checks)
   - [Subdomain enumeration](#subdomain-enumeration)
+  - [Vulnerability reconnaissance](#vulnerability-reconnaissance)
   - [ifconfig (beta)](#ifconfig)
   - [ping (beta)](#ping)
   - [traceroute (beta)](#traceroute)
@@ -123,6 +125,11 @@ If you wish to look for common subdomains of a domain, simply type:
 `-sdenum [DOMAIN]`
 
 ![sdenum3](https://user-images.githubusercontent.com/61552222/135729173-95f7fb5e-7c58-4a96-83f9-ee470b6425c7.png)
+
+### Vulnerability reconnaissance
+To scan a web app for vulnerabilities use following command:
+
+`-vulnscan -host [HOST(s)]`
 
 ### ifconfig
 If you want to display your system's current TCP/IP network configuration, type the following command:

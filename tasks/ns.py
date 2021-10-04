@@ -24,7 +24,7 @@ def ns(str):
         print(f'Location: {details.loc}')
         print(f'Timezone: {details.timezone}\n')
 
-# Function to return an URL IP address
+# Function to return IP address of an URL
 def nsconv(str):
     try:
         return socket.gethostbyname(str)
@@ -33,7 +33,7 @@ def nsconv(str):
         print(f'{e}')
         sys.exit(1)
 
-# Function to return an IP address URL:
+# Function to return URL of an IP address:
 def nsconvurl(str):
     try:
         return socket.gethostbyaddr(str)
