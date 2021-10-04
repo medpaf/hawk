@@ -131,6 +131,8 @@ To scan a web app for vulnerabilities use following command:
 
 `-vulnscan -host [HOST(s)]`
 
+![Uploading vuln.gif…]()
+
 ### ifconfig
 If you want to display your system's current TCP/IP network configuration, type the following command:
 
