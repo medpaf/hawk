@@ -24,7 +24,7 @@ Currently, this script can perform a good variety of tasks such as:
 - IP spoofing;
 - Packet sniffing.
 
-Other features are still being implemented. Future implementations may include WAF (web application firewall) detection, DNS enumeration, vulnerability reconnaissance, static code analysis, traffic analysis, ARP poisoning, exploits, some automated tasks and others.
+Other features are still being implemented. Future implementations may include WAF (web application firewall) detection, DNS enumeration, vulnerability reconnaissance, static code analysis, traffic analysis, ARP poisoning, OSINT, exploits, some automated tasks, Windows support and others.
 
 ## Contents
 + [Installation](#installation)
@@ -45,7 +45,7 @@ Other features are still being implemented. Future implementations may include W
 
 ## Installation
 
-Note that currently, this script can only run well on Linux. If you try it in on Windows or macOS, it may run, but numerous errors will appear.
+Note that currently, this script can only run well on Linux. If you try it in on Windows or macOS, it may run, but numerous errors will appear. It will have Windows support anytime in the future.
 
 ### Linux
 
