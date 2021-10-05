@@ -132,7 +132,7 @@ To scan a web app for vulnerabilities use following command:
 
 `-vulnscan -host [HOST(s)]`
 
-![vuln](https://user-images.githubusercontent.com/61552222/135897248-dfaee83e-4e42-4941-887b-ff2419f08ab7.gif)
+![vuln2](https://user-images.githubusercontent.com/61552222/136042995-840b9da2-69f5-4a2a-8685-dac6289c7582.gif)
 
 **Disclaimer**: Note that this feature uses Shodan API. It is recommended to change the API key to yours as the key provided might be being used by other people.
 ### ifconfig
