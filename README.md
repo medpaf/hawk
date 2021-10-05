@@ -19,7 +19,7 @@ Currently, this script can perform a good variety of tasks such as:
 - Banner grabbing;
 - DNS checks with geolocation information;
 - Subdomain enumeration;
-- Vulnerability reconnaissance for web applications
+- Vulnerability reconnaissance
 - ifconfig (beta);
 - ping (beta);
 - traceroute (beta);
@@ -131,13 +131,14 @@ If you wish to look for common subdomains of a domain, simply type:
 ![sdenum3](https://user-images.githubusercontent.com/61552222/135729173-95f7fb5e-7c58-4a96-83f9-ee470b6425c7.png)
 
 ### Vulnerability reconnaissance
-To scan a web app for vulnerabilities use following command:
+To scan a host for vulnerabilities use the following command:
 
 `-vulnscan -host [HOST(s)]`
 
 ![vuln2](https://user-images.githubusercontent.com/61552222/136042995-840b9da2-69f5-4a2a-8685-dac6289c7582.gif)
 
 **Disclaimer**: Note that this feature uses Shodan API. It is recommended to change the API key to yours as the key provided might be being used by other people.
+
 ### ifconfig
 If you want to display your system's current TCP/IP network configuration, type the following command:
 
