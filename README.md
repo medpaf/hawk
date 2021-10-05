@@ -175,6 +175,8 @@ To perform packet sniffing, type:
 
 ![anim sniff](https://user-images.githubusercontent.com/61552222/135460586-240e23e0-783a-4fc8-a088-1e15a0b9af3d.gif)
 
+**Disclaimer**: If you want to sniff all the data that is passing through a network, first turn your wireless card to **monitor mode**.
+
 ## Contribution
 
 Create a issue or pull request, or send me an email at [pafmed@outlook.com](mailto:pafmed@outlook.com).
