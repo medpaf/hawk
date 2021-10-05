@@ -11,7 +11,8 @@
 
 ![135713734-93ac0416-0a67-4a7e-aeb2-7ee70dc7d103~3](https://user-images.githubusercontent.com/61552222/136041183-34e52f67-f93f-4cea-9df6-38d3b5cc5163.png)
 
-MedSec is a network and pentest utility tool that I developed to perform different kind of tasks using the same tool, instead of jumping from one tool to another.
+MedSec is a network and pentest utility tool that I developed so that I could perform different kind of tasks using the same tool, instead of jumping from one tool to another.
+
 Currently, this script can perform a good variety of tasks such as:
 - Port scan, including SYN, TCP, UDP, ACK, comprehensive scan;
 - Host discovery (scan for up devices on a local network);
@@ -28,6 +29,7 @@ Currently, this script can perform a good variety of tasks such as:
 Other features are still being implemented. Future implementations may include WAF (web application firewall) detection, DNS enumeration, static code analysis, traffic analysis, ARP poisoning, MAC flooding, OSINT, exploits, some automated tasks, Windows support and others.
 
 ## Contents
+
 + [Installation](#installation)
   - [Linux](#linux)
 + [How to use](#how-to-use)
@@ -62,6 +64,7 @@ The necessary packages are:
 - nmap (using your system's package manager)
 - traceroute (using your system's package manager)
 - python3-pip (using your system's package manager)
+- sockets (using python)
 - requests (using pip3)
 - python-nmap (using pip3)
 - colorama (using pip3)
@@ -178,5 +181,3 @@ Create a issue or pull request, or send me an email at [pafmed@outlook.com](mail
 ## License
 
 This repository is under the [**MIT License**](https://opensource.org/licenses/MIT).
-
-
