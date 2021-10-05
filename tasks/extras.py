@@ -3,13 +3,13 @@ from colorama import Fore, Back, Style
 
 def printcolor(color, text):
     if color.upper() == 'RED':
-        return(f'{Fore.RED}' + text + Style.RESET_ALL)
+        print(f'{Fore.RED}' + text + Style.RESET_ALL)
     elif color.upper() == 'GREEN':
-        return(f'{Fore.GREEN}' + text + Style.RESET_ALL)
+        print(f'{Fore.GREEN}' + text + Style.RESET_ALL)
     elif color.upper() == 'BLUE':
-        return(f'{Fore.BLUE}' + text + Style.RESET_ALL)
+        print(f'{Fore.BLUE}' + text + Style.RESET_ALL)
     elif color.upper() == 'YELLOW':
-        return(f'{Fore.YELLOW}' + text + Style.RESET_ALL)
+        print(f'{Fore.YELLOW}' + text + Style.RESET_ALL)
 
 def inputcolor(color, text):
     if color.upper() == 'RED':

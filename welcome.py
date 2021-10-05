@@ -1,5 +1,5 @@
 import random
-from extras import printcolor
+from tasks.extras import printcolor
 
 def intro1():
     print('\n********************************************************')
@@ -10,7 +10,7 @@ def intro1():
     printcolor('RED', '*  ██      ██ ███████ ██████  ███████ ███████  ██████  *')
     print('*                                                      *')
     printcolor('RED','*             Written by Paulo Medeiros                *')
-    print('* Github repository: https://github.com/medpaf/medsec  *')
+    printcolor('GREEN', '* Github repository: https://github.com/medpaf/medsec  *')
     print('*                                                      *')
     print('********************************************************\n')
 
@@ -24,7 +24,7 @@ def intro2():
     printcolor('RED', '       \|__|     \|__|\|_______|\|_______|\_________\|_______|\|_______| ')
     printcolor('RED', '                                         \|_________| \n                  ')                                                         
     printcolor('RED','                        Written by Paulo Medeiros              ')
-    print('             Github repository: https://github.com/medpaf/medsec          ')
+    printcolor('GREEN', '             Github repository: https://github.com/medpaf/medsec          ')
                                                                                                                                           
 
 def welcome():
