@@ -12,10 +12,7 @@
 ![135713734-93ac0416-0a67-4a7e-aeb2-7ee70dc7d103~3](https://user-images.githubusercontent.com/61552222/136041183-34e52f67-f93f-4cea-9df6-38d3b5cc5163.png)
 
 MedSec is a network and pentest utility tool that I developed so that I could perform different kind of tasks using the same tool, instead of jumping from one tool to another.
-<<<<<<< HEAD
 
-=======
->>>>>>> 589bea4cfb40b5aa70a83d85ab41dec653e93613
 Currently, this script can perform a good variety of tasks such as:
 - Port scan, including SYN, TCP, UDP, ACK, comprehensive scan;
 - Host discovery (scan for up devices on a local network);
