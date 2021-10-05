@@ -9,7 +9,7 @@
 [![Linux](https://svgshare.com/i/Zhy.svg)](https://svgshare.com/i/Zhy.svg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-![tem(1)](https://user-images.githubusercontent.com/61552222/135713734-93ac0416-0a67-4a7e-aeb2-7ee70dc7d103.png)
+![135713734-93ac0416-0a67-4a7e-aeb2-7ee70dc7d103~3](https://user-images.githubusercontent.com/61552222/136041183-34e52f67-f93f-4cea-9df6-38d3b5cc5163.png)
 
 MedSec is a network utility tool that I developed to perform some network, security administrator and pentesting tasks. 
 Currently, this script can perform a good variety of tasks such as:
