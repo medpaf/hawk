@@ -24,7 +24,8 @@ Currently, this script can perform a good variety of tasks such as:
 - ping (beta);
 - traceroute (beta);
 - IP spoofing;
-- Packet sniffing.
+- Packet sniffing;
+- Deauth attack.
 
 Other features are still being implemented. Future implementations may include WAF (web application firewall) detection, DNS enumeration, static code analysis, traffic analysis, ARP poisoning, MAC flooding, deauth attack, OSINT, exploits, some automated tasks, Windows support and others.
 
@@ -44,6 +45,7 @@ Other features are still being implemented. Future implementations may include W
   - [traceroute (beta)](#traceroute)
   - [IP spoofing](#ip-spoofing)
   - [Packet sniffing](#packet-sniffing)
+  - [Deauth attack](#deauth-attack)
 + [Contribution](#contribution)
 + [License](#license)
 
@@ -162,9 +164,9 @@ To diagnose route paths and measure transit delays, use the `-traceroute` comman
 ### IP spoofing
 Note that this command only works on machines with unpached vulnerabilities. To performe IP spoofing on a host's specific port, use the following command:
 
-`-spoof -host [HOST] -p [PORT]`
+`-spoof -target [TARGET] -p [PORT]`
 
-![anim ddos](https://user-images.githubusercontent.com/61552222/135481491-a24e689c-ba4b-4eb4-933b-2be9c85fcddb.gif)
+![anim ip spoof](https://user-images.githubusercontent.com/61552222/135481491-a24e689c-ba4b-4eb4-933b-2be9c85fcddb.gif)
 
 **Disclaimer**: Please only use this for testing purposes and target your own machines.
 
@@ -175,7 +177,22 @@ To perform packet sniffing, type:
 
 ![anim sniff](https://user-images.githubusercontent.com/61552222/135460586-240e23e0-783a-4fc8-a088-1e15a0b9af3d.gif)
 
-**Disclaimer**: If you want to sniff all the data that is passing through a network, first turn your wireless card to **monitor mode**.
+**Disclaimer**: If you want to sniff all the data that is passing through a network, first turn your wireless card or adapter to **monitor mode**.
+
+### Deauth attack
+
+A deauth attack is a type of wireless attack that targets communication between a router and one or more devices connected to that router. Effectively forcing the target machine to disconnect from the access point.
+
+To do this attack, use the following command:
+
+`-deauth -target [TARGET(s) MAC] -gateway [GATEWAY MAC] -iface [INTERFACE]`
+
+If you plan to attack all clients in a gateway, type:
+
+`-deauth -target a -gateway [GATEWAY MAC] -iface [INTERFACE]`
+
+**Disclaimer**: To perform this attack, make sure you have a wireless card or adapter that supports **monitor mode** and turn it on before attempting a deauth attack.
+Please only use this for testing purposes and target your own machines.
 
 ## Contribution
 

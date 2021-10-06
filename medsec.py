@@ -1,9 +1,10 @@
 import os
+import subprocess
 import sys
 import readline 
-from welcome import welcome
-from extras import printcolor, inputcolor
 from run import *
+from welcome import welcome
+from colorama import Fore, Back, Style
 
 hist_list = []
 comm = ''
@@ -14,11 +15,11 @@ def handleCommands():
         global comm 
         while True:
                 try:
-                        comm = input('\nMedSec > ')
+                        comm = input(f'\nMedSec > ')
                         if comm != 'history':
                                 hist_list.append(comm.strip())
                         elif comm.strip() == 'clear':
-                                os.system('clear')
+                                subprocess.call("clear", shell=True)
                         if comm.strip() == 'history':
                                 if len(hist_list) > 0:
                                         print('Last commands:')

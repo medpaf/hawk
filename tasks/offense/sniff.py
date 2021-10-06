@@ -2,8 +2,15 @@ import socket
 import struct
 import binascii
 import sys
+import os
+from extras import printcolor
 
 def sniff():
+
+    # If not sudo, don't allow to continue
+    if not 'SUDO_UID' in os.environ.keys():
+        printcolor('RED', "Permission error. You need root privileges for this feature.")
+        sys.exit()
 
     try:
         raw_socket = socket.socket(socket.PF_PACKET, socket.SOCK_RAW, 

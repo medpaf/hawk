@@ -1,8 +1,10 @@
 import argparse
 import os
+import subprocess
 import sys
 import ipaddress
 import textwrap
+
 from tasks.ifconfig import ifconfig
 from tasks.ns import ns, nsconv
 from tasks.sdenum import sdenum, scanSubdomains, main
@@ -11,25 +13,28 @@ from tasks.traceroute import traceroute
 from tasks.banner import bannerWithPort
 from tasks.scan import scanStatus, scan, scanWithPort, scanLocalDevices
 from tasks.vulnscan import vulnscan
-from tasks.sniff import sniff
-from tasks.save import save
+from tasks.offense.sniff import sniff
 from tasks.offense.spoof import spoof
+from tasks.offense.deauth import deauth
+from tasks.save import save
  
 ap = argparse.ArgumentParser(description='MedSec Tool', formatter_class=argparse.RawDescriptionHelpFormatter,
 epilog=textwrap.dedent('''
 Examples:
-        -scan -host 127.0.0.1 -prange 1 20
+        -scan -host [HOST(s)] -prange [START PORT] [END PORT]
         -scanlan
-        -grab -host 127.0.0.1 -p 22
-        -ns www.medpaf.github.io
-        -sdenum github.org
-        -vulnscan -host scanme.nmap.org
-        -ifconfig www.medpaf.github.io
-        -ping www.medpaf.github.io
-        -traceroute www.medpaf.github.io
-        -spoof -host scanme.nmap.org -p 443
+        -grab -host [HOST(S)] -p [PORT(s)]
+        -ns [HOST]
+        -sdenum [DOMAIN]
+        -vulnscan -host [HOST(s)]
+        -ifconfig [HOST]
+        -ping [HOST]
+        -traceroute [HOST]
+        -spoof -target [HOST] -p [PORT(s)]
         -sniff
-        
+        -deauth -target [TARGET MAC] -gateway [GATEWAY MAC] -iface [INTERFACE] 
+
+   
 '''))
 
 ap.add_argument('-ifconfig', action = 'store_true', 
@@ -59,6 +64,15 @@ ap.add_argument('-prange', type = int,
         default = [1-1000], 
         nargs = 2,
         help = 'specify port range to scan')
+ap.add_argument('-target', type = str,
+        nargs = '+',
+        help = 'specify one or more targets')
+ap.add_argument('-gateway', type = str,
+        nargs = '+',
+        help = 'specify the gateway MAC address')
+ap.add_argument('-iface', type = str,
+        nargs = '+',
+        help = 'specify interface')
 ap.add_argument('-scantcp', action = 'store_true',
         help = 'perform TCP scan for open ports')
 ap.add_argument('-scanack', action = 'store_true',
@@ -76,9 +90,11 @@ ap.add_argument('-vulnscan', action = 'store_true',
 ap.add_argument('-grab', action = 'store_true',
         help = 'perform banner grabbing')
 ap.add_argument('-spoof', action = 'store_true',
-        help = 'perform DDOS attack on a target')
+        help = 'perform IP spoofing on a target (root privileges needed)')
 ap.add_argument('-sniff', action = 'store_true',
         help = 'perform packet sniffing (root privileges needed)')
+ap.add_argument('-deauth', action = 'store_true',
+        help = 'perform deauthentication attack (root privileges needed)')
 ap.add_argument('-s', type = str,
         nargs = 1,
         help = 'save output as file to the specified path.')
@@ -212,15 +228,33 @@ elif args['grab']:
 # IP Spoofing
 elif args['spoof']:
 
-        if args['host']:
+        if args['target']:
                 if args['p'] and len(args['p']) == 1:
-                        spoof(nsconv(args['host'][0]), int(args['p'][0])) ### BETA, target is 45.33.32.156, need to fix keyboardinterrupt exception
+                        spoof(nsconv(args['target'][0]), int(args['p'][0])) 
                 else:
-                        print('Please type the command correctly. You can only attack one host and one port at a time. Examples: \n \t -ddos -host [TARGET] -p [PORT]')
+                        print('Please type the command correctly. You can only attack one host and one port at a time. Examples: \n \t -spoof -target [TARGET] -p [PORT]')
+        else:
+                print('Please type the command correctly. You can only attack one host and one port at a time. Examples: \n \t -spoof -target [TARGET] -p [PORT]')
 
 # Packet sniffing
 elif args['sniff']:
         sniff()
+
+        
+# Deauth attack
+elif args['deauth']:
+
+        if args['target'] and args['gateway'] and args['iface']:
+                if len(args['target']) == 1:
+                        deauth(args['target'][0], args['gateway'][0], args['iface'][0]) 
+                
+                else:
+                        print('Please type the command correctly. Examples: \n \t -deauth -target [TARGET(s) MAC(s)] -gateway [GATEWAY MAC] -iface [INTERFACE]')
+                
+        else:
+                print('Please type the command correctly. Examples: \n \t -deauth -target [TARGET(s) MAC(s)] -gateway [GATEWAY MAC] -iface [INTERFACE]')
+        
+
 
 else:
         # if arguments are present
