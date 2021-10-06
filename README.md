@@ -186,7 +186,7 @@ A deauth attack is a type of wireless attack that targets communication between 
 
 To do this attack, use the following command:
 
-`-deauth -target [TARGET(s) MAC] -gateway [GATEWAY MAC] -iface [INTERFACE]`
+`-deauth -target [TARGET MAC] -gateway [GATEWAY MAC] -iface [INTERFACE]`
 
 If you plan to attack all clients in a gateway, type:
 
