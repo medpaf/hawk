@@ -167,7 +167,7 @@ Note that this command only works on machines with unpached vulnerabilities. To 
 
 `-spoof -target [TARGET] -p [PORT]`
 
-![anim ip spoof](https://user-images.githubusercontent.com/61552222/135481491-a24e689c-ba4b-4eb4-933b-2be9c85fcddb.gif)
+![anim spoof](https://user-images.githubusercontent.com/61552222/136197768-e9f45be7-2d8a-49e6-b0af-e7b44cf15532.gif)
 
 **Disclaimer**: Please only use this for testing purposes and target your own machines.
 
