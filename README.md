@@ -194,6 +194,8 @@ If you plan to attack all clients in a gateway, type:
 
 ![deauth](https://user-images.githubusercontent.com/61552222/136198776-0353945a-e983-4384-9c9b-fcfb90176b84.png)
 
+After the command issued on the screenshot above, all the devices connected to that access point were disconnected and unable to reconnect while this script was running.
+
 **Disclaimer**: To perform this attack, make sure you have a wireless card or adapter that supports **monitor mode** and turn it on before attempting a deauth attack.
 Please only use this for testing purposes and target your own machines.
 
