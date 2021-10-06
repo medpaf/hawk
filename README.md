@@ -197,7 +197,7 @@ If you plan to attack all clients in a gateway, type:
 After the command issued on the screenshot above, all the devices connected to that access point were disconnected and unable to reconnect while this script was running.
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/61552222/136200632-eef3508d-9e29-4c62-ba02-8a3907031283.png" />
+  <img src="https://user-images.githubusercontent.com/61552222/136201214-a6bf263b-6a35-4e30-80d9-2a730b4a5b0c.png" />
 </p>
 
 
