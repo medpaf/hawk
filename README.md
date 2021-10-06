@@ -192,7 +192,7 @@ If you plan to attack all clients in a gateway, type:
 
 `-deauth -target a -gateway [GATEWAY MAC] -iface [INTERFACE]`
 
-![deauth](https://user-images.githubusercontent.com/61552222/136198776-0353945a-e983-4384-9c9b-fcfb90176b84.png)
+![deauth](https://user-images.githubusercontent.com/61552222/136202202-2d26efce-5b01-441f-b786-8fd2c6b416dd.png)
 
 After the command issued on the screenshot above, all the devices connected to that access point were disconnected and unable to reconnect while this script was running.
 

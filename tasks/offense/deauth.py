@@ -29,9 +29,9 @@ def deauth(target_mac, gateway_mac, iface):
         # Print  info messages"
         if verbose:
             if count:
-                print(f"Sending {count} frames every {inter}s...")
+                printcolor('YELLOW', f"Sending {count} frames every {inter}s...")
             else:
-                print(f"Sending frames every {inter}s until CTRL-C is pressed...")
+                printcolor('YELLOW', f"Sending frames every {inter}s until CTRL-C is pressed...")
 
         if target_mac.lower() == 'a':
             dot11 = Dot11(addr1='ff:ff:ff:ff:ff:ff', addr2=gateway_mac, addr3=gateway_mac)
