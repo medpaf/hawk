@@ -2,6 +2,7 @@
 # MedSec
 
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
+![Build](/appveyor/build/medpaf/medsec)
 ![Stars](https://img.shields.io/github/stars/medpaf/medsec.svg)
 ![Forks](https://img.shields.io/github/forks/medpaf/medsec.svg)
 ![Size](https://img.shields.io/github/repo-size/medpaf/medsec)
