@@ -27,7 +27,7 @@ Currently, this script can perform a good variety of tasks such as:
 - Packet sniffing;
 - Deauth attack.
 
-Other features are still being implemented. Future implementations may include WAF (web application firewall) detection, DNS enumeration, static code analysis, traffic analysis, ARP poisoning, MAC flooding, deauth attack, OSINT, exploits, some automated tasks, Windows support and others.
+Other features are still being implemented. Future implementations may include WAF (web application firewall) detection, DNS enumeration, static code analysis, traffic analysis, ARP poisoning, MAC flooding, OSINT, exploits, some automated tasks, Windows support and others.
 
 ## Contents
 
