@@ -65,7 +65,6 @@ However, if you are using any other Linux distro with a different package manage
 The necessary packages are:
 - nmap (using your system's package manager)
 - traceroute (using your system's package manager)
-- python3-pip (using your system's package manager)
 - sockets (using pip3)
 - requests (using pip3)
 - python-nmap (using pip3)
