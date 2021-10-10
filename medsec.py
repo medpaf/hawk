@@ -36,6 +36,10 @@ def main():
     # if no arguments are present, run the welcome() function
     if len(sys.argv) == 1:
         welcome()
+
+    if not 'SUDO_UID' in os.environ.keys():
+        print(f'\nDisclaimer: {Fore.YELLOW}It is recommended to run this script with root privileges.{Style.RESET_ALL}')
+
     handleCommands()
 
 main()

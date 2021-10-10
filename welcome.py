@@ -1,4 +1,5 @@
 import random
+from colorama import Fore, Back, Style
 from tasks.extras import printcolor
 
 def intro1():
@@ -23,8 +24,8 @@ def intro2():
     printcolor('RED', '      \ \__\    \ \__\ \_______\ \_______\____\_\  \ \_______\ \_______\ ')
     printcolor('RED', '       \|__|     \|__|\|_______|\|_______|\_________\|_______|\|_______| ')
     printcolor('RED', '                                         \|_________| \n                  ')                                                         
-    printcolor('RED','                        Written by Paulo Medeiros              ')
-    printcolor('GREEN', '             Github repository: https://github.com/medpaf/medsec          ')
+    print(f'                        Written by {Fore.RED}Paulo Medeiros{Style.RESET_ALL}              ')
+    print(f'             Github repository: {Fore.BLUE}https://github.com/medpaf/medsec{Style.RESET_ALL}          ')
                                                                                                                                           
 
 def welcome():
