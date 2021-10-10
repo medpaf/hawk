@@ -1,4 +1,3 @@
-import time
 from colorama import Fore, Back, Style
 
 def printcolor(color, text):
