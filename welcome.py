@@ -25,7 +25,7 @@ def intro2():
     printcolor('RED', '       \|__|     \|__|\|_______|\|_______|\_________\|_______|\|_______| ')
     printcolor('RED', '                                         \|_________| \n                  ')                                                         
     print(f'                        Written by {Fore.RED}Paulo Medeiros{Style.RESET_ALL}              ')
-    print(f'             Github repository: {Fore.BLUE}https://github.com/medpaf/medsec{Style.RESET_ALL}          ')
+    print(f'             Github repository: {Fore.RED}https://github.com/medpaf/medsec{Style.RESET_ALL}          ')
                                                                                                                                           
 
 def welcome():
