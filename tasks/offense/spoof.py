@@ -1,6 +1,6 @@
 from scapy.all import *
 import random
-from extras import printcolor
+from colorama import Fore, Back, Style
 
 src = f'{random.randint(0, 255)}.{random.randint(0, 255)}.{random.randint(0, 255)}.{random.randint(0, 255)}'
 source_port = 56666
@@ -9,7 +9,7 @@ def spoof(target, port):
 
     # If not sudo, don't allow to continue
     if not 'SUDO_UID' in os.environ.keys():
-        printcolor('RED', "Permission error. You need root privileges for this feature.")
+        print(f'[{Fore.RED}!{Style.RESET_ALL}] Permission error: {Fore.RED}You need root privileges for this feature.{Style.RESET_ALL}')
         sys.exit()
 
     try:
@@ -30,8 +30,8 @@ def spoof(target, port):
             i=i+1
     except KeyboardInterrupt:
         sys.exit('\n')
-    except:
+    except Exception as e:
         e = sys.exc_info()[1]
-        print(f'\n{e}')         
+        print(f'[{Fore.RED}!{Style.RESET_ALL}] Error: {Fore.RED}{e}{Style.RESET_ALL}')
     
     

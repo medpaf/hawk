@@ -3,13 +3,13 @@ import struct
 import binascii
 import sys
 import os
-from extras import printcolor
+from colorama import Fore, Back, Style
 
 def sniff():
 
     # If not sudo, don't allow to continue
     if not 'SUDO_UID' in os.environ.keys():
-        printcolor('RED', "Permission error. You need root privileges for this feature.")
+        print(f'[{Fore.RED}!{Style.RESET_ALL}] Permission error: {Fore.RED}You need root privileges for this feature.{Style.RESET_ALL}')
         sys.exit()
 
     try:
@@ -33,5 +33,5 @@ def sniff():
                 print(f'Source IP: {socket.inet_ntoa(ip_hdr[1])}, Destination IP: {socket.inet_ntoa(ip_hdr[2])}')
             except KeyboardInterrupt:
                 sys.exit('\n')
-            except:
-                print(f'Error occured while sniffing.')
+            except Exception as e:
+                print(f'[{Fore.RED}!{Style.RESET_ALL}] Error: {Fore.RED}{e}{Style.RESET_ALL}')

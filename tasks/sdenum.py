@@ -2,7 +2,7 @@ import requests
 import sys
 from threading import Thread, Lock
 from queue import Queue
-from extras import printcolor
+from colorama import Fore, Back, Style
 
 q = Queue()
 list_lock = Lock()
@@ -21,8 +21,10 @@ def scanSubdomains(domain):
             pass
         except KeyboardInterrupt:
             sys.exit()
+        except Exception as e:
+            print(f'[{Fore.RED}!{Style.RESET_ALL}] Error: {Fore.RED}{e}{Style.RESET_ALL}')
         else:
-            print(f'Discovered subdomain: {url}')
+            print(f'[{Fore.GREEN}+{Style.RESET_ALL}] Discovered subdomain: {Fore.GREEN}{url}{Style.RESET_ALL}')
             # Add the subdomain to the global list
             with list_lock:
                 discovered_domains.append(url)
@@ -33,7 +35,7 @@ def scanSubdomains(domain):
 def main(domain, threads, subdomains):
     global q
     print('Subdomain enumeration will start. Press CTRL-C to cancel.')
-    printcolor('YELLOW', f'This might take a while. Looking for subdomains for {domain}...')
+    print(f'[{Fore.YELLOW}?{Style.RESET_ALL}] This might take a while. Looking for subdomains for {Fore.YELLOW}{domain}{Style.RESET_ALL}...')
 
     # Fill the queue with all the subdomains
     try:
@@ -48,6 +50,8 @@ def main(domain, threads, subdomains):
             worker.start()
     except KeyboardInterrupt:
         sys.exit('^C')
+    except Exception as e:
+        print(f'[{Fore.RED}!{Style.RESET_ALL}] Error: {Fore.RED}{e}{Style.RESET_ALL}')
 
 def sdenum(domain):
     wordlist = "files/txt/subdomains.txt"
@@ -59,10 +63,12 @@ def sdenum(domain):
 
         if len(discovered_domains) > 0:
             if len(discovered_domains) == 1:
-                print(f'\nScan completed. {len(discovered_domains)} subdomain was discovered.')
+                print(f'\nScan completed. {Fore.GREEN}{len(discovered_domains)}{Style.RESET_ALL} subdomain was discovered.')
             else:
-                print(f'\nScan completed. {len(discovered_domains)} subdomains were discovered.')
+                print(f'\nScan completed. {Fore.GREEN}{len(discovered_domains)}{Style.RESET_ALL} subdomains were discovered.')
         else:
             print(f'Scan completed. No subdomains were discovered.')
     except KeyboardInterrupt:
         sys.exit()
+    except Exception as e:
+        print(f'[{Fore.RED}!{Style.RESET_ALL}] Error: {Fore.RED}{e}{Style.RESET_ALL}')
