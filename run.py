@@ -30,7 +30,7 @@ Examples:
         -ifconfig [HOST]
         -ping [HOST]
         -traceroute [HOST]
-        -spoof -target [HOST] -p [PORT(s)]
+        -spoof -source [SOURCE IP] [SOURCE PORT] -target [TARGET IP] [TARGET PORT]
         -sniff
         -deauth -target [TARGET MAC] -gateway [GATEWAY MAC] -iface [INTERFACE] 
 
@@ -64,6 +64,9 @@ ap.add_argument('-prange', type = int,
         default = [1-1000], 
         nargs = 2,
         help = 'specify port range')
+ap.add_argument('-source', type = str,
+        nargs = '+',
+        help = 'specify one source')
 ap.add_argument('-target', type = str,
         nargs = '+',
         help = 'specify one or more targets')
@@ -228,23 +231,27 @@ elif args['grab']:
 # IP Spoofing
 elif args['spoof']:
 
-        if args['target']:
-                if args['p'] and len(args['p']) == 1:
-                        spoof(nsconv(args['target'][0]), int(args['p'][0])) 
+        if args['source']:
+
+                if args['target']:
+                        if len(args['source']) == 2 and len(args['target']) == 2:
+                                spoof(args['source'][0], args['source'][1], nsconv(args['target'][0]), int(args['target'][1])) 
+                        else:
+                                print('Please type the command correctly. You can only attack one host and one port at a time. Examples: \n \t -spoof -spoof -source [SOURCE IP] [SOURCE PORT] -target [TARGET IP] [TARGET PORT]')
                 else:
-                        print('Please type the command correctly. You can only attack one host and one port at a time. Examples: \n \t -spoof -target [TARGET] -p [PORT]')
+                        print('Please type the command correctly. You can only attack one host and one port at a time. Examples: \n \t -spoof -source [SOURCE IP] [SOURCE PORT] -target [TARGET IP] [TARGET PORT]')
         else:
-                print('Please type the command correctly. You can only attack one host and one port at a time. Examples: \n \t -spoof -target [TARGET] -p [PORT]')
+                print('Please type the command correctly. You can only attack one host and one port at a time. Examples: \n \t -spoof -source [SOURCE IP] [SOURCE PORT] -target [TARGET IP] [TARGET PORT]')
 
 # Packet sniffing
 elif args['sniff']:
         sniff()
 
-        
 # Deauth attack
 elif args['deauth']:
 
         if args['target'] and args['gateway'] and args['iface']:
+
                 if len(args['target']) == 1:
                         deauth(args['target'][0], args['gateway'][0], args['iface'][0]) 
                 

@@ -2,10 +2,9 @@ from scapy.all import *
 import random
 from colorama import Fore, Back, Style
 
-src = f'{random.randint(0, 255)}.{random.randint(0, 255)}.{random.randint(0, 255)}.{random.randint(0, 255)}'
-source_port = 56666
 
-def spoof(target, port):
+
+def spoof(source_ip, source_port, target_ip, target_port):
 
     # If not sudo, don't allow to continue
     if not 'SUDO_UID' in os.environ.keys():
@@ -13,13 +12,25 @@ def spoof(target, port):
         sys.exit()
 
     try:
-        choice = input(f'Source port: {src}\nTarget IP: {target}\nTarget port: {port}\nDo you wish to continue? [Y/N]: ')
+        if source_ip.lower() == 'r':
+            src_ip = f'{random.randint(0, 255)}.{random.randint(0, 255)}.{random.randint(0, 255)}.{random.randint(0, 255)}'
+        else:
+            src_ip = f'{source_ip}'
+        if source_port.lower() == 'r':
+            src_port = int(random.randint(1, 56666))
+        else:
+            src_port = int(source_port)
+        
+        tgt_ip = target_ip
+        tgt_port = int(target_port)
+
+        choice = input(f'Source IP: {src_ip}\nSource port: {src_port}\nTarget IP: {tgt_ip}\nTarget port: {tgt_port}\nDo you wish to continue? [Y/N]: ')
+
         if choice.lower() == 'y':
-            srcport = int(source_port)
             i=1
 
-            IP1 = IP(src=src, dst=target)
-            TCP1 = TCP(sport=srcport, dport=port)
+            IP1 = IP(src=src_ip, dst=tgt_ip)
+            TCP1 = TCP(sport=src_port, dport=tgt_port)
             pkt = IP1 / TCP1
         else:
             print('Operation was cancelled.')

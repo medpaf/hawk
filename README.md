@@ -79,6 +79,8 @@ sudo python3 medsec.py
 ```
 ## How to use
 ### Scanning ports
+Scanning ports helps detect a potential security breach by identifying the hosts connected to your network and the services running.
+
 Multiple scan types are supported, including SYN (`-scansyn`), TCP (`-scantcp`), UDP (`-scanudp`), ACK (`-scanack`) and comprehensive scan (`-scan`).
 
 `-scan -host [HOST(s)]`
@@ -105,6 +107,10 @@ Then type the network you want to scan.
 ![scanlan](https://user-images.githubusercontent.com/61552222/135727715-5cdc4533-b3ec-4122-90f7-1d8fa0c2da7d.png)
 
 ### Banner grabbing
+Banner grabbing is a reconnaissance technique that retrieves a software banner information. This banner usually contains important information about a network service, including but not limited to, it’s software name and version. FTP, Web, SSH, and SMTP servers often expose vital information about the software they are running in their banner.
+
+A banner attack usually starts off with a enumeration scan to find open ports. Once you identified a service you want to target, you can send specific packets and inspect the traffic for the specified information.
+
 To perform banner grabbing, depending on your specific needs, type one of the following commands:
 
 `-grab -host [HOST(s)] -p [PORT(s)]`
@@ -125,6 +131,10 @@ This feature is similar to the well known `nslookup` command used on UNIX system
 ![dns](https://user-images.githubusercontent.com/61552222/134312444-fe74ff4a-76d1-4bef-9093-e83cdebe50e6.png)
 
 ### Subdomain enumeration
+Subdomain enumeration is the process of finding valid sub-domains for one or more domain.
+
+Sub-domain enumeration can reveal a lot of domains/sub-domains that are in scope of a security assessment which in turn increases the chances of finding vulnerabilities.
+
 If you wish to look for common subdomains of a domain, simply type:
 
 `-sdenum [DOMAIN]`
@@ -162,9 +172,19 @@ To diagnose route paths and measure transit delays, use the `-traceroute` comman
 ![traceroute](https://user-images.githubusercontent.com/61552222/134312735-7f185efd-4264-4fbb-96d8-91a053d0ff6e.png)
 
 ### IP spoofing
+The objective of IP spoofing is to modify the correct source IP address so that the system to which a packet is directed cannot correctly identify the sender.
+
 Note that this command only works on machines with unpached vulnerabilities. To performe IP spoofing on a host's specific port, use the following command:
 
-`-spoof -target [TARGET] -p [PORT]`
+`-spoof -source [SOURCE IP] [SOURCE PORT] -target [TARGET IP] [TARGET PORT]`
+
+If you want to use a random source IP, type the following command:
+
+`-spoof -source r [SOURCE PORT] -target [TARGET IP] [TARGET PORT]`
+
+You can also use a random source port:
+
+`-spoof -source [SOURCE IP] r -target [TARGET IP] [TARGET PORT]`
 
 ![anim spoof](https://user-images.githubusercontent.com/61552222/136197768-e9f45be7-2d8a-49e6-b0af-e7b44cf15532.gif)
 

@@ -1,6 +1,6 @@
 import random
 from colorama import Fore, Back, Style
-from tasks.extras import printcolor
+from extras import printcolor
 
 def intro1():
     print('\n********************************************************')
