@@ -14,7 +14,7 @@ from tasks.banner import bannerWithPort
 from tasks.scan import scanStatus, scan, scanWithPort, scanLocalDevices
 from tasks.vulnscan import vulnscan
 from tasks.offense.sniff import sniff
-from tasks.offense.spoof import spoof
+from tasks.offense.ipspoof import ipspoof
 from tasks.offense.deauth import deauth
 from tasks.save import save
  
@@ -30,7 +30,7 @@ Examples:
         -ifconfig [HOST]
         -ping [HOST]
         -traceroute [HOST]
-        -spoof -source [SOURCE IP] [SOURCE PORT] -target [TARGET IP] [TARGET PORT]
+        -ipspoof -source [SOURCE IP] [SOURCE PORT] -target [TARGET IP] [TARGET PORT]
         -sniff
         -deauth -target [TARGET MAC] -gateway [GATEWAY MAC] -iface [INTERFACE] 
 
@@ -92,7 +92,7 @@ ap.add_argument('-vulnscan', action = 'store_true',
         help = 'perform vulnerabilty scan on a host')
 ap.add_argument('-grab', action = 'store_true',
         help = 'perform banner grabbing')
-ap.add_argument('-spoof', action = 'store_true',
+ap.add_argument('-ipspoof', action = 'store_true',
         help = 'perform IP spoofing on a target (root privileges needed)')
 ap.add_argument('-sniff', action = 'store_true',
         help = 'perform packet sniffing (root privileges needed)')
@@ -229,19 +229,19 @@ elif args['grab']:
         else:
                 print('Please type the command correctly. Examples: \n \t -grab -host [HOST(s)] -p [PORT(s)] \n \t -grab -iprange [START IP] [END IP] -prange [START PORT] [END PORT] \n \t -grab -host [HOST(s)] -prange [START PORT] [END PORT] \n \t -grab -iprange [START IP] [END IP] -p [PORT]')
 # IP Spoofing
-elif args['spoof']:
+elif args['ipspoof']:
 
         if args['source']:
 
                 if args['target']:
                         if len(args['source']) == 2 and len(args['target']) == 2:
-                                spoof(args['source'][0], args['source'][1], nsconv(args['target'][0]), int(args['target'][1])) 
+                                ipspoof(args['source'][0], args['source'][1], nsconv(args['target'][0]), int(args['target'][1])) 
                         else:
-                                print('Please type the command correctly. You can only attack one host and one port at a time. Examples: \n \t -spoof -spoof -source [SOURCE IP] [SOURCE PORT] -target [TARGET IP] [TARGET PORT]')
+                                print('Please type the command correctly. You can only attack one host and one port at a time. Examples: \n \t -ipspoof -spoof -source [SOURCE IP] [SOURCE PORT] -target [TARGET IP] [TARGET PORT]')
                 else:
-                        print('Please type the command correctly. You can only attack one host and one port at a time. Examples: \n \t -spoof -source [SOURCE IP] [SOURCE PORT] -target [TARGET IP] [TARGET PORT]')
+                        print('Please type the command correctly. You can only attack one host and one port at a time. Examples: \n \t -ipspoof -source [SOURCE IP] [SOURCE PORT] -target [TARGET IP] [TARGET PORT]')
         else:
-                print('Please type the command correctly. You can only attack one host and one port at a time. Examples: \n \t -spoof -source [SOURCE IP] [SOURCE PORT] -target [TARGET IP] [TARGET PORT]')
+                print('Please type the command correctly. You can only attack one host and one port at a time. Examples: \n \t -ipspoof -source [SOURCE IP] [SOURCE PORT] -target [TARGET IP] [TARGET PORT]')
 
 # Packet sniffing
 elif args['sniff']:

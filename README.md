@@ -176,15 +176,15 @@ The objective of IP spoofing is to modify the correct source IP address so that 
 
 Note that this command only works on machines with unpached vulnerabilities. To performe IP spoofing on a host's specific port, use the following command:
 
-`-spoof -source [SOURCE IP] [SOURCE PORT] -target [TARGET IP] [TARGET PORT]`
+`-ipspoof -source [SOURCE IP] [SOURCE PORT] -target [TARGET IP] [TARGET PORT]`
 
 If you want to use a random source IP, type the following command:
 
-`-spoof -source r [SOURCE PORT] -target [TARGET IP] [TARGET PORT]`
+`-ipspoof -source r [SOURCE PORT] -target [TARGET IP] [TARGET PORT]`
 
 You can also use a random source port:
 
-`-spoof -source [SOURCE IP] r -target [TARGET IP] [TARGET PORT]`
+`-ipspoof -source [SOURCE IP] r -target [TARGET IP] [TARGET PORT]`
 
 ![anim spoof](https://user-images.githubusercontent.com/61552222/136197768-e9f45be7-2d8a-49e6-b0af-e7b44cf15532.gif)
 

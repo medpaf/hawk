@@ -4,7 +4,7 @@ from colorama import Fore, Back, Style
 
 
 
-def spoof(source_ip, source_port, target_ip, target_port):
+def ipspoof(source_ip, source_port, target_ip, target_port):
 
     # If not sudo, don't allow to continue
     if not 'SUDO_UID' in os.environ.keys():
