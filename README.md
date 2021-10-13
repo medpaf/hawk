@@ -81,7 +81,7 @@ sudo python3 medsec.py
 ```
 ## How to use
 ### Scanning ports
-Scanning ports helps detect a potential security breaches by identifying the hosts connected to your network and the services running.
+Scanning ports helps detect potential security breaches by identifying the hosts connected to your network and the services running.
 
 Multiple scan types are supported, including SYN (`-scansyn`), TCP (`-scantcp`), UDP (`-scanudp`), ACK (`-scanack`) and comprehensive scan (`-scan`).
 
