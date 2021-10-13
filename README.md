@@ -123,7 +123,7 @@ To perform banner grabbing, depending on your specific needs, type one of the fo
 
 `-grab -iprange [START IP] [END IP] -p [PORT(s)]`
 
-![grab2](https://user-images.githubusercontent.com/61552222/137121866-5dac1f3d-eec7-4e78-abf1-62a2e3e0da22.png)
+![grab2](https://user-images.githubusercontent.com/61552222/137122733-952b846c-8f47-48dc-ab2c-abc6a07fc0ad.png)
 
 ### DNS checks
 This feature is similar to the well known `nslookup` command used on UNIX systems. If you want to do a DNS check, type the following:
