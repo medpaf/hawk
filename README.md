@@ -55,7 +55,7 @@ Note that currently, this script can only run well on Linux. If you try it in on
 
 ### Linux
 
-To install the necessary packages so that the script can run withouth any problems simply run the `setup.sh` script with root privileges. Currently, this installation script is only supported on Debian, Red Hat and Arch based distros that has the apt, dnf and pacman package manager respectively (***Ubuntu***, ***Kali Linux***, ***Parrot OS***, ***Debian***, ***Pop!_OS***, ***Mint***, **Fedora**, **CentOS**, **Red Hat**, **Arch**, **Black Arch**, **Manjaro** etc). On most systems, to install medsec simply run the following commands:
+To install the necessary packages so that the script can run withouth any problems simply run the `setup.sh` script with root privileges. Currently, this installation script is only supported on Debian, Red Hat and Arch based distros that has the apt, dnf and pacman package manager respectively (***Ubuntu***, ***Kali Linux***, ***Parrot OS***, ***Debian***, ***Pop!_OS***, ***Linux Mint***, ***Deepin***, ***Zorin OS***, ***MX Linux***, ***Elementary OS***, ***Fedora***, ***CentOS***, ***Red Hat Enterprise Linux***, ***Rocky Linux***, ***AlmaLinux***, ***Oracle Linux***, ***ClearOS***, ***Arch***, ***Black Arch***, ***Manjaro*** etc). On most systems, to install medsec simply run the following commands:
 ```
 git clone https://github.com/medpaf/medsec.git
 cd medsec

@@ -17,7 +17,7 @@ def ipspoof(source_ip, source_port, target_ip, target_port):
         else:
             src_ip = f'{source_ip}'
         if source_port.lower() == 'r':
-            src_port = int(random.randint(1, 56666))
+            src_port = int(random.randint(1, 5555))
         else:
             src_port = int(source_port)
         

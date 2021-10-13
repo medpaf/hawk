@@ -1,4 +1,7 @@
-echo "1. Debian-based (Debian, Ubuntu, Kali, ParrotOS, Pop!_OS, Mint) \ 2. Red Hat-based (Fedora, CentOS, Red Hat) \ 3. Arch-based (Arch, Black Arch, Manjaro)"
+echo "1. Debian-based (Debian, Ubuntu, Kali, ParrotOS, Pop!_OS, Linux Mint, Deepin, Elementary OS, Zorin OS, MX Linux) "
+echo "2. RHEL-based (Red Hat Enterprise Linux, Fedora, CentOS, Rocky Linux, AlmaLinux, Oracle Linux, ClearOS)"
+echo "3. Arch-based (Arch, Black Arch, Manjaro)"
+
 read -p "Enter your distro: " choice
 
 if test "$choice" = "1"
