@@ -95,7 +95,7 @@ Multiple scan types are supported, including SYN (`-scansyn`), TCP (`-scantcp`),
 
 `-scan -iprange [START IP] [END IP] -prange [START PORT] [END PORT]`
 
-![scan](https://user-images.githubusercontent.com/61552222/134312220-9bfbfd14-aaed-411b-8299-0169f7fefbf9.png)
+![scan2](https://user-images.githubusercontent.com/61552222/137121775-59692de5-e75d-45ce-86e7-34c0e12ebf6a.png)
 
 After this scan, it is possible to see that both 22 (SSH) and 80 (HTTP) ports are open.
 
@@ -106,7 +106,7 @@ To look for current up devices on a given network type the following command:
 
 Then type the network you want to scan.
 
-![scanlan](https://user-images.githubusercontent.com/61552222/135727715-5cdc4533-b3ec-4122-90f7-1d8fa0c2da7d.png)
+![scanlan2](https://user-images.githubusercontent.com/61552222/137121820-304c1270-a182-4f1e-8f5c-d52157087c9c.png)
 
 ### Banner grabbing
 Banner grabbing is a reconnaissance technique that retrieves a software banner information. This banner usually contains important information about a network service, including but not limited to, it’s software name and version. FTP, Web, SSH, and SMTP servers often expose vital information about the software they are running in their banner.
@@ -123,14 +123,14 @@ To perform banner grabbing, depending on your specific needs, type one of the fo
 
 `-grab -iprange [START IP] [END IP] -p [PORT(s)]`
 
-![grab](https://user-images.githubusercontent.com/61552222/134312366-3548a436-7462-4e3a-8304-dc2befb74c3a.png)
+![grab2](https://user-images.githubusercontent.com/61552222/137121866-5dac1f3d-eec7-4e78-abf1-62a2e3e0da22.png)
 
 ### DNS checks
 This feature is similar to the well known `nslookup` command used on UNIX systems. If you want to do a DNS check, type the following:
 
 `-ns [HOST(s)]`
 
-![dns](https://user-images.githubusercontent.com/61552222/134312444-fe74ff4a-76d1-4bef-9093-e83cdebe50e6.png)
+![ns2](https://user-images.githubusercontent.com/61552222/137121915-cd17e424-2f83-4a4b-a0a2-93a43b7051f2.png)
 
 ### Subdomain enumeration
 Subdomain enumeration is the process of finding valid sub-domains for one or more domain.
@@ -141,7 +141,7 @@ If you wish to look for common subdomains of a domain, simply type:
 
 `-sdenum [DOMAIN]`
 
-![sdenum3](https://user-images.githubusercontent.com/61552222/135729173-95f7fb5e-7c58-4a96-83f9-ee470b6425c7.png)
+![sdenum2](https://user-images.githubusercontent.com/61552222/137121964-05c3b6df-a0fa-4b9a-9ac3-bdcdb6dd9263.png)
 
 ### Vulnerability reconnaissance
 To scan a host for vulnerabilities use the following command:
