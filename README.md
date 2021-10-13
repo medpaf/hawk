@@ -19,7 +19,7 @@ Currently, this script can perform a good variety of tasks such as:
 - Banner grabbing;
 - DNS checks with geolocation information;
 - Subdomain enumeration;
-- Vulnerability reconnaissance
+- Vulnerability reconnaissance;
 - ifconfig (beta);
 - ping (beta);
 - traceroute (beta);
