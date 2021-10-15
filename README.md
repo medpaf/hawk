@@ -116,6 +116,8 @@ To get a MAC address of a live host on the LAN, use the command:
 
 `-getmac -host [HOST(s) IP]`
 
+![getmac](https://user-images.githubusercontent.com/61552222/137489461-c7f2646f-2626-42b5-ab95-2a53407718ac.png)
+
 ### Banner grabbing
 Banner grabbing is a reconnaissance technique that retrieves a software banner information. This banner usually contains important information about a network service, including but not limited to, it’s software name and version. FTP, Web, SSH, and SMTP servers often expose vital information about the software they are running in their banner.
 
