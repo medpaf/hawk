@@ -22,7 +22,7 @@ Currently, this script can perform a good variety of tasks such as:
 - Subdomain enumeration;
 - Vulnerability reconnaissance;
 - ifconfig (beta);
-- ping (beta);
+- ping;
 - traceroute (beta);
 - IP spoofing;
 - Packet sniffing;
@@ -43,7 +43,7 @@ Other features are still being implemented. Future implementations may include W
   - [Subdomain enumeration](#subdomain-enumeration)
   - [Vulnerability reconnaissance](#vulnerability-reconnaissance)
   - [ifconfig (beta)](#ifconfig)
-  - [ping (beta)](#ping)
+  - [ping](#ping)
   - [traceroute (beta)](#traceroute)
   - [IP spoofing](#ip-spoofing)
   - [Packet sniffing](#packet-sniffing)
