@@ -37,7 +37,7 @@ Other features are still being implemented. Future implementations may include W
 + [How to use](#how-to-use)
   - [Port scan](#scanning-ports)
   - [Host discovery (scan for devices on a local network)](#host-discovery)
-  - [MAC address detection (get MAC address of a host IP on a local network)][#mac-address-detection]
+  - [MAC address detection (get MAC address of a host IP on a local network)(#mac-address-detection)
   - [Banner grabbing](#banner-grabbing)
   - [DNS checks (with geolocation information)](#dns-checks)
   - [Subdomain enumeration](#subdomain-enumeration)
