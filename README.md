@@ -174,7 +174,7 @@ To send ICMP packets to a host to check connectivity, simply type:
 
 `-ping [HOST]`
 
-![ping](https://user-images.githubusercontent.com/61552222/134312705-9e7237c1-dfe4-470b-9b35-f9560884d039.png)
+![ping](https://user-images.githubusercontent.com/61552222/137532338-ed2e2764-edec-47a5-ab1a-9c567854012d.png)
 
 ### traceroute
 To diagnose route paths and measure transit delays, use the `-traceroute` command:
