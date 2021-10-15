@@ -39,7 +39,7 @@ else
      exit 
 fi
 
-# Install pip packages
+# Install all necessary pip packages
 
 sudo pip3 install python-nmap
 sudo pip3 install socket

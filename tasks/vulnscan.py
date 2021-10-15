@@ -35,6 +35,7 @@ def vulnscan(target):
             for item in host['vulns']:
                 CVE = item.replace('!','')
                 print(f"\nVulnerability: {Fore.RED} {item} {Style.RESET_ALL}")
+                
                 # Wait a second
                 time.sleep(1) 
                 exploits = api.exploits.search(CVE)

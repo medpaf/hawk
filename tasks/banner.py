@@ -21,4 +21,4 @@ def bannerWithPort(host, port):
         print(f'[{Fore.RED}!{Style.RESET_ALL}] Error: {Fore.RED}{e}{Style.RESET_ALL}')
     else:
         sckt.close()
-        print(f'[{Fore.GREEN}+{Style.RESET_ALL}] Banner: {Fore.GREEN}{banner.decode()}{Style.RESET_ALL}\n')
+        print(f'[{Fore.GREEN}+{Style.RESET_ALL}] Banner of {Fore.YELLOW}{host}{Style.RESET_ALL} on port {Fore.YELLOW}{port}{Style.RESET_ALL}: \n{Fore.GREEN}{banner.decode()}{Style.RESET_ALL}\n')
