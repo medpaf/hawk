@@ -30,7 +30,7 @@ Examples:
         -sdenum [DOMAIN]
         -vulnscan -host [HOST(s)]
         -ifconfig [HOST]
-        -ping [HOST]
+        -ping [HOST(s)]
         -traceroute [HOST]
         -ipspoof -source [SOURCE IP] [SOURCE PORT] -target [TARGET IP] [TARGET PORT]
         -sniff
@@ -42,7 +42,7 @@ Examples:
 ap.add_argument('-ifconfig', action = 'store_true', 
         help = 'display current TCP/IP network configuration')
 ap.add_argument('-ping', type = str,
-        nargs = 1,
+        nargs = '+',
         help = 'send ICMP packets to a host to check connectivity.')
 ap.add_argument('-traceroute',
         nargs = 1,
@@ -155,7 +155,8 @@ elif args['sdenum']:
 
 # Ping to check connectivity
 elif args['ping']:
-        ping(args['ping'][0])
+        for i in range(0, len(args['ping'])):
+                ping(args['ping'][i], i)
 
 # Traceroue
 elif args['traceroute']:

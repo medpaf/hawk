@@ -170,9 +170,9 @@ If you want to display your system's current TCP/IP network configuration, type 
 ![ifconfig](https://user-images.githubusercontent.com/61552222/134312657-b7262736-0ae0-4a39-bb72-c6dc0bc6869b.png)
 
 ### ping
-To send ICMP packets to a host to check connectivity, simply type:
+To send ICMP packets to one or more hosts to check connectivity, simply type:
 
-`-ping [HOST]`
+`-ping [HOST(s)]`
 
 ![ping](https://user-images.githubusercontent.com/61552222/137532338-ed2e2764-edec-47a5-ab1a-9c567854012d.png)
 
