@@ -2,9 +2,6 @@ from multiprocessing import Process
 from scapy.all import (ARP, Ether, conf, get_if_hwaddr, send, sniff, sndrcv, srp, wrpcap)
 from colorama import Fore, Back, Style
 import sys
-
-import os
-import sys
 import time
 
 def getmac(target_ip):
