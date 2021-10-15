@@ -19,9 +19,9 @@ def scanStatus(str, inputed):
         sys.exit(1)
     else:
         if scanner[str].state() == 'up':
-            print(f'[{Fore.GREEN}+{Style.RESET_ALL}] Status: {str} is {Fore.GREEN}{scanner[str].state()}{Style.RESET_ALL}')
+            print(f'[{Fore.GREEN}+{Style.RESET_ALL}] Status: {str} is {Fore.GREEN}{scanner[str].state()}{Style.RESET_ALL}.')
         else: 
-            print(f'[{Fore.YELLOW}?{Style.RESET_ALL}] Status: {str} is {Fore.RED}{scanner[str].state()}{Style.RESET_ALL}')
+            print(f'[{Fore.YELLOW}?{Style.RESET_ALL}] Status: {str} is {Fore.RED}{scanner[str].state()}{Style.RESET_ALL}.')
             sys.exit()
 
 def scan(str, inputed, prstart, prend, scantype):
