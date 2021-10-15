@@ -1,7 +1,6 @@
 from scapy.all import *
 import sys
 import os
-import sys
 from colorama import Fore, Back, Style
 
 def deauth(target_mac, gateway_mac, iface):

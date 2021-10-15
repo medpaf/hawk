@@ -44,11 +44,22 @@ fi
 sudo pip3 install python-nmap
 sudo pip3 install socket
 sudo pip3 install requests
+sudo pip3 install sys
+sudo pip3 install os
+sudo pip3 install random
+sudo pip3 install binascii
+sudo pip3 install struct
+sudo pip3 install multiprocessing
+sudo pip3 install threading
+sudo pip3 install queue
+sudo pip3 install subprocess
+sudo pip3 install time
 sudo pip3 install ipaddress
 sudo pip3 install colorama
 sudo pip3 install ipinfo
 sudo pip3 install scapy
 sudo pip3 install shodan
+
 
 # Add main .py file to the system path (later)
 #cp *.py /usr/bin
