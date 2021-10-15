@@ -113,6 +113,7 @@ Then type the network you want to scan.
 
 ### MAC address detection
 To get a MAC address of a live host on the LAN, use the command:
+
 `-getmac -host [HOST(s) IP]`
 
 ### Banner grabbing
