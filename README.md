@@ -16,6 +16,7 @@ MedSec is a network and pentest utility that I developed so that I could perform
 Currently, this script can perform a good variety of tasks such as:
 - Port scan, including SYN, TCP, UDP, ACK, comprehensive scan;
 - Host discovery (scan for up devices on a local network);
+- MAC address detection (get MAC address of a host IP on a local network);
 - Banner grabbing;
 - DNS checks with geolocation information;
 - Subdomain enumeration;
@@ -36,6 +37,7 @@ Other features are still being implemented. Future implementations may include W
 + [How to use](#how-to-use)
   - [Port scan](#scanning-ports)
   - [Host discovery (scan for devices on a local network)](#host-discovery)
+  - [MAC address detection (get MAC address of a host IP on a local network)][#mac-address-detection]
   - [Banner grabbing](#banner-grabbing)
   - [DNS checks (with geolocation information)](#dns-checks)
   - [Subdomain enumeration](#subdomain-enumeration)
@@ -108,6 +110,10 @@ To look for current up devices on a given network type the following command:
 Then type the network you want to scan.
 
 ![scanlan2](https://user-images.githubusercontent.com/61552222/137121820-304c1270-a182-4f1e-8f5c-d52157087c9c.png)
+
+### MAC address detection
+To get a MAC address of a live host on the LAN, use the command:
+`-getmac -host [HOST(s) IP]`
 
 ### Banner grabbing
 Banner grabbing is a reconnaissance technique that retrieves a software banner information. This banner usually contains important information about a network service, including but not limited to, it’s software name and version. FTP, Web, SSH, and SMTP servers often expose vital information about the software they are running in their banner.
