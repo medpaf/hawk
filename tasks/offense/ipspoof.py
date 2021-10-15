@@ -2,8 +2,6 @@ from scapy.all import *
 import random
 from colorama import Fore, Back, Style
 
-
-
 def ipspoof(source_ip, source_port, target_ip, target_port):
 
     # If not sudo, don't allow to continue
@@ -24,7 +22,7 @@ def ipspoof(source_ip, source_port, target_ip, target_port):
         tgt_ip = target_ip
         tgt_port = int(target_port)
 
-        choice = input(f'Source IP: {src_ip}\nSource port: {src_port}\nTarget IP: {tgt_ip}\nTarget port: {tgt_port}\nDo you wish to continue? [Y/N]: ')
+        choice = input(f'[{Fore.GREEN}+{Style.RESET_ALL}] Source IP: {Fore.GREEN}{src_ip}{Style.RESET_ALL}\n[{Fore.GREEN}+{Style.RESET_ALL}] Source port: {Fore.GREEN}{src_port}{Style.RESET_ALL}\n[{Fore.GREEN}+{Style.RESET_ALL}] Target IP: {Fore.GREEN}{tgt_ip}{Style.RESET_ALL}\n[{Fore.GREEN}+{Style.RESET_ALL}] Target port: {Fore.GREEN}{tgt_port}{Style.RESET_ALL}\nDo you wish to continue? [Y/N]: ')
 
         if choice.lower() == 'y':
             i=1
