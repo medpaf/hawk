@@ -70,7 +70,6 @@ The necessary packages are:
 - nmap (using your system's package manager)
 - traceroute (using your system's package manager)
 - sockets (using pip3)
-- requests (using pip3)
 - ipaddress (using pip3)
 - python-nmap (using pip3)
 - colorama (using pip3)
@@ -112,7 +111,7 @@ Then type the network you want to scan.
 ![scanlan2](https://user-images.githubusercontent.com/61552222/137121820-304c1270-a182-4f1e-8f5c-d52157087c9c.png)
 
 ### MAC address detection
-To get a MAC address of a live host on the LAN, use the command:
+To get a MAC address of one or more live hosts on the LAN, use the command:
 
 `-getmac -host [HOST(s) IP]`
 
@@ -154,7 +153,7 @@ If you wish to look for common subdomains of a domain, simply type:
 ![sdenum2](https://user-images.githubusercontent.com/61552222/137121964-05c3b6df-a0fa-4b9a-9ac3-bdcdb6dd9263.png)
 
 ### Vulnerability reconnaissance
-To scan a host for vulnerabilities use the following command:
+To scan one or more hosts for vulnerabilities use the following command:
 
 `-vulnscan -host [HOST(s)]`
 
