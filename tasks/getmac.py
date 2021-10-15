@@ -30,13 +30,3 @@ def getmac(host_ip, count_host):
 
     except KeyboardInterrupt:
         sys.exit()
-
-if __name__ == '__main__':
-    try:
-        getmac('192.168.1.245')
-
-    except Exception as e:
-        print(f'[{Fore.RED}!{Style.RESET_ALL}] Error: {Fore.RED}{e}{Style.RESET_ALL}')
-
-    except KeyboardInterrupt:
-        sys.exit()
