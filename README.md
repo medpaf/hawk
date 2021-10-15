@@ -69,6 +69,7 @@ The necessary packages are:
 - traceroute (using your system's package manager)
 - sockets (using pip3)
 - requests (using pip3)
+- ipaddress (using pip3)
 - python-nmap (using pip3)
 - colorama (using pip3)
 - ipinfo (using pip3)

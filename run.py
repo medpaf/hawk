@@ -15,6 +15,7 @@ from tasks.scan import scanStatus, scan, scanWithPort, scanLocalDevices
 from tasks.vulnscan import vulnscan
 from tasks.offense.sniff import sniff
 from tasks.offense.ipspoof import ipspoof
+from tasks.getmac import getmac
 from tasks.offense.deauth import deauth
 from tasks.save import save
  
@@ -23,6 +24,7 @@ epilog=textwrap.dedent('''
 Examples:
         -scan -host [HOST(s)] -prange [START PORT] [END PORT]
         -scanlan
+        -getmac -host [HOST(s) IP]
         -grab -host [HOST(S)] -p [PORT(s)]
         -ns [HOST]
         -sdenum [DOMAIN]
@@ -92,6 +94,8 @@ ap.add_argument('-vulnscan', action = 'store_true',
         help = 'perform vulnerabilty scan on a host')
 ap.add_argument('-grab', action = 'store_true',
         help = 'perform banner grabbing')
+ap.add_argument('-getmac', action = 'store_true',
+        help = 'Get MAC address of a host IP address in the same LAN (root privileges needed)')
 ap.add_argument('-ipspoof', action = 'store_true',
         help = 'perform IP spoofing on a target (root privileges needed)')
 ap.add_argument('-sniff', action = 'store_true',
@@ -180,6 +184,14 @@ elif args['scan']:
 # Scan for local devices
 elif args['scanlan']:
         scanLocalDevices()
+
+# Get MAC address of a host IP address
+elif args['getmac']:
+        if args['host']:
+                for i in range(0, len(args['host'])):
+                        getmac(args['host'][i], i)                
+        else:
+              print('Please type the command correctly. Examples: \n \t -getmac -host [HOST(s) IP]')  
 
 # Vuln scan on a host
 elif args['vulnscan']:
