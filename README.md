@@ -14,7 +14,7 @@
 MedSec is a network and pentest utility that I developed so that I could perform different kinds of task using the same suite, instead of jumping from one tool to another.
 
 Currently, this script can perform a good variety of tasks such as:
-- Port scan, including SYN, TCP, UDP, ACK, comprehensive scan;
+- Port scans, including SYN, TCP, UDP, ACK, comprehensive scan;
 - Host discovery (scan for up devices on a local network);
 - MAC address detection (get MAC address of a host IP on a local network);
 - Banner grabbing;
