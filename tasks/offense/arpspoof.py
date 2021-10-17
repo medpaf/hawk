@@ -14,7 +14,7 @@ def getmac(target_ip):
 
 class Arper:
 
-    def __init__(self, target, gateway, iface, count):
+    def __init__(self, target, gateway, iface, count=0):
         self.poison_thread = Process(target=self.poison)
         self.sniff_thread = Process(target=self.sniff)
         
