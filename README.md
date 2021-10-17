@@ -180,7 +180,7 @@ To diagnose route paths and measure transit delays, use the `-traceroute` comman
 
 `-traceroute [HOST]`
 
-![traceroute](https://user-images.githubusercontent.com/61552222/134312735-7f185efd-4264-4fbb-96d8-91a053d0ff6e.png)
+![trace](https://user-images.githubusercontent.com/61552222/137626030-40511ada-52f9-4d83-b561-3491939f5d22.png)
 
 ### IP spoofing
 The objective of IP spoofing is to modify the correct source IP address so that the system to which a packet is directed cannot correctly identify the sender.
