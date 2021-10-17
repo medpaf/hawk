@@ -68,7 +68,6 @@ Then, simply follow the instructions.
 However, if you are using any other Linux distro with a different package manager, please install the packages manually using your distro's package manager. Depending on the specific distro used, some of the required packages to run this script might be already installed on your machine.
 The necessary packages are:
 - nmap (using your system's package manager)
-- traceroute (using your system's package manager)
 - sockets (using pip3)
 - ipaddress (using pip3)
 - python-nmap (using pip3)

@@ -12,7 +12,6 @@ then
     # Install necessary packages for Debian-based distros
 
     sudo apt-get install nmap
-    sudo apt-get install traceroute
     sudo apt-get install python3-pip
     
      
@@ -22,7 +21,6 @@ then
     # Install necessary packages for RHEL-based distros
 
     sudo dnf install nmap
-    sudo dnf install traceroute
     sudo dnf install python3-pip
 
 elif test "$choice" = "3"
@@ -31,7 +29,6 @@ then
     # Install necessary packages for Arch-based distros
 
     sudo pacman -S nmap
-    sudo pacman -S traceroute
     sudo pacman -S python3-pip
 
 else
