@@ -139,7 +139,7 @@ This feature is similar to the well known `nslookup` command used on UNIX system
 
 `-ns [HOST(s)]`
 
-![ns2](https://user-images.githubusercontent.com/61552222/137123165-74387aa3-6335-4005-9c50-4deb7ed340a8.png)
+![ns](https://user-images.githubusercontent.com/61552222/137627097-123581b6-857e-404d-9e60-9c422f752cb4.png)
 
 ### Subdomain enumeration
 Subdomain enumeration is the process of finding valid sub-domains for one or more domain.
