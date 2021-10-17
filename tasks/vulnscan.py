@@ -26,15 +26,15 @@ def vulnscan(target):
 
         # Print all banners
         for item in host['data']:
-            print(f"[{Fore.GREEN}+{Style.RESET_ALL}] Port: {item['port']}")
-            print(f"[{Fore.GREEN}+{Style.RESET_ALL}] Banner: {item['data']}")
+            print(f"[{Fore.GREEN}+{Style.RESET_ALL}] Port: {Fore.GREEN}{item['port']}{Style.RESET_ALL}")
+            print(f"[{Fore.GREEN}+{Style.RESET_ALL}] Banner: {Fore.GREEN}{item['data']}{Style.RESET_ALL}")
 
         # Print vulnerability information
         if 'vulns' in host and len(host['vulns']) > 0:
             print(f"[{Fore.GREEN}+{Style.RESET_ALL}] {len(host['vulns'])} vulnerability(ies) found on {target}")
             for item in host['vulns']:
                 CVE = item.replace('!','')
-                print(f"\nVulnerability: {Fore.RED} {item} {Style.RESET_ALL}")
+                print(f"\n[{Fore.GREEN}+{Style.RESET_ALL}] Vulnerability: {Fore.GREEN} {item} {Style.RESET_ALL}")
                 
                 # Wait a second
                 time.sleep(1) 
@@ -42,7 +42,7 @@ def vulnscan(target):
                 for item in exploits['matches']:
                     print(item.get('description'))  
         else:
-            print(f"No vulnerabilities found on {target}.\n{Fore.YELLOW}Disclaimer{Style.RESET_ALL}: This doesn't mean that the host isn't vulnerable.")
+            print(f"[{Fore.GREEN}+{Style.RESET_ALL}] No vulnerabilities found on {Fore.YELLOW}{target}{Style.RESET_ALL}.\n{Fore.YELLOW}Disclaimer{Style.RESET_ALL}: This doesn't mean that the host isn't vulnerable.")
     except KeyboardInterrupt:
         sys.exit()
     except Exception as e:
