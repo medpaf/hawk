@@ -23,7 +23,7 @@ Currently, this script can perform a good variety of tasks such as:
 - Vulnerability reconnaissance;
 - ifconfig (beta);
 - ping;
-- traceroute (beta);
+- traceroute;
 - IP spoofing;
 - Packet sniffing;
 - Deauth attack.
@@ -44,7 +44,7 @@ Other features are still being implemented. Future implementations may include W
   - [Vulnerability reconnaissance](#vulnerability-reconnaissance)
   - [ifconfig (beta)](#ifconfig)
   - [ping](#ping)
-  - [traceroute (beta)](#traceroute)
+  - [traceroute](#traceroute)
   - [IP spoofing](#ip-spoofing)
   - [Packet sniffing](#packet-sniffing)
   - [Deauth attack](#deauth-attack)
