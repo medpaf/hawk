@@ -35,7 +35,7 @@ Other features are still being implemented. Future implementations may include W
 + [Installation](#installation)
   - [Linux](#linux)
 + [How to use](#how-to-use)
-  - [Port scan](#scanning-ports)
+  - [Port scans](#port-scans)
   - [Host discovery (scan for devices on a local network)](#host-discovery)
   - [MAC address detection (get MAC address of a host IP on a local network)](#mac-address-detection)
   - [Banner grabbing](#banner-grabbing)
@@ -81,7 +81,7 @@ After the installation, to run the program, simply navigate to the project's dir
 sudo python3 medsec.py
 ```
 ## How to use
-### Scanning ports
+### Port scans
 Scanning ports helps detect potential security breaches by identifying the hosts connected to your network and the services running.
 
 Multiple scan types are supported, including SYN (`-scansyn`), TCP (`-scantcp`), UDP (`-scanudp`), ACK (`-scanack`) and comprehensive scan (`-scan`).
