@@ -39,7 +39,7 @@ def scan(str, inputed, prstart, prend, scantype):
         print(f'[{Fore.RED}!{Style.RESET_ALL}] Error: {Fore.RED}{e}{Style.RESET_ALL}')
     else:
         if len(scanner[str].all_protocols()) == 0:
-            print('No port(s) found.')
+            print(f'[{Fore.RED}!{Style.RESET_ALL}] {Fore.RED}No port(s) found.{Style.RESET_ALL}')
         else:
             for protocol in scanner[str].all_protocols():
                 if scanner[str][protocol].keys():
@@ -86,5 +86,18 @@ def scanLocalDevices():
     else:
         for host in scanner.all_hosts():
             if scanner[host]['status']['state'] == 'up':
-                print(f"[{Fore.GREEN}+{Style.RESET_ALL}] {host}      \t\t {scanner[host]['vendor']}")
+                try:
+                    if len(scanner[host]['vendor']) == 0:
+                        try:
+                            print(f"[{Fore.GREEN}+{Style.RESET_ALL}] {host}      \t\t {socket.gethostbyaddr(host)[0]}")
+                        except:
+                            print(f"[{Fore.GREEN}+{Style.RESET_ALL}] {host}")
+                    else:
+                        try:
+                            print(f"[{Fore.GREEN}+{Style.RESET_ALL}] {host}      \t\t {scanner[host]['vendor']}      \t\t {socket.gethostbyaddr(host)[0]}")
+                        except:
+                            print(f"[{Fore.GREEN}+{Style.RESET_ALL}] {host}      \t\t {scanner[host]['vendor']}") 
+                except:
+                    print(f"[{Fore.GREEN}+{Style.RESET_ALL}] {host}      \t\t {scanner[host]['vendor']}")
+
            

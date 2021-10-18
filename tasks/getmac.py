@@ -22,7 +22,7 @@ def getmac(host_ip, count_host):
             for _, r in resp:
                 print(f'[{Fore.GREEN}+{Style.RESET_ALL}] MAC address of {Fore.YELLOW}{host_ip}{Style.RESET_ALL}: {Fore.GREEN}{r[Ether].src.upper()}{Style.RESET_ALL}')
         else:
-                print(f'[{Fore.RED}!{Style.RESET_ALL}] {Fore.RED}No MAC address for{Style.RESET_ALL} {Fore.WHITE}{host_ip}{Style.RESET_ALL} {Fore.RED}was found.{Style.RESET_ALL}')
+                print(f'[{Fore.RED}!{Style.RESET_ALL}] {Fore.RED}No MAC address for{Style.RESET_ALL} {Fore.YELLOW}{host_ip}{Style.RESET_ALL} {Fore.RED}was found.{Style.RESET_ALL}')
 
     except Exception as e:
         print(f'[{Fore.RED}!{Style.RESET_ALL}] Error: {Fore.RED}{e}{Style.RESET_ALL}')
