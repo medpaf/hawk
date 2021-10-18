@@ -27,8 +27,7 @@ def ns(str):
             print(f'[{Fore.GREEN}+{Style.RESET_ALL}] Timezone: {Fore.GREEN}{details.timezone}{Style.RESET_ALL}\n')
         except Exception as e:
             pass
-            #print(f'[{Fore.RED}!{Style.RESET_ALL}] Error: {Fore.RED}{e}{Style.RESET_ALL}')
-            
+
 # Function to return IP address of an URL
 def nsconv(str):
     try:

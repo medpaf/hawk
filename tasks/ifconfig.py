@@ -1,4 +1,4 @@
-import os
+import subprocess
 
 def ifconfig():
-    os.system('ip a')
+    subprocess.call(['ip', 'a'])
