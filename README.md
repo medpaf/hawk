@@ -66,15 +66,7 @@ sudo . setup.sh
 Then, simply follow the instructions.
 
 However, if you are using any other Linux distro with a different package manager, please install the packages manually using your distro's package manager. Depending on the specific distro used, some of the required packages to run this script might be already installed on your machine.
-The necessary packages are:
-- nmap (using your system's package manager)
-- sockets (using pip3)
-- ipaddress (using pip3)
-- python-nmap (using pip3)
-- colorama (using pip3)
-- ipinfo (using pip3)
-- scapy (using pip3)
-- shodan (using pip3)
+If you wish to know the necessary packages, look the `setup.sh` file.
 
 After the installation, to run the program, simply navigate to the project's directory and run the `medsec.py` file using python. Running the script as root is recommended for better performance and to avoid permission errors. The used command is the following:
 ```
