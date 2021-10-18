@@ -25,6 +25,7 @@ Currently, this script can perform a good variety of tasks such as:
 - ping;
 - traceroute;
 - IP spoofing;
+- MAC spoofing;
 - Packet sniffing;
 - Deauth attack.
 
@@ -46,6 +47,7 @@ Other features are still being implemented. Future implementations may include W
   - [ping](#ping)
   - [traceroute](#traceroute)
   - [IP spoofing](#ip-spoofing)
+  - [MAC spoofing](#mac-spoofing)
   - [Packet sniffing](#packet-sniffing)
   - [Deauth attack](#deauth-attack)
 + [Contribution](#contribution)
@@ -191,6 +193,12 @@ You can also use a random source port:
 ![anim spoof](https://user-images.githubusercontent.com/61552222/136197768-e9f45be7-2d8a-49e6-b0af-e7b44cf15532.gif)
 
 **Disclaimer**: Please only use this for testing purposes and target your own machines.
+
+### MAC spoofing
+MAC spoofing is the generation of frames with a MAC address different from the address of the sending NIC.
+To perform MAC spoofing, issue the command:
+
+`-macspoof -source [SOURCE MAC] -iface [INTERFACE]`
 
 ### Packet sniffing
 To perform packet sniffing, type:

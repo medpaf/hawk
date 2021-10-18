@@ -20,6 +20,3 @@ def macspoof(mac, iface):
             print(f'[{Fore.GREEN}+{Style.RESET_ALL}] MAC succesfully changed to {Fore.GREEN}{mac}{Style.RESET_ALL} on {Fore.GREEN}{iface}{Style.RESET_ALL}')
         else:
             print(f"[{Fore.RED}!{Style.RESET_ALL}] Couldn't change MAC address.")
-
-if __name__ == '__main__': #testing phase
-    macspoof('00:33:33:44:55:66', 'wlp1s0')

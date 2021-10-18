@@ -15,6 +15,7 @@ from tasks.scan import scanStatus, scan, scanWithPort, scanLocalDevices
 from tasks.vulnscan import vulnscan
 from tasks.offense.sniff import sniff
 from tasks.offense.ipspoof import ipspoof
+from tasks.offense.macspoof import macspoof
 from tasks.getmac import getmac
 from tasks.offense.deauth import deauth
 from tasks.save import save
@@ -33,6 +34,7 @@ Examples:
         -ping [HOST(s)]
         -traceroute [HOST]
         -ipspoof -source [SOURCE IP] [SOURCE PORT] -target [TARGET IP] [TARGET PORT]
+        -macspoof -source [SOURCE MAC] -iface [INTERFACE]
         -sniff
         -deauth -target [TARGET MAC] -gateway [GATEWAY MAC] -iface [INTERFACE] 
 
@@ -97,6 +99,8 @@ ap.add_argument('-getmac', action = 'store_true',
         help = 'Get MAC address of a host IP address in the same LAN (root privileges needed)')
 ap.add_argument('-ipspoof', action = 'store_true',
         help = 'perform IP spoofing on a target (root privileges needed)')
+ap.add_argument('-macspoof', action = 'store_true',
+        help = 'perform MAC spoofing on a target (root privileges needed)')
 ap.add_argument('-sniff', action = 'store_true',
         help = 'perform packet sniffing (root privileges needed)')
 ap.add_argument('-deauth', action = 'store_true',
@@ -240,21 +244,22 @@ elif args['grab']:
                         print('Please type the command correctly. Examples: \n \t -grab -host [HOST(s)] -p [PORT(s)] \n \t -grab -iprange [START IP] [END IP] -prange [START PORT] [END PORT] \n \t -grab -host [HOST(s)] -prange [START PORT] [END PORT] \n \t -grab -iprange [START IP] [END IP] -p [PORT]')
         else:
                 print('Please type the command correctly. Examples: \n \t -grab -host [HOST(s)] -p [PORT(s)] \n \t -grab -iprange [START IP] [END IP] -prange [START PORT] [END PORT] \n \t -grab -host [HOST(s)] -prange [START PORT] [END PORT] \n \t -grab -iprange [START IP] [END IP] -p [PORT]')
-# IP Spoofing
+# IP spoofing
 elif args['ipspoof']:
-
-        if args['source']:
-
-                if args['target']:
-                        if len(args['source']) == 2 and len(args['target']) == 2:
-                                ipspoof(args['source'][0], args['source'][1], nsconv(args['target'][0]), int(args['target'][1])) 
-                        else:
-                                print('Please type the command correctly. You can only attack one host and one port at a time. Examples: \n \t -ipspoof -spoof -source [SOURCE IP] [SOURCE PORT] -target [TARGET IP] [TARGET PORT]')
-                else:
-                        print('Please type the command correctly. You can only attack one host and one port at a time. Examples: \n \t -ipspoof -source [SOURCE IP] [SOURCE PORT] -target [TARGET IP] [TARGET PORT]')
+                        
+        if len(args['source']) == 2 and len(args['target']) == 2:
+                ipspoof(args['source'][0], args['source'][1], nsconv(args['target'][0]), int(args['target'][1])) 
         else:
                 print('Please type the command correctly. You can only attack one host and one port at a time. Examples: \n \t -ipspoof -source [SOURCE IP] [SOURCE PORT] -target [TARGET IP] [TARGET PORT]')
+        
+# MAC spoofing
+elif args['macspoof']:
 
+        if len(args['source']) == 1 and len(args['iface']) == 1:
+                macspoof(args['source'][0], args['iface'][0])
+        else:
+                print('Please type the command correctly. Examples: \n \t -macspoof -source [SOURCE MAC] -iface [INTERFACE]')
+        
 # Packet sniffing
 elif args['sniff']:
         sniff()
@@ -262,14 +267,9 @@ elif args['sniff']:
 # Deauth attack
 elif args['deauth']:
 
-        if args['target'] and args['gateway'] and args['iface']:
-
-                if len(args['target']) == 1:
-                        deauth(args['target'][0], args['gateway'][0], args['iface'][0]) 
-                
-                else:
-                        print('Please type the command correctly. Examples: \n \t -deauth -target [TARGET(s) MAC(s)] -gateway [GATEWAY MAC] -iface [INTERFACE]')
-                
+        if len(args['target']) == 1 and len(args['gateway']) == 1 and len(args['iface']) == 1:
+                deauth(args['target'][0], args['gateway'][0], args['iface'][0]) 
+        
         else:
                 print('Please type the command correctly. Examples: \n \t -deauth -target [TARGET(s) MAC(s)] -gateway [GATEWAY MAC] -iface [INTERFACE]')
         
