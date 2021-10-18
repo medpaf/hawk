@@ -10,8 +10,8 @@ def intro1():
     printcolor('RED', '*  ██  ██  ██ ██      ██   ██      ██ ██      ██       *')
     printcolor('RED', '*  ██      ██ ███████ ██████  ███████ ███████  ██████  *')
     print('*                                                      *')
-    printcolor('RED','*             Written by Paulo Medeiros                *')
-    printcolor('GREEN', '* Github repository: https://github.com/medpaf/medsec  *')
+    print(f'*             Written by {Fore.RED}Paulo Medeiros{Style.RESET_ALL}                *')
+    print(f'* Github repository: {Fore.RED}https://github.com/medpaf/medsec{Style.RESET_ALL}  *')
     print('*                                                      *')
     print('********************************************************\n')
 
