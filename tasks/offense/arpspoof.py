@@ -14,7 +14,7 @@ def getmac(target_ip):
 
 class Arper:
 
-    def __init__(self, target, gateway, iface, count=0):
+    def __init__(self, target, gateway, iface, count):
         self.poison_thread = Process(target=self.poison)
         self.sniff_thread = Process(target=self.sniff)
         
@@ -159,7 +159,7 @@ class Arper:
             self.poison_thread.terminate() ###
             #self.sniff_thread.terminate() ### 
 
-def arpspoof(target, gateway, iface, count):
+def arpspoof(target, gateway, iface, count=0):
 
     arp = Arper(target, gateway, iface, count)
     arp.run()

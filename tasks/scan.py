@@ -46,7 +46,7 @@ def scan(str, inputed, prstart, prend, scantype):
                     print(f'\nProtocol: {protocol.upper()}')
                     print('\n PORT     \t\tSTATE     \t\tSERVICE')
                     for port in scanner[str][protocol].keys():
-                        print(f" {port}      \t\t{scanner[str][protocol][port]['state']}       \t\t{scanner[str][protocol][port]['name']}")
+                        print(f" {Fore.GREEN}{port}{Style.RESET_ALL}      \t\t{scanner[str][protocol][port]['state']}       \t\t{scanner[str][protocol][port]['name']}")
             
 def scanWithPort(str, inputed, int, i, j, scantype):
 
@@ -68,7 +68,7 @@ def scanWithPort(str, inputed, int, i, j, scantype):
                     print(f'Protocol: {protocol.upper()}')
                     print('\n PORT     \t\tSTATE     \t\tSERVICE')
                 for port in scanner[str][protocol].keys():
-                    print(f" {port}      \t\t{scanner[str][protocol][port]['state']}       \t\t{scanner[str][protocol][port]['name']}")
+                    print(f" {Fore.GREEN}{port}{Style.RESET_ALL}      \t\t{scanner[str][protocol][port]['state']}       \t\t{scanner[str][protocol][port]['name']}")
             
 def scanLocalDevices():
     

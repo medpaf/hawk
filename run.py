@@ -9,7 +9,7 @@ from tasks.ifconfig import ifconfig
 from tasks.ns import ns, nsconv
 from tasks.sdenum import sdenum, scanSubdomains, main
 from tasks.ping import ping
-from tasks.traceroute import traceroute, tracert
+from tasks.traceroute import traceroute
 from tasks.banner import bannerWithPort
 from tasks.scan import scanStatus, scan, scanWithPort, scanLocalDevices
 from tasks.vulnscan import vulnscan
@@ -36,7 +36,6 @@ Examples:
         -sniff
         -deauth -target [TARGET MAC] -gateway [GATEWAY MAC] -iface [INTERFACE] 
 
-   
 '''))
 
 ap.add_argument('-ifconfig', action = 'store_true', 

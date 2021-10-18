@@ -32,15 +32,21 @@ def tracert(host, maxhops=30, timeout=0.2):
             break
 
 def traceroute(host):
-    host_addr = socket.gethostbyname(host)
-    print(f'[{Fore.YELLOW}?{Style.RESET_ALL}] Starting traceroute to {Fore.YELLOW}{host}{Style.RESET_ALL} ({Fore.YELLOW}{host_addr}{Style.RESET_ALL})...')
-    for i, v in enumerate(tracert(host_addr)):
-        if v == None:
-            print(f'[{Fore.GREEN}{i+1}{Style.RESET_ALL}]\t{v}')
-        else:
-            try:
-                host = socket.gethostbyaddr(v)
-                print(f'[{Fore.GREEN}{i+1}{Style.RESET_ALL}]\t{Fore.GREEN}{v}{Style.RESET_ALL} ({Fore.GREEN}{host[0]}{Style.RESET_ALL})')
-            except Exception:
-                print(f'[{Fore.GREEN}{i+1}{Style.RESET_ALL}]\t{Fore.GREEN}{v}{Style.RESET_ALL}')
+    try:
+        host_addr = socket.gethostbyname(host)
+        print(f'[{Fore.YELLOW}?{Style.RESET_ALL}] Starting traceroute to {Fore.YELLOW}{host}{Style.RESET_ALL} ({Fore.YELLOW}{host_addr}{Style.RESET_ALL})...')
+
+        for i, v in enumerate(tracert(host_addr)):
+            if v == None:
+                print(f'[{Fore.GREEN}{i+1}{Style.RESET_ALL}]\t{v}')
+            else:
+                try:
+                    host = socket.gethostbyaddr(v)
+                    print(f'[{Fore.GREEN}{i+1}{Style.RESET_ALL}]\t{Fore.GREEN}{v}{Style.RESET_ALL} ({Fore.GREEN}{host[0]}{Style.RESET_ALL})')
+                except Exception:
+                    print(f'[{Fore.GREEN}{i+1}{Style.RESET_ALL}]\t{Fore.GREEN}{v}{Style.RESET_ALL}')
+    except Exception as e:
+        print(f'[{Fore.RED}!{Style.RESET_ALL}] Error: {Fore.RED}{e}{Style.RESET_ALL}')
+    except KeyboardInterrupt:
+        sys.exit()
 

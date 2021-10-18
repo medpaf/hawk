@@ -29,5 +29,5 @@ def intro2():
                                                                                                                                           
 
 def welcome():
-    introList=[intro2]
+    introList=[intro2, intro1]
     random.choice(introList)()
