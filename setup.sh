@@ -47,6 +47,7 @@ sudo pip3 install random
 sudo pip3 install readline
 sudo pip3 install binascii
 sudo pip3 install struct
+sudo pip3 install textwrap
 sudo pip3 install multiprocessing
 sudo pip3 install threading
 sudo pip3 install queue
