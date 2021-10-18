@@ -196,7 +196,7 @@ You can also use a random source port:
 
 ### MAC spoofing
 MAC spoofing is the generation of frames with a MAC address different from the address of the sending NIC.
-To perform MAC spoofing, issue the command:
+To change the MAC address of an interface, issue the command:
 
 `-macspoof -source [SOURCE MAC] -iface [INTERFACE]`
 
