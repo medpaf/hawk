@@ -89,15 +89,15 @@ def scanLocalDevices():
                 try:
                     if len(scanner[host]['vendor']) == 0:
                         try:
-                            print(f"[{Fore.GREEN}+{Style.RESET_ALL}] {host}      \t\t {socket.gethostbyaddr(host)[0]}")
+                            print(f"[{Fore.GREEN}+{Style.RESET_ALL}] {host}      \t {socket.gethostbyaddr(host)[0]}")
                         except:
                             print(f"[{Fore.GREEN}+{Style.RESET_ALL}] {host}")
                     else:
                         try:
-                            print(f"[{Fore.GREEN}+{Style.RESET_ALL}] {host}      \t\t {scanner[host]['vendor']}      \t\t {socket.gethostbyaddr(host)[0]}")
+                            print(f"[{Fore.GREEN}+{Style.RESET_ALL}] {host}      \t {scanner[host]['vendor']}      \t {socket.gethostbyaddr(host)[0]}")
                         except:
-                            print(f"[{Fore.GREEN}+{Style.RESET_ALL}] {host}      \t\t {scanner[host]['vendor']}") 
+                            print(f"[{Fore.GREEN}+{Style.RESET_ALL}] {host}      \t {scanner[host]['vendor']}") 
                 except:
-                    print(f"[{Fore.GREEN}+{Style.RESET_ALL}] {host}      \t\t {scanner[host]['vendor']}")
+                    print(f"[{Fore.GREEN}+{Style.RESET_ALL}] {host}      \t {scanner[host]['vendor']}")
 
            
