@@ -1,6 +1,8 @@
 from scapy.all import *
 import random
 from colorama import Fore, Back, Style
+import os
+import sys
 
 def ipspoof(source_ip, source_port, target_ip, target_port):
 
