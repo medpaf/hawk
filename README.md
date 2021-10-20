@@ -77,7 +77,7 @@ sudo python3 medsec.py
 ```
 
 ## Configuration
-To make configuration, simply go to the configuration file at `files/conf/conf.py` and edit it.
+To make configurations, simply go to the configuration file at `files/conf/conf.py` and edit it.
 ## How to use
 ### Port scans
 Scanning ports helps detect potential security breaches by identifying the hosts connected to your network and the services running.
