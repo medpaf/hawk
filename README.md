@@ -134,7 +134,7 @@ This feature is similar to the well known `nslookup` command used on UNIX system
 
 ![ns](https://user-images.githubusercontent.com/61552222/137627097-123581b6-857e-404d-9e60-9c422f752cb4.png)
 
-**Disclaimer**: Note that this feature uses IPinfo API. It is recommended to change the API key to yours as the key provided might be being used by other people. To change the API keys go to the configuration file at `conf/conf.py`.
+**Disclaimer**: Note that this feature uses IPinfo API. It is recommended to change the API key to yours as the key provided might be being used by other people. To change the API keys go to the configuration file at `files/conf/conf.py`.
 
 ### Subdomain enumeration
 Subdomain enumeration is the process of finding valid sub-domains for one or more domain.
@@ -154,7 +154,7 @@ To scan one or more hosts for vulnerabilities use the following command:
 
 ![vuln2](https://user-images.githubusercontent.com/61552222/136042995-840b9da2-69f5-4a2a-8685-dac6289c7582.gif)
 
-**Disclaimer**: Note that this feature uses Shodan API. It is recommended to change the API key to yours as the key provided might be being used by other people. To change the API keys go to the configuration file at `conf/conf.py`.
+**Disclaimer**: Note that this feature uses Shodan API. It is recommended to change the API key to yours as the key provided might be being used by other people. To change the API keys go to the configuration file at `files/conf/conf.py`.
 
 ### ifconfig
 If you want to display your system's current TCP/IP network configuration, type the following command:
