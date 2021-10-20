@@ -5,6 +5,8 @@ import sys
 import ipaddress
 import textwrap
 
+from files.conf.conf import *
+
 from tasks.ifconfig import ifconfig
 from tasks.ns import ns, nsconv
 from tasks.sdenum import sdenum, scanSubdomains, main
@@ -150,7 +152,7 @@ elif args['ifconfig']:
 # DNS check (check IP address of a website)
 elif args['ns']:
         for i in range(0, len(args['ns'])):
-                ns(args['ns'][i])
+                ns(args['ns'][i], IPINFO_API_KEY)
 
 # Subdomain enumeration
 elif args['sdenum']:
@@ -201,10 +203,10 @@ elif args['getmac']:
 elif args['vulnscan']:
         if args['host']:
                 for i in range(0, len(args['host'])):
-                        vulnscan(args['host'][i])
+                        vulnscan(args['host'][i], SHODAN_API_KEY)
         elif args['iprange']:
                 for ip_int in range(int(ipaddress.IPv4Address(args['iprange'][0])), int(ipaddress.IPv4Address(args['iprange'][1]) + 1)):
-                        vulnscan(ipaddress.IPv4Address(ip_int))
+                        vulnscan(ipaddress.IPv4Address(ip_int), SHODAN_API_KEY)
         else:
                 print('Please type the command correctly. Examples: \n \t -vulnscan -host [HOST(s)]')
 

@@ -4,14 +4,14 @@ import time
 import sys
 from colorama import Fore, Back, Style
 
-SHODAN_API_KEY = 'Q4wtGdNmqnaQ267zzUb2rQztDRayEISI'
-api = shodan.Shodan(SHODAN_API_KEY)
 
-def vulnscan(target):
-    target = target
-    dnsResolve = f'https://api.shodan.io/dns/resolve?hostnames={target}&key={SHODAN_API_KEY}'
-
+def vulnscan(host, api_key):
     try:
+        target = host
+        api_key = api_key
+        api = shodan.Shodan(api_key)
+        dnsResolve = f'https://api.shodan.io/dns/resolve?hostnames={target}&key={api_key}'
+
         # Resolve target domain to an IP
         resolved = requests.get(dnsResolve)
         hostIP = resolved.json()[target]

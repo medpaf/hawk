@@ -4,13 +4,14 @@ import requests
 import ipinfo
 from colorama import Fore, Back, Style
 
-token = '8d53c2357c2a13'
-handler = ipinfo.getHandler(token)
 
-def ns(str):
+def ns(host, api_key):
     try:
-        addr = socket.gethostbyname(str)
-        name = socket.gethostbyaddr(str)
+        api_key = api_key
+        handler = ipinfo.getHandler(api_key)
+        
+        addr = socket.gethostbyname(host)
+        name = socket.gethostbyaddr(host)
         details = handler.getDetails(addr)
     except Exception as e:
         e = sys.exc_info()[1]
@@ -29,18 +30,18 @@ def ns(str):
             pass
 
 # Function to return IP address of an URL
-def nsconv(str):
+def nsconv(host):
     try:
-        return socket.gethostbyname(str)
+        return socket.gethostbyname(host)
     except Exception as e:
         e = sys.exc_info()[1]
         print(f'[{Fore.RED}!{Style.RESET_ALL}] Error: {Fore.RED}{e}{Style.RESET_ALL}')
         sys.exit(1)
 
 # Function to return URL of an IP address:
-def nsconvurl(str):
+def nsconvurl(host):
     try:
-        return socket.gethostbyaddr(str)
+        return socket.gethostbyaddr(host)
     except Exception as e:
         e = sys.exc_info()[1]
         print(f'[{Fore.RED}!{Style.RESET_ALL}] Error: {Fore.RED}{e}{Style.RESET_ALL}')
