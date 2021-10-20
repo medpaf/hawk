@@ -35,6 +35,7 @@ Other features are still being implemented. Future implementations may include W
 
 + [Installation](#installation)
   - [Linux](#linux)
++ [Configuration](#configuration)
 + [How to use](#how-to-use)
   - [Port scans](#port-scans)
   - [Host discovery (scan for devices on a local network)](#host-discovery)
@@ -74,6 +75,9 @@ After the installation, to run the program, simply navigate to the project's dir
 ```
 sudo python3 medsec.py
 ```
+
+## Configuration
+To make configuration, simply go to the configuration file at `files/conf/conf.py` and edit it.
 ## How to use
 ### Port scans
 Scanning ports helps detect potential security breaches by identifying the hosts connected to your network and the services running.
