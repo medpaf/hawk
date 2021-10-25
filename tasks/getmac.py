@@ -2,7 +2,7 @@ from scapy.all import *
 import sys
 from colorama import Fore, Back, Style
 
-def getmac(host_ip, count_host):
+def getmac(host_ip, host_count):
 
     # If not sudo, don't allow to continue
     if not 'SUDO_UID' in os.environ.keys():
@@ -10,7 +10,7 @@ def getmac(host_ip, count_host):
         sys.exit()
 
     try:
-        if count_host > 0:
+        if host_count > 0:
             print(f'\n[{Fore.YELLOW}?{Style.RESET_ALL}] Trying to get MAC address of {Fore.YELLOW}{host_ip}{Style.RESET_ALL}...')
         else:
             print(f'[{Fore.YELLOW}?{Style.RESET_ALL}] Trying to get MAC address of {Fore.YELLOW}{host_ip}{Style.RESET_ALL}...')
