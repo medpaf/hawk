@@ -8,9 +8,7 @@ def whoisinfo(host):
     except Exception as e:
         print(f'[{Fore.RED}!{Style.RESET_ALL}] Error: {e}')
     else:
-        print(f'[{Fore.GREEN}+{Style.RESET_ALL}] Domain name')
-        whois_checker(host, whois_info.domain_name)
-
+        print(f'[{Fore.GREEN}+{Style.RESET_ALL}] Domain name: {whois_info.domain_name[0]}')
         print(f'[{Fore.GREEN}+{Style.RESET_ALL}] Registar: {Fore.GREEN}{whois_info.registrar}{Style.RESET_ALL}')
         print(f'[{Fore.GREEN}+{Style.RESET_ALL}] WHOIS server: {Fore.GREEN}{whois_info.whois_server}{Style.RESET_ALL}')
 
@@ -31,7 +29,7 @@ def whoisinfo(host):
 
         print(f'[{Fore.GREEN}+{Style.RESET_ALL}] Emails')
         whois_checker(host, whois_info.emails)
-        
+
         print(f'[{Fore.GREEN}+{Style.RESET_ALL}] Organization: {Fore.GREEN}{whois_info.org}{Style.RESET_ALL}')
         print(f'[{Fore.GREEN}+{Style.RESET_ALL}] State: {Fore.GREEN}{whois_info.state}{Style.RESET_ALL}')
         print(f'[{Fore.GREEN}+{Style.RESET_ALL}] Country: {Fore.GREEN}{whois_info.country}{Style.RESET_ALL}')
