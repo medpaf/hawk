@@ -80,7 +80,9 @@ sudo python3 medsec.py
 
 ## Configuration
 To make configurations, simply go to the configuration file at `files/conf/conf.py` and edit it.
+
 ## How to use
+
 ### Port scans
 Scanning ports helps detect potential security breaches by identifying the hosts connected to your network and the services running.
 
@@ -148,7 +150,7 @@ To request a page's WHOIS, just type:
 
 `-whois [HOST(s)]`
 
-![whois](https://user-images.githubusercontent.com/61552222/138885047-ebe0cd88-81aa-4369-8795-1765d55332e4.png)
+![whois](https://user-images.githubusercontent.com/61552222/138885775-9d6149b0-3960-453d-82b2-bdbb69bbc327.png)
 
 ### Subdomain enumeration
 Subdomain enumeration is the process of finding valid sub-domains for one or more domain.
