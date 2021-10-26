@@ -62,6 +62,7 @@ sudo pip3 install scapy
 sudo pip3 install shodan
 sudo pip3 install python-whois
 sudo pip3 install psutil
+sudo pip3 install paramiko
 
 
 # Add main .py file to the system path (later)
