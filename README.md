@@ -147,6 +147,9 @@ WHOIS is a TCP protocol that aims to consult contact and DNS.
 To request a page's WHOIS, just type:
 
 `-whois [HOST(s)]`
+
+![whois](https://user-images.githubusercontent.com/61552222/138884691-09f65756-8ef8-4bec-abd9-986b33fa4414.png)
+
 ### Subdomain enumeration
 Subdomain enumeration is the process of finding valid sub-domains for one or more domain.
 
