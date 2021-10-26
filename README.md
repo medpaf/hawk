@@ -150,7 +150,7 @@ To request a page's WHOIS, just type:
 
 `-whois [HOST(s)]`
 
-![whois](https://user-images.githubusercontent.com/61552222/138885775-9d6149b0-3960-453d-82b2-bdbb69bbc327.png)
+![WHOIS](https://user-images.githubusercontent.com/61552222/138886081-df91f3a5-3bf4-4d6a-b667-ab567d6fb651.png)
 
 ### Subdomain enumeration
 Subdomain enumeration is the process of finding valid sub-domains for one or more domain.
