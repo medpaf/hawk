@@ -53,8 +53,7 @@ def main(domain, threads, subdomains):
     except Exception as e:
         print(f'[{Fore.RED}!{Style.RESET_ALL}] Error: {Fore.RED}{e}{Style.RESET_ALL}')
 
-def sdenum(domain, wordlist='files/txt/subdomains.txt'):
-    wordlist = wordlist
+def sdenum(domain, wordlist):
     threads = 8
 
     try:

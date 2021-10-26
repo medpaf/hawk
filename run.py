@@ -5,7 +5,7 @@ import sys
 import ipaddress
 import textwrap
 
-from files.conf.conf import *
+from files.conf import *
 
 from tasks.ifconfig import ifconfig
 from tasks.ns import ns, nsconv
@@ -21,6 +21,7 @@ from tasks.offense.ipspoof import ipspoof
 from tasks.offense.macspoof import macspoof
 from tasks.getmac import getmac
 from tasks.offense.deauth import deauth
+from tasks.offense.bruteforce import bruteforce
 from tasks.save import save
  
 ap = argparse.ArgumentParser(description='MedSec Tool', formatter_class=argparse.RawDescriptionHelpFormatter,
@@ -34,13 +35,14 @@ Examples:
         -whois [HOST(s)]
         -sdenum [DOMAIN]
         -vulnscan -host [HOST(s)]
-        -ifconfig [HOST]
+        -ifconfig
         -ping [HOST(s)]
         -traceroute [HOST]
         -ipspoof -source [SOURCE IP] [SOURCE PORT] -target [TARGET IP] [TARGET PORT]
         -macspoof -source [SOURCE MAC] -iface [INTERFACE]
         -sniff
         -deauth -target [TARGET MAC] -gateway [GATEWAY MAC] -iface [INTERFACE] 
+        -bruteforce [SERVICE] -target [TARGET] -user [USERNAME]
 
 '''))
 
@@ -61,6 +63,39 @@ ap.add_argument('-whois', type = str,
 ap.add_argument('-sdenum', type = str, 
         nargs = 1,
         help = 'perform subdomain enumeration.') 
+ap.add_argument('-scantcp', action = 'store_true',
+        help = 'perform TCP scan for open ports')
+ap.add_argument('-scanack', action = 'store_true',
+        help = 'perform ACK scan for open ports')
+ap.add_argument('-scansyn', action = 'store_true',
+        help = 'perform SYN scan for open ports (root privileges needed)')
+ap.add_argument('-scanudp', action = 'store_true',
+        help = 'perform UDP scan for open ports (root privileges needed)')
+ap.add_argument('-scan', action = 'store_true',
+        help = 'perform comprehensive scan for open ports (root privileges needed)')
+ap.add_argument('-scanlan', action = 'store_true',
+        help = 'perform scan to detect local devices')
+ap.add_argument('-vulnscan', action = 'store_true',
+        help = 'perform vulnerabilty scan on a host')
+ap.add_argument('-grab', action = 'store_true',
+        help = 'perform banner grabbing')
+ap.add_argument('-getmac', action = 'store_true',
+        help = 'Get MAC address of a host IP address in the same LAN (root privileges needed)')
+ap.add_argument('-ipspoof', action = 'store_true',
+        help = 'perform IP spoofing on a target (root privileges needed)')
+ap.add_argument('-macspoof', action = 'store_true',
+        help = 'perform MAC spoofing on a target (root privileges needed)')
+ap.add_argument('-sniff', action = 'store_true',
+        help = 'perform packet sniffing (root privileges needed)')
+ap.add_argument('-deauth', action = 'store_true',
+        help = 'perform deauthentication attack (root privileges needed)')
+ap.add_argument('-bruteforce',
+        nargs=1,
+        help = 'Attempt brute-force attack on a service to guess password')
+ap.add_argument('-s', type = str,
+        nargs = 1,
+        help = 'save output as file to the specified path.')
+
 ap.add_argument('-host', type = str,
         nargs = '+',
         help = 'specify one or more hosts')
@@ -92,35 +127,7 @@ ap.add_argument('-user', '-usr', type = str,
 ap.add_argument('-wordlist', '-wl', type = str,
         nargs = 1,
         help = 'specify wordlist file')
-ap.add_argument('-scantcp', action = 'store_true',
-        help = 'perform TCP scan for open ports')
-ap.add_argument('-scanack', action = 'store_true',
-        help = 'perform ACK scan for open ports')
-ap.add_argument('-scansyn', action = 'store_true',
-        help = 'perform SYN scan for open ports (root privileges needed)')
-ap.add_argument('-scanudp', action = 'store_true',
-        help = 'perform UDP scan for open ports (root privileges needed)')
-ap.add_argument('-scan', action = 'store_true',
-        help = 'perform comprehensive scan for open ports (root privileges needed)')
-ap.add_argument('-scanlan', action = 'store_true',
-        help = 'perform scan to detect local devices')
-ap.add_argument('-vulnscan', action = 'store_true',
-        help = 'perform vulnerabilty scan on a host')
-ap.add_argument('-grab', action = 'store_true',
-        help = 'perform banner grabbing')
-ap.add_argument('-getmac', action = 'store_true',
-        help = 'Get MAC address of a host IP address in the same LAN (root privileges needed)')
-ap.add_argument('-ipspoof', action = 'store_true',
-        help = 'perform IP spoofing on a target (root privileges needed)')
-ap.add_argument('-macspoof', action = 'store_true',
-        help = 'perform MAC spoofing on a target (root privileges needed)')
-ap.add_argument('-sniff', action = 'store_true',
-        help = 'perform packet sniffing (root privileges needed)')
-ap.add_argument('-deauth', action = 'store_true',
-        help = 'perform deauthentication attack (root privileges needed)')
-ap.add_argument('-s', type = str,
-        nargs = 1,
-        help = 'save output as file to the specified path.')
+
 
 args = vars(ap.parse_args())
 
@@ -175,7 +182,7 @@ elif args['sdenum']:
         if args['wordlist']:
                 sdenum(args['sdenum'][0], args['wordlist'])
         else:
-                sdenum(args['sdenum'][0])
+                sdenum(args['sdenum'][0], SUBDOMAINS_WORDLIST)
 
 # Ping to check connectivity
 elif args['ping']:
@@ -293,8 +300,16 @@ elif args['deauth']:
         
         else:
                 print('Please type the command correctly. Examples: \n \t -deauth -target [TARGET(s) MAC(s)] -gateway [GATEWAY MAC] -iface [INTERFACE]')
-        
 
+elif args['bruteforce']: ###### testing phase
+        
+        if len(args['target']) == 1 and len(args['user']) == 1:
+                if args['wordlist']:
+                        bruteforce(args['bruteforce'][0], args['target'][0], args['user'][0], args['wordlist'][0])
+                else:
+                        bruteforce(args['bruteforce'][0], args['target'][0], args['user'][0], PASSWORDS_WORDLIST)
+        else:
+                print('Please type the command correctly. Examples: \n \t -bruteforce -target [TARGET] -user [USERNAME] -wordlist [WORDLIST] \n \t -bruteforce -target [TARGET] -user [USERNAME]')
 
 else:
         # if arguments are present
