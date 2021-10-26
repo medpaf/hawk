@@ -6,6 +6,7 @@ from colorama import Fore, Back, Style
 
 
 def ns(host, api_key):
+
     try:
         api_key = api_key
         handler = ipinfo.getHandler(api_key)
@@ -28,6 +29,7 @@ def ns(host, api_key):
             print(f'[{Fore.GREEN}+{Style.RESET_ALL}] Timezone: {Fore.GREEN}{details.timezone}{Style.RESET_ALL}\n')
         except Exception as e:
             pass
+
 
 # Function to return IP address of an URL
 def nsconv(host):

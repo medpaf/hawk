@@ -38,7 +38,6 @@ fi
 
 # Install all necessary pip packages
 
-sudo pip3 install python-nmap
 sudo pip3 install socket
 sudo pip3 install requests
 sudo pip3 install sys
@@ -53,11 +52,15 @@ sudo pip3 install threading
 sudo pip3 install queue
 sudo pip3 install subprocess
 sudo pip3 install time
-sudo pip3 install ipaddress
+
 sudo pip3 install colorama
+
+sudo pip3 install ipaddress
+sudo pip3 install python-nmap
 sudo pip3 install ipinfo
 sudo pip3 install scapy
 sudo pip3 install shodan
+sudo pip3 install python-whois
 
 
 # Add main .py file to the system path (later)

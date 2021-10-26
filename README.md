@@ -19,6 +19,7 @@ Currently, this script can perform a good variety of tasks such as:
 - MAC address detection (get MAC address of a host IP on a local network);
 - Banner grabbing;
 - DNS checks with geolocation information;
+- WHOIS
 - Subdomain enumeration;
 - Vulnerability reconnaissance;
 - ifconfig (beta);
@@ -42,6 +43,7 @@ Other features are still being implemented. Future implementations may include W
   - [MAC address detection (get MAC address of a host IP on a local network)](#mac-address-detection)
   - [Banner grabbing](#banner-grabbing)
   - [DNS checks (with geolocation information)](#dns-checks)
+  - [WHOIS](#whois)
   - [Subdomain enumeration](#subdomain-enumeration)
   - [Vulnerability reconnaissance](#vulnerability-reconnaissance)
   - [ifconfig (beta)](#ifconfig)
@@ -140,6 +142,11 @@ This feature is similar to the well known `nslookup` command used on UNIX system
 
 **Disclaimer**: Note that this feature uses IPinfo API. It is recommended to change the API key to yours as the key provided might be being used by other people. To change the API keys go to the configuration file at `files/conf/conf.py`.
 
+### WHOIS
+WHOIS is a TCP protocol that aims to consult contact and DNS.
+To request a page's WHOIS, just type:
+
+`-whois [HOST(s)]`
 ### Subdomain enumeration
 Subdomain enumeration is the process of finding valid sub-domains for one or more domain.
 

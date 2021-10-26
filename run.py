@@ -9,6 +9,7 @@ from files.conf.conf import *
 
 from tasks.ifconfig import ifconfig
 from tasks.ns import ns, nsconv
+from tasks.whoisinfo import whoisinfo
 from tasks.sdenum import sdenum, scanSubdomains, main
 from tasks.ping import ping
 from tasks.traceroute import traceroute
@@ -29,7 +30,8 @@ Examples:
         -scanlan
         -getmac -host [HOST(s) IP]
         -grab -host [HOST(S)] -p [PORT(s)]
-        -ns [HOST]
+        -ns [HOST(s)]
+        -whois [HOST(s)]
         -sdenum [DOMAIN]
         -vulnscan -host [HOST(s)]
         -ifconfig [HOST]
@@ -53,6 +55,9 @@ ap.add_argument('-traceroute',
 ap.add_argument('-ns', type = str,
         nargs = '+',
         help = 'obtain domain name or IP address mapping.')
+ap.add_argument('-whois', type = str,
+        nargs = '+',
+        help = 'obtain WHOIS protocol information.')
 ap.add_argument('-sdenum', type = str, 
         nargs = 1,
         help = 'perform subdomain enumeration.') 
@@ -153,6 +158,11 @@ elif args['ifconfig']:
 elif args['ns']:
         for i in range(0, len(args['ns'])):
                 ns(args['ns'][i], IPINFO_API_KEY)
+
+# WHOIS
+elif args['whois']:
+        for i in range(0, len(args['whois'])):
+                whoisinfo(args['whois'][i])
 
 # Subdomain enumeration
 elif args['sdenum']:
