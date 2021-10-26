@@ -134,7 +134,7 @@ To perform banner grabbing, depending on your specific needs, type one of the fo
 
 `-grab -iprange [START IP] [END IP] -p [PORT(s)]`
 
-![grab2](https://user-images.githubusercontent.com/61552222/137122733-952b846c-8f47-48dc-ab2c-abc6a07fc0ad.png)
+![grab](https://user-images.githubusercontent.com/61552222/138929604-823b3d38-3eb3-4972-891d-6ad081e732d6.png)
 
 ### DNS checks
 This feature is similar to the well known `nslookup` command used on UNIX systems. If you want to do a DNS check, type the following:
@@ -151,7 +151,7 @@ To request the WHOIS of one or more pages, just type:
 
 `-whois [HOST(s)]`
 
-![WHOIS](https://user-images.githubusercontent.com/61552222/138886081-df91f3a5-3bf4-4d6a-b667-ab567d6fb651.png)
+![whois](https://user-images.githubusercontent.com/61552222/138929671-de9c6f37-372e-47e8-acf0-0d2ef466f84d.png)
 
 ### Subdomain enumeration
 Subdomain enumeration is the process of finding valid sub-domains for one or more domain.
