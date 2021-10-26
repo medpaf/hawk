@@ -10,7 +10,7 @@ from files.conf.conf import *
 from tasks.ifconfig import ifconfig
 from tasks.ns import ns, nsconv
 from tasks.whoisinfo import whoisinfo
-from tasks.sdenum import sdenum, scanSubdomains, main
+from tasks.sdenum import sdenum
 from tasks.ping import ping
 from tasks.traceroute import traceroute
 from tasks.banner import bannerWithPort
@@ -86,6 +86,12 @@ ap.add_argument('-gateway', '-gtw', type = str,
 ap.add_argument('-iface', '-i', type = str,
         nargs = '+',
         help = 'specify interface')
+ap.add_argument('-user', '-usr', type = str,
+        nargs = 1,
+        help = 'specify username')
+ap.add_argument('-wordlist', '-wl', type = str,
+        nargs = 1,
+        help = 'specify wordlist file')
 ap.add_argument('-scantcp', action = 'store_true',
         help = 'perform TCP scan for open ports')
 ap.add_argument('-scanack', action = 'store_true',
@@ -166,7 +172,10 @@ elif args['whois']:
 
 # Subdomain enumeration
 elif args['sdenum']:
-        sdenum(args['sdenum'][0])
+        if args['wordlist']:
+                sdenum(args['sdenum'][0], args['wordlist'])
+        else:
+                sdenum(args['sdenum'][0])
 
 # Ping to check connectivity
 elif args['ping']:

@@ -61,6 +61,7 @@ sudo pip3 install ipinfo
 sudo pip3 install scapy
 sudo pip3 install shodan
 sudo pip3 install python-whois
+sudo pip3 install psutil
 
 
 # Add main .py file to the system path (later)

@@ -8,7 +8,7 @@ q = Queue()
 list_lock = Lock()
 discovered_domains = []
 
-def scanSubdomains(domain):
+def scan_subdomains(domain):
     global q
     while True:
         try:
@@ -44,7 +44,7 @@ def main(domain, threads, subdomains):
 
         for thread in range(threads):
             # Start all threads
-            worker = Thread(target=scanSubdomains, args=(domain,))
+            worker = Thread(target=scan_subdomains, args=(domain,))
             # Daemon thread (a thread that will end when the main thread ends)
             worker.daemon = True
             worker.start()
@@ -53,8 +53,8 @@ def main(domain, threads, subdomains):
     except Exception as e:
         print(f'[{Fore.RED}!{Style.RESET_ALL}] Error: {Fore.RED}{e}{Style.RESET_ALL}')
 
-def sdenum(domain):
-    wordlist = "files/txt/subdomains.txt"
+def sdenum(domain, wordlist='files/txt/subdomains.txt'):
+    wordlist = wordlist
     threads = 8
 
     try:
