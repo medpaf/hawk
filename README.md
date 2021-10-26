@@ -66,7 +66,7 @@ To install the necessary packages so that the script can run withouth any proble
 ```
 git clone https://github.com/medpaf/medsec.git
 cd medsec
-sudo . setup.sh
+sudo sh setup.sh
 ```
 Then, simply follow the instructions.
 
