@@ -146,7 +146,7 @@ This feature is similar to the well known `nslookup` command used on UNIX system
 
 ### WHOIS
 WHOIS is a TCP protocol that aims to consult contact and DNS.
-To request a page's WHOIS, just type:
+To request the WHOIS of one or more pages, just type:
 
 `-whois [HOST(s)]`
 
