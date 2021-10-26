@@ -8,7 +8,12 @@ def whoisinfo(host):
     except Exception as e:
         print(f'[{Fore.RED}!{Style.RESET_ALL}] Error: {e}')
     else:
-        print(f'[{Fore.GREEN}+{Style.RESET_ALL}] Domain name: {Fore.GREEN}{whois_info.domain_name}{Style.RESET_ALL}')
+        if isinstance(whois_info.domain_name, str):
+            print(f'[{Fore.GREEN}+{Style.RESET_ALL}] Domain name: {Fore.GREEN}{whois_info.domain_name}{Style.RESET_ALL}')
+        else:
+            print(f'[{Fore.GREEN}+{Style.RESET_ALL}] Domain name')
+            whois_checker(host, whois_info.domain_name)
+
         print(f'[{Fore.GREEN}+{Style.RESET_ALL}] Registar: {Fore.GREEN}{whois_info.registrar}{Style.RESET_ALL}')
         print(f'[{Fore.GREEN}+{Style.RESET_ALL}] WHOIS server: {Fore.GREEN}{whois_info.whois_server}{Style.RESET_ALL}')
 
