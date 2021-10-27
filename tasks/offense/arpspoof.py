@@ -6,6 +6,7 @@ import sys
 import subprocess
 import time
 
+# If not sudo, don't allow to continue
 if not 'SUDO_UID' in os.environ.keys():
         print(f'[{Fore.RED}!{Style.RESET_ALL}] Permission error: {Fore.RED}You need root privileges for this feature.{Style.RESET_ALL}')
         sys.exit()

@@ -22,9 +22,12 @@ def is_ssh_open(service, host, user, password):
         return False
     except paramiko.SSHException:
         print(f'[{Fore.YELLOW}?{Style.RESET_ALL}] {Fore.YELLOW}Quota exceeded, retrying with one minute delay...{Style.RESET_ALL}')
-        # Sleep for 60 seconds
-        time.sleep(60)
-        return is_ssh_open(host, user, password)
+        try:
+            # Sleep for 60 seconds
+            time.sleep(60)
+            return is_ssh_open(host, user, password)
+        except Exception as e:
+            print(f'[{Fore.RED}!{Style.RESET_ALL}] Error: {Fore.RED}{e}{Style.RESET_ALL}')
     except KeyboardInterrupt:
         sys.exit()
     else:
