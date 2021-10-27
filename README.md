@@ -267,7 +267,7 @@ If you wish to use a custom wordlist, use the command:
 
 For the time being, only the SSH service is supported.
 
-**Disclaimer**: Note that the server target server may have defensive mechanisms against this type of attack and block the attacker's attempts on guessing the password.
+**Disclaimer**: Note that the target server may have defensive mechanisms against this type of attack and block the attacker's attempts on guessing the password.
 Please only use this for testing purposes and target your own machines.
 ## Contribution
 
