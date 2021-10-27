@@ -102,11 +102,11 @@ Scanning ports helps detect potential security breaches by identifying the hosts
 
 Multiple scan types are supported, including SYN (`-scansyn`), TCP (`-scantcp`), UDP (`-scanudp`), ACK (`-scanack`) and comprehensive scan (`-scan`).
 
-`-scan -host [HOST(s)]`
+`-scan -host [HOST(s) IP/URL]`
 
-`-scan -host [HOST(s)] -p [PORT(s)]`
+`-scan -host [HOST(s) IP/URL] -p [PORT(s)]`
 
-`-scan -host [HOST(s)] -prange [START PORT] [END PORT]`
+`-scan -host [HOST(s) IP/URL] -prange [START PORT] [END PORT]`
 
 `-scan -iprange [START IP] [END IP] -p [PORT(s)]`
 
@@ -139,11 +139,11 @@ A banner attack usually starts off with a enumeration scan to find open ports. O
 
 To perform banner grabbing, depending on your specific needs, type one of the following commands:
 
-`-grab -host [HOST(s)] -p [PORT(s)]`
+`-grab -host [HOST(s) IP/URL] -p [PORT(s)]`
 
 `-grab -iprange [START IP] [END IP] -prange [START PORT] [END PORT]`
 
-`-grab -host [HOST(s)] -prange [START PORT] [END PORT]`
+`-grab -host [HOST(s) IP/URL] -prange [START PORT] [END PORT]`
 
 `-grab -iprange [START IP] [END IP] -p [PORT(s)]`
 
@@ -152,7 +152,7 @@ To perform banner grabbing, depending on your specific needs, type one of the fo
 ### DNS checks
 This feature is similar to the well known `nslookup` command used on UNIX systems. If you want to do a DNS check, type the following:
 
-`-ns [HOST(s)]`
+`-ns [HOST(s) IP/URL]`
 
 ![ns](https://user-images.githubusercontent.com/61552222/137627097-123581b6-857e-404d-9e60-9c422f752cb4.png)
 
@@ -162,7 +162,7 @@ This feature is similar to the well known `nslookup` command used on UNIX system
 WHOIS is a TCP protocol that aims to consult contact and DNS.
 To request the WHOIS of one or more pages, just type:
 
-`-whois [HOST(s)]`
+`-whois [HOST(s) IP/URL]`
 
 ![whois](https://user-images.githubusercontent.com/61552222/138929671-de9c6f37-372e-47e8-acf0-0d2ef466f84d.png)
 
@@ -184,7 +184,7 @@ This command uses a default wordlist to look for subdomains. However, if you wan
 ### Vulnerability reconnaissance
 To scan one or more hosts for vulnerabilities use the following command:
 
-`-vulnscan -host [HOST(s)]`
+`-vulnscan -host [HOST(s) IP/URL]`
 
 ![vulnscan2](https://user-images.githubusercontent.com/61552222/139101162-b341178e-4e05-4904-a345-656cc75e7c1b.png)
 ![vulnscan](https://user-images.githubusercontent.com/61552222/139101140-cc77f0b1-604a-4964-bcbb-049a64d18545.png)
@@ -217,15 +217,15 @@ The objective of IP spoofing is to modify the correct source IP address so that 
 
 Note that this command only works on machines with unpached vulnerabilities. To performe IP spoofing on a host's specific port, use the following command:
 
-`-ipspoof -source [SOURCE IP] [SOURCE PORT] -target [TARGET IP] [TARGET PORT]`
+`-ipspoof -source [SOURCE IP] [SOURCE PORT] -target [TARGET IP/URL] [TARGET PORT]`
 
 If you want to use a random source IP, type the following command:
 
-`-ipspoof -source r [SOURCE PORT] -target [TARGET IP] [TARGET PORT]`
+`-ipspoof -source r [SOURCE PORT] -target [TARGET IP/URL] [TARGET PORT]`
 
 You can also use a random source port:
 
-`-ipspoof -source [SOURCE IP] r -target [TARGET IP] [TARGET PORT]`
+`-ipspoof -source [SOURCE IP] r -target [TARGET IP/URL] [TARGET PORT]`
 
 ![ipspoof](https://user-images.githubusercontent.com/61552222/139094228-3fc3889d-46ec-4c34-83a8-b9e4e78c1ae1.png)
 
@@ -237,11 +237,11 @@ SYN Flood is a DDoS attack method that causes direct overhead in the transport l
 
 To attempt SYN flooding, type:
 
-`-synflood -source [SOURCE PORT] -target [TARGET IP] [TARGET PORT]`
+`-synflood -source [SOURCE PORT] -target [TARGET IP/URL] [TARGET PORT]`
 
 If you want to use a random source port, type the following command:
 
-`-synflood -source r -target [TARGET IP] [TARGET PORT]`
+`-synflood -source r -target [TARGET IP/URL] [TARGET PORT]`
 
 ![synflood](https://user-images.githubusercontent.com/61552222/139092701-9e391c42-8050-4a3c-a427-a84be9e950c3.png)
 
@@ -271,11 +271,11 @@ A brute-force attack is an attempt to crack a password or username.
 
 To perform brute-force attack and find common/weak credentials, type:
 
-`-bruteforce [SERVICE] -target [TARGET] -user [USERNAME]`
+`-bruteforce [SERVICE] -target [TARGET IP/URL] -user [USERNAME]`
 
 If you wish to use a custom wordlist, use the command:
 
-`-bruteforce [SERVICE] -target [TARGET] -user [USERNAME] -wordlist [WORDLIST PATH]`
+`-bruteforce [SERVICE] -target [TARGET IP/URL] -user [USERNAME] -wordlist [WORDLIST PATH]`
 
 For the time being, only the SSH service is supported.
 
