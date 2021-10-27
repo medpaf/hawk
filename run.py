@@ -20,6 +20,7 @@ from tasks.vulnscan import vulnscan
 from tasks.offense.sniff import sniff
 from tasks.offense.ipspoof import ipspoof
 from tasks.offense.macspoof import macspoof
+from tasks.offense.synflood import synflood
 from tasks.getmac import getmac
 from tasks.offense.deauth import deauth
 from tasks.offense.bruteforce import bruteforce
@@ -83,10 +84,12 @@ ap.add_argument('-grab', action = 'store_true',
         help = 'perform banner grabbing')
 ap.add_argument('-getmac', action = 'store_true',
         help = 'Get MAC address of a host IP address in the same LAN (root privileges needed)')
-ap.add_argument('-ipspoof', action = 'store_true',
-        help = 'perform IP spoofing on a target (root privileges needed)')
 ap.add_argument('-macspoof', action = 'store_true',
         help = 'perform MAC spoofing on a target (root privileges needed)')
+ap.add_argument('-ipspoof', action = 'store_true',
+        help = 'perform IP spoofing on a target (root privileges needed)')
+ap.add_argument('-synflood', action = 'store_true',
+        help = 'perform SYN flooding on a target (root privileges needed)')
 ap.add_argument('-sniff', action = 'store_true',
         help = 'perform packet sniffing (root privileges needed)')
 ap.add_argument('-deauth', action = 'store_true',
@@ -309,7 +312,15 @@ elif args['macspoof']:
                 macspoof(args['source'][0], args['iface'][0])
         except Exception as e:
                 print(f'[{Fore.RED}!{Style.RESET_ALL}] Please type the command correctly. Examples: \n \t -macspoof -source [SOURCE MAC] -iface [INTERFACE]')
-        
+
+# SYN flooding
+elif args['synflood']:
+
+        try:
+                synflood(args['source'][0], args['target'][0], args['target'][0])
+        except Exception as e:
+                print(f'[{Fore.RED}!{Style.RESET_ALL}] Please type the command correctly. Examples: \n \t -synflood -source [SOURCE PORT] -target [TARGET IP] [TARGET PORT]')
+
 # Packet sniffing
 elif args['sniff']:
         sniff()
