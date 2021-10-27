@@ -32,21 +32,26 @@ epilog=textwrap.dedent('''
 Examples:
         -ifconfig
         -ping [HOST(s)]
-        -traceroute [HOST]
+        -traceroute [HOST] 
         -scan -host [HOST(s)] -prange [START PORT] [END PORT]
         -scanlan
         -getmac -host [HOST(s) IP]
         -grab -host [HOST(S)] -p [PORT(s)]
         -ns [HOST(s)]
         -whois [HOST(s)]
-        -sdenum [DOMAIN]
+
+        -sdenum [DOMAIN] 
+        -sdenum [DOMAIN] -wordlist [WORDLIST PATH]
+        
         -vulnscan -host [HOST(s)]
         -sniff
         -macspoof -source [SOURCE MAC] -iface [INTERFACE]
         -ipspoof -source [SOURCE IP] [SOURCE PORT] -target [TARGET IP] [TARGET PORT]
         -synflood -source [SOURCE PORT] -target [TARGET IP] [TARGET PORT]
         -deauth -target [TARGET MAC] -gateway [GATEWAY MAC] -iface [INTERFACE] 
+
         -bruteforce [SERVICE] -target [TARGET] -user [USERNAME]
+        -bruteforce [SERVICE] -target [TARGET] -user [USERNAME] -wordlist [WORDLIST PATH]
 
 '''))
 
