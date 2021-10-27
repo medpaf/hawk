@@ -25,7 +25,7 @@ from tasks.offense.deauth import deauth
 from tasks.offense.bruteforce import bruteforce
 from tasks.save import save
  
-ap = argparse.ArgumentParser(description='MedSec Tool', formatter_class=argparse.RawDescriptionHelpFormatter,
+ap = argparse.ArgumentParser(description='MedSec', formatter_class=argparse.RawDescriptionHelpFormatter,
 epilog=textwrap.dedent('''
 Examples:
         -scan -host [HOST(s)] -prange [START PORT] [END PORT]
@@ -129,31 +129,30 @@ ap.add_argument('-wordlist', '-wl', type = str,
         nargs = 1,
         help = 'specify wordlist file')
 
-
 args = vars(ap.parse_args())
 
 # Function to handle scans
 def handleScan(scantype):
         if args['host']:
-                # Perform SYN scan with IP address(es) only
+                # Perform scan with IP address(es) only
                 if not args['p'] and not len(args['prange']) == 2: 
                         for i in range(0, len(args['host'])):
                                 scan(nsconv(args['host'][i]), args['host'][i], 1, 1000, f'{scantype}')
 
-                # Perform SYN scan with IP address(es) and port(s)        
+                # Perform scan with IP address(es) and port(s)        
                 elif args['p'] and not len(args['prange']) == 2:
                         for i in range(0, len(args['host'])):
                                 for j in range(0, len(args['p'])):
                                         scanWithPort(nsconv(args['host'][i]), args['host'][i], args['p'][j], i, j, f'{scantype}')
                 
-                # Perform SYN scan with IP address(es) and port range
+                # Perform scan with IP address(es) and port range
                 elif len(args['prange']) == 2 and not args['p']:
                         for i in range(0, len(args['host'])):
                                 scan(nsconv(args['host'][i]), args['host'][i], args['prange'][0], args['prange'][1], f'{scantype}')
                 else:
-                        print('Please type the command correctly. Examples: \n \t -scan -host [HOST(s)] \n \t -scan -host [HOST(s)] -p [PORT(s)] \n \t -scan -host [HOST(s)] -prange [START PORT] [END PORT] \n \t -scan -iprange [START IP] [END IP] -p [PORT(S)] \n \t -scan -iprange [START IP] [END IP] -prange [START PORT] [END PORT]')
+                        print(f'[{Fore.RED}!{Style.RESET_ALL}] Please type the command correctly. Examples: \n \t -scan -host [HOST(s)] \n \t -scan -host [HOST(s)] -p [PORT(s)] \n \t -scan -host [HOST(s)] -prange [START PORT] [END PORT] \n \t -scan -iprange [START IP] [END IP] -p [PORT(S)] \n \t -scan -iprange [START IP] [END IP] -prange [START PORT] [END PORT]')
         else:
-                print('Please specify the host(s) (or IP range) to scan and port(s) (or port range). Examples: \n \t -scan -host [HOST(s)] \n \t -scan -host [HOST(s)] -p [PORT(s)] \n \t -scan -host [HOST(s)] -prange [START PORT] [END PORT] \n \t -scan -iprange [START IP] [END IP] -p [PORT(S)] \n \t -scan -iprange [START IP] [END IP] -prange [START PORT] [END PORT]') 
+                print(f'[{Fore.RED}!{Style.RESET_ALL}] Please type the command correctly. Examples: \n \t -scan -host [HOST(s)] \n \t -scan -host [HOST(s)] -p [PORT(s)] \n \t -scan -host [HOST(s)] -prange [START PORT] [END PORT] \n \t -scan -iprange [START IP] [END IP] -p [PORT(S)] \n \t -scan -iprange [START IP] [END IP] -prange [START PORT] [END PORT]') 
 
 # Save output file
 if args['s']:
