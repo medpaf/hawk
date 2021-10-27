@@ -23,32 +23,26 @@ Other features are still being implemented. Future implementations may include W
   - [Linux](#linux)
 + [Configuration](#configuration)
 + [How to use](#how-to-use)
-
-  - Networking
-
-  - [ifconfig (beta)](#ifconfig)
-  - [ping](#ping)
-  - [traceroute](#traceroute)
-
-  - Footprinting
-
-  - [Port scans](#port-scans)
-  - [Host discovery (scan for devices on a local network)](#host-discovery)
-  - [MAC address detection (get MAC address of a host IP on a local network)](#mac-address-detection)
-  - [Banner grabbing](#banner-grabbing)
-  - [DNS checks (with geolocation information)](#dns-checks)
-  - [WHOIS](#whois)
-  - [Subdomain enumeration](#subdomain-enumeration)
-  - [Vulnerability reconnaissance](#vulnerability-reconnaissance)
-
-  - Offensive
-  
-  - [Packet sniffing](#packet-sniffing)
-  - [MAC spoofing](#mac-spoofing)
-  - [IP spoofing](#ip-spoofing)
-  - [SYN flooding](#syn-flooding)
-  - [Deauth attack](#deauth-attack)
-  - [Brute-force attack (beta)](#brute-force-attack)
+  + Networking
+    - [ifconfig (beta)](#ifconfig)
+    - [ping](#ping)
+    - [traceroute](#traceroute)
+  + Footprinting
+    - [Port scans](#port-scans)
+    - [Host discovery (scan for devices on a local network)](#host-discovery)
+    - [MAC address detection (get MAC address of a host IP on a local network)](#mac-address-detection)
+    - [Banner grabbing](#banner-grabbing)
+    - [DNS checks (with geolocation information)](#dns-checks)
+    - [WHOIS](#whois)
+    - [Subdomain enumeration](#subdomain-enumeration)
+    - [Vulnerability reconnaissance](#vulnerability-reconnaissance)
+  + Offensive
+    - [Packet sniffing](#packet-sniffing)
+    - [MAC spoofing](#mac-spoofing)
+    - [IP spoofing](#ip-spoofing)
+    - [SYN flooding](#syn-flooding)
+    - [Deauth attack](#deauth-attack)
+    - [Brute-force attack (beta)](#brute-force-attack)
 + [Contribution](#contribution)
 + [License](#license)
 
