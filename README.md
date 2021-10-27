@@ -236,7 +236,7 @@ You can also use a random source port:
 
 `-ipspoof -source [SOURCE IP] r -target [TARGET IP] [TARGET PORT]`
 
-![anim spoof](https://user-images.githubusercontent.com/61552222/136197768-e9f45be7-2d8a-49e6-b0af-e7b44cf15532.gif)
+![ipspoof](https://user-images.githubusercontent.com/61552222/139094228-3fc3889d-46ec-4c34-83a8-b9e4e78c1ae1.png)
 
 **Disclaimer**: Please only use this for testing purposes and target your own machines.
 

