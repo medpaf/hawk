@@ -53,7 +53,7 @@ Other features are still being implemented. Future implementations may include W
   - [MAC spoofing](#mac-spoofing)
   - [Packet sniffing](#packet-sniffing)
   - [Deauth attack](#deauth-attack)
-  - [Brute-force attack](#brute--force-attack)
+  - [Brute-force attack](#brute-force-attack)
 + [Contribution](#contribution)
 + [License](#license)
 
