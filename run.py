@@ -4,6 +4,7 @@ import subprocess
 import sys
 import ipaddress
 import textwrap
+from colorama import Fore, Back, Style
 
 from files.conf import *
 
@@ -169,29 +170,49 @@ elif args['ifconfig']:
 
 # DNS check (check IP address of a website)
 elif args['ns']:
-        for i in range(0, len(args['ns'])):
-                ns(args['ns'][i], IPINFO_API_KEY)
+        
+        try:
+                for i in range(0, len(args['ns'])):
+                        ns(args['ns'][i], IPINFO_API_KEY)
+        except Exception as e:
+                print(f'[{Fore.RED}!{Style.RESET_ALL}] Please type the command correctly. Examples: \n \t -ns [HOST(s)]')
 
 # WHOIS
 elif args['whois']:
-        for i in range(0, len(args['whois'])):
-                whoisinfo(args['whois'][i])
+
+        try:
+                for i in range(0, len(args['whois'])):
+                        whoisinfo(args['whois'][i])
+        except Exception as e:
+                print(f'[{Fore.RED}!{Style.RESET_ALL}] Please type the command correctly. Examples: \n \t -whois [HOST(s)]')
 
 # Subdomain enumeration
 elif args['sdenum']:
-        if args['wordlist']:
-                sdenum(args['sdenum'][0], args['wordlist'])
-        else:
-                sdenum(args['sdenum'][0], SUBDOMAINS_WORDLIST)
+
+        try:
+                if args['wordlist']:
+                        sdenum(args['sdenum'][0], args['wordlist'])
+                else:
+                        sdenum(args['sdenum'][0], SUBDOMAINS_WORDLIST)
+        except Exception as e:
+                print(f'[{Fore.RED}!{Style.RESET_ALL}] Please type the command correctly. Examples: \n \t -sdenum [DOMAIN] \n \t -sdenum [DOMAIN] -wordlist [WORDLIST PATH]')
 
 # Ping to check connectivity
 elif args['ping']:
-        for i in range(0, len(args['ping'])):
-                ping(args['ping'][i], i)
+
+        try:
+                for i in range(0, len(args['ping'])):
+                        ping(args['ping'][i], i)
+        except Exception as e:
+                print(f'[{Fore.RED}!{Style.RESET_ALL}] Please type the command correctly. Examples: \n \t -ping [HOST(s)]')
 
 # Traceroue
 elif args['traceroute']:
-        traceroute(args['traceroute'][0])
+
+        try:
+                traceroute(args['traceroute'][0])
+        except Exception as e:
+                print(f'[{Fore.RED}!{Style.RESET_ALL}] Please type the command correctly. Examples: \n \t -traceroute [HOST]')
 
 # TCP scan
 elif args['scantcp']:
@@ -219,74 +240,75 @@ elif args['scanlan']:
 
 # Get MAC address of a host IP address
 elif args['getmac']:
-        if args['host']:
+
+        try:
                 for i in range(0, len(args['host'])):
                         getmac(args['host'][i], i)                
-        else:
-              print('Please type the command correctly. Examples: \n \t -getmac -host [HOST(s) IP]')  
+        except Exception as e:
+              print(f'[{Fore.RED}!{Style.RESET_ALL}] Please type the command correctly. Examples: \n \t -getmac -host [HOST(s) IP]')  
 
 # Vuln scan on a host
 elif args['vulnscan']:
-        if args['host']:
-                for i in range(0, len(args['host'])):
-                        vulnscan(args['host'][i], SHODAN_API_KEY)
-        elif args['iprange']:
-                for ip_int in range(int(ipaddress.IPv4Address(args['iprange'][0])), int(ipaddress.IPv4Address(args['iprange'][1]) + 1)):
-                        vulnscan(ipaddress.IPv4Address(ip_int), SHODAN_API_KEY)
-        else:
-                print('Please type the command correctly. Examples: \n \t -vulnscan -host [HOST(s)]')
+
+        try:
+                if args['host']:
+                        for i in range(0, len(args['host'])):
+                                vulnscan(args['host'][i], SHODAN_API_KEY)
+                elif args['iprange']:
+                        for ip_int in range(int(ipaddress.IPv4Address(args['iprange'][0])), int(ipaddress.IPv4Address(args['iprange'][1]) + 1)):
+                                vulnscan(ipaddress.IPv4Address(ip_int), SHODAN_API_KEY)
+        except Exception as e:
+                print(f'[{Fore.RED}!{Style.RESET_ALL}] Please type the command correctly. Examples: \n \t -vulnscan -host [HOST(s)]')
 
 # Banner grabbing
-elif args['grab']:    
+elif args['grab']: 
 
-        if args['host']: 
+        try:   
+                if args['host']: 
 
-                # Perform grabbing with IP address(es) and port number(s)
-                if args['p'] and not len(args['prange']) == 2: 
-                        for i in range(0, len(args['host'])):
-                                for j in range(0, len(args['p'])):
-                                        bannerWithPort(nsconv(args['host'][i]), args['p'][j])               
+                        # Perform grabbing with IP address(es) and port number(s)
+                        if args['p'] and not len(args['prange']) == 2: 
+                                for i in range(0, len(args['host'])):
+                                        for j in range(0, len(args['p'])):
+                                                bannerWithPort(nsconv(args['host'][i]), args['p'][j])               
 
-                # Perform grabbing with IP address(es) and port range 
-                elif len(args['prange']) == 2 and not args['p']: 
-                        for i in range(0, len(args['host'])):
-                                for j in range(args['prange'][0], args['prange'][1] + 1):
-                                        bannerWithPort(nsconv(args['host'][i]), j)
-                else:
-                        print('Please type the command correctly. Examples: \n \t -grab -host [HOST(s)] -p [PORT(s)] \n \t -grab -iprange [START IP] [END IP] -prange [START PORT] [END PORT] \n \t -grab -host [HOST(s)] -prange [START PORT] [END PORT] \n \t -grab -iprange [START IP] [END IP] -p [PORT]')
-        
-        elif args['iprange']:
+                        # Perform grabbing with IP address(es) and port range 
+                        elif len(args['prange']) == 2 and not args['p']: 
+                                for i in range(0, len(args['host'])):
+                                        for j in range(args['prange'][0], args['prange'][1] + 1):
+                                                bannerWithPort(nsconv(args['host'][i]), j)
+                elif args['iprange']:
 
-                # Perform grabbing with IP range and port number(s)
-                if args['p'] and not len(args['prange']) == 2: 
-                        for ip_int in range(int(ipaddress.IPv4Address(args['iprange'][0])), int(ipaddress.IPv4Address(args['iprange'][1]) + 1)):
-                                for j in range(0, len(args['p'])):
-                                        bannerWithPort(ipaddress.IPv4Address(ip_int), args['p'][j])
+                        # Perform grabbing with IP range and port number(s)
+                        if args['p'] and not len(args['prange']) == 2: 
+                                for ip_int in range(int(ipaddress.IPv4Address(args['iprange'][0])), int(ipaddress.IPv4Address(args['iprange'][1]) + 1)):
+                                        for j in range(0, len(args['p'])):
+                                                bannerWithPort(ipaddress.IPv4Address(ip_int), args['p'][j])
 
-                # Perform grabbing with IP range and port range
-                elif len(args['prange']) == 2 and not args['p']: 
-                        for ip_int in range(int(ipaddress.IPv4Address(args['iprange'][0])), int(ipaddress.IPv4Address(args['iprange'][1]) + 1)):
-                                for j in range(args['prange'][0], args['prange'][1] + 1):
-                                        bannerWithPort(ipaddress.IPv4Address(ip_int), j) 
-                else:
-                        print('Please type the command correctly. Examples: \n \t -grab -host [HOST(s)] -p [PORT(s)] \n \t -grab -iprange [START IP] [END IP] -prange [START PORT] [END PORT] \n \t -grab -host [HOST(s)] -prange [START PORT] [END PORT] \n \t -grab -iprange [START IP] [END IP] -p [PORT]')
-        else:
-                print('Please type the command correctly. Examples: \n \t -grab -host [HOST(s)] -p [PORT(s)] \n \t -grab -iprange [START IP] [END IP] -prange [START PORT] [END PORT] \n \t -grab -host [HOST(s)] -prange [START PORT] [END PORT] \n \t -grab -iprange [START IP] [END IP] -p [PORT]')
+                        # Perform grabbing with IP range and port range
+                        elif len(args['prange']) == 2 and not args['p']: 
+                                for ip_int in range(int(ipaddress.IPv4Address(args['iprange'][0])), int(ipaddress.IPv4Address(args['iprange'][1]) + 1)):
+                                        for j in range(args['prange'][0], args['prange'][1] + 1):
+                                                bannerWithPort(ipaddress.IPv4Address(ip_int), j) 
+        except Exception as e:
+
+                print(f'[{Fore.RED}!{Style.RESET_ALL}] Please type the command correctly. Examples: \n \t -grab -host [HOST(s)] -p [PORT(s)] \n \t -grab -iprange [START IP] [END IP] -prange [START PORT] [END PORT] \n \t -grab -host [HOST(s)] -prange [START PORT] [END PORT] \n \t -grab -iprange [START IP] [END IP] -p [PORT]')
+
 # IP spoofing
 elif args['ipspoof']:
                         
-        if len(args['source']) == 2 and len(args['target']) == 2:
+        try:
                 ipspoof(args['source'][0], args['source'][1], nsconv(args['target'][0]), int(args['target'][1])) 
-        else:
-                print('Please type the command correctly. You can only attack one host and one port at a time. Examples: \n \t -ipspoof -source [SOURCE IP] [SOURCE PORT] -target [TARGET IP] [TARGET PORT]')
+        except Exception as e:
+                print(f'[{Fore.RED}!{Style.RESET_ALL}] Please type the command correctly. You can only attack one host and one port at a time. Examples: \n \t -ipspoof -source [SOURCE IP] [SOURCE PORT] -target [TARGET IP] [TARGET PORT]')
         
 # MAC spoofing
 elif args['macspoof']:
 
-        if len(args['source']) == 1 and len(args['iface']) == 1:
+        try:
                 macspoof(args['source'][0], args['iface'][0])
-        else:
-                print('Please type the command correctly. Examples: \n \t -macspoof -source [SOURCE MAC] -iface [INTERFACE]')
+        except Exception as e:
+                print(f'[{Fore.RED}!{Style.RESET_ALL}] Please type the command correctly. Examples: \n \t -macspoof -source [SOURCE MAC] -iface [INTERFACE]')
         
 # Packet sniffing
 elif args['sniff']:
@@ -295,23 +317,24 @@ elif args['sniff']:
 # Deauth attack
 elif args['deauth']:
 
-        if len(args['target']) == 1 and len(args['gateway']) == 1 and len(args['iface']) == 1:
+        try:
                 deauth(args['target'][0], args['gateway'][0], args['iface'][0]) 
         
-        else:
-                print('Please type the command correctly. Examples: \n \t -deauth -target [TARGET(s) MAC(s)] -gateway [GATEWAY MAC] -iface [INTERFACE]')
+        except Exception as e:
+                print(f'[{Fore.RED}!{Style.RESET_ALL}] Please type the command correctly. Examples: \n \t -deauth -target [TARGET(s) MAC(s)] -gateway [GATEWAY MAC] -iface [INTERFACE]')
 
 elif args['bruteforce']: ###### testing phase
         
-        if len(args['target']) == 1 and len(args['user']) == 1:
+        try:
                 if args['wordlist']:
                         bruteforce(args['bruteforce'][0], args['target'][0], args['user'][0], args['wordlist'][0])
                 else:
                         bruteforce(args['bruteforce'][0], args['target'][0], args['user'][0], PASSWORDS_WORDLIST)
-        else:
-                print('Please type the command correctly. Examples: \n \t -bruteforce -target [TARGET] -user [USERNAME] -wordlist [WORDLIST] \n \t -bruteforce -target [TARGET] -user [USERNAME]')
+
+        except Exception as e:
+                print(f'[{Fore.RED}!{Style.RESET_ALL}] Please type the command correctly. Examples: \n \t -bruteforce [SERVICE] -target [TARGET] -user [USERNAME] \n \t -bruteforce [SERVICE] -target [TARGET] -user [USERNAME] -wordlist [WORDLIST PATH]')
 
 else:
         # if arguments are present
         if len(sys.argv) > 1:
-                print("Please, type the command correctly. For additional help, type '-h'.") 
+                print(f"[{Fore.RED}!{Style.RESET_ALL}] Please, type the command correctly. For additional help, type '-h'.") 

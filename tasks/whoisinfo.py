@@ -48,7 +48,12 @@ def whoisinfo(host):
         else:
             print(f'[{Fore.GREEN}+{Style.RESET_ALL}] Email: {Fore.GREEN}{whois_info.emails}{Style.RESET_ALL}')
 
-        print(f'[{Fore.GREEN}+{Style.RESET_ALL}] Organization: {Fore.GREEN}{whois_info.org}{Style.RESET_ALL}')
+        if isinstance(whois_info.org, list):
+            print(f'[{Fore.GREEN}+{Style.RESET_ALL}] Organizations')
+            whois_checker(host, whois_info.org)
+        else:
+            print(f'[{Fore.GREEN}+{Style.RESET_ALL}] Organization: {Fore.GREEN}{whois_info.org}{Style.RESET_ALL}')
+
         print(f'[{Fore.GREEN}+{Style.RESET_ALL}] State: {Fore.GREEN}{whois_info.state}{Style.RESET_ALL}')
         print(f'[{Fore.GREEN}+{Style.RESET_ALL}] Country: {Fore.GREEN}{whois_info.country}{Style.RESET_ALL}')
 
