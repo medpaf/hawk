@@ -51,9 +51,10 @@ Other features are still being implemented. Future implementations may include W
   - [WHOIS](#whois)
   - [Subdomain enumeration](#subdomain-enumeration)
   - [Vulnerability reconnaissance](#vulnerability-reconnaissance)
+  - [Packet sniffing](#packet-sniffing)
   - [MAC spoofing](#mac-spoofing)
   - [IP spoofing](#ip-spoofing)
-  - [Packet sniffing](#packet-sniffing)
+  - [SYN flooding](#syn-flooding)
   - [Deauth attack](#deauth-attack)
   - [Brute-force attack (beta)](#brute-force-attack)
 + [Contribution](#contribution)
@@ -239,6 +240,15 @@ You can also use a random source port:
 
 **Disclaimer**: Please only use this for testing purposes and target your own machines.
 
+### SYN flooding
+
+SYN Flood is a DDoS attack method that causes direct overhead in the transport layer (layer 4) and indirect overhead in application layer (layer 7).
+
+To attempt SYN flooding, type:
+
+`-synflood -source [SOURCE PORT] -target [TARGET IP] [TARGET PORT]`
+
+**Disclaimer**: Please only use this for testing purposes and target your own machines.
 ### Deauth attack
 
 A deauth attack is a type of wireless attack that targets communication between a router and one or more devices connected to that router. Effectively forcing the target machine to disconnect from the access point.
