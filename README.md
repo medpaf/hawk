@@ -172,6 +172,10 @@ If you wish to look for common subdomains of a domain, simply type:
 
 `-sdenum [DOMAIN]`
 
+This command uses a default wordlist to look for subdomains. However, if you want to use your own wordlist, type:
+
+`-sdenum [DOMAIN] -wordlist [WORDLIST PATH]`
+
 ![sdenum2](https://user-images.githubusercontent.com/61552222/137121964-05c3b6df-a0fa-4b9a-9ac3-bdcdb6dd9263.png)
 
 ### Vulnerability reconnaissance
