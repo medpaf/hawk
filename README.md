@@ -69,7 +69,7 @@ sudo python3 medsec.py
 ```
 
 ## Configuration
-To make configurations, simply go to the configuration file at `files/conf/conf.py` and edit it.
+To make configurations, simply go to the configuration file at `files/conf.py` and edit it.
 
 ## How to use
 
@@ -153,7 +153,7 @@ This feature is similar to the well known `nslookup` command used on UNIX system
 
 ![ns](https://user-images.githubusercontent.com/61552222/137627097-123581b6-857e-404d-9e60-9c422f752cb4.png)
 
-**Disclaimer**: Note that this feature uses IPinfo API. It is recommended to change the API key to yours as the key provided might be being used by other people. To change the API keys go to the configuration file at `files/conf/conf.py`.
+**Disclaimer**: Note that this feature uses IPinfo API. It is recommended to change the API key to yours as the key provided might be being used by other people. To change the API keys go to the configuration file at `files/conf.py`.
 
 ### WHOIS
 WHOIS is a TCP protocol that aims to consult contact and DNS.
@@ -181,7 +181,7 @@ To scan one or more hosts for vulnerabilities use the following command:
 
 ![vuln2](https://user-images.githubusercontent.com/61552222/136042995-840b9da2-69f5-4a2a-8685-dac6289c7582.gif)
 
-**Disclaimer**: Note that this feature uses Shodan API. It is recommended to change the API key to yours as the key provided might be being used by other people. To change the API keys go to the configuration file at `files/conf/conf.py`.
+**Disclaimer**: Note that this feature uses Shodan API. It is recommended to change the API key to yours as the key provided might be being used by other people. To change the API keys go to the configuration file at `files/conf.py`.
 
 ### Packet sniffing
 To perform packet sniffing, type:
