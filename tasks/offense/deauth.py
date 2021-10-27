@@ -49,10 +49,10 @@ def deauth(target_mac, gateway_mac, iface):
     except KeyboardInterrupt:
         sys.exit()
     else:
-        # Print  info messages"
+        # Print  info messages
         if verbose:
             if count:
-                print(f"[{Fore.GREEN}+{Style.RESET_ALL}] Sending {count} frames every {inter}s...")
+                print(f"[{Fore.YELLOW}+{Style.RESET_ALL}] Sending {count} frames every {inter}s...")
             else:
-                print(f"[{Fore.GREEN}+{Style.RESET_ALL}] Sending frames every {inter}s until CTRL-C is pressed...")
+                print(f"[{Fore.YELLOW}+{Style.RESET_ALL}] Sending frames every {inter}s until CTRL-C is pressed...")
 
