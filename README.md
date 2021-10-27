@@ -179,8 +179,8 @@ To scan one or more hosts for vulnerabilities use the following command:
 
 `-vulnscan -host [HOST(s)]`
 
-![vulnscan](https://user-images.githubusercontent.com/61552222/139101140-cc77f0b1-604a-4964-bcbb-049a64d18545.png)
 ![vulnscan2](https://user-images.githubusercontent.com/61552222/139101162-b341178e-4e05-4904-a345-656cc75e7c1b.png)
+![vulnscan](https://user-images.githubusercontent.com/61552222/139101140-cc77f0b1-604a-4964-bcbb-049a64d18545.png)
 
 **Disclaimer**: Note that this feature uses Shodan API. It is recommended to change the API key to yours as the key provided might be being used by other people. To change the API keys go to the configuration file at `files/conf.py`.
 
