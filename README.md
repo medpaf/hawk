@@ -14,6 +14,9 @@
 MedSec is a network and pentest utility that I developed so that I could perform different kinds of task using the same suite, instead of jumping from one tool to another.
 
 Currently, this script can perform a good variety of tasks such as:
+- ifconfig (beta);
+- ping;
+- traceroute;
 - Port scans, including SYN, TCP, UDP, ACK, comprehensive scan;
 - Host discovery (scan for up devices on a local network);
 - MAC address detection (get MAC address of a host IP on a local network);
@@ -22,12 +25,10 @@ Currently, this script can perform a good variety of tasks such as:
 - WHOIS
 - Subdomain enumeration;
 - Vulnerability reconnaissance;
-- ifconfig (beta);
-- ping;
-- traceroute;
-- IP spoofing;
-- MAC spoofing;
 - Packet sniffing;
+- MAC spoofing;
+- IP spoofing;
+- SYN flooding;
 - Deauth attack;
 - Brute-force attack (beta).
 
@@ -39,6 +40,9 @@ Other features are still being implemented. Future implementations may include W
   - [Linux](#linux)
 + [Configuration](#configuration)
 + [How to use](#how-to-use)
+  - [ifconfig (beta)](#ifconfig)
+  - [ping](#ping)
+  - [traceroute](#traceroute)
   - [Port scans](#port-scans)
   - [Host discovery (scan for devices on a local network)](#host-discovery)
   - [MAC address detection (get MAC address of a host IP on a local network)](#mac-address-detection)
@@ -47,11 +51,8 @@ Other features are still being implemented. Future implementations may include W
   - [WHOIS](#whois)
   - [Subdomain enumeration](#subdomain-enumeration)
   - [Vulnerability reconnaissance](#vulnerability-reconnaissance)
-  - [ifconfig (beta)](#ifconfig)
-  - [ping](#ping)
-  - [traceroute](#traceroute)
-  - [IP spoofing](#ip-spoofing)
   - [MAC spoofing](#mac-spoofing)
+  - [IP spoofing](#ip-spoofing)
   - [Packet sniffing](#packet-sniffing)
   - [Deauth attack](#deauth-attack)
   - [Brute-force attack (beta)](#brute-force-attack)
@@ -87,6 +88,27 @@ sudo python3 medsec.py
 To make configurations, simply go to the configuration file at `files/conf/conf.py` and edit it.
 
 ## How to use
+
+### ifconfig
+If you want to display your system's current TCP/IP network configuration, type the following command:
+
+`-ifconfig`
+
+![ifconfig](https://user-images.githubusercontent.com/61552222/134312657-b7262736-0ae0-4a39-bb72-c6dc0bc6869b.png)
+
+### ping
+To send ICMP packets to one or more hosts to check connectivity, simply type:
+
+`-ping [HOST(s)]`
+
+![ping](https://user-images.githubusercontent.com/61552222/137532338-ed2e2764-edec-47a5-ab1a-9c567854012d.png)
+
+### traceroute
+To diagnose route paths and measure transit delays, use the `-traceroute` command:
+
+`-traceroute [HOST]`
+
+![trace](https://user-images.githubusercontent.com/61552222/137626030-40511ada-52f9-4d83-b561-3491939f5d22.png)
 
 ### Port scans
 Scanning ports helps detect potential security breaches by identifying the hosts connected to your network and the services running.
@@ -177,26 +199,26 @@ To scan one or more hosts for vulnerabilities use the following command:
 
 **Disclaimer**: Note that this feature uses Shodan API. It is recommended to change the API key to yours as the key provided might be being used by other people. To change the API keys go to the configuration file at `files/conf/conf.py`.
 
-### ifconfig
-If you want to display your system's current TCP/IP network configuration, type the following command:
+### Packet sniffing
+To perform packet sniffing, type:
 
-`-ifconfig`
+`-sniff`
 
-![ifconfig](https://user-images.githubusercontent.com/61552222/134312657-b7262736-0ae0-4a39-bb72-c6dc0bc6869b.png)
+![anim sniff](https://user-images.githubusercontent.com/61552222/135460586-240e23e0-783a-4fc8-a088-1e15a0b9af3d.gif)
 
-### ping
-To send ICMP packets to one or more hosts to check connectivity, simply type:
+**Disclaimer**: If you want to sniff all the data that is passing through a network, first turn your wireless card or adapter to **monitor mode**.
 
-`-ping [HOST(s)]`
+### MAC spoofing
+MAC spoofing is the generation of frames with a MAC address different from the address of the sending NIC.
+To change the MAC address of an interface, issue the command:
 
-![ping](https://user-images.githubusercontent.com/61552222/137532338-ed2e2764-edec-47a5-ab1a-9c567854012d.png)
+`-macspoof -source [SOURCE MAC] -iface [INTERFACE]`
 
-### traceroute
-To diagnose route paths and measure transit delays, use the `-traceroute` command:
+![macspoof](https://user-images.githubusercontent.com/61552222/137764282-dbb2948c-9d6b-4778-b5e6-2a35f01d491b.png)
 
-`-traceroute [HOST]`
+As you can see in the screenshot below, the MAC address of the interface was succesfully changed.
 
-![trace](https://user-images.githubusercontent.com/61552222/137626030-40511ada-52f9-4d83-b561-3491939f5d22.png)
+![macspoof2](https://user-images.githubusercontent.com/61552222/137764297-0528c075-840b-4ef8-bf63-6a3bbd52f558.png)
 
 ### IP spoofing
 The objective of IP spoofing is to modify the correct source IP address so that the system to which a packet is directed cannot correctly identify the sender.
@@ -216,27 +238,6 @@ You can also use a random source port:
 ![anim spoof](https://user-images.githubusercontent.com/61552222/136197768-e9f45be7-2d8a-49e6-b0af-e7b44cf15532.gif)
 
 **Disclaimer**: Please only use this for testing purposes and target your own machines.
-
-### MAC spoofing
-MAC spoofing is the generation of frames with a MAC address different from the address of the sending NIC.
-To change the MAC address of an interface, issue the command:
-
-`-macspoof -source [SOURCE MAC] -iface [INTERFACE]`
-
-![macspoof](https://user-images.githubusercontent.com/61552222/137764282-dbb2948c-9d6b-4778-b5e6-2a35f01d491b.png)
-
-As you can see in the screenshot below, the MAC address of the interface was succesfully changed.
-
-![macspoof2](https://user-images.githubusercontent.com/61552222/137764297-0528c075-840b-4ef8-bf63-6a3bbd52f558.png)
-
-### Packet sniffing
-To perform packet sniffing, type:
-
-`-sniff`
-
-![anim sniff](https://user-images.githubusercontent.com/61552222/135460586-240e23e0-783a-4fc8-a088-1e15a0b9af3d.gif)
-
-**Disclaimer**: If you want to sniff all the data that is passing through a network, first turn your wireless card or adapter to **monitor mode**.
 
 ### Deauth attack
 

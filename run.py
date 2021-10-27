@@ -28,6 +28,9 @@ from tasks.save import save
 ap = argparse.ArgumentParser(description='MedSec', formatter_class=argparse.RawDescriptionHelpFormatter,
 epilog=textwrap.dedent('''
 Examples:
+        -ifconfig
+        -ping [HOST(s)]
+        -traceroute [HOST]
         -scan -host [HOST(s)] -prange [START PORT] [END PORT]
         -scanlan
         -getmac -host [HOST(s) IP]
@@ -36,12 +39,10 @@ Examples:
         -whois [HOST(s)]
         -sdenum [DOMAIN]
         -vulnscan -host [HOST(s)]
-        -ifconfig
-        -ping [HOST(s)]
-        -traceroute [HOST]
-        -ipspoof -source [SOURCE IP] [SOURCE PORT] -target [TARGET IP] [TARGET PORT]
-        -macspoof -source [SOURCE MAC] -iface [INTERFACE]
         -sniff
+        -macspoof -source [SOURCE MAC] -iface [INTERFACE]
+        -ipspoof -source [SOURCE IP] [SOURCE PORT] -target [TARGET IP] [TARGET PORT]
+        -synflood -source [SOURCE PORT] -target [TARGET IP] [TARGET PORT]
         -deauth -target [TARGET MAC] -gateway [GATEWAY MAC] -iface [INTERFACE] 
         -bruteforce [SERVICE] -target [TARGET] -user [USERNAME]
 

