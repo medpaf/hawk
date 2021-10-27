@@ -53,6 +53,7 @@ Other features are still being implemented. Future implementations may include W
   - [MAC spoofing](#mac-spoofing)
   - [Packet sniffing](#packet-sniffing)
   - [Deauth attack](#deauth-attack)
+  - [Brute-force attack](#brute--force-attack)
 + [Contribution](#contribution)
 + [License](#license)
 
@@ -253,6 +254,18 @@ After the command issued on the screenshot above, all the devices connected to t
 **Disclaimer**: To perform this attack, make sure you have a wireless card or adapter that supports **monitor mode** and turn it on before attempting a deauth attack.
 Please only use this for testing purposes and target your own machines.
 
+### Brute-force attack
+
+To perform brute-force attack and find common/weak credentials, type:
+
+`-bruteforce [SERVICE] -target [TARGET] -user [USERNAME]`
+
+If you wish to use a custom wordlist, use the command:
+
+`-bruteforce [SERVICE] -target [TARGET] -user [USERNAME] -wordlist [WORDLIST PATH]`
+
+**Disclaimer**: Note that the server target server may have defensive mechanisms against this type of attack and block the attacker's attempts on guessing the password.
+Please only use this for testing purposes and target your own machines.
 ## Contribution
 
 Create a issue or pull request, or send me an email at [pafmed@outlook.com](mailto:pafmed@outlook.com).
