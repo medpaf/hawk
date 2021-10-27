@@ -317,7 +317,7 @@ elif args['macspoof']:
 elif args['synflood']:
 
         try:
-                synflood(args['source'][0], args['target'][0], args['target'][0])
+                synflood(args['source'][0], args['target'][0], args['target'][1])
         except Exception as e:
                 print(f'[{Fore.RED}!{Style.RESET_ALL}] Please type the command correctly. Examples: \n \t -synflood -source [SOURCE PORT] -target [TARGET IP] [TARGET PORT]')
 
