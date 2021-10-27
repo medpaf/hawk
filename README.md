@@ -29,7 +29,7 @@ Currently, this script can perform a good variety of tasks such as:
 - MAC spoofing;
 - Packet sniffing;
 - Deauth attack;
-- Brute-force attack.
+- Brute-force attack (beta).
 
 Other features are still being implemented. Future implementations may include WAF detection, DNS enumeration, traffic analysis, XSS vulnerability scanner, ARP cache poisoning, DNS cache poisoning, SYN flooding, MAC flooding, ping of death, network disassociation attack (not deauth attack), brute-force attacks, OSINT, exploits, some automated tasks and others.
 
@@ -54,7 +54,7 @@ Other features are still being implemented. Future implementations may include W
   - [MAC spoofing](#mac-spoofing)
   - [Packet sniffing](#packet-sniffing)
   - [Deauth attack](#deauth-attack)
-  - [Brute-force attack](#brute-force-attack)
+  - [Brute-force attack (beta)](#brute-force-attack)
 + [Contribution](#contribution)
 + [License](#license)
 
