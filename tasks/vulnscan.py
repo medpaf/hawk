@@ -31,7 +31,7 @@ def vulnscan(host, api_key):
 
         # Print vulnerability information
         if 'vulns' in host and len(host['vulns']) > 0:
-            print(f"[{Fore.GREEN}+{Style.RESET_ALL}] {len(host['vulns'])} vulnerability(ies) found on {target}")
+            print(f"[{Fore.GREEN}+{Style.RESET_ALL}] {len(host['vulns'])} vulnerability(ies) found on {Fore.YELLOW}{target}{Style.RESET_ALL}")
             for item in host['vulns']:
                 CVE = item.replace('!','')
                 print(f"\n[{Fore.GREEN}+{Style.RESET_ALL}] Vulnerability: {Fore.GREEN} {item} {Style.RESET_ALL}")
