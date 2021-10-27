@@ -267,6 +267,8 @@ Please only use this for testing purposes and target your own machines.
 
 ### Brute-force attack
 
+A brute-force attack is an attempt to crack a password or username.
+
 To perform brute-force attack and find common/weak credentials, type:
 
 `-bruteforce [SERVICE] -target [TARGET] -user [USERNAME]`
