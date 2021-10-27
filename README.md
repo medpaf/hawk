@@ -23,6 +23,7 @@ Other features are still being implemented. Future implementations may include W
   - [Linux](#linux)
 + [Configuration](#configuration)
 + [How to use](#how-to-use)
+  Networking
   - [ifconfig (beta)](#ifconfig)
   - [ping](#ping)
   - [traceroute](#traceroute)
