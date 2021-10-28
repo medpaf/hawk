@@ -86,14 +86,14 @@ If you want to display your system's current TCP/IP network configuration, type 
 ### ping
 To send ICMP packets to one or more hosts to check connectivity, simply type:
 
-`-ping [HOST(s)]`
+`-ping [HOST(s) IP/URL]`
 
 ![ping](https://user-images.githubusercontent.com/61552222/137532338-ed2e2764-edec-47a5-ab1a-9c567854012d.png)
 
 ### traceroute
 To diagnose route paths and measure transit delays, use the `-traceroute` command:
 
-`-traceroute [HOST]`
+`-traceroute [HOST IP/URL]`
 
 ![trace](https://user-images.githubusercontent.com/61552222/137626030-40511ada-52f9-4d83-b561-3491939f5d22.png)
 

