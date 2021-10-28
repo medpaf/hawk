@@ -38,11 +38,6 @@ fi
 
 # Install all necessary pip packages
 
-sudo pip3 install socket
-sudo pip3 install requests
-sudo pip3 install sys
-sudo pip3 install os
-sudo pip3 install random
 sudo pip3 install readline
 sudo pip3 install binascii
 sudo pip3 install struct

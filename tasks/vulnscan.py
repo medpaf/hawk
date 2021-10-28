@@ -8,7 +8,6 @@ from colorama import Fore, Back, Style
 def vulnscan(host, api_key):
     try:
         target = host
-        api_key = api_key
         api = shodan.Shodan(api_key)
         dnsResolve = f'https://api.shodan.io/dns/resolve?hostnames={target}&key={api_key}'
 
@@ -18,7 +17,7 @@ def vulnscan(host, api_key):
 
         # Do a Shodan search on that IP
         host = api.host(hostIP)
-        print(f'\n[{Fore.GREEN}+{Style.RESET_ALL}] Target: {target}')
+        print(f'\n[{Fore.GREEN} +{Style.RESET_ALL}] Target: {target}')
         print(f"[{Fore.GREEN}+{Style.RESET_ALL}] IP: {host['ip_str']}")
         print(f"[{Fore.GREEN}+{Style.RESET_ALL}] Organization: {host.get('org', 'n/a')}")
         print(f"[{Fore.GREEN}+{Style.RESET_ALL}] Operating System: {host.get('os', 'n/a')}\n")
