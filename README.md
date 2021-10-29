@@ -90,21 +90,21 @@ If you want to display your system's current TCP/IP network configuration, type 
 
 `-ifconfig`
 
-![ifconfig](https://user-images.githubusercontent.com/61552222/134312657-b7262736-0ae0-4a39-bb72-c6dc0bc6869b.png)
+![ifconfig](https://user-images.githubusercontent.com/61552222/139445188-daa3a2b9-59b6-4d34-ad49-3e9ee859bdc1.png)
 
 ### ping
 To send ICMP packets to one or more hosts to check connectivity, simply type:
 
 `-ping [HOST(s) IP/URL]`
 
-![ping](https://user-images.githubusercontent.com/61552222/137532338-ed2e2764-edec-47a5-ab1a-9c567854012d.png)
+![ping](https://user-images.githubusercontent.com/61552222/139445220-3f01fca0-8f31-4e3d-be57-c6f08e23b30c.png)
 
 ### traceroute
 To diagnose route paths and measure transit delays, use the `-traceroute` command:
 
 `-traceroute [HOST IP/URL]`
 
-![trace](https://user-images.githubusercontent.com/61552222/137626030-40511ada-52f9-4d83-b561-3491939f5d22.png)
+![tracert](https://user-images.githubusercontent.com/61552222/139445260-e21b3aa5-8dda-40db-8ac9-1c6f56b1c7b6.png)
 
 ### Port scans
 Scanning ports helps detect potential security breaches by identifying the hosts connected to your network and the services running.
@@ -121,7 +121,7 @@ Multiple scan types are supported, including SYN (`-scansyn`), TCP (`-scantcp`),
 
 `-scan -iprange [START IP] [END IP] -prange [START PORT] [END PORT]`
 
-![scan2](https://user-images.githubusercontent.com/61552222/137121775-59692de5-e75d-45ce-86e7-34c0e12ebf6a.png)
+![scan](https://user-images.githubusercontent.com/61552222/139445293-1cf92650-7901-45d9-9e4b-092c63c5263f.png)
 
 After this scan, it is possible to see that both 22 (SSH) and 80 (HTTP) ports are open.
 
@@ -132,14 +132,14 @@ To look for current up devices on a given network type the following command:
 
 Then type the network you want to scan.
 
-![scanlan2](https://user-images.githubusercontent.com/61552222/137121820-304c1270-a182-4f1e-8f5c-d52157087c9c.png)
+![scanlan](https://user-images.githubusercontent.com/61552222/139445322-73759459-5737-4a1e-b47e-f91d8b483792.png)
 
 ### MAC address detection
 To get a MAC address of one or more live hosts on the LAN, use the command:
 
 `-getmac -host [HOST(s) IP]`
 
-![getmac](https://user-images.githubusercontent.com/61552222/137489461-c7f2646f-2626-42b5-ab95-2a53407718ac.png)
+![getmac](https://user-images.githubusercontent.com/61552222/139445353-e90ef3d4-282a-4d52-94ff-85e7c1d7f6e5.png)
 
 ### Banner grabbing
 Banner grabbing is a reconnaissance technique that retrieves a software banner information. This banner usually contains important information about a network service, including but not limited to, it’s software name and version. FTP, Web, SSH, and SMTP servers often expose vital information about the software they are running in their banner.
@@ -156,14 +156,14 @@ To perform banner grabbing, depending on your specific needs, type one of the fo
 
 `-grab -iprange [START IP] [END IP] -p [PORT(s)]`
 
-![grab](https://user-images.githubusercontent.com/61552222/138929604-823b3d38-3eb3-4972-891d-6ad081e732d6.png)
+![grab](https://user-images.githubusercontent.com/61552222/139445426-c8b1bcae-318a-4c90-9dba-ab856665a683.png)
 
 ### DNS checks
 This feature is similar to the well known `nslookup` command used on UNIX systems. If you want to do a DNS check, type the following:
 
 `-ns [HOST(s) IP/URL]`
 
-![ns](https://user-images.githubusercontent.com/61552222/137627097-123581b6-857e-404d-9e60-9c422f752cb4.png)
+![ns](https://user-images.githubusercontent.com/61552222/139445454-6e7acc6f-5078-464f-9ad6-028106b7427d.png)
 
 **Disclaimer**: Note that this feature uses IPinfo API. It is recommended to change the API key to yours as the key provided might be being used by other people. To change the API keys go to the configuration file at `files/conf.py`.
 
@@ -173,7 +173,7 @@ To request the WHOIS of one or more pages, just type:
 
 `-whois [HOST(s) IP/URL]`
 
-![whois](https://user-images.githubusercontent.com/61552222/138929671-de9c6f37-372e-47e8-acf0-0d2ef466f84d.png)
+![whois](https://user-images.githubusercontent.com/61552222/139445488-637da57d-233b-451c-9570-feb8c2efa230.png)
 
 ### Subdomain enumeration
 Subdomain enumeration is the process of finding valid sub-domains for one or more domain.
@@ -188,15 +188,15 @@ This command uses a default wordlist to look for subdomains. However, if you wan
 
 `-sdenum [DOMAIN] -wordlist [WORDLIST PATH]`
 
-![sdenum2](https://user-images.githubusercontent.com/61552222/137121964-05c3b6df-a0fa-4b9a-9ac3-bdcdb6dd9263.png)
+![sdenum](https://user-images.githubusercontent.com/61552222/139445516-ba9b5459-6dc3-43e1-a424-4e079486dbfd.png)
 
 ### Vulnerability reconnaissance
 To scan one or more hosts for vulnerabilities use the following command:
 
 `-vulnscan -host [HOST(s) IP/URL]`
 
-![vulnscan2](https://user-images.githubusercontent.com/61552222/139101162-b341178e-4e05-4904-a345-656cc75e7c1b.png)
-![vulnscan](https://user-images.githubusercontent.com/61552222/139101140-cc77f0b1-604a-4964-bcbb-049a64d18545.png)
+![vulnscan1](https://user-images.githubusercontent.com/61552222/139445546-bdcf7647-5b20-4ae9-a4ec-1f345e71a12f.png)
+![vulnscan2](https://user-images.githubusercontent.com/61552222/139445561-6f7c778f-3596-4a31-b598-471c961d6261.png)
 
 **Disclaimer**: Note that this feature uses Shodan API. It is recommended to change the API key to yours as the key provided might be being used by other people. To change the API keys go to the configuration file at `files/conf.py`.
 
@@ -205,7 +205,7 @@ To perform packet sniffing, type:
 
 `-sniff`
 
-![anim sniff](https://user-images.githubusercontent.com/61552222/135460586-240e23e0-783a-4fc8-a088-1e15a0b9af3d.gif)
+![sniff](https://user-images.githubusercontent.com/61552222/139445596-b92205af-7ef0-407b-877f-fbe049ef8ff2.png)
 
 **Disclaimer**: If you want to sniff all the data that is passing through a network, first turn your wireless card or adapter to **monitor mode**.
 
@@ -215,7 +215,7 @@ To change the MAC address of an interface, issue the command:
 
 `-macspoof -source [SOURCE MAC] -iface [INTERFACE]`
 
-![macspoof](https://user-images.githubusercontent.com/61552222/137764282-dbb2948c-9d6b-4778-b5e6-2a35f01d491b.png)
+![macspoof](https://user-images.githubusercontent.com/61552222/139445629-9f10ad95-6dbb-4b7f-b0d5-93f9959e52c2.png)
 
 As you can see in the screenshot below, the MAC address of the interface was succesfully changed.
 
@@ -236,7 +236,7 @@ You can also use a random source port:
 
 `-ipspoof -source [SOURCE IP] r -target [TARGET IP/URL] [TARGET PORT]`
 
-![ipspoof](https://user-images.githubusercontent.com/61552222/139094228-3fc3889d-46ec-4c34-83a8-b9e4e78c1ae1.png)
+![ipspoof](https://user-images.githubusercontent.com/61552222/139445663-09c95225-b5a8-4df0-80d2-b18b6785f804.png)
 
 **Disclaimer**: Please only use this for testing purposes and target your own machines.
 
@@ -252,7 +252,7 @@ If you want to use a random source port, type the following command:
 
 `-synflood -source r -target [TARGET IP/URL] [TARGET PORT]`
 
-![synflood](https://user-images.githubusercontent.com/61552222/139092701-9e391c42-8050-4a3c-a427-a84be9e950c3.png)
+![synflood](https://user-images.githubusercontent.com/61552222/139445693-c2b25bcf-d265-4701-8480-e1f2d3b0f427.png)
 
 **Disclaimer**: Please only use this for testing purposes and target your own machines.
 ### Deauth attack
