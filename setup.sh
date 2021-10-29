@@ -62,5 +62,5 @@ sudo pip3 install paramiko
 # Add main .py file to the system path (later)
 #cp *.py /usr/bin
 #cp methods/*.py /usr/bin
-#mv /usr/bin/medsec.py /usr/bin/medsec
-#chmod 755 /usr/bin/medsec
+#mv /usr/bin/hawk.py /usr/bin/hawk
+#chmod 755 /usr/bin/hawk

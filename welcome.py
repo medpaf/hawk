@@ -3,17 +3,32 @@ from colorama import Fore, Back, Style
 from extras import printcolor
 
 def intro1():
-    print('\n********************************************************')
-    printcolor('RED', '*  ███    ███ ███████ ██████  ███████ ███████  ██████  *')
-    printcolor('RED', '*  ████  ████ ██      ██   ██ ██      ██      ██       *')
-    printcolor('RED', '*  ██ ████ ██ █████   ██   ██ ███████ █████   ██       *')
-    printcolor('RED', '*  ██  ██  ██ ██      ██   ██      ██ ██      ██       *')
-    printcolor('RED', '*  ██      ██ ███████ ██████  ███████ ███████  ██████  *')
-    print('*                                                      *')
-    print(f'*             Written by {Fore.RED}Paulo Medeiros{Style.RESET_ALL}                *')
-    print(f'* Github repository: {Fore.RED}https://github.com/medpaf/medsec{Style.RESET_ALL}  *')
-    print('*                                                      *')
-    print('********************************************************\n')
+    printcolor('RED','\n             `.                                       ')   
+    printcolor('RED','        `/-`                                           ')
+    printcolor('RED','         :/:.`       ````````                          ')
+    printcolor('RED','         `///:.`..-::::////::::-..`                    ')
+    printcolor('RED','          .://////////////////////::-``          ..    ')
+    printcolor('RED','           `-/////////////////////////:.`        ::`   ')
+    printcolor('RED','       `.`   `-:////////////////////////:.`     `//`   ')
+    printcolor('RED','      `:/-`    `.-:///////////////////////-    `://.   ')
+    printcolor('RED','     .:///.       ``.-::////////////////:-`   `:///.   ')
+    printcolor('RED','    .//////-`       ```.-////////////:-.`    .:////`   ')
+    printcolor('RED','   `:///////-```..---:://:--//////:-.`     `-/////-    ')
+    print(f'   {Fore.RED}-/////////////::--..``.:///:-.`       `-://///:`{Style.RESET_ALL} {Fore.BLUE}HAWK{Style.RESET_ALL}')
+    print(f'  {Fore.RED}`///////:-..```     `-:--.``         `-//:.://:`{Style.RESET_ALL}  Written by {Fore.RED}Paulo Medeiros{Style.RESET_ALL}')
+    print(f'  {Fore.RED}`//////. ```                     `.-:/:-` -//-{Style.RESET_ALL}    {Fore.BLUE}https://github.com/medpaf/medsec{Style.RESET_ALL}')
+    printcolor('RED','  `/////. `:/:                 ``.-:/:-.` `-///.       ')
+    printcolor('RED','  `////-  `..`                -//:-.``   `:////`       ')
+    printcolor('RED','   ://-```.----..`           `:/-``    `.:////:        ')
+    printcolor('RED','   `//-::////////:-.         -//`    `.://////.        ')
+    printcolor('RED','    -///////////////.       `//.  ``-:///////-         ')
+    printcolor('RED','    `-//////////////:`     `:/-``-://///////-`         ')
+    printcolor('RED','      .://///////////`   `.://-:///////////.`          ')
+    printcolor('RED','       `-///////////:   `-///////////////:`            ')
+    printcolor('RED','         .-/////////.``-://////////////:.`             ')
+    printcolor('RED','           `.://///..-//////////////:-`                ')
+    printcolor('RED','              `.-:://///////////:-.`                   ')
+    printcolor('RED','                   ``........``                        \n')
 
 def intro2():
     printcolor('RED', '\n    _____________  _______   ________  ________  _______   ________      ')
@@ -29,5 +44,5 @@ def intro2():
                                                                                                                                           
 
 def welcome():
-    introList=[intro2, intro1]
+    introList=[intro1]
     random.choice(introList)()

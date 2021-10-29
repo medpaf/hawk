@@ -15,7 +15,7 @@ def handleCommands():
         global comm 
         while True:
                 try:
-                        comm = input(f'\nMedSec > ')
+                        comm = input(f'\nhawk > ')
                         if comm != 'history':
                                 hist_list.append(comm.strip())
                         elif comm.strip() == 'clear':

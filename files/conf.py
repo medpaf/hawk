@@ -1,5 +1,5 @@
 '''
-This is the MedSec configuration file. Change the configuration based on your specific needs.
+This is the Hawk configuration file. Change the configuration based on your specific needs.
 '''
 
 # API KEYS

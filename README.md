@@ -1,17 +1,17 @@
 
-# MedSec
+# Hawk
 
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
-![Stars](https://img.shields.io/github/stars/medpaf/medsec.svg)
-![Forks](https://img.shields.io/github/forks/medpaf/medsec.svg)
-![Size](https://img.shields.io/github/repo-size/medpaf/medsec)
+![Stars](https://img.shields.io/github/stars/medpaf/hawk.svg)
+![Forks](https://img.shields.io/github/forks/medpaf/hawk.svg)
+![Size](https://img.shields.io/github/repo-size/medpaf/hawk)
 ![Mantained](https://img.shields.io/badge/Maintained%3F-yes-green.svg)
 [![Linux](https://svgshare.com/i/Zhy.svg)](https://svgshare.com/i/Zhy.svg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-![135713734-93ac0416-0a67-4a7e-aeb2-7ee70dc7d103~3](https://user-images.githubusercontent.com/61552222/136041183-34e52f67-f93f-4cea-9df6-38d3b5cc5163.png)
 
-MedSec is a network and pentest utility that I developed so that I could perform different kinds of task using the same suite, instead of jumping from one tool to another.
+
+Hawk is a network and pentest utility that I developed so that I could perform different kinds of task using the same suite, instead of jumping from one tool to another.
 
 Currently, this script can perform a good variety of tasks such as **ifconfig**, **ping**, **traceroute**, **port scans** (including SYN, TCP, UDP, ACK, comprehensive scan, **host discovery** (scan for up devices on a local network), **MAC address detection** (get MAC address of a host IP on a local network), **banner grabbing**, **DNS checks** (with geolocation information), **WHOIS**, **subdomain enumeration**, **vulnerability reconnaissance**, **packet sniffing**, **MAC spoofing**, **IP spoofing**, **SYN flooding**, **deauth attack** and **brute-force attack** (beta).
 
@@ -57,10 +57,10 @@ This script was tested on:
 
 ### Linux
 
-To install the necessary packages so that the script can run withouth any problems simply run the `setup.sh` script with root privileges. Currently, this installation script is only supported on Debian, Red Hat and Arch based distros that has the apt, dnf and pacman package manager respectively (***Ubuntu***, ***Kali Linux***, ***Parrot OS***, ***Debian***, ***Pop!_OS***, ***Linux Mint***, ***Deepin***, ***Zorin OS***, ***MX Linux***, ***Elementary OS***, ***Fedora***, ***CentOS***, ***Red Hat Enterprise Linux***, ***Rocky Linux***, ***AlmaLinux***, ***Oracle Linux***, ***ClearOS***, ***Arch***, ***Black Arch***, ***Manjaro*** etc). On most systems, to install MedSec simply run the following commands:
+To install the necessary packages so that the script can run withouth any problems simply run the `setup.sh` script with root privileges. Currently, this installation script is only supported on Debian, Red Hat and Arch based distros that has the apt, dnf and pacman package manager respectively (***Ubuntu***, ***Kali Linux***, ***Parrot OS***, ***Debian***, ***Pop!_OS***, ***Linux Mint***, ***Deepin***, ***Zorin OS***, ***MX Linux***, ***Elementary OS***, ***Fedora***, ***CentOS***, ***Red Hat Enterprise Linux***, ***Rocky Linux***, ***AlmaLinux***, ***Oracle Linux***, ***ClearOS***, ***Arch***, ***Black Arch***, ***Manjaro*** etc). On most systems, to install Hawk simply run the following commands:
 ```
-git clone https://github.com/medpaf/medsec.git
-cd medsec
+git clone https://github.com/medpaf/hawk.git
+cd hawk
 sudo sh setup.sh
 ```
 Then, simply follow the instructions.
@@ -68,9 +68,9 @@ Then, simply follow the instructions.
 However, if you are using any other Linux distro with a different package manager, please install the packages manually using your distro's package manager. Depending on the specific distro used, some of the required packages to run this script might be already installed on your machine.
 If you wish to know the necessary packages, look the `setup.sh` file.
 
-After the installation, to run the program, simply navigate to the project's directory and run the `medsec.py` file using python. Running the script as root is recommended for better performance and to avoid permission errors. The used command is the following:
+After the installation, to run the program, simply navigate to the project's directory and run the `hawk.py` file using python. Running the script as root is recommended for better performance and to avoid permission errors. The used command is the following:
 ```
-sudo python3 medsec.py
+sudo python3 hawk.py
 ```
 
 ## Configuration

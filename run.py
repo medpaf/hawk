@@ -26,7 +26,7 @@ from tasks.offense.deauth import deauth
 from tasks.offense.bruteforce import bruteforce
 from tasks.save import save
  
-ap = argparse.ArgumentParser(description='MedSec', formatter_class=argparse.RawDescriptionHelpFormatter,
+ap = argparse.ArgumentParser(description='Hawk', formatter_class=argparse.RawDescriptionHelpFormatter,
 epilog=textwrap.dedent('''
 
 Examples:
