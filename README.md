@@ -9,8 +9,6 @@
 [![Linux](https://svgshare.com/i/Zhy.svg)](https://svgshare.com/i/Zhy.svg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-![hawk cropped(1)](https://user-images.githubusercontent.com/61552222/139428218-97071101-c628-4dbe-bf16-002cea439f67.png)
-
 ![hawk cropped(1)_preview_rev_1](https://user-images.githubusercontent.com/61552222/139428758-85232978-5464-4be6-a4c4-8800b0380240.png)
 
 Hawk is a network and pentest utility that I developed so that I could perform different kinds of task using the same suite, instead of jumping from one tool to another.
