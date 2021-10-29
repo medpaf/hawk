@@ -3,9 +3,9 @@ from colorama import Fore, Back, Style
 from extras import printcolor
 
 def intro1():
-    printcolor('RED','\n             `.                                       ')   
+    printcolor('RED','\n                                                     ')   
     printcolor('RED','        `/-`                                           ')
-    printcolor('RED','         :/:.`       ````````                          ')
+    printcolor('RED','         :/:.`                                         ')
     printcolor('RED','         `///:.`..-::::////::::-..`                    ')
     printcolor('RED','          .://////////////////////::-``          ..    ')
     printcolor('RED','           `-/////////////////////////:.`        ::`   ')
@@ -16,7 +16,7 @@ def intro1():
     printcolor('RED','   `:///////-```..---:://:--//////:-.`     `-/////-    ')
     print(f'   {Fore.RED}-/////////////::--..``.:///:-.`       `-://///:`{Style.RESET_ALL} {Fore.BLUE}HAWK{Style.RESET_ALL}')
     print(f'  {Fore.RED}`///////:-..```     `-:--.``         `-//:.://:`{Style.RESET_ALL}  Written by {Fore.RED}Paulo Medeiros{Style.RESET_ALL}')
-    print(f'  {Fore.RED}`//////. ```                     `.-:/:-` -//-{Style.RESET_ALL}    {Fore.BLUE}https://github.com/medpaf/medsec{Style.RESET_ALL}')
+    print(f'  {Fore.RED}`//////. ```                     `.-:/:-` -//-{Style.RESET_ALL}    {Fore.BLUE}github.com/medpaf/hawk{Style.RESET_ALL}')
     printcolor('RED','  `/////. `:/:                 ``.-:/:-.` `-///.       ')
     printcolor('RED','  `////-  `..`                -//:-.``   `:////`       ')
     printcolor('RED','   ://-```.----..`           `:/-``    `.:////:        ')
@@ -28,7 +28,7 @@ def intro1():
     printcolor('RED','         .-/////////.``-://////////////:.`             ')
     printcolor('RED','           `.://///..-//////////////:-`                ')
     printcolor('RED','              `.-:://///////////:-.`                   ')
-    printcolor('RED','                   ``........``                        \n')
+    printcolor('RED','                   ``........``                        ')
 
 def intro2():
     printcolor('RED', '\n    _____________  _______   ________  ________  _______   ________      ')
