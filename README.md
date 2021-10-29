@@ -11,6 +11,8 @@
 
 ![hawk cropped(1)](https://user-images.githubusercontent.com/61552222/139428218-97071101-c628-4dbe-bf16-002cea439f67.png)
 
+![hawk cropped(1)_preview_rev_1](https://user-images.githubusercontent.com/61552222/139428758-85232978-5464-4be6-a4c4-8800b0380240.png)
+
 Hawk is a network and pentest utility that I developed so that I could perform different kinds of task using the same suite, instead of jumping from one tool to another.
 
 Currently, this script can perform a good variety of tasks such as **ifconfig**, **ping**, **traceroute**, **port scans** (including SYN, TCP, UDP, ACK, comprehensive scan, **host discovery** (scan for up devices on a local network), **MAC address detection** (get MAC address of a host IP on a local network), **banner grabbing**, **DNS checks** (with geolocation information), **WHOIS**, **subdomain enumeration**, **vulnerability reconnaissance**, **packet sniffing**, **MAC spoofing**, **IP spoofing**, **SYN flooding**, **deauth attack** and **brute-force attack** (beta).
