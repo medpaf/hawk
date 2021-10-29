@@ -205,7 +205,7 @@ To perform packet sniffing, type:
 
 `-sniff`
 
-![sniff](https://user-images.githubusercontent.com/61552222/139445596-b92205af-7ef0-407b-877f-fbe049ef8ff2.png)
+![sniff](https://user-images.githubusercontent.com/61552222/139446275-7cb3f905-ac8c-4c7c-ac00-c6fb57dec1e1.png)
 
 **Disclaimer**: If you want to sniff all the data that is passing through a network, first turn your wireless card or adapter to **monitor mode**.
 
