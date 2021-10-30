@@ -22,7 +22,7 @@ Currently, this script can perform a good variety of tasks such as **ifconfig**,
 
 Other features are still being implemented. Future implementations may include WAF detection, DNS enumeration, traffic analysis, XSS vulnerability scanner, ARP cache poisoning, DNS cache poisoning, MAC flooding, ping of death, network disassociation attack (not deauth attack), OSINT, exploits, some automated tasks and others.
 
-![hawkcli2](https://user-images.githubusercontent.com/61552222/139430857-3195d827-7b02-4ef4-acba-ba2f5d42b980.png)
+![hawk](https://user-images.githubusercontent.com/61552222/139542743-155e70b8-df3f-4033-bc17-49647b39c425.png)
 
 ## Contents
 
