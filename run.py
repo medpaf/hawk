@@ -335,7 +335,7 @@ elif args['sniff']:
 elif args['deauth']:
 
         try:
-                deauth(args['target'][0], args['gateway'][0], args['iface'][0]) 
+                deauth(args['target'][0], args['gateway'][0], args['iface'][0], DEFAULT_WIRELESS_INTERFACE) 
         except Exception as e:
                 print(f'[{Fore.RED}!{Style.RESET_ALL}] Please type the command correctly. Examples: \n \t -deauth -target [TARGET(s) MAC(s)] -gateway [GATEWAY MAC] -iface [INTERFACE]')
 

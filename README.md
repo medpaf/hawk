@@ -95,14 +95,14 @@ If you want to display your system's current TCP/IP network configuration, type 
 ### ping
 To send ICMP packets to one or more hosts to check connectivity, simply type:
 
-`-ping [HOST(s) IP/URL]`
+`-ping <HOST(s) IP/URL>`
 
 ![ping](https://user-images.githubusercontent.com/61552222/139445220-3f01fca0-8f31-4e3d-be57-c6f08e23b30c.png)
 
 ### traceroute
 To diagnose route paths and measure transit delays, use the `-traceroute` command:
 
-`-traceroute [HOST IP/URL]`
+`-traceroute <HOST IP/URL>`
 
 ![tracert](https://user-images.githubusercontent.com/61552222/139445260-e21b3aa5-8dda-40db-8ac9-1c6f56b1c7b6.png)
 
@@ -111,15 +111,17 @@ Scanning ports helps detect potential security breaches by identifying the hosts
 
 Multiple scan types are supported, including SYN (`-scansyn`), TCP (`-scantcp`), UDP (`-scanudp`), ACK (`-scanack`) and comprehensive scan (`-scan`).
 
-`-scan -host [HOST(s) IP/URL]`
+`-scan -host <HOST(s) IP/URL>`
 
-`-scan -host [HOST(s) IP/URL] -p [PORT(s)]`
+`-scan -host <HOST(s) IP/URL> -p <PORT(s)>`
 
-`-scan -host [HOST(s) IP/URL] -prange [START PORT] [END PORT]`
+If you wish to scan a IP range and/or port range, use one of the following commands:
 
-`-scan -iprange [START IP] [END IP] -p [PORT(s)]`
+`-scan -host <HOST(s) IP/URL> -prange <START PORT> <END PORT>`
 
-`-scan -iprange [START IP] [END IP] -prange [START PORT] [END PORT]`
+`-scan -iprange <START IP> <END IP> -p <PORT(s)>`
+
+`-scan -iprange <START IP> <END IP> -prange <START PORT> <END PORT>`
 
 ![scan](https://user-images.githubusercontent.com/61552222/139445293-1cf92650-7901-45d9-9e4b-092c63c5263f.png)
 
@@ -137,7 +139,7 @@ Then type the network you want to scan.
 ### MAC address detection
 To get a MAC address of one or more live hosts on the LAN, use the command:
 
-`-getmac -host [HOST(s) IP]`
+`-getmac -host <HOST(s) IP>`
 
 ![getmac](https://user-images.githubusercontent.com/61552222/139445353-e90ef3d4-282a-4d52-94ff-85e7c1d7f6e5.png)
 
@@ -148,20 +150,20 @@ A banner attack usually starts off with a enumeration scan to find open ports. O
 
 To perform banner grabbing, depending on your specific needs, type one of the following commands:
 
-`-grab -host [HOST(s) IP/URL] -p [PORT(s)]`
+`-grab -host <HOST(s) IP/URL> -p <PORT(s)>`
 
-`-grab -iprange [START IP] [END IP] -prange [START PORT] [END PORT]`
+`-grab -iprange <START IP> <END IP> -prange <START PORT> <END PORT>`
 
-`-grab -host [HOST(s) IP/URL] -prange [START PORT] [END PORT]`
+`-grab -host <HOST(s) IP/URL> -prange <START PORT> <END PORT>`
 
-`-grab -iprange [START IP] [END IP] -p [PORT(s)]`
+`-grab -iprange <START IP> <END IP> -p <PORT(s)>`
 
 ![grab](https://user-images.githubusercontent.com/61552222/139445426-c8b1bcae-318a-4c90-9dba-ab856665a683.png)
 
 ### DNS checks
 This feature is similar to the well known `nslookup` command used on UNIX systems. If you want to do a DNS check, type the following:
 
-`-ns [HOST(s) IP/URL]`
+`-ns <HOST(s) IP/URL>`
 
 ![ns](https://user-images.githubusercontent.com/61552222/139445454-6e7acc6f-5078-464f-9ad6-028106b7427d.png)
 
@@ -171,7 +173,7 @@ This feature is similar to the well known `nslookup` command used on UNIX system
 WHOIS is a TCP protocol that aims to consult contact and DNS.
 To request the WHOIS of one or more pages, just type:
 
-`-whois [HOST(s) IP/URL]`
+`-whois <HOST(s) IP/URL>`
 
 ![whois](https://user-images.githubusercontent.com/61552222/139445488-637da57d-233b-451c-9570-feb8c2efa230.png)
 
@@ -182,18 +184,18 @@ Sub-domain enumeration can reveal a lot of domains/sub-domains that are in scope
 
 If you wish to look for common subdomains of a domain, simply type:
 
-`-sdenum [DOMAIN]`
+`-sdenum <DOMAIN>`
 
 This command uses a default wordlist to look for subdomains. However, if you want to use your own wordlist, type:
 
-`-sdenum [DOMAIN] -wordlist [WORDLIST PATH]`
+`-sdenum <DOMAIN> -wordlist <WORDLIST PATH>`
 
 ![sdenum](https://user-images.githubusercontent.com/61552222/139445516-ba9b5459-6dc3-43e1-a424-4e079486dbfd.png)
 
 ### Vulnerability reconnaissance
 To scan one or more hosts for vulnerabilities use the following command:
 
-`-vulnscan -host [HOST(s) IP/URL]`
+`-vulnscan -host <HOST(s) IP/URL>`
 
 ![vulnscan1](https://user-images.githubusercontent.com/61552222/139445546-bdcf7647-5b20-4ae9-a4ec-1f345e71a12f.png)
 ![vulnscan2](https://user-images.githubusercontent.com/61552222/139445561-6f7c778f-3596-4a31-b598-471c961d6261.png)
@@ -213,7 +215,7 @@ To perform packet sniffing, type:
 MAC spoofing is the generation of frames with a MAC address different from the address of the sending NIC.
 To change the MAC address of an interface, issue the command:
 
-`-macspoof -source [SOURCE MAC] -iface [INTERFACE]`
+`-macspoof -source <SOURCE MAC> -iface <INTERFACE>`
 
 ![macspoof](https://user-images.githubusercontent.com/61552222/139445629-9f10ad95-6dbb-4b7f-b0d5-93f9959e52c2.png)
 
@@ -226,15 +228,15 @@ The objective of IP spoofing is to modify the correct source IP address so that 
 
 Note that this command only works on machines with unpached vulnerabilities. To performe IP spoofing on a host's specific port, use the following command:
 
-`-ipspoof -source [SOURCE IP] [SOURCE PORT] -target [TARGET IP/URL] [TARGET PORT]`
+`-ipspoof -source <SOURCE IP> <SOURCE PORT> -target <TARGET IP/URL> <TARGET PORT>`
 
 If you want to use a random source IP, type the following command:
 
-`-ipspoof -source r [SOURCE PORT] -target [TARGET IP/URL] [TARGET PORT]`
+`-ipspoof -source r <SOURCE PORT> -target <TARGET IP/URL> <TARGET PORT>`
 
 You can also use a random source port:
 
-`-ipspoof -source [SOURCE IP] r -target [TARGET IP/URL] [TARGET PORT]`
+`-ipspoof -source <SOURCE IP> r -target <TARGET IP/URL> <TARGET PORT>`
 
 ![ipspoof](https://user-images.githubusercontent.com/61552222/139445663-09c95225-b5a8-4df0-80d2-b18b6785f804.png)
 
@@ -246,11 +248,11 @@ SYN Flood is a DDoS attack method that causes direct overhead in the transport l
 
 To attempt SYN flooding, type:
 
-`-synflood -source [SOURCE PORT] -target [TARGET IP/URL] [TARGET PORT]`
+`-synflood -source <SOURCE PORT> -target <TARGET IP/URL> <TARGET PORT>`
 
 If you want to use a random source port, type the following command:
 
-`-synflood -source r -target [TARGET IP/URL] [TARGET PORT]`
+`-synflood -source r -target <TARGET IP/URL> <TARGET PORT>`
 
 ![synflood](https://user-images.githubusercontent.com/61552222/139445693-c2b25bcf-d265-4701-8480-e1f2d3b0f427.png)
 
@@ -261,11 +263,15 @@ A deauth attack is a type of wireless attack that targets communication between 
 
 To do this attack, use the following command:
 
-`-deauth -target [TARGET MAC] -gateway [GATEWAY MAC] -iface [INTERFACE]`
+`-deauth -target <TARGET MAC> -gateway <GATEWAY MAC> -iface <INTERFACE>`
 
 If you plan to attack all clients in a gateway, type:
 
-`-deauth -target a -gateway [GATEWAY MAC] -iface [INTERFACE]`
+`-deauth -target a -gateway <GATEWAY MAC> -iface <INTERFACE>`
+
+You can also choose your default wireless interface (configured in `files/conf.py`) as to perform the attack:
+
+`-deauth -target <TARGET MAC> -gateway <GATEWAY MAC> -iface d`
 
 ![deauth](https://user-images.githubusercontent.com/61552222/136202202-2d26efce-5b01-441f-b786-8fd2c6b416dd.png)
 
@@ -280,11 +286,11 @@ A brute-force attack is an attempt to crack a password or username.
 
 To perform brute-force attack and find common/weak credentials, type:
 
-`-bruteforce [SERVICE] -target [TARGET IP/URL] -user [USERNAME]`
+`-bruteforce <SERVICE> -target <TARGET IP/URL> -user <USERNAME>`
 
 If you wish to use a custom wordlist, use the command:
 
-`-bruteforce [SERVICE] -target [TARGET IP/URL] -user [USERNAME] -wordlist [WORDLIST PATH]`
+`-bruteforce <SERVICE> -target <TARGET IP/URL> -user <USERNAME> -wordlist <WORDLIST PATH>`
 
 For the time being, only the SSH service is supported.
 
