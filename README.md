@@ -269,7 +269,7 @@ If you plan to attack all clients in a gateway, type:
 
 `-deauth -target a -gateway <GATEWAY MAC> -iface <INTERFACE>`
 
-You can also choose your default wireless interface (configured in `files/conf.py`) as to perform the attack:
+You can also choose your default wireless interface (configured in `files/conf.py`) to perform the attack:
 
 `-deauth -target <TARGET MAC> -gateway <GATEWAY MAC> -iface d`
 
