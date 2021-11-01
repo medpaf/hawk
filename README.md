@@ -51,7 +51,7 @@ Other features are still being implemented. Future implementations may include W
     - [Deauth attack](#deauth-attack)
     - [Brute-force attack (beta)](#brute-force-attack)
   + Others
-    - [Turn on monitor/managed mode on an interface](#turn-on-monitor/managed-mode-on-an-interface)
+    - [Turn on monitor/managed mode on an interface](#turn-on-monitor-or-managed-mode-on-an-interface)
 + [Contribution](#contribution)
 + [License](#license)
 
@@ -299,7 +299,7 @@ For the time being, only the SSH service is supported.
 **Disclaimer**: Note that the target server may have defensive mechanisms against this type of attack and block the attacker's attempts on guessing the password.
 Please only use this for testing purposes and target your own machines.
 
-### Turn on monitor/managed mode on an interface
+### Turn on monitor or managed mode on an interface
 
 Most wireless users only use their wireless cards as a station to an AP. In managed mode, the wireless card and driver software rely on a local AP in managed mode to provide connectivity to the wireless network. 
 
