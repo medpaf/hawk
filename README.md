@@ -315,6 +315,8 @@ You can also set your interface to the default wireless interface (configured in
 
 ![monitor](https://user-images.githubusercontent.com/61552222/139667598-d492fb7e-569f-4f89-b308-04e9a3eb4674.png)
 
+As you can see in the screenshot below, the interface mode was succesfully changed.
+
 ![monitorproof](https://user-images.githubusercontent.com/61552222/139667620-5019489a-ad83-466e-bd36-0fa3ddbab5d4.png)
 
 However, if you wish to turn your interface back to managed mode, type:
@@ -326,6 +328,8 @@ You can also set your interface to the default wireless interface (configured in
 `-mode managed -iface d`
 
 ![managed](https://user-images.githubusercontent.com/61552222/139667660-bbba8754-1226-4f30-99f7-7e83c9e28db8.png)
+
+As you can see in the screenshot below, the interface mode was succesfully changed.
 
 ![managedproof](https://user-images.githubusercontent.com/61552222/139667685-b03d9820-04f7-487b-a925-4198b95479b8.png)
 
