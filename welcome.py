@@ -6,11 +6,11 @@ from extras import printcolor
 
 def intro1():
     print('\n')
-    print(f'{Fore.RED}     ``                                 {Style.RESET_ALL}{Fore.CYAN} __  __  ______  __     __  __  __{Style.RESET_ALL}')    
-    print(f'{Fore.RED}     `/-`                               {Style.RESET_ALL}{Fore.CYAN}/\ \_\ \/\  __ \/\ \  _ \ \/\ \/ /{Style.RESET_ALL}')
-    print(f'{Fore.RED}      -/:.` ``..-----..``               {Style.RESET_ALL}{Fore.CYAN}\ \  __ \ \  __ \ \ \/ ".\ \ \  _"-.{Style.RESET_ALL}')
-    print(f'{Fore.RED}      `-///://///////////:-.`        .` {Style.RESET_ALL}{Fore.CYAN} \ \_\ \_\ \_\ \_\ \__/".~\_\ \_\ \_\{Style.RESET_ALL}')
-    print(f'{Fore.RED}        .:///////////////////-`      :- {Style.RESET_ALL}{Fore.CYAN}  \/_/\/_/\/_/\/_/\/_/   \/_/\/_/\/_/{Style.RESET_ALL}')
+    print(f'{Fore.RED}     ``                                 {Style.RESET_ALL}{Fore.WHITE} __  __  ______  __     __  __  __{Style.RESET_ALL}')    
+    print(f'{Fore.RED}     `/-`                               {Style.RESET_ALL}{Fore.WHITE}/\ \_\ \/\  __ \/\ \  _ \ \/\ \/ /{Style.RESET_ALL}')
+    print(f'{Fore.RED}      -/:.` ``..-----..``               {Style.RESET_ALL}{Fore.WHITE}\ \  __ \ \  __ \ \ \/ ".\ \ \  _"-.{Style.RESET_ALL}')
+    print(f'{Fore.RED}      `-///://///////////:-.`        .` {Style.RESET_ALL}{Fore.WHITE} \ \_\ \_\ \_\ \_\ \__/".~\_\ \_\ \_\{Style.RESET_ALL}')
+    print(f'{Fore.RED}        .:///////////////////-`      :- {Style.RESET_ALL}{Fore.WHITE}  \/_/\/_/\/_/\/_/\/_/   \/_/\/_/\/_/{Style.RESET_ALL}')
     print(f'{Fore.RED}    `-.   .-://////////////////-`   ./: {Style.RESET_ALL}')
     print(f'{Fore.RED}   .//:`     `.:://////////////-`  .//: {Style.RESET_ALL}{Fore.CYAN}Repo{Style.RESET_ALL}: https://github.com/medpaf/hawk')
     print(f'{Fore.RED}  .////:`      ``-://///////-.`  `-///- {Style.RESET_ALL}{Fore.CYAN}Email{Style.RESET_ALL}: pafmed@outlook.com')
