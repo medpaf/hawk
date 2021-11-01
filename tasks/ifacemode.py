@@ -24,7 +24,7 @@ def turn_monitor(iface, default_iface = ''):
     else:
         output = str(subprocess.check_output(['iwconfig', iface,]))
         if 'Monitor' in output:
-            print(f'[{Fore.GREEN}+{Style.RESET_ALL}] {Fore.YELLOW}{iface}{Style.RESET_ALL} succesfully changed to monitor mode')
+            print(f'[{Fore.GREEN}+{Style.RESET_ALL}] {Fore.GREEN}{iface}{Style.RESET_ALL} succesfully changed to {Fore.GREEN}monitor{Style.RESET_ALL} mode.')
         else:
             print(f"[{Fore.RED}!{Style.RESET_ALL}] Couldn't change to monitor mode.")
 
@@ -45,12 +45,12 @@ def turn_managed(iface, default_iface = ''):
         subprocess.call(['sudo','iwconfig', iface, 'mode', 'managed'])
         subprocess.call(['sudo','ifconfig', iface, 'up'])
         subprocess.call(['sudo', 'systemctl', 'restart', 'NetworkManager'])
-        
+
     except Exception as e:
         print(f'[{Fore.RED}!{Style.RESET_ALL}] Error: {Fore.RED}{e}{Style.RESET_ALL}')
     else:
         output = str(subprocess.check_output(['iwconfig', iface,]))
         if 'Managed' in output:
-            print(f'[{Fore.GREEN}+{Style.RESET_ALL}] {Fore.YELLOW}{iface}{Style.RESET_ALL} succesfully changed to managed mode')
+            print(f'[{Fore.GREEN}+{Style.RESET_ALL}] {Fore.GREEN}{iface}{Style.RESET_ALL} succesfully changed to {Fore.GREEN}managed{Style.RESET_ALL} mode.')
         else:
             print(f"[{Fore.RED}!{Style.RESET_ALL}] Couldn't change to managed mode.")
