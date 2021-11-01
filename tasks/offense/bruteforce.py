@@ -7,9 +7,11 @@ from colorama import Fore, Back, Style
 def is_ssh_open(service, host, user, password):  
 
     try:
+
         client = paramiko.SSHClient()
         client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
         client.connect(hostname=host, username=user, password=password, timeout=3)
+        
     except Exception as e:
         print(f'[{Fore.RED}!{Style.RESET_ALL}] Error: {Fore.RED}{e}{Style.RESET_ALL}')
         sys.exit()

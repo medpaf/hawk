@@ -4,7 +4,6 @@ import time
 import sys
 from colorama import Fore, Back, Style
 
-
 def vulnscan(host, api_key):
     try:
         target = host

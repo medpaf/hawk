@@ -12,6 +12,7 @@ def ipspoof(source_ip, source_port, target_ip, target_port):
         sys.exit()
 
     try:
+        
         if source_ip.lower() == 'r':
             src_ip = f'{random.randint(0, 255)}.{random.randint(0, 255)}.{random.randint(0, 255)}.{random.randint(0, 255)}'
         else:

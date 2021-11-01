@@ -11,6 +11,7 @@ def synflood(source_port, target_ip, target_port):
         sys.exit()
     
     try:
+        
         if source_port.lower() == 'r':
             source_port = int(RandShort())
         else:

@@ -10,6 +10,7 @@ def getmac(host_ip, host_count):
         sys.exit()
 
     try:
+        
         if host_count > 0:
             print(f'\n[{Fore.YELLOW}?{Style.RESET_ALL}] Trying to get MAC address of {Fore.YELLOW}{host_ip}{Style.RESET_ALL}...')
         else:

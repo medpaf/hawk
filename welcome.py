@@ -32,8 +32,8 @@ def intro1():
     printcolor('RED','                               ``........``                        ')                                                                                                                             
 
 def welcome():
-    subprocess.call(['clear'])
     introList=[intro1]
+    subprocess.call(['clear'])
     random.choice(introList)()
     time.sleep(3)
     subprocess.call(['clear'])

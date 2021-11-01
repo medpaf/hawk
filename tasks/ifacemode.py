@@ -13,10 +13,12 @@ def turn_monitor(iface, default_iface = ''):
         iface = default_iface
 
     try:
+
         subprocess.call(['sudo', 'systemctl', 'stop', 'NetworkManager'])
         subprocess.call(['sudo', 'ifconfig', iface, 'down'])
         subprocess.call(['sudo','iwconfig', iface, 'mode', 'monitor'])
         subprocess.call(['sudo','ifconfig', iface, 'up'])
+
     except Exception as e:
         print(f'[{Fore.RED}!{Style.RESET_ALL}] Error: {Fore.RED}{e}{Style.RESET_ALL}')
     else:
@@ -38,10 +40,12 @@ def turn_managed(iface, default_iface = ''):
         iface = default_iface
 
     try:
+
         subprocess.call(['sudo', 'ifconfig', iface, 'down'])
         subprocess.call(['sudo','iwconfig', iface, 'mode', 'managed'])
         subprocess.call(['sudo','ifconfig', iface, 'up'])
         subprocess.call(['sudo', 'systemctl', 'restart', 'NetworkManager'])
+        
     except Exception as e:
         print(f'[{Fore.RED}!{Style.RESET_ALL}] Error: {Fore.RED}{e}{Style.RESET_ALL}')
     else:

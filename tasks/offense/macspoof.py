@@ -11,12 +11,15 @@ def macspoof(mac, iface):
         sys.exit()
 
     try:
+
         subprocess.call(['sudo', 'ifconfig', iface, 'down'])
         subprocess.call(['sudo','ifconfig', iface, 'hw', 'ether', mac])
         subprocess.call(['sudo','ifconfig', iface, 'up'])
+
     except Exception as e:
         print(f'[{Fore.RED}!{Style.RESET_ALL}] Error: {Fore.RED}{e}{Style.RESET_ALL}')
     else:
+        
         output = str(subprocess.check_output(['ifconfig', iface,]))
         if f'{mac}' in output:
             print(f'[{Fore.GREEN}+{Style.RESET_ALL}] MAC succesfully changed to {Fore.GREEN}{mac}{Style.RESET_ALL} on {Fore.GREEN}{iface}{Style.RESET_ALL}')

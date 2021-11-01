@@ -9,6 +9,7 @@ def bannerWithPort(host, port):
     sckt = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 
     try:
+        
         print(f'[{Fore.YELLOW}?{Style.RESET_ALL}] Connecting to {Fore.YELLOW}{host}{Style.RESET_ALL} on port {Fore.YELLOW}{port}{Style.RESET_ALL}...')
         sckt.connect((host, port))
         sckt.send('WhoAreYou\r\n'.encode())

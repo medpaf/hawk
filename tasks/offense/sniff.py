@@ -13,8 +13,10 @@ def sniff():
         sys.exit()
 
     try:
+
         raw_socket = socket.socket(socket.PF_PACKET, socket.SOCK_RAW, 
         socket.htons(0x0800))
+        
     except socket.error as e:
         print(f'Error occured while creating socket: {e[1]}')
         sys.exit()
