@@ -50,6 +50,8 @@ Other features are still being implemented. Future implementations may include W
     - [SYN flooding](#syn-flooding)
     - [Deauth attack](#deauth-attack)
     - [Brute-force attack (beta)](#brute-force-attack)
+  + Others
+    - [Turn on monitor/managed mode on an interface](#turn-on-monitor/managed-mode-on-an-interface)
 + [Contribution](#contribution)
 + [License](#license)
 
@@ -296,6 +298,29 @@ For the time being, only the SSH service is supported.
 
 **Disclaimer**: Note that the target server may have defensive mechanisms against this type of attack and block the attacker's attempts on guessing the password.
 Please only use this for testing purposes and target your own machines.
+
+### Turn on monitor/managed mode on an interface
+
+Most wireless users only use their wireless cards as a station to an AP. In managed mode, the wireless card and driver software rely on a local AP in managed mode to provide connectivity to the wireless network. 
+
+Some wireless cards also support monitor mode functionality. When configured in monitor mode, the wireless card stops transmitting data and sniffs the currently configured channel, reporting the contents of any observed packets to the host operating system. 
+
+To turn an interface to monitor mode, use the command:
+
+`-mode monitor -iface <INTERFACE>`
+
+You can also set your interface to the default wireless interface (configured in `files/conf.py`):
+
+`-mode monitor -iface d`
+
+However, if you wish to turn your interface back to managed mode, type:
+
+`-mode managed -iface <INTERFACE>`
+
+You can also set your interface to the default wireless interface (configured in `files/conf.py`):
+
+`-mode managed -iface d`
+
 ## Contribution
 
 Create a issue or pull request, or send me an email at [pafmed@outlook.com](mailto:pafmed@outlook.com).

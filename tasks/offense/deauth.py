@@ -3,7 +3,7 @@ import sys
 import os
 from colorama import Fore, Back, Style
 
-def deauth(target_mac, gateway_mac, iface, default_iface):
+def deauth(target_mac, gateway_mac, iface, default_iface = ''):
     # 802.11 frame
     # addr1: destination MAC
     # addr2: source MAC

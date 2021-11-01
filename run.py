@@ -1,6 +1,6 @@
 import argparse
 import os
-import subprocess
+#import subprocess
 import sys
 import ipaddress
 import textwrap
@@ -24,6 +24,7 @@ from tasks.offense.synflood import synflood
 from tasks.getmac import getmac
 from tasks.offense.deauth import deauth
 from tasks.offense.bruteforce import bruteforce
+from tasks.ifacemode import turn_monitor, turn_managed
 from tasks.save import save
  
 ap = argparse.ArgumentParser(description='Hawk', formatter_class=argparse.RawDescriptionHelpFormatter,
@@ -31,27 +32,29 @@ epilog=textwrap.dedent('''
 
 Examples:
         -ifconfig
-        -ping [HOST(s) IP/URL]
-        -traceroute [HOST IP/URL] 
-        -scan -host [HOST(s) IP/URL] -prange [START PORT] [END PORT]
+        -ping <HOST(s) IP/URL>
+        -traceroute <HOST IP/URL>
+        -scan -host <HOST(s) IP/URL> -prange <START PORT> <END PORT>
         -scanlan
-        -getmac -host [HOST(s) IP]
-        -grab -host [HOST(S) IP/URL] -p [PORT(s)]
-        -ns [HOST(s) IP/URL]
-        -whois [HOST(s) IP/URL]
+        -getmac -host <HOST(s) IP>
+        -grab -host <HOST(S) IP/URL> -p <PORT(s)>
+        -ns <HOST(s) IP/URL>
+        -whois <HOST(s) IP/URL>
 
-        -sdenum [DOMAIN] 
-        -sdenum [DOMAIN] -wordlist [WORDLIST PATH]
+        -sdenum <DOMAIN>
+        -sdenum <DOMAIN> -wordlist <WORDLIST PATH>
 
-        -vulnscan -host [HOST(s) IP/URL]
+        -vulnscan -host <HOST(s) IP/URL>
         -sniff
-        -macspoof -source [SOURCE MAC] -iface [INTERFACE]
-        -ipspoof -source [SOURCE IP] [SOURCE PORT] -target [TARGET IP/URL] [TARGET PORT]
-        -synflood -source [SOURCE PORT] -target [TARGET IP/URL] [TARGET PORT]
-        -deauth -target [TARGET MAC] -gateway [GATEWAY MAC] -iface [INTERFACE] 
+        -macspoof -source <SOURCE MAC> -iface <INTERFACE>
+        -ipspoof -source <SOURCE IP> <SOURCE PORT> -target <TARGET IP/URL> <TARGET PORT>
+        -synflood -source <SOURCE PORT> -target <TARGET IP/URL> <TARGET PORT>
+        -deauth -target <TARGET MAC> -gateway <GATEWAY MAC> -iface <INTERFACE> 
 
-        -bruteforce [SERVICE] -target [TARGET IP/URL] -user [USERNAME]
-        -bruteforce [SERVICE] -target [TARGET IP/URL] -user [USERNAME] -wordlist [WORDLIST PATH]
+        -bruteforce <SERVICE> -target <TARGET IP/URL> -user <USERNAME>
+        -bruteforce <SERVICE> -target <TARGET IP/URL> -user <USERNAME> -wordlist <WORDLIST PATH>
+
+        -mode <MODE> -iface <INTERFACE>
 
 '''))
 
@@ -103,6 +106,9 @@ ap.add_argument('-deauth', action = 'store_true',
 ap.add_argument('-bruteforce',
         nargs=1,
         help = 'Attempt brute-force attack on a service to guess password')
+ap.add_argument('-mode', '-m', type = str,
+        nargs = 1,
+        help = 'turn on specified mode (root privileges needed)')
 ap.add_argument('-s', type = str,
         nargs = 1,
         help = 'save output as file to the specified path.')
@@ -130,7 +136,7 @@ ap.add_argument('-gateway', '-gtw', type = str,
         nargs = '+',
         help = 'specify the gateway MAC address')
 ap.add_argument('-iface', '-i', type = str,
-        nargs = '+',
+        nargs = 1,
         help = 'specify interface')
 ap.add_argument('-user', '-usr', type = str,
         nargs = 1,
@@ -138,6 +144,7 @@ ap.add_argument('-user', '-usr', type = str,
 ap.add_argument('-wordlist', '-wl', type = str,
         nargs = 1,
         help = 'specify wordlist file')
+
 
 args = vars(ap.parse_args())
 
@@ -339,6 +346,7 @@ elif args['deauth']:
         except Exception as e:
                 print(f'[{Fore.RED}!{Style.RESET_ALL}] Please type the command correctly. Examples: \n \t -deauth -target [TARGET(s) MAC(s)] -gateway [GATEWAY MAC] -iface [INTERFACE]')
 
+# Brute-force attack
 elif args['bruteforce']: ###### testing phase
         
         try:
@@ -349,6 +357,29 @@ elif args['bruteforce']: ###### testing phase
         except Exception as e:
                 print(f'[{Fore.RED}!{Style.RESET_ALL}] Please type the command correctly. Examples: \n \t -bruteforce [SERVICE] -target [TARGET IP/URL] -user [USERNAME] \n \t -bruteforce [SERVICE] -target [TARGET IP/URL] -user [USERNAME] -wordlist [WORDLIST PATH]')
 
+# Turn on monitor/managed mode
+elif args['mode']:
+
+        try:
+                if args['mode'][0].lower() == 'monitor':
+
+                        if args['iface'][0].lower() == 'd':
+                                turn_monitor(args['iface'][0], DEFAULT_WIRELESS_INTERFACE)
+                        else:
+                                turn_monitor(args['iface'][0])
+
+                elif args['mode'][0].lower() == 'managed':
+
+                        if args['iface'][0].lower() == 'd':
+                                turn_managed(args['iface'][0], DEFAULT_WIRELESS_INTERFACE)
+                        else:
+                                turn_managed(args['iface'][0])
+                else:
+                        print(f"[{Fore.RED}!{Style.RESET_ALL}] {Fore.RED}Mode can only be 'monitor' or 'managed'.{Style.RESET_ALL}")
+        
+        except Exception as e:
+                print(f'[{Fore.RED}!{Style.RESET_ALL}] Please type the command correctly. Examples: \n \t -mode [MODE] -iface [INTERFACE]')
+        
 else:
         # if arguments are present
         if len(sys.argv) > 1:
