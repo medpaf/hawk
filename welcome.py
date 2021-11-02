@@ -32,6 +32,6 @@ def welcome():
     introList=[intro1]
     subprocess.call(['clear'])
     random.choice(introList)()
-    time.sleep(5)
+    time.sleep(3)
     subprocess.call(['clear'])
 
