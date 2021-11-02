@@ -5,7 +5,7 @@ from colorama import Fore, Back, Style
 from extras import printcolor
 
 def intro1():
-    print('\n')
+    print()
     print(f'{Fore.RED}     ``                                 {Style.RESET_ALL}')    
     print(f'{Fore.RED}     `/-`                               {Style.RESET_ALL}')
     print(f'{Fore.RED}      -/:.` ``..-----..``               {Style.RESET_ALL}{Fore.WHITE} __  __  ______  __     __  __  __    {Style.RESET_ALL}')
