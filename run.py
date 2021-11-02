@@ -378,7 +378,7 @@ elif args['mode']:
                         print(f"[{Fore.RED}!{Style.RESET_ALL}] {Fore.RED}Mode can only be 'monitor' or 'managed'.{Style.RESET_ALL}")
         
         except Exception as e:
-                print(f'[{Fore.RED}!{Style.RESET_ALL}] Please type the command correctly. Examples: \n \t -mode [MODE] -iface [INTERFACE]')
+                print(f'[{Fore.RED}!{Style.RESET_ALL}] {e} \nPlease type the command correctly. Examples: \n \t -mode [MODE] -iface [INTERFACE]')
         
 else:
         # if arguments are present
