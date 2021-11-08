@@ -1,8 +1,8 @@
 # Show available options
 
-echo "1. Debian-based (Debian, Ubuntu, Kali, ParrotOS, Pop!_OS, Linux Mint, Deepin, Elementary OS, Zorin OS, MX Linux) "
-echo "2. RHEL-based (Red Hat Enterprise Linux, Fedora, CentOS, Rocky Linux, AlmaLinux, Oracle Linux, ClearOS)"
-echo "3. Arch-based (Arch, Black Arch, Manjaro)"
+echo "1. Debian-based (Debian, Ubuntu, Kali, ParrotOS, Pop!_OS, Linux Mint, Deepin, Elementary OS, Zorin OS, MX Linux, etc) "
+echo "2. RHEL-based (Red Hat Enterprise Linux, Fedora, CentOS, Rocky Linux, AlmaLinux, Oracle Linux, ClearOS, etc)"
+echo "3. Arch-based (Arch, Black Arch, Manjaro, etc)"
 
 read -p "Enter your distro [1/2/3]: " choice
 

@@ -1,6 +1,5 @@
 import argparse
 import os
-#import subprocess
 import sys
 import ipaddress
 import textwrap
@@ -167,9 +166,9 @@ def handleScan(scantype):
                         for i in range(0, len(args['host'])):
                                 scan(nsconv(args['host'][i]), args['host'][i], args['prange'][0], args['prange'][1], f'{scantype}')
                 else:
-                        print(f'[{Fore.RED}!{Style.RESET_ALL}] Please type the command correctly. Examples: \n \t -scan -host [HOST(s) IP/URL] \n \t -scan -host [HOST(s) IP/URL] -p [PORT(s)] \n \t -scan -host [HOST(s) IP/URL] -prange [START PORT] [END PORT] \n \t -scan -iprange [START IP] [END IP] -p [PORT(S)] \n \t -scan -iprange [START IP] [END IP] -prange [START PORT] [END PORT]')
+                        print(f'[{Fore.RED}!{Style.RESET_ALL}] Please type the command correctly. Examples: \n \t -scan -host <HOST(s) IP/URL> \n \t -scan -host <HOST(s) IP/URL> -p <PORT(s)> \n \t -scan -host <HOST(s) IP/URL> -prange <START PORT> <END PORT> \n \t -scan -iprange <START IP> <END IP> -p <PORT(S)> \n \t -scan -iprange <START IP> <END IP> -prange <START PORT> <END PORT>')
         else:
-                print(f'[{Fore.RED}!{Style.RESET_ALL}] Please type the command correctly. Examples: \n \t -scan -host [HOST(s) IP/URL] \n \t -scan -host [HOST(s) IP/URL] -p [PORT(s)] \n \t -scan -host [HOST(s) IP/URL] -prange [START PORT] [END PORT] \n \t -scan -iprange [START IP] [END IP] -p [PORT(S)] \n \t -scan -iprange [START IP] [END IP] -prange [START PORT] [END PORT]') 
+                print(f'[{Fore.RED}!{Style.RESET_ALL}] Please type the command correctly. Examples: \n \t -scan -host <HOST(s) IP/UR> \n \t -scan -host <HOST(s) IP/URL> -p <PORT(s)> \n \t -scan -host <HOST(s) IP/URL> -prange <START PORT> <END PORT> \n \t -scan -iprange <START IP> <END IP> -p <PORT(S)> \n \t -scan -iprange <START IP> <END IP> -prange <START PORT> <END PORT>') 
 
 # Save output file
 if args['s']:
@@ -191,7 +190,7 @@ elif args['ns']:
                 for i in range(0, len(args['ns'])):
                         ns(args['ns'][i], IPINFO_API_KEY)
         except Exception as e:
-                print(f'[{Fore.RED}!{Style.RESET_ALL}] Please type the command correctly. Examples: \n \t -ns [HOST(s) IP/URL]')
+                print(f'[{Fore.RED}!{Style.RESET_ALL}] Please type the command correctly. Examples: \n \t -ns <HOST(s) IP/URL>')
 
 # WHOIS
 elif args['whois']:
@@ -200,7 +199,7 @@ elif args['whois']:
                 for i in range(0, len(args['whois'])):
                         whoisinfo(args['whois'][i])
         except Exception as e:
-                print(f'[{Fore.RED}!{Style.RESET_ALL}] Please type the command correctly. Examples: \n \t -whois [HOST(s) IP/URL]')
+                print(f'[{Fore.RED}!{Style.RESET_ALL}] Please type the command correctly. Examples: \n \t -whois <HOST(s) IP/URL>')
 
 # Subdomain enumeration
 elif args['sdenum']:
@@ -211,7 +210,7 @@ elif args['sdenum']:
                 else:
                         sdenum(args['sdenum'][0], SUBDOMAINS_WORDLIST)
         except Exception as e:
-                print(f'[{Fore.RED}!{Style.RESET_ALL}] Please type the command correctly. Examples: \n \t -sdenum [DOMAIN] \n \t -sdenum [DOMAIN] -wordlist [WORDLIST PATH]')
+                print(f'[{Fore.RED}!{Style.RESET_ALL}] Please type the command correctly. Examples: \n \t -sdenum <DOMAIN> \n \t -sdenum <DOMAIN> -wordlist <WORDLIST PATH>')
 
 # Ping to check connectivity
 elif args['ping']:
@@ -220,7 +219,7 @@ elif args['ping']:
                 for i in range(0, len(args['ping'])):
                         ping(args['ping'][i], i)
         except Exception as e:
-                print(f'[{Fore.RED}!{Style.RESET_ALL}] Please type the command correctly. Examples: \n \t -ping [HOST(s) IP/URL]')
+                print(f'[{Fore.RED}!{Style.RESET_ALL}] Please type the command correctly. Examples: \n \t -ping <HOST(s) IP/URL>')
 
 # Traceroue
 elif args['traceroute']:
@@ -228,7 +227,7 @@ elif args['traceroute']:
         try:
                 traceroute(args['traceroute'][0])
         except Exception as e:
-                print(f'[{Fore.RED}!{Style.RESET_ALL}] Please type the command correctly. Examples: \n \t -traceroute [HOST IP/URL]')
+                print(f'[{Fore.RED}!{Style.RESET_ALL}] Please type the command correctly. Examples: \n \t -traceroute <HOST IP/URL>')
 
 # TCP scan
 elif args['scantcp']:
@@ -261,7 +260,7 @@ elif args['getmac']:
                 for i in range(0, len(args['host'])):
                         getmac(args['host'][i], i)                
         except Exception as e:
-              print(f'[{Fore.RED}!{Style.RESET_ALL}] Please type the command correctly. Examples: \n \t -getmac -host [HOST(s) IP]')  
+              print(f'[{Fore.RED}!{Style.RESET_ALL}] Please type the command correctly. Examples: \n \t -getmac -host <HOST(s) IP>')  
 
 # Vuln scan on a host
 elif args['vulnscan']:
@@ -274,7 +273,7 @@ elif args['vulnscan']:
                         for ip_int in range(int(ipaddress.IPv4Address(args['iprange'][0])), int(ipaddress.IPv4Address(args['iprange'][1]) + 1)):
                                 vulnscan(ipaddress.IPv4Address(ip_int), SHODAN_API_KEY)
         except Exception as e:
-                print(f'[{Fore.RED}!{Style.RESET_ALL}] Please type the command correctly. Examples: \n \t -vulnscan -host [HOST(s) IP/URL]')
+                print(f'[{Fore.RED}!{Style.RESET_ALL}] Please type the command correctly. Examples: \n \t -vulnscan -host <HOST(s) IP/URL>')
 
 # Banner grabbing
 elif args['grab']: 
@@ -308,7 +307,7 @@ elif args['grab']:
                                                 bannerWithPort(ipaddress.IPv4Address(ip_int), j) 
         except Exception as e:
 
-                print(f'[{Fore.RED}!{Style.RESET_ALL}] Please type the command correctly. Examples: \n \t -grab -host [HOST(s) IP/URL] -p [PORT(s)] \n \t -grab -iprange [START IP] [END IP] -prange [START PORT] [END PORT] \n \t -grab -host [HOST(s) IP/URL] -prange [START PORT] [END PORT] \n \t -grab -iprange [START IP] [END IP] -p [PORT]')
+                print(f'[{Fore.RED}!{Style.RESET_ALL}] Please type the command correctly. Examples: \n \t -grab -host <HOST(s) IP/URL> -p <PORT(s)> \n \t -grab -iprange <START IP> <END IP> -prange <START PORT> <END PORT> \n \t -grab -host <HOST(s) IP/URL> -prange <START PORT> <END PORT> \n \t -grab -iprange <START IP> <END IP> -p <PORT>')
 
 # IP spoofing
 elif args['ipspoof']:
@@ -316,7 +315,7 @@ elif args['ipspoof']:
         try:
                 ipspoof(args['source'][0], args['source'][1], nsconv(args['target'][0]), int(args['target'][1])) 
         except Exception as e:
-                print(f'[{Fore.RED}!{Style.RESET_ALL}] Please type the command correctly. You can only attack one host and one port at a time. Examples: \n \t -ipspoof -source [SOURCE IP] [SOURCE PORT] -target [TARGET IP/URL] [TARGET PORT]')
+                print(f'[{Fore.RED}!{Style.RESET_ALL}] Please type the command correctly. You can only attack one host and one port at a time. Examples: \n \t -ipspoof -source <SOURCE IP> <SOURCE PORT> -target <TARGET IP/URL> <TARGET PORT>')
         
 # MAC spoofing
 elif args['macspoof']:
@@ -324,7 +323,7 @@ elif args['macspoof']:
         try:
                 macspoof(args['source'][0], args['iface'][0])
         except Exception as e:
-                print(f'[{Fore.RED}!{Style.RESET_ALL}] Please type the command correctly. Examples: \n \t -macspoof -source [SOURCE MAC] -iface [INTERFACE]')
+                print(f'[{Fore.RED}!{Style.RESET_ALL}] Please type the command correctly. Examples: \n \t -macspoof -source <SOURCE MAC> -iface <INTERFACE>')
 
 # SYN flooding
 elif args['synflood']:
@@ -332,7 +331,7 @@ elif args['synflood']:
         try:
                 synflood(args['source'][0], args['target'][0], args['target'][1])
         except Exception as e:
-                print(f'[{Fore.RED}!{Style.RESET_ALL}] Please type the command correctly. Examples: \n \t -synflood -source [SOURCE PORT] -target [TARGET IP/URL] [TARGET PORT]')
+                print(f'[{Fore.RED}!{Style.RESET_ALL}] Please type the command correctly. Examples: \n \t -synflood -source <SOURCE PORT> -target <TARGET IP/URL> <TARGET PORT>')
 
 # Packet sniffing
 elif args['sniff']:
@@ -344,7 +343,7 @@ elif args['deauth']:
         try:
                 deauth(args['target'][0], args['gateway'][0], args['iface'][0], DEFAULT_WIRELESS_INTERFACE) 
         except Exception as e:
-                print(f'[{Fore.RED}!{Style.RESET_ALL}] Please type the command correctly. Examples: \n \t -deauth -target [TARGET(s) MAC(s)] -gateway [GATEWAY MAC] -iface [INTERFACE]')
+                print(f'[{Fore.RED}!{Style.RESET_ALL}] Please type the command correctly. Examples: \n \t -deauth -target <TARGET(s) MAC(s)> -gateway <GATEWAY MAC> -iface <INTERFACE>')
 
 # Brute-force attack
 elif args['bruteforce']: ###### testing phase
@@ -355,7 +354,7 @@ elif args['bruteforce']: ###### testing phase
                 else:
                         bruteforce(args['bruteforce'][0], args['target'][0], args['user'][0], PASSWORDS_WORDLIST)
         except Exception as e:
-                print(f'[{Fore.RED}!{Style.RESET_ALL}] Please type the command correctly. Examples: \n \t -bruteforce [SERVICE] -target [TARGET IP/URL] -user [USERNAME] \n \t -bruteforce [SERVICE] -target [TARGET IP/URL] -user [USERNAME] -wordlist [WORDLIST PATH]')
+                print(f'[{Fore.RED}!{Style.RESET_ALL}] Please type the command correctly. Examples: \n \t -bruteforce <SERVICE> -target <TARGET IP/URL> -user <USERNAME> \n \t -bruteforce <SERVICE> -target <TARGET IP/URL> -user <USERNAME> -wordlist <WORDLIST PATH>')
 
 # Turn on monitor/managed mode
 elif args['mode']:
@@ -378,7 +377,7 @@ elif args['mode']:
                         print(f"[{Fore.RED}!{Style.RESET_ALL}] {Fore.RED}Mode can only be 'monitor' or 'managed'.{Style.RESET_ALL}")
         
         except Exception as e:
-                print(f'[{Fore.RED}!{Style.RESET_ALL}] {e} \nPlease type the command correctly. Examples: \n \t -mode [MODE] -iface [INTERFACE]')
+                print(f'[{Fore.RED}!{Style.RESET_ALL}] {e} \nPlease type the command correctly. Examples: \n \t -mode <MODE> -iface <INTERFACE>')
         
 else:
         # if arguments are present
