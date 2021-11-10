@@ -318,10 +318,15 @@ elif args['ipspoof']:
                 print(f'[{Fore.RED}!{Style.RESET_ALL}] Please type the command correctly. You can only attack one host and one port at a time. Examples: \n \t -ipspoof -source <SOURCE IP> <SOURCE PORT> -target <TARGET IP/URL> <TARGET PORT>')
         
 # MAC spoofing
-elif args['macspoof']:
+elif args['macspoof']: #changed
 
         try:
-                macspoof(args['source'][0], args['iface'][0])
+
+                if args['iface'][0].lower() == 'd':
+                        macspoof(args['source'][0], args['iface'][0], DEFAULT_WIRELESS_INTERFACE)
+                else:
+                        macspoof(args['source'][0], args['iface'][0])
+
         except Exception as e:
                 print(f'[{Fore.RED}!{Style.RESET_ALL}] Please type the command correctly. Examples: \n \t -macspoof -source <SOURCE MAC> -iface <INTERFACE>')
 
@@ -337,11 +342,15 @@ elif args['synflood']:
 elif args['sniff']:
         sniff()
 
-# Deauth attack
+# Deauth attack ##changed
 elif args['deauth']:
 
         try:
-                deauth(args['target'][0], args['gateway'][0], args['iface'][0], DEFAULT_WIRELESS_INTERFACE) 
+                if args['iface'][0].lower() == 'd':
+                        deauth(args['target'][0], args['gateway'][0], args['iface'][0], DEFAULT_WIRELESS_INTERFACE)
+                else:
+                        deauth(args['target'][0], args['gateway'][0], args['iface'][0])
+
         except Exception as e:
                 print(f'[{Fore.RED}!{Style.RESET_ALL}] Please type the command correctly. Examples: \n \t -deauth -target <TARGET(s) MAC(s)> -gateway <GATEWAY MAC> -iface <INTERFACE>')
 

@@ -30,7 +30,7 @@ def deauth(target_mac, gateway_mac, iface, default_iface = ''):
         
         dot11 = Dot11(addr1=target_mac, addr2=gateway_mac, addr3=gateway_mac)
 
-        if iface.lower() == 'd':
+        if default_iface != '':
             iface = default_iface
 
         choice = input(f'[{Fore.GREEN}+{Style.RESET_ALL}] Target MAC: {Fore.GREEN}{target_mac}{Style.RESET_ALL}\n[{Fore.GREEN}+{Style.RESET_ALL}] Gateway MAC: {Fore.GREEN}{gateway_mac}{Style.RESET_ALL}\n[{Fore.GREEN}+{Style.RESET_ALL}] Interface: {Fore.GREEN}{iface}{Style.RESET_ALL}\nDo you wish to continue? [Y/N]: ')
