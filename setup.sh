@@ -57,6 +57,7 @@ sudo pip3 install scapy
 sudo pip3 install shodan
 sudo pip3 install python-whois
 sudo pip3 install paramiko
+sudo pip3 install netfilterqueue
 
 
 # Add main .py file to the system path (later)
