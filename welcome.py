@@ -2,7 +2,6 @@ import random
 import time
 import subprocess
 from colorama import Fore, Back, Style
-from extras import printcolor
 
 def intro1():
     print()
