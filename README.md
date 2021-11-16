@@ -305,7 +305,7 @@ Most wireless users only use their wireless cards as a station to an AP. In mana
 
 Some wireless cards also support monitor mode functionality. When configured in monitor mode, the wireless card stops transmitting data and sniffs the currently configured channel, reporting the contents of any observed packets to the host operating system. 
 
-To turn an interface to monitor mode, use the command:
+To turn an interface to monitor mode, use the following command:
 
 `-mode monitor -iface <INTERFACE>`
 
