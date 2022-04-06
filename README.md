@@ -56,7 +56,7 @@ Other features are still being implemented. Future implementations may include W
 
 ## Installation
 
-Note that currently, this script can only run well on Linux. If you try it in on Windows or macOS, it may run, but numerous errors will appear. 
+Note that currently, this script can only runs well on Linux. If you try it in on Windows or macOS, it may run, but numerous errors will appear. 
 
 This script was tested on:
 - Kali Linux
