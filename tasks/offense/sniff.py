@@ -18,7 +18,7 @@ def sniff():
         socket.htons(0x0800))
         
     except socket.error as e:
-        print(f'Error occured while creating socket: {e[1]}')
+        print(f'[{Fore.RED}!{Style.RESET_ALL}] Error: [{Fore.RED}{e[1]}{Style.RESET_ALL}')
         sys.exit()
     except KeyboardInterrupt:
         print('Operation was cancelled.')
