@@ -11,6 +11,7 @@ from tasks.ifconfig import ifconfig
 from tasks.ns import ns, nsconv
 from tasks.whoisinfo import whoisinfo
 from tasks.sdenum import sdenum
+from tasks.dirbust import dirbust
 from tasks.ping import ping
 from tasks.traceroute import traceroute
 from tasks.banner import bannerWithPort
@@ -42,6 +43,7 @@ Examples:
 
         -sdenum <DOMAIN>
         -sdenum <DOMAIN> -wordlist <WORDLIST PATH>
+        -dirbust <DOMAIN> -wordlist <WORDLIST PATH> ##################################
 
         -vulnscan -host <HOST(s) IP/URL>
         -sniff
@@ -74,6 +76,9 @@ ap.add_argument('-whois', type = str,
 ap.add_argument('-sdenum', type = str, 
         nargs = 1,
         help = 'perform subdomain enumeration.') 
+ap.add_argument('-dirbust', type = str, 
+        nargs = 1,
+        help = 'perform directory busting.') 
 ap.add_argument('-scantcp', action = 'store_true',
         help = 'perform TCP scan for open ports')
 ap.add_argument('-scanack', action = 'store_true',
@@ -211,6 +216,17 @@ elif args['sdenum']:
                         sdenum(args['sdenum'][0], SUBDOMAINS_WORDLIST)
         except Exception as e:
                 print(f'[{Fore.RED}!{Style.RESET_ALL}] Please type the command correctly. Examples: \n \t -sdenum <DOMAIN> \n \t -sdenum <DOMAIN> -wordlist <WORDLIST PATH>')
+
+# Directory busting
+elif args['dirbust']:
+
+        try:
+                if args['wordlist']:
+                        dirbust(args['dirbust'][0], args['wordlist'])
+                else:
+                        dirbust(args['dirbust'][0], DIRECTORIES_WORDLIST)
+        except Exception as e:
+                 print(f'[{Fore.RED}!{Style.RESET_ALL}] Please type the command correctly. Examples: \n \t -dirbust <DOMAIN> \n \t -dirbust <DOMAIN> -wordlist <WORDLIST PATH>')
 
 # Ping to check connectivity
 elif args['ping']:

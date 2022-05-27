@@ -41,6 +41,7 @@ Other features are still being implemented. Future implementations may include W
     - [DNS checks (with geolocation information)](#dns-checks)
     - [WHOIS](#whois)
     - [Subdomain enumeration](#subdomain-enumeration)
+    - [Directory busting](#directory-busting)
     - [Vulnerability reconnaissance](#vulnerability-reconnaissance)
   + Offensive
     - [Packet sniffing](#packet-sniffing)
@@ -192,6 +193,17 @@ This command uses a default wordlist to look for subdomains. However, if you wan
 `-sdenum <DOMAIN> -wordlist <WORDLIST PATH>`
 
 ![sdenum](https://user-images.githubusercontent.com/61552222/139445516-ba9b5459-6dc3-43e1-a424-4e079486dbfd.png)
+
+### Directory busting
+Directory busting is the process of finding directories within a web server.
+
+To perform this task type:
+
+`-dirbust <DOMAIN>`
+
+This command uses a default wordlist to look for subdomains. However, if you want to use your own wordlist, type:
+
+`-dirbust <DOMAIN> -wordlist <WORDLIST PATH>`
 
 ### Vulnerability reconnaissance
 To scan one or more hosts for vulnerabilities use the following command:
