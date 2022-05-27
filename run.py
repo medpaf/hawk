@@ -43,8 +43,8 @@ Examples:
 
         -sdenum <DOMAIN>
         -sdenum <DOMAIN> -wordlist <WORDLIST PATH>
-        -dirbust <DOMAIN> -wordlist <WORDLIST PATH> ##################################
-
+        
+        -dirbust <DOMAIN> -wordlist <WORDLIST PATH> 
         -vulnscan -host <HOST(s) IP/URL>
         -sniff
         -macspoof -source <SOURCE MAC> -iface <INTERFACE>
