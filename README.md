@@ -52,7 +52,7 @@ Other features are still being implemented. Future implementations may include W
     - [Brute-force attack (beta)](#brute-force-attack)
   + Others
     - [Turn on monitor/managed mode on an interface](#turn-on-monitor-or-managed-mode-on-an-interface)
-    - [Automated reconnaissance](#automate-reconnaissance)
+    - [Automated reconnaissance (beta)](#automate-reconnaissance)
 + [Contribution](#contribution)
 + [License](#license)
 

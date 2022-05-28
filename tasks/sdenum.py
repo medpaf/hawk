@@ -20,7 +20,7 @@ def scan_subdomains(domain):
         except requests.ConnectionError:
             pass
         except KeyboardInterrupt:
-            sys.exit()
+            sys.exit('^C')
         except Exception as e:
             print(f'[{Fore.RED}!{Style.RESET_ALL}] Error: {Fore.RED}{e}{Style.RESET_ALL}')
         else:
@@ -67,6 +67,6 @@ def sdenum(domain, wordlist):
         else:
             print(f'Scan completed. No subdomains were discovered.\n')
     except KeyboardInterrupt:
-        sys.exit()
+        sys.exit('^C')
     except Exception as e:
         print(f'[{Fore.RED}!{Style.RESET_ALL}] Error: {Fore.RED}{e}{Style.RESET_ALL}')
