@@ -231,7 +231,7 @@ elif args['dirbust']:
                 else:
                         dirbust(args['dirbust'][0], DIRECTORIES_WORDLIST)
         except Exception as e:
-                 print(f'[{Fore.RED}!{Style.RESET_ALL}] Please type the command correctly. Examples: \n \t -dirbust <HOST IP/URL> \n \t -dirbust <HOST IP/URL> -wordlist <WORDLIST PATH>')
+                 print(f'[{Fore.RED}!{Style.RESET_ALL}] Please type the command correctly. Examples: \n \t -dirbust <HOST IP/URL> \n \t -dirbust <HOST IP/URL> -wordlist <WORDLIST PATH>\n {e}')
 
 # Ping to check connectivity
 elif args['ping']:
