@@ -6,6 +6,7 @@ from colorama import Fore, Back, Style
 
 def vulnscan(host, api_key):
     try:
+        print(f'[{Fore.YELLOW}?{Style.RESET_ALL}] Vulnerability scanning on {Fore.YELLOW}{host}{Style.RESET_ALL}...') 
         target = host
         api = shodan.Shodan(api_key)
         dnsResolve = f'https://api.shodan.io/dns/resolve?hostnames={target}&key={api_key}'
@@ -16,7 +17,7 @@ def vulnscan(host, api_key):
 
         # Do a Shodan search on that IP
         host = api.host(hostIP)
-        print(f'\n[{Fore.GREEN}+{Style.RESET_ALL}] Target: {target}')
+        print(f'[{Fore.GREEN}+{Style.RESET_ALL}] Target: {target}') #\n
         print(f"[{Fore.GREEN}+{Style.RESET_ALL}] IP: {host['ip_str']}")
         print(f"[{Fore.GREEN}+{Style.RESET_ALL}] Organization: {host.get('org', 'n/a')}")
         print(f"[{Fore.GREEN}+{Style.RESET_ALL}] Operating System: {host.get('os', 'n/a')}\n")
@@ -39,9 +40,10 @@ def vulnscan(host, api_key):
                 exploits = api.exploits.search(CVE)
                 for item in exploits['matches']:
                     print(item.get('description'))  
+            #print('\n')
         else:
-            print(f"[{Fore.GREEN}+{Style.RESET_ALL}] No vulnerabilities found on {Fore.YELLOW}{target}{Style.RESET_ALL}.\n{Fore.YELLOW}Disclaimer{Style.RESET_ALL}: This doesn't mean that the host isn't vulnerable.")
+            print(f"[{Fore.GREEN}+{Style.RESET_ALL}] No vulnerabilities found on {Fore.YELLOW}{target}{Style.RESET_ALL}.\n{Fore.YELLOW}Disclaimer{Style.RESET_ALL}: This doesn't mean that the host isn't vulnerable.\n")
     except KeyboardInterrupt:
         sys.exit()
     except Exception as e:
-        print(f'[{Fore.RED}!{Style.RESET_ALL}] Error: {Fore.RED}{e}{Style.RESET_ALL}')
+        print(f'[{Fore.RED}!{Style.RESET_ALL}] Error: {Fore.RED}{e}{Style.RESET_ALL}\n')

@@ -34,8 +34,7 @@ def scan_subdomains(domain):
 
 def main(domain, threads, subdomains):
     global q
-    print('Subdomain enumeration will start. Press CTRL-C to cancel.')
-    print(f'[{Fore.YELLOW}?{Style.RESET_ALL}] This might take a while. Looking for subdomains for {Fore.YELLOW}{domain}{Style.RESET_ALL}...')
+    print(f'[{Fore.YELLOW}?{Style.RESET_ALL}] Performing subdomain enumeration on {Fore.YELLOW}{domain}{Style.RESET_ALL}...\nPress CTRL-C to cancel.\nThis might take a while. Looking for subdomains in {Fore.YELLOW}{domain}{Style.RESET_ALL}...')
 
     # Fill the queue with all the subdomains
     try:

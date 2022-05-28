@@ -10,10 +10,12 @@ from tasks.dirbust import *
 
 def autoscan(target):
     try:
+        print(f'[{Fore.YELLOW}?{Style.RESET_ALL}] Perfoming automated reconnaissance on {Fore.YELLOW}{target}{Style.RESET_ALL}...\n') 
         ns(target, IPINFO_API_KEY)
         whoisinfo(target)
         # save open ports onn array for later banner grabbing
 
+        vulnscan(target, SHODAN_API_KEY)
         sdenum(target, SUBDOMAINS_WORDLIST)
         dirbust(target, DIRECTORIES_WORDLIST)
 

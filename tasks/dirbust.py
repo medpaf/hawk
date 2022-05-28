@@ -4,8 +4,7 @@ from colorama import Fore, Back, Style
 
 def dirbust(domain, wordlist):
 
-    print('Directory busting will start. Press CTRL-C to cancel.')
-    print(f'[{Fore.YELLOW}?{Style.RESET_ALL}] This might take a while. Looking for directories in {Fore.YELLOW}{domain}{Style.RESET_ALL}...')
+    print(f'[{Fore.YELLOW}?{Style.RESET_ALL}] Performing directory busting on {Fore.YELLOW}{domain}{Style.RESET_ALL}...\nPress CTRL-C to cancel.\nThis might take a while. Looking for directories in {Fore.YELLOW}{domain}{Style.RESET_ALL}...')
 
     # Request Headers
     headers = {

@@ -290,6 +290,8 @@ elif args['vulnscan']:
                 if args['host']:
                         for i in range(0, len(args['host'])):
                                 vulnscan(args['host'][i], SHODAN_API_KEY)
+                                if len(args['host']) > 1:
+                                        print('\n')
                 elif args['iprange']:
                         for ip_int in range(int(ipaddress.IPv4Address(args['iprange'][0])), int(ipaddress.IPv4Address(args['iprange'][1]) + 1)):
                                 vulnscan(ipaddress.IPv4Address(ip_int), SHODAN_API_KEY)

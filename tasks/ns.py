@@ -17,7 +17,7 @@ def ns(host, api_key):
         details = handler.getDetails(addr)
     except Exception as e:
         e = sys.exc_info()[1]
-        print(f'[{Fore.RED}!{Style.RESET_ALL}] Error: {Fore.RED}{e}{Style.RESET_ALL}')
+        print(f'[{Fore.RED}!{Style.RESET_ALL}] Error: {Fore.RED}{e}{Style.RESET_ALL}\n')
     else:
         try:
             print(f'[{Fore.GREEN}+{Style.RESET_ALL}] Name: {Fore.GREEN}{name[0]}{Style.RESET_ALL}')
