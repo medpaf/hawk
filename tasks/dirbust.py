@@ -24,10 +24,11 @@ def scan_directories(host):
         except Exception as e:
             print(f'[{Fore.RED}!{Style.RESET_ALL}] Error: {Fore.RED}{e}{Style.RESET_ALL}')
         else:
-            print(f'[{Fore.GREEN}+{Style.RESET_ALL}] Discovered directory: {Fore.GREEN}{url}{Style.RESET_ALL}')
-            # Add the directory to the global list
-            with list_lock:
-                discovered_directories.append(url)
+            if(requests.get(url).status_code != 404):
+                print(f'[{Fore.GREEN}+{Style.RESET_ALL}] Discovered directory: {Fore.GREEN}{url}{Style.RESET_ALL}')
+                # Add the directory to the global list
+                with list_lock:
+                    discovered_directories.append(url)
 
         # Scanning of that directory complete
         q.task_done()
