@@ -2,9 +2,9 @@ import requests
 import sys
 from colorama import Fore, Back, Style
 
-def dirbust(domain, wordlist):
+def dirbust(host, wordlist):
 
-    print(f'[{Fore.YELLOW}?{Style.RESET_ALL}] Performing directory busting on {Fore.YELLOW}{domain}{Style.RESET_ALL}...\nPress CTRL-C to cancel.\nThis might take a while. Looking for directories in {Fore.YELLOW}{domain}{Style.RESET_ALL}...')
+    print(f'[{Fore.YELLOW}?{Style.RESET_ALL}] Performing directory busting on {Fore.YELLOW}{host}{Style.RESET_ALL}...\nPress CTRL-C to cancel.\nThis might take a while. Looking for directories in {Fore.YELLOW}{host}{Style.RESET_ALL}...')
 
     # Request Headers
     headers = {
@@ -19,9 +19,9 @@ def dirbust(domain, wordlist):
     try:
         for line in lines:
             line = line.strip("\n")
-            r = requests.get('http://'+domain+'/'+line, headers=headers)
+            r = requests.get('http://'+host+'/'+line, headers=headers)
             if(r.status_code != 404):
-                print(f'[{Fore.GREEN}+{Style.RESET_ALL}] Discovered directory: {Fore.GREEN}http://{domain}/{line}{Style.RESET_ALL} Status code: {Fore.GREEN}{r.status_code}{Style.RESET_ALL}')
+                print(f'[{Fore.GREEN}+{Style.RESET_ALL}] Discovered directory: {Fore.GREEN}http://{host}/{line}{Style.RESET_ALL} Status code: {Fore.GREEN}{r.status_code}{Style.RESET_ALL}')
     
     except KeyboardInterrupt:
             sys.exit()

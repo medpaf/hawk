@@ -200,11 +200,11 @@ Directory busting is the process of finding directories within a web server.
 
 To perform this task type:
 
-`-dirbust <DOMAIN>`
+`-dirbust <HOST IP/URL>`
 
 This command uses a default wordlist to look for subdomains. However, if you want to use your own wordlist, type:
 
-`-dirbust <DOMAIN> -wordlist <WORDLIST PATH>`
+`-dirbust <HOST IP/URL> -wordlist <WORDLIST PATH>`
 
 ![dirbust](https://user-images.githubusercontent.com/61552222/170797713-afe0aabc-d166-4b35-831f-00e13b09ef8a.png)
 

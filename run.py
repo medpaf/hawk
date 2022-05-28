@@ -45,7 +45,7 @@ Examples:
         -sdenum <DOMAIN>
         -sdenum <DOMAIN> -wordlist <WORDLIST PATH>
         
-        -dirbust <DOMAIN> -wordlist <WORDLIST PATH> 
+        -dirbust <HOST IP/URL> -wordlist <WORDLIST PATH> 
         -vulnscan -host <HOST(s) IP/URL>
         -sniff
         -macspoof -source <SOURCE MAC> -iface <INTERFACE>
@@ -80,7 +80,7 @@ ap.add_argument('-sdenum', type = str,
         help = 'perform subdomain enumeration.') 
 ap.add_argument('-dirbust', type = str, 
         nargs = 1,
-        help = 'perform directory busting.') 
+        help = 'perform directory busting on a host.') 
 ap.add_argument('-scantcp', action = 'store_true',
         help = 'perform TCP scan for open ports')
 ap.add_argument('-scanack', action = 'store_true',
@@ -231,7 +231,7 @@ elif args['dirbust']:
                 else:
                         dirbust(args['dirbust'][0], DIRECTORIES_WORDLIST)
         except Exception as e:
-                 print(f'[{Fore.RED}!{Style.RESET_ALL}] Please type the command correctly. Examples: \n \t -dirbust <DOMAIN> \n \t -dirbust <DOMAIN> -wordlist <WORDLIST PATH>')
+                 print(f'[{Fore.RED}!{Style.RESET_ALL}] Please type the command correctly. Examples: \n \t -dirbust <HOST IP/URL> \n \t -dirbust <HOST IP/URL> -wordlist <WORDLIST PATH>')
 
 # Ping to check connectivity
 elif args['ping']:
