@@ -22,7 +22,7 @@ def ping(host, host_count):
     except Exception as e:
         print(f'[{Fore.RED}!{Style.RESET_ALL}] Error: {Fore.RED}{e}{Style.RESET_ALL}')
     except KeyboardInterrupt:
-        sys.exit()
+        sys.exit('^C\n')
     
 
 

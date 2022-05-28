@@ -41,7 +41,7 @@ def nsconv(host):
         print(f'[{Fore.RED}!{Style.RESET_ALL}] Error: {Fore.RED}{e}{Style.RESET_ALL}')
         sys.exit(1)
     except KeyboardInterrupt:
-        sys.exit()
+        sys.exit('^C\n')
 
 # Function to return URL of an IP address:
 def nsconvurl(host):

@@ -44,6 +44,6 @@ def vulnscan(host, api_key):
         else:
             print(f"[{Fore.GREEN}+{Style.RESET_ALL}] No vulnerabilities found on {Fore.YELLOW}{target}{Style.RESET_ALL}.\n{Fore.YELLOW}Disclaimer{Style.RESET_ALL}: This doesn't mean that the host isn't vulnerable.\n")
     except KeyboardInterrupt:
-        sys.exit()
+        sys.exit('^C\n')
     except Exception as e:
         print(f'[{Fore.RED}!{Style.RESET_ALL}] Error: {Fore.RED}{e}{Style.RESET_ALL}\n')

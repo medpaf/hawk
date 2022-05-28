@@ -16,7 +16,7 @@ def bannerWithPort(host, port):
         banner = sckt.recv(1024)
         
     except KeyboardInterrupt:
-        sys.exit('\n')
+        sys.exit('^C\n')
     except Exception as e:
         e = sys.exc_info()[1]
         print(f'[{Fore.RED}!{Style.RESET_ALL}] Error: {Fore.RED}{e}{Style.RESET_ALL}')

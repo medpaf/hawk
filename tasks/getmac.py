@@ -29,4 +29,4 @@ def getmac(host_ip, host_count):
         print(f'[{Fore.RED}!{Style.RESET_ALL}] Error: {Fore.RED}{e}{Style.RESET_ALL}')
 
     except KeyboardInterrupt:
-        sys.exit()
+        sys.exit('^C\n')

@@ -36,7 +36,7 @@ def synflood(source_port, target_ip, target_port):
             sys.exit('\n')
             
     except KeyboardInterrupt:
-        sys.exit('\n')
+        sys.exit('^C\n')
     except Exception as e:
         print(f'[{Fore.RED}!{Style.RESET_ALL}] Error: {Fore.RED}{e}{Style.RESET_ALL}')
 

@@ -24,7 +24,7 @@ def dirbust(host, wordlist):
                 print(f'[{Fore.GREEN}+{Style.RESET_ALL}] Discovered directory: {Fore.GREEN}http://{host}/{line}{Style.RESET_ALL} Status code: {Fore.GREEN}{r.status_code}{Style.RESET_ALL}')
     
     except KeyboardInterrupt:
-            sys.exit('^C')
+            sys.exit('^C\n')
 
     except Exception as e:
         print(f'[{Fore.RED}!{Style.RESET_ALL}] Error: {Fore.RED}{e}{Style.RESET_ALL}')
