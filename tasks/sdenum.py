@@ -62,11 +62,11 @@ def sdenum(domain, wordlist):
 
         if len(discovered_domains) > 0:
             if len(discovered_domains) == 1:
-                print(f'\nScan completed. {Fore.GREEN}{len(discovered_domains)}{Style.RESET_ALL} subdomain was discovered.')
+                print(f'\nScan completed. {Fore.GREEN}{len(discovered_domains)}{Style.RESET_ALL} subdomain was discovered.\n')
             else:
-                print(f'\nScan completed. {Fore.GREEN}{len(discovered_domains)}{Style.RESET_ALL} subdomains were discovered.')
+                print(f'\nScan completed. {Fore.GREEN}{len(discovered_domains)}{Style.RESET_ALL} subdomains were discovered.\n')
         else:
-            print(f'Scan completed. No subdomains were discovered.')
+            print(f'Scan completed. No subdomains were discovered.\n')
     except KeyboardInterrupt:
         sys.exit()
     except Exception as e:

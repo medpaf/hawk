@@ -22,7 +22,7 @@ def dirbust(domain, wordlist):
             line = line.strip("\n")
             r = requests.get('http://'+domain+'/'+line, headers=headers)
             if(r.status_code != 404):
-                print(f'[{Fore.GREEN}+{Style.RESET_ALL}] Discovered directory: {Fore.GREEN}http://{domain}{line}{Style.RESET_ALL} Status code: {Fore.GREEN}{r.status_code}{Style.RESET_ALL}')
+                print(f'[{Fore.GREEN}+{Style.RESET_ALL}] Discovered directory: {Fore.GREEN}http://{domain}/{line}{Style.RESET_ALL} Status code: {Fore.GREEN}{r.status_code}{Style.RESET_ALL}')
     
     except KeyboardInterrupt:
             sys.exit()

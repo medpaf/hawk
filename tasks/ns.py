@@ -8,6 +8,7 @@ from colorama import Fore, Back, Style
 def ns(host, api_key):
 
     try:
+        print(f'[{Fore.YELLOW}?{Style.RESET_ALL}] DNS check on {Fore.YELLOW}{host}{Style.RESET_ALL}...')
         api_key = api_key
         handler = ipinfo.getHandler(api_key)
         

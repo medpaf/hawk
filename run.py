@@ -26,6 +26,7 @@ from tasks.offense.deauth import deauth
 from tasks.offense.bruteforce import bruteforce
 from tasks.ifacemode import turn_monitor, turn_managed
 from tasks.save import save
+from autoscan import *
  
 ap = argparse.ArgumentParser(description='Hawk', formatter_class=argparse.RawDescriptionHelpFormatter,
 epilog=textwrap.dedent('''
@@ -55,6 +56,7 @@ Examples:
         -bruteforce <SERVICE> -target <TARGET IP/URL> -user <USERNAME>
         -bruteforce <SERVICE> -target <TARGET IP/URL> -user <USERNAME> -wordlist <WORDLIST PATH>
 
+        -autoscan <HOST(s) IP/URL>
         -mode <MODE> -iface <INTERFACE>
 
 '''))
@@ -110,6 +112,9 @@ ap.add_argument('-deauth', action = 'store_true',
 ap.add_argument('-bruteforce',
         nargs=1,
         help = 'Attempt brute-force attack on a service to guess password')
+ap.add_argument('-autoscan',
+        nargs = '+',
+        help = 'Automated reconnaissance.')
 ap.add_argument('-mode', '-m', type = str,
         nargs = 1,
         help = 'turn on specified mode (root privileges needed)')
@@ -381,6 +386,14 @@ elif args['bruteforce']: ###### testing phase
         except Exception as e:
                 print(f'[{Fore.RED}!{Style.RESET_ALL}] Please type the command correctly. Examples: \n \t -bruteforce <SERVICE> -target <TARGET IP/URL> -user <USERNAME> \n \t -bruteforce <SERVICE> -target <TARGET IP/URL> -user <USERNAME> -wordlist <WORDLIST PATH>')
 
+# Automated reconnaissance
+elif args['autoscan']:
+
+        try:
+                for i in range(0, len(args['autoscan'])):
+                        autoscan(args['autoscan'][i])
+        except Exception as e:
+                print(f'[{Fore.RED}!{Style.RESET_ALL}] Please type the command correctly. Examples: \n \t -autoscan <HOST(s) IP/URL>')
 # Turn on monitor/managed mode
 elif args['mode']:
 

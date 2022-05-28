@@ -5,6 +5,7 @@ from colorama import Fore, Back, Style
 def whoisinfo(host):
 
     try:
+        print(f'[{Fore.YELLOW}?{Style.RESET_ALL}] WHOIS info on {Fore.YELLOW}{host}{Style.RESET_ALL}...')    
         whois_info = whois.whois(host)
     except Exception as e:
         print(f'[{Fore.RED}!{Style.RESET_ALL}] Error: {e}')
@@ -55,7 +56,7 @@ def whoisinfo(host):
             print(f'[{Fore.GREEN}+{Style.RESET_ALL}] Organization: {Fore.GREEN}{whois_info.org}{Style.RESET_ALL}')
 
         print(f'[{Fore.GREEN}+{Style.RESET_ALL}] State: {Fore.GREEN}{whois_info.state}{Style.RESET_ALL}')
-        print(f'[{Fore.GREEN}+{Style.RESET_ALL}] Country: {Fore.GREEN}{whois_info.country}{Style.RESET_ALL}')
+        print(f'[{Fore.GREEN}+{Style.RESET_ALL}] Country: {Fore.GREEN}{whois_info.country}{Style.RESET_ALL}\n')
 
 def whois_checker(host, dictionary):
 
