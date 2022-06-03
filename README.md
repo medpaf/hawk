@@ -52,7 +52,7 @@ Other features are still being implemented. Future implementations may include W
     - [Brute-force attack (beta)](#brute-force-attack)
   + Others
     - [Turn on monitor/managed mode on an interface](#turn-on-monitor-or-managed-mode-on-an-interface)
-    - [Automated reconnaissance (beta)](#automate-reconnaissance)
+    - [Automated reconnaissance (beta)](#automated-reconnaissance)
 + [Contribution](#contribution)
 + [License](#license)
 
@@ -313,7 +313,7 @@ For the time being, only the SSH service is supported.
 **Disclaimer**: Note that the target server may have defensive mechanisms against this type of attack and block the attacker's attempts on guessing the password.
 Please only use this for testing purposes and target your own machines.
 
-### Automate reconnaissance
+### Automated reconnaissance
 
 This command will automate some of the reconnaissance techniques available on this script.
 To do this, type:
