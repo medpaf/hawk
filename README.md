@@ -71,7 +71,7 @@ To install the necessary packages so that the script can run withouth any proble
 ```
 git clone https://github.com/medpaf/hawk.git
 cd hawk
-sudo sh setup.sh
+sudo ./setup.sh
 ```
 Then, simply follow the instructions.
 

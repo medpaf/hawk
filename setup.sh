@@ -1,40 +1,42 @@
-# Show available options
+#!/bin/bash
 
-echo "1. Debian-based (Debian, Ubuntu, Kali, ParrotOS, Pop!_OS, Linux Mint, Deepin, Elementary OS, Zorin OS, MX Linux, etc) "
-echo "2. RHEL-based (Red Hat Enterprise Linux, Fedora, CentOS, Rocky Linux, AlmaLinux, Oracle Linux, ClearOS, etc)"
-echo "3. Arch-based (Arch, Black Arch, Manjaro, etc)"
+if [ -x "$(command -v apt-get)" ]; then
+	detection=1
+	printf "apt package manager detected.\n"
+elif [ -x "$(command -v dnf)" ]; then
+	detection=2
+	printf "dnf package manager detected.\n"
+elif [ -x "$(command -v pacman)" ]; then
+	detection=3
+	printf "pacman package manager detected.\n"
+else
+	detection=0
+	printf "Package manager not found. Install manually: $packages\n">&2; fi
 
-read -p "Enter your distro [1/2/3]: " choice
+printf "\n1. apt\n2. dnf\n3. pacman\n"
+read -p "Enter choice (Enter for default): " choice
 
-if test "$choice" = "1"
-then
-
-    # Install necessary packages for Debian-based distros
-
+if [[ ("$detection" == "1" && "$choice" == "") || "$choice" == "1" ]]; then
+	
+    # Install necessary packages with apt
     sudo apt-get install nmap
-    sudo apt-get install python3-pip
-    
+    sudo apt-get install python3-pip    
      
-elif test "$choice" = "2"
-then
+elif [[ ("$detection" == "2" && "$choice" == "") || "$choice" == "2" ]]; then
+	
+    # Install necessary packages with dnf
 
-    # Install necessary packages for RHEL-based distros
-
-    sudo dnf install nmap
+	sudo dnf install nmap
     sudo dnf install python3-pip
 
-elif test "$choice" = "3"
-then
-
-    # Install necessary packages for Arch-based distros
+elif [[ ("$detection" == "3" && "$choice" == "") || "$choice" == "3" ]]; then
+	
+    # Install necessary packages with pacman
 
     sudo pacman -S nmap
     sudo pacman -S python3-pip
 
-else
-     echo "Invalid choice. Operation cancelled."
-     exit 
-fi
+else echo "Unable to install dependencies!"; exit; fi
 
 # Install all necessary pip packages
 
