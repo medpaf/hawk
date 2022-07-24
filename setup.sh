@@ -1,3 +1,5 @@
+#!/bin/bash
+
 if [ -x "$(command -v apt-get)" ]; then
 	detection=1
 	printf "apt package manager detected.\n"
