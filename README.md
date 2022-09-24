@@ -74,6 +74,7 @@ cd hawk
 sudo sh setup.sh
 ```
 Then, simply follow the instructions.
+Please ignore the error messages that appear during installation.
 
 However, if you are using any other Linux distro with a different package manager, please install the packages manually using your distro's package manager. Depending on the specific distro used, some of the required packages to run this script might be already installed on your machine.
 If you wish to know the necessary packages, look the `setup.sh` file.
