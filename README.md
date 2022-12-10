@@ -113,7 +113,7 @@ To diagnose route paths and measure transit delays, use the `-traceroute` comman
 ### Port scans
 Scanning ports helps detect potential security breaches by identifying the hosts connected to your network and the services running.
 
-Multiple scan types are supported, including SYN (`-scansyn`), TCP (`-scantcp`), UDP (`-scanudp`), ACK (`-scanack`) and comprehensive scan (`-scan`).
+Multiple scan types are supported, including TCP SYN (`-scansyn`) [also known as  stealth scan], TCP Connect (`-scantcp`), UDP (`-scanudp`), TCP ACK (`-scanack`) and comprehensive scan (`-scan`).
 
 `-scan -host <HOST(s) IP/URL>`
 
