@@ -37,7 +37,7 @@ Other features are still being implemented. Future implementations may include W
     - [Port scans](#port-scans)
     - [Host discovery (scan for devices on a local network)](#host-discovery)
     - [MAC address detection (get MAC address of a host IP on a local network)](#mac-address-detection)
-    - [Banner grabbing](#banner-grabbing)
+    - [Application version detection (also known as banner grabbing](#application-version-detection)
     - [DNS checks (with geolocation information)](#dns-checks)
     - [WHOIS](#whois)
     - [Subdomain enumeration](#subdomain-enumeration)
@@ -147,7 +147,7 @@ To get a MAC address of one or more live hosts on the LAN, use the command:
 
 ![getmac](https://user-images.githubusercontent.com/61552222/139445353-e90ef3d4-282a-4d52-94ff-85e7c1d7f6e5.png)
 
-### Banner grabbing
+### Application version detection
 Banner grabbing is a reconnaissance technique that retrieves a software banner information. This banner usually contains important information about a network service, including but not limited to, it’s software name and version. FTP, Web, SSH, and SMTP servers often expose vital information about the software they are running in their banner.
 
 A banner attack usually starts off with a enumeration scan to find open ports. Once you identified a service you want to target, you can send specific packets and inspect the traffic for the specified information.
