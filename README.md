@@ -37,7 +37,7 @@ Other features are still being implemented. Future implementations may include W
     - [Port scans](#port-scans)
     - [Host discovery (scan for devices on a local network)](#host-discovery)
     - [MAC address detection (get MAC address of a host IP on a local network)](#mac-address-detection)
-    - [Application version detection (also known as banner grabbing](#application-version-detection)
+    - [Application version detection (also known as banner grabbing)](#application-version-detection)
     - [DNS checks (with geolocation information)](#dns-checks)
     - [WHOIS](#whois)
     - [Subdomain enumeration](#subdomain-enumeration)
