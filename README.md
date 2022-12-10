@@ -99,14 +99,14 @@ If you want to display your system's current TCP/IP network configuration, type 
 ### ping
 To send ICMP packets to one or more hosts to check connectivity, simply type:
 
-`-ping <HOST(s) IP/URL>`
+`-ping <HOST(s) IP/FQDN>`
 
 ![ping](https://user-images.githubusercontent.com/61552222/139445220-3f01fca0-8f31-4e3d-be57-c6f08e23b30c.png)
 
 ### traceroute
 To diagnose route paths and measure transit delays, use the `-traceroute` command:
 
-`-traceroute <HOST IP/URL>`
+`-traceroute <HOST IP/FQDN>`
 
 ![tracert](https://user-images.githubusercontent.com/61552222/139445260-e21b3aa5-8dda-40db-8ac9-1c6f56b1c7b6.png)
 
@@ -115,13 +115,13 @@ Scanning ports helps detect potential security breaches by identifying the hosts
 
 Multiple scan types are supported, including TCP SYN (`-scansyn`) [also known as  stealth scan], TCP Connect (`-scantcp`), UDP (`-scanudp`), TCP ACK (`-scanack`) and comprehensive scan (`-scan`).
 
-`-scan -host <HOST(s) IP/URL>`
+`-scan -host <HOST(s) IP/FQDN>`
 
-`-scan -host <HOST(s) IP/URL> -p <PORT(s)>`
+`-scan -host <HOST(s) IP/FQDN> -p <PORT(s)>`
 
 If you wish to scan a IP range and/or port range, use one of the following commands:
 
-`-scan -host <HOST(s) IP/URL> -prange <START PORT> <END PORT>`
+`-scan -host <HOST(s) IP/FQDN> -prange <START PORT> <END PORT>`
 
 `-scan -iprange <START IP> <END IP> -p <PORT(s)>`
 
@@ -154,11 +154,11 @@ A banner attack usually starts off with a enumeration scan to find open ports. O
 
 To perform banner grabbing, depending on your specific needs, type one of the following commands:
 
-`-grab -host <HOST(s) IP/URL> -p <PORT(s)>`
+`-grab -host <HOST(s) IP/FQDN> -p <PORT(s)>`
 
 `-grab -iprange <START IP> <END IP> -prange <START PORT> <END PORT>`
 
-`-grab -host <HOST(s) IP/URL> -prange <START PORT> <END PORT>`
+`-grab -host <HOST(s) IP/FQDN> -prange <START PORT> <END PORT>`
 
 `-grab -iprange <START IP> <END IP> -p <PORT(s)>`
 
@@ -167,7 +167,7 @@ To perform banner grabbing, depending on your specific needs, type one of the fo
 ### DNS checks
 This feature is similar to the well known `nslookup` command used on UNIX systems. If you want to do a DNS check, type the following:
 
-`-ns <HOST(s) IP/URL>`
+`-ns <HOST(s) IP/FQDN>`
 
 ![ns](https://user-images.githubusercontent.com/61552222/139445454-6e7acc6f-5078-464f-9ad6-028106b7427d.png)
 
@@ -177,7 +177,7 @@ This feature is similar to the well known `nslookup` command used on UNIX system
 WHOIS is a TCP protocol that aims to consult contact and DNS.
 To request the WHOIS of one or more pages, just type:
 
-`-whois <HOST(s) IP/URL>`
+`-whois <HOST(s) IP/PQDN>`
 
 ![whois](https://user-images.githubusercontent.com/61552222/139445488-637da57d-233b-451c-9570-feb8c2efa230.png)
 
@@ -188,11 +188,11 @@ Sub-domain enumeration can reveal a lot of domains/sub-domains that are in scope
 
 If you wish to look for common subdomains of a domain, simply type:
 
-`-sdenum <DOMAIN>`
+`-sdenum <PQDN>`
 
 This command uses a default wordlist to look for subdomains. However, if you want to use your own wordlist, type:
 
-`-sdenum <DOMAIN> -wordlist <WORDLIST PATH>`
+`-sdenum <PQDN> -wordlist <WORDLIST PATH>`
 
 ![sdenum](https://user-images.githubusercontent.com/61552222/139445516-ba9b5459-6dc3-43e1-a424-4e079486dbfd.png)
 
@@ -201,18 +201,18 @@ Directory busting is the process of finding directories within a web server.
 
 To perform this task type:
 
-`-dirbust <HOST IP/URL>`
+`-dirbust <HOST IP/FQDN>`
 
 This command uses a default wordlist to look for subdomains. However, if you want to use your own wordlist, type:
 
-`-dirbust <HOST IP/URL> -wordlist <WORDLIST PATH>`
+`-dirbust <HOST IP/FQDN> -wordlist <WORDLIST PATH>`
 
 ![dirbust](https://user-images.githubusercontent.com/61552222/170797713-afe0aabc-d166-4b35-831f-00e13b09ef8a.png)
 
 ### Vulnerability reconnaissance
 To scan one or more hosts for vulnerabilities use the following command:
 
-`-vulnscan -host <HOST(s) IP/URL>`
+`-vulnscan -host <HOST(s) IP/FQDN>`
 
 ![vulnscan1](https://user-images.githubusercontent.com/61552222/139445546-bdcf7647-5b20-4ae9-a4ec-1f345e71a12f.png)
 ![vulnscan2](https://user-images.githubusercontent.com/61552222/139445561-6f7c778f-3596-4a31-b598-471c961d6261.png)
@@ -245,15 +245,15 @@ The objective of IP spoofing is to modify the correct source IP address so that 
 
 Note that this command only works on machines with unpached vulnerabilities. To performe IP spoofing on a host's specific port, use the following command:
 
-`-ipspoof -source <SOURCE IP> <SOURCE PORT> -target <TARGET IP/URL> <TARGET PORT>`
+`-ipspoof -source <SOURCE IP> <SOURCE PORT> -target <TARGET IP/FQDN> <TARGET PORT>`
 
 If you want to use a random source IP, type the following command:
 
-`-ipspoof -source r <SOURCE PORT> -target <TARGET IP/URL> <TARGET PORT>`
+`-ipspoof -source r <SOURCE PORT> -target <TARGET IP/FQDN> <TARGET PORT>`
 
 You can also use a random source port:
 
-`-ipspoof -source <SOURCE IP> r -target <TARGET IP/URL> <TARGET PORT>`
+`-ipspoof -source <SOURCE IP> r -target <TARGET IP/FQDN> <TARGET PORT>`
 
 ![ipspoof](https://user-images.githubusercontent.com/61552222/139445663-09c95225-b5a8-4df0-80d2-b18b6785f804.png)
 
@@ -265,11 +265,11 @@ SYN Flood is a DDoS attack method that causes direct overhead in the transport l
 
 To attempt SYN flooding, type:
 
-`-synflood -source <SOURCE PORT> -target <TARGET IP/URL> <TARGET PORT>`
+`-synflood -source <SOURCE PORT> -target <TARGET IP/FQDN> <TARGET PORT>`
 
 If you want to use a random source port, type the following command:
 
-`-synflood -source r -target <TARGET IP/URL> <TARGET PORT>`
+`-synflood -source r -target <TARGET IP/FQDN> <TARGET PORT>`
 
 ![synflood](https://user-images.githubusercontent.com/61552222/139445693-c2b25bcf-d265-4701-8480-e1f2d3b0f427.png)
 
@@ -303,11 +303,11 @@ A brute-force attack is an attempt to crack a password or username.
 
 To perform brute-force attack and find common/weak credentials, type:
 
-`-bruteforce <SERVICE> -target <TARGET IP/URL> -user <USERNAME>`
+`-bruteforce <SERVICE> -target <TARGET IP/FQDN> -user <USERNAME>`
 
 If you wish to use a custom wordlist, use the command:
 
-`-bruteforce <SERVICE> -target <TARGET IP/URL> -user <USERNAME> -wordlist <WORDLIST PATH>`
+`-bruteforce <SERVICE> -target <TARGET IP/FQDN> -user <USERNAME> -wordlist <WORDLIST PATH>`
 
 For the time being, only the SSH service is supported.
 
@@ -319,7 +319,7 @@ Please only use this for testing purposes and target your own machines.
 This command will automate some of the reconnaissance techniques available on this script.
 To do this, type:
 
-`-autoscan <HOST(s) IP/URL>`
+`-autoscan <HOST(s) IP/FQDN>`
 
 ### Turn on monitor or managed mode on an interface
 
