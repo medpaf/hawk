@@ -38,16 +38,7 @@ fi
 
 # Install all necessary pip packages
 
-sudo pip3 install readline
-sudo pip3 install binascii
-sudo pip3 install struct
-sudo pip3 install textwrap
-sudo pip3 install multiprocessing
-sudo pip3 install threading
-sudo pip3 install queue
-sudo pip3 install subprocess
-sudo pip3 install time
-
+sudo pip3 install gnureadline
 sudo pip3 install colorama
 
 sudo pip3 install ipaddress
