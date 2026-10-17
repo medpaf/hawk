@@ -356,7 +356,7 @@ As you can see in the screenshot below, the interface mode was succesfully chang
 
 ## Contribution
 
-Create a issue or pull request, or send me an email at [pafmed@outlook.com](mailto:pafmed@outlook.com).
+Create a issue or pull request, or send me an email at [pafmed@protonmail.com](mailto:pafmed@protonmail.com).
 ## License
 
 This repository is under the [**MIT License**](https://opensource.org/licenses/MIT).
